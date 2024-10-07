@@ -2,3 +2,8 @@
 *.jpg
 *.jpeg
 .ipynb_checkpoints/
+*.pth
+*.torchscript
+*.onnx
+*.pt
+__pycache__
