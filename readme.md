@@ -11,3 +11,4 @@
 
 ## License
 ## Acknowledgments
+Our codebase is directly built on top of AniPortrait. We would like to thank Huawei Wei and team, for opensourcing their code.
