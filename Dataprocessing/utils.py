@@ -18,6 +18,7 @@ def HWC3(x):
         y = y.clip(0, 255).astype(np.uint8)
         return y
 def resize_image(input_image, resolution):
+    input_image = HWC3(input_image) 
     H, W, C = input_image.shape
     H = float(H)
     W = float(W)
