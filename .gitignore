@@ -12,3 +12,7 @@ __pycache__
 *.bin
 *.safetensors
 wandb/
+
+# MacOS
+.DS_Store/
+.DS_Store
