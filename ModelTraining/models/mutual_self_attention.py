@@ -3,7 +3,7 @@ from typing import Any, Dict, Optional
 
 import torch
 from einops import rearrange
-from attention import TemporalBasicTransformerBlock, BasicTransformerBlock
+from .attention import TemporalBasicTransformerBlock, BasicTransformerBlock
 
 
 def torch_dfs(model: torch.nn.Module):

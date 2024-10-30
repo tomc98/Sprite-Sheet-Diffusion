@@ -7,3 +7,8 @@
 *.onnx
 *.pt
 __pycache__
+*.wav
+*.mp4
+*.bin
+*.safetensors
+wandb/

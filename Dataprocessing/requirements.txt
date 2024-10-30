@@ -1,0 +1,6 @@
+opencv-python
+basicsr
+Pillow                # For Image handling with PIL
+matplotlib            # For plotting and displaying images with plt and patches
+numpy                 # For array manipulation
+controlnet_aux

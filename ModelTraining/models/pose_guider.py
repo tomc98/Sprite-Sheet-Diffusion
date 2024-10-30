@@ -7,7 +7,7 @@ import numpy as np
 from diffusers.models.modeling_utils import ModelMixin
 
 from typing import Any, Dict, Optional
-from attention import BasicTransformerBlock
+from .attention import BasicTransformerBlock
 
 
 class PoseGuider(ModelMixin):

@@ -19,7 +19,7 @@ from .hand import Hand
 from .face import Face
 from .types import HandResult, FaceResult, HumanPoseResult, AnimalPoseResult
 from .animalpose import draw_animalposes
-
+from urllib.parse import urlparse
 from typing import Tuple, List, Callable, Union, Optional
 
 models_path = "models"
