@@ -7,3 +7,7 @@
 *.onnx
 *.pt
 __pycache__
+
+# MacOS
+.DS_Store/
+.DS_Store
