@@ -25,7 +25,7 @@ from models.unet_3d import UNet3DConditionModel
 from pipelines.pipeline_pose2vid_long import Pose2VideoPipeline
 from utils.util import get_fps, read_frames, save_videos_grid
 from utils.frame_interpolation import init_frame_interpolation_model, batch_images_interpolation_tool
-
+from openpose import OpenposeDetector
 from utils.mp_utils  import LMKExtractor
 from utils.draw_util import FaceMeshVisualizer
 
@@ -39,12 +39,23 @@ def parse_args():
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--cfg", type=float, default=3.5)
     parser.add_argument("--steps", type=int, default=25)
-    parser.add_argument("--fps", type=int)
+    parser.add_argument("--fps", type=int, default=10)
     parser.add_argument("-acc", "--accelerate", action='store_true')
     parser.add_argument("--fi_step", type=int, default=3)
     args = parser.parse_args()
 
     return args
+
+def read_frames_from_directory(directory_path):
+    valid_extensions = ('.png', '.jpg', '.jpeg', '.bmp', '.tiff')
+    frame_files = [
+        os.path.join(directory_path, f)
+        for f in os.listdir(directory_path)
+        if f.lower().endswith(valid_extensions)
+    ]
+    frame_files.sort()
+    frames = [Image.open(frame_file).convert('RGB') for frame_file in frame_files]
+    return frames
 
 def main():
     args = parse_args()
@@ -120,6 +131,8 @@ def main():
     lmk_extractor = LMKExtractor()
     vis = FaceMeshVisualizer(forehead_edge=False)
     
+    pose_extractor = OpenposeDetector()
+    
     if args.accelerate:
         frame_inter_model = init_frame_interpolation_model()
     
@@ -133,35 +146,71 @@ def main():
             ref_image_np = cv2.cvtColor(np.array(ref_image_pil), cv2.COLOR_RGB2BGR)
             ref_image_np = cv2.resize(ref_image_np, (args.H, args.W))
             
-            face_result = lmk_extractor(ref_image_np)
-            assert face_result is not None, "Can not detect a face in the reference image."
-            lmks = face_result['lmks'].astype(np.float32)
-            ref_pose = vis.draw_landmarks((ref_image_np.shape[1], ref_image_np.shape[0]), lmks, normed=True)
-
-            pose_list = []
-            pose_tensor_list = []
-            pose_images = read_frames(pose_video_path)
-            src_fps = get_fps(pose_video_path)
-            print(f"pose video has {len(pose_images)} frames, with {src_fps} fps")
-            pose_transform = transforms.Compose(
-                [transforms.Resize((height, width)), transforms.ToTensor()]
-            )
+            ref_pose = pose_extractor(ref_image_np,
+                                 include_body=True,
+                                 include_hand=False,
+                                 include_face=False,
+                                 use_dw_pose=True)
+            
+            # face_result = lmk_extractor(ref_image_np)
+            # assert face_result is not None, "Can not detect a face in the reference image."
+            # lmks = face_result['lmks'].astype(np.float32)
+            # ref_pose = vis.draw_landmarks((ref_image_np.shape[1], ref_image_np.shape[0]), lmks, normed=True)
+            pose_images = read_frames_from_directory(pose_video_path)
+            
+            pose_transform = transforms.Compose([
+                transforms.Resize((height, width)),
+                transforms.ToTensor()
+            ])
+            # Determine number of frames to process
             args_L = len(pose_images) if args.L is None else args.L
-            for pose_image_pil in pose_images[: args_L]:
-                pose_tensor_list.append(pose_transform(pose_image_pil))
+
+            # Transform images to tensors
+            pose_tensor_list = [pose_transform(pose_image_pil) for pose_image_pil in pose_images[:args_L]]
+
+            # Determine sub-step
             sub_step = args.fi_step if args.accelerate else 1
-            for pose_image_pil in pose_images[: args.L: sub_step]:
+            # Prepare pose list
+            pose_list = []
+            for pose_image_pil in pose_images[:args_L:sub_step]:
                 pose_image_np = cv2.cvtColor(np.array(pose_image_pil), cv2.COLOR_RGB2BGR)
-                pose_image_np = cv2.resize(pose_image_np,  (width, height))
+                pose_image_np = cv2.resize(pose_image_np, (width, height))
                 pose_list.append(pose_image_np)
-            
+
             pose_list = np.array(pose_list)
-            
+
+            # Get video length
             video_length = len(pose_list)
 
+            # Stack tensors
             pose_tensor = torch.stack(pose_tensor_list, dim=0)  # (f, c, h, w)
-            pose_tensor = pose_tensor.transpose(0, 1)
-            pose_tensor = pose_tensor.unsqueeze(0)
+            pose_tensor = pose_tensor.transpose(0, 1)          # (c, f, h, w)
+            pose_tensor = pose_tensor.unsqueeze(0)             # (1, c, f, h, w)
+            
+            # pose_list = []
+            # pose_tensor_list = []
+            # pose_images = read_frames(pose_video_path)
+            # src_fps = get_fps(pose_video_path)
+            # print(f"pose video has {len(pose_images)} frames, with {src_fps} fps")
+            # pose_transform = transforms.Compose(
+            #     [transforms.Resize((height, width)), transforms.ToTensor()]
+            # )
+            # args_L = len(pose_images) if args.L is None else args.L
+            # for pose_image_pil in pose_images[: args_L]:
+            #     pose_tensor_list.append(pose_transform(pose_image_pil))
+            # sub_step = args.fi_step if args.accelerate else 1
+            # for pose_image_pil in pose_images[: args.L: sub_step]:
+            #     pose_image_np = cv2.cvtColor(np.array(pose_image_pil), cv2.COLOR_RGB2BGR)
+            #     pose_image_np = cv2.resize(pose_image_np,  (width, height))
+            #     pose_list.append(pose_image_np)
+            
+            # pose_list = np.array(pose_list)
+            
+            # video_length = len(pose_list)
+
+            # pose_tensor = torch.stack(pose_tensor_list, dim=0)  # (f, c, h, w)
+            # pose_tensor = pose_tensor.transpose(0, 1)
+            # pose_tensor = pose_tensor.unsqueeze(0)
 
             video = pipe(
                 ref_image_pil,

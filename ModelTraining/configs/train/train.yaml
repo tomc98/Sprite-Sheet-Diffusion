@@ -1,8 +1,6 @@
 data:
-  json_path: "/data/VFHQ/training_data.json"
+  json_path: "/data/game_animation/game_animation.json"
   sample_size:  [512, 512]
-  sample_stride: 1
-  sample_n_frames: 16
   sample_stride_aug: True
 
 

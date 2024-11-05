@@ -12,6 +12,7 @@ __pycache__
 *.bin
 *.safetensors
 wandb/
+game_animation/
 
 # MacOS
 .DS_Store/

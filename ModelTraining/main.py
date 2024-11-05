@@ -43,7 +43,7 @@ from utils.util import (
 from PIL import Image
 from torchvision import transforms
 
-from dataset.dataset_face import FaceDataset, FaceDatasetValid, collate_fn
+from dataset.dataset_game import GameDataset, GameDatasetValid, collate_fn
 from models.mutual_self_attention import ReferenceAttentionControl
 from models.pose_guider import PoseGuider
 from models.unet_2d_condition import UNet2DConditionModel
@@ -272,8 +272,8 @@ def main(cfg):
         * cfg.solver.gradient_accumulation_steps,
     )
 
-    train_dataset = FaceDataset(**cfg.data, is_image=False)
-    valid_dataset = FaceDatasetValid(**cfg.data, is_image=False)
+    train_dataset = GameDataset(**cfg.data, is_image=True)
+    valid_dataset = GameDatasetValid(**cfg.data, is_image=True)
     train_dataloader = torch.utils.data.DataLoader(
         train_dataset, 
         batch_size=cfg.train_bs, 
