@@ -48,7 +48,7 @@ from models.mutual_self_attention import ReferenceAttentionControl
 from models.pose_guider import PoseGuider
 from models.unet_2d_condition import UNet2DConditionModel
 from models.unet_3d import UNet3DConditionModel
-from pipelines.pipeline_pose2vid import Pose2VideoPipeline
+from pipelines.pipeline_pose2img import Pose2ImagePipeline
 
 os.environ['WANDB_API_KEY'] = 'fb90c4be27e6001e6538acffd2e1314b634d4e7a'
 logger = get_logger(__name__, log_level="INFO")
@@ -59,7 +59,7 @@ warnings.filterwarnings("ignore")
 check_min_version("0.10.0.dev0")
 
 def main(cfg):
-    kwargs = DistributedDataParallelKwargs(find_unused_parameters=False)
+    kwargs = DistributedDataParallelKwargs(find_unused_parameters=True)
     unique_id = datetime.datetime.now().strftime("%Y.%m.%d_%H.%M.%S")
     exp_name = cfg.exp_name + "_" + unique_id
     
@@ -145,65 +145,67 @@ def main(cfg):
     reference_unet = UNet2DConditionModel.from_pretrained(
         cfg.base_model_path,
         subfolder="unet",
-    ).to(device="cuda", dtype=weight_dtype)
-
+    ).to(device="cuda") #  dtype=weight_dtype
+    
     denoising_unet = UNet3DConditionModel.from_pretrained_2d(
         cfg.base_model_path,
-        cfg.mm_path,
+        "",
         subfolder="unet",
-        unet_additional_kwargs=OmegaConf.to_container(
-            infer_config.unet_additional_kwargs
-        ),
+        unet_additional_kwargs={
+            "use_motion_module": False,
+            "unet_use_temporal_attention": False,
+        },
     ).to(device="cuda")
-    
-    pose_guider = PoseGuider(noise_latent_channels=320).to(device="cuda") # dtype=weight_dtype)
-    stage1_ckpt_dir = cfg.stage1_ckpt_dir
-    stage1_ckpt_step = cfg.stage1_ckpt_step
-    denoising_unet.load_state_dict(
-        torch.load(
-            os.path.join(stage1_ckpt_dir, f"denoising_unet.pth"),
-            map_location="cpu",
-        ),
-        strict=False,
-    )
-    
-    reference_unet.load_state_dict(
-        torch.load(
-            os.path.join(stage1_ckpt_dir, f"reference_unet.pth"),
-            map_location="cpu",
-        ),
-        strict=False,
-    )
-    pose_guider.load_state_dict(
-        torch.load(
-            os.path.join(stage1_ckpt_dir, f"pose_guider.pth"),
-            map_location="cpu",
-        ),
-        strict=False,
-    )
+
+    # denoising_unet = UNet3DConditionModel.from_pretrained_2d(
+    #     cfg.base_model_path,
+    #     cfg.mm_path,
+    #     subfolder="unet",
+    #     unet_additional_kwargs=OmegaConf.to_container(
+    #         infer_config.unet_additional_kwargs
+    #     ),
+    # ).to(device="cuda")
+    if cfg.pose_guider_pretrain:
+        pose_guider = PoseGuider(noise_latent_channels=320).to(device="cuda")
+        # load pretrained controlnet-openpose params for pose_guider
+        if cfg.controlnet_openpose_path != "":
+            logger.info(f"Load pretrained model for pose guider: {cfg.controlnet_openpose_path}")
+            controlnet_openpose_state_dict = torch.load(cfg.controlnet_openpose_path)
+            # state_dict_to_load = {}
+            # for k in controlnet_openpose_state_dict.keys():
+            #     if k.startswith("controlnet_cond_embedding.") and k.find("conv_out") < 0:
+            #         new_k = k.replace("controlnet_cond_embedding.", "")
+            #         state_dict_to_load[new_k] = controlnet_openpose_state_dict[k]
+            # miss, _ = pose_guider.load_state_dict(state_dict_to_load, strict=False)
+            miss, unexpected = pose_guider.load_state_dict(controlnet_openpose_state_dict, strict=False)
+            logger.info(f"Missing key for pose guider: {len(miss)} {len(unexpected)}")
+    else:
+        pose_guider = PoseGuider(noise_latent_channels=320).to(device="cuda")
     
     # Freeze
     vae.requires_grad_(False)
     image_enc.requires_grad_(False)
     reference_unet.requires_grad_(False)
-    denoising_unet.requires_grad_(False)
+    denoising_unet.requires_grad_(True)
     pose_guider.requires_grad_(False)
+    do_classifier_free_guidance = False
     
-    # Set motion module learnable
-    for name, module in denoising_unet.named_modules():
-        if "motion_modules" in name:
-            for params in module.parameters():
-                params.requires_grad = True
+    #  Some top layer parames of reference_unet don't need grad
+    for name, param in reference_unet.named_parameters():
+        if "up_blocks.3" in name:
+            param.requires_grad_(False)
+        else:
+            param.requires_grad_(True)
 
     reference_control_writer = ReferenceAttentionControl(
         reference_unet,
-        do_classifier_free_guidance=False,
+        do_classifier_free_guidance=do_classifier_free_guidance,
         mode="write",
         fusion_blocks="full",
     )
     reference_control_reader = ReferenceAttentionControl(
         denoising_unet,
-        do_classifier_free_guidance=False,
+        do_classifier_free_guidance=do_classifier_free_guidance,
         mode="read",
         fusion_blocks="full",
     )
@@ -272,8 +274,8 @@ def main(cfg):
         * cfg.solver.gradient_accumulation_steps,
     )
 
-    train_dataset = GameDataset(**cfg.data, is_image=False)
-    valid_dataset = GameDatasetValid(**cfg.data, is_image=False)
+    train_dataset = GameDataset(**cfg.data, is_image=True)
+    valid_dataset = GameDatasetValid(**cfg.data, is_image=True)
     train_dataloader = torch.utils.data.DataLoader(
         train_dataset, 
         batch_size=cfg.train_bs, 
@@ -360,24 +362,20 @@ def main(cfg):
             t_data = time.time() - t_data_start
             with accelerator.accumulate(net):
                 # Convert videos to latent space
-                pixel_values_vid = batch["pixel_values"].to(weight_dtype)
+                pixel_values = batch["pixel_values"].to(weight_dtype)
+
                 with torch.no_grad():
-                    video_length = pixel_values_vid.shape[1]
-                    pixel_values_vid = rearrange(
-                        pixel_values_vid, "b f c h w -> (b f) c h w"
-                    )
-                    latents = vae.encode(pixel_values_vid).latent_dist.sample()
-                    latents = rearrange(
-                        latents, "(b f) c h w -> b c f h w", f=video_length
-                    )
+                    latents = vae.encode(pixel_values).latent_dist.sample()
+                    latents = latents.unsqueeze(2)  # (b, c, 1, h, w)
                     latents = latents * 0.18215
 
                 noise = torch.randn_like(latents)
-                if cfg.noise_offset > 0:
+                if cfg.noise_offset > 0.0:
                     noise += cfg.noise_offset * torch.randn(
-                        (latents.shape[0], latents.shape[1], 1, 1, 1),
-                        device=latents.device,
+                        (noise.shape[0], noise.shape[1], 1, 1, 1),
+                        device=noise.device,
                     )
+
                 bsz = latents.shape[0]
                 # Sample a random timestep for each video
                 timesteps = torch.randint(
@@ -388,12 +386,10 @@ def main(cfg):
                 )
                 timesteps = timesteps.long()
 
-                pixel_values_pose = batch["pixel_values_pose"]  # (bs, f, c, H, W)
-                pixel_values_pose = pixel_values_pose.transpose(
-                    1, 2
-                )  # (bs, c, f, H, W)
+                tgt_pose_img = batch["pixel_values_pose"]
+                tgt_pose_img = tgt_pose_img.unsqueeze(2)  # (bs, 3, 1, 512, 512)
                 
-                pixel_values_ref_pose = batch["pixel_values_ref_pose"]
+                ref_pose_img = batch["pixel_values_ref_pose"]
 
                 uncond_fwd = random.random() < cfg.uncond_ratio
                 clip_image_list = []
@@ -427,7 +423,7 @@ def main(cfg):
                     clip_image_embeds = image_enc(
                         clip_img.to("cuda", dtype=weight_dtype)
                     ).image_embeds
-                    clip_image_embeds = clip_image_embeds.unsqueeze(1)  # (bs, 1, d)
+                    image_prompt_embeds = clip_image_embeds.unsqueeze(1)  # (bs, 1, d)
 
                 # add noise
                 noisy_latents = train_noise_scheduler.add_noise(
@@ -451,9 +447,9 @@ def main(cfg):
                     noisy_latents,
                     timesteps,
                     ref_image_latents,
-                    clip_image_embeds,
-                    pixel_values_pose,
-                    pixel_values_ref_pose,
+                    image_prompt_embeds,
+                    tgt_pose_img,
+                    ref_pose_img,
                     uncond_fwd=uncond_fwd,
                 )
 
@@ -518,16 +514,14 @@ def main(cfg):
                             accelerator=accelerator,
                             width=cfg.data.sample_size[0],
                             height=cfg.data.sample_size[1],
-                            clip_length=16,
-                            generator=generator,
                             valid_dataset=valid_dataset
                         )
 
                         for sample_id, sample_dict in enumerate(sample_dicts):
                             sample_name = sample_dict["name"]
-                            vid = sample_dict["vid"]
+                            img = sample_dict["img"]
                             out_file = os.path.join(sample_dir, f'{global_step:06d}-{sample_name}.gif')
-                            save_videos_grid(vid, out_file, n_rows=4)
+                            img.save(out_file)
 
                         reference_control_writer = ReferenceAttentionControl(
                             reference_unet,
@@ -553,16 +547,29 @@ def main(cfg):
             if global_step >= cfg.solver.max_train_steps:
                 break
         # save model after each epoch
-        # if accelerator.is_main_process:
-        #     save_path = os.path.join(save_dir, f"checkpoint-{global_step}")
-        #     delete_additional_ckpt(save_dir, 1)
-        #     accelerator.save_state(save_path)
-        #     # save motion module only
+        # save model after each epoch
+        # if (
+        #     epoch + 1
+        # ) % cfg.save_model_epoch_interval == 0 and accelerator.is_main_process:
         #     unwrap_net = accelerator.unwrap_model(net)
+        #     save_checkpoint(
+        #         unwrap_net.reference_unet,
+        #         save_dir,
+        #         "reference_unet",
+        #         global_step,
+        #         total_limit=3,
+        #     )
         #     save_checkpoint(
         #         unwrap_net.denoising_unet,
         #         save_dir,
-        #         "motion_module",
+        #         "denoising_unet",
+        #         global_step,
+        #         total_limit=3,
+        #     )
+        #     save_checkpoint(
+        #         unwrap_net.pose_guider,
+        #         save_dir,
+        #         "pose_guider",
         #         global_step,
         #         total_limit=3,
         #     )
@@ -608,9 +615,7 @@ def log_validation(
     accelerator,
     width,
     height,
-    clip_length=24,
-    generator=None,
-    valid_dataset=None
+    valid_dataset
 ):
     logger.info("Running validation... ")
 
@@ -619,20 +624,19 @@ def log_validation(
     denoising_unet = ori_net.denoising_unet
     pose_guider = ori_net.pose_guider
 
-    if generator is None:
-        generator = torch.manual_seed(42)
-    tmp_denoising_unet = copy.deepcopy(denoising_unet)
-    tmp_denoising_unet = tmp_denoising_unet.to(dtype=torch.float16)
-    tmp_pose_guider = copy.deepcopy(pose_guider)
-    tmp_pose_guider = tmp_pose_guider.to(dtype=torch.float16)
     
+    generator = torch.manual_seed(42)
+    # cast unet dtype
+    vae = vae.to(dtype=torch.float32)
+    image_enc = image_enc.to(dtype=torch.float32)
 
-    pipe = Pose2VideoPipeline(
+
+    pipe = Pose2ImagePipeline(
         vae=vae,
         image_encoder=image_enc,
         reference_unet=reference_unet,
-        denoising_unet=tmp_denoising_unet,
-        pose_guider=tmp_pose_guider,
+        denoising_unet=denoising_unet,
+        pose_guider=pose_guider,
         scheduler=scheduler,
     )
     pipe = pipe.to(accelerator.device)
@@ -641,69 +645,50 @@ def log_validation(
     print(f"=================={dataset_len}=======")
     sample_idx = [random.randint(0, dataset_len - 1) for _ in range(2)]
 
-    results = []
+    pil_images = []
     for idx in sample_idx:
         sample = valid_dataset[idx]
 
         ref_image_pil = Image.fromarray(sample['pixel_values_ref_img']).convert("RGB")
-        pose_images = [Image.fromarray(sample['pixel_values_pose'][idx]).convert("RGB") for idx in range(sample['pixel_values_pose'].shape[0])]
-        gt_images = [Image.fromarray(sample['pixel_values'][idx]).convert("RGB") for idx in range(sample['pixel_values'].shape[0])]
+        pose_image_pil = Image.fromarray(sample['pixel_values_pose']).convert("RGB")
+        gt_image_pil = Image.fromarray(sample['pixel_values']).convert("RGB")
+        ref_pose_pil = Image.fromarray(sample['pixel_values_ref_pose']).convert("RGB")
 
-        pose_transform = transforms.Compose(
-            [transforms.Resize((height, width)), transforms.ToTensor()]
-        )
-
-        
-        pose_tensor_list = []
-        ref_tensor_list = []
-        gt_tensor_list = []
-        pose_list = []
-        clip_length = len(pose_images)
-
-        for pose_image_pil in pose_images[:clip_length]:
-            pose_tensor_list.append(pose_transform(pose_image_pil))
-            ref_tensor_list.append(pose_transform(ref_image_pil))
-        for gt_image_pil in gt_images[:clip_length]:
-            gt_tensor_list.append(pose_transform(gt_image_pil))
-
-        pose_list = sample['pixel_values_pose'][:clip_length]
-        ref_pose = sample['pixel_values_ref_pose']
-
-        pose_tensor = torch.stack(pose_tensor_list, dim=0)  # (f, c, h, w)
-        pose_tensor = pose_tensor.transpose(0, 1) # (c, f, h, w)
-
-        ref_tensor = torch.stack(ref_tensor_list, dim=0)  # (f, c, h, w)
-        ref_tensor = ref_tensor.transpose(0, 1) # (c, f, h, w)
-        
-        gt_tensor = torch.stack(gt_tensor_list, dim=0)  # (f, c, h, w)
-        gt_tensor = gt_tensor.transpose(0, 1) # (c, f, h, w)
-
-        pipeline_output = pipe(
+        image = pipe(
             ref_image_pil,
-            pose_list,
-            ref_pose,
+            pose_image_pil,
+            ref_pose_pil,
             width,
             height,
-            clip_length,
-            25,
-            3.5,
+            num_inference_steps=25,
+            guidance_scale=3.5,
             generator=generator,
-        )
-        video = pipeline_output.videos
+        ).images
 
-        # Concat it with pose tensor
-        pose_tensor = pose_tensor.unsqueeze(0)
-        ref_tensor = ref_tensor.unsqueeze(0)
-        gt_tensor = gt_tensor.unsqueeze(0)
-        video = torch.cat([ref_tensor, pose_tensor, video, gt_tensor], dim=0)
+        image = image[0, :, 0].permute(1, 2, 0).cpu().numpy()  # (3, h, w)
+        res_image_pil = Image.fromarray((image * 255).astype(np.uint8))
+        # Save ref_image, src_image and the generated_image
+        w, h = res_image_pil.size
+        canvas = Image.new("RGB", (w * 4, h), "white")
+        ref_image_pil = ref_image_pil.resize((w, h))
+        pose_image_pil = pose_image_pil.resize((w, h))
+        gt_image_pil = gt_image_pil.resize((w, h))
 
-        results.append({"name": f"sample_{idx}", "vid": video})
+        canvas.paste(ref_image_pil, (0, 0))
+        canvas.paste(pose_image_pil, (w, 0))
+        canvas.paste(res_image_pil, (w * 2, 0))
+        canvas.paste(gt_image_pil, (w * 3, 0))
 
-    del tmp_denoising_unet
+        pil_images.append({"name": f"sample_{idx}", "img": canvas})
+
+    vae = vae.to(dtype=torch.float16)
+    image_enc = image_enc.to(dtype=torch.float16)
+
     del pipe
     torch.cuda.empty_cache()
 
-    return results
+    return pil_images
+
 
 def save_checkpoint(model, save_dir, prefix, ckpt_num, total_limit=None):
     save_path = osp.join(save_dir, f"{prefix}-{ckpt_num}.pth")
@@ -727,34 +712,12 @@ def save_checkpoint(model, save_dir, prefix, ckpt_num, total_limit=None):
                 removing_checkpoint = os.path.join(save_dir, removing_checkpoint)
                 os.remove(removing_checkpoint)
 
-    mm_state_dict = OrderedDict()
     state_dict = model.state_dict()
-    for key in state_dict:
-        if "motion_module" in key:
-            mm_state_dict[key] = state_dict[key]
-
-    torch.save(mm_state_dict, save_path)
-
-
-def decode_latents(vae, latents):
-    video_length = latents.shape[2]
-    latents = 1 / 0.18215 * latents
-    latents = rearrange(latents, "b c f h w -> (b f) c h w")
-    # video = self.vae.decode(latents).sample
-    video = []
-    for frame_idx in tqdm(range(latents.shape[0])):
-        video.append(vae.decode(latents[frame_idx : frame_idx + 1]).sample)
-    video = torch.cat(video)
-    video = rearrange(video, "(b f) c h w -> b c f h w", f=video_length)
-    video = (video / 2 + 0.5).clamp(0, 1)
-    # we always cast to float32 as this does not cause significant overhead and is compatible with bfloa16
-    video = video.cpu().float().numpy()
-    return video
-
+    torch.save(state_dict, save_path)
     
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--config", type=str, default="./configs/train/stage2.yaml")
+    parser.add_argument("--config", type=str, default="./configs/train/stage1.yaml")
     args = parser.parse_args()
 
     if args.config[-5:] == ".yaml":

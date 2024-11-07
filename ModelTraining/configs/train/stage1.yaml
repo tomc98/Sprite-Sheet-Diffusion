@@ -1,18 +1,18 @@
 data:
-  json_path: "/data/game_animation/game_animation.json"
+  json_path: "data/game_animation/game_animation.json"
+  data_path: "data/"
   sample_size:  [512, 512]
   sample_stride_aug: True
-
 
 solver:
   gradient_accumulation_steps: 1
   mixed_precision: 'fp16'
   enable_xformers_memory_efficient_attention: True 
-  gradient_checkpointing: True 
-  max_train_steps: 40000
+  gradient_checkpointing: False 
+  max_train_steps: 300000
   max_grad_norm: 1.0
   # lr
-  learning_rate: 1e-5
+  learning_rate: 1.0e-5
   scale_lr: False 
   lr_warmup_steps: 1
   lr_scheduler: 'constant'
@@ -26,21 +26,21 @@ solver:
 
 val:
   validation_steps: 500
-  validation_steps_tuple: [1, 10, 20, 50, 80]
+  validation_steps_tuple: [1, 10, 50, 80, 100, 120, 140, 160, 180, 200, 220, 240, 260, 500]
 
 
 noise_scheduler_kwargs:
   num_train_timesteps: 1000
   beta_start:          0.00085
   beta_end:            0.012
-  beta_schedule:       "linear"
+  beta_schedule:       "scaled_linear"
   steps_offset:        1
   clip_sample:         false
 
 base_model_path: './pretrained_model/stable-diffusion-v1-5'
 vae_model_path: './pretrained_model/sd-vae-ft-mse'
 image_encoder_path: './pretrained_model/image_encoder'
-mm_path: './pretrained_model/mm_sd_v15_v2.ckpt'
+controlnet_openpose_path: './pretrained_model/control_v11p_sd15_openpose.pth'
 
 train_bs: 1
 
@@ -49,13 +49,13 @@ uncond_ratio: 0.1
 noise_offset: 0.05
 snr_gamma: 5.0
 enable_zero_snr: True 
-stage1_ckpt_dir: './pretrained_model/'
-stage1_ckpt_step: 300000
+pose_guider_pretrain: True 
 
 seed: 12580
 resume_from_checkpoint: ''
 checkpointing_steps: 2000
-exp_name: 'stage2'
-output_dir: './exp_output' 
-num_checkpoint_limit: 10
+save_model_epoch_interval: 5
+exp_name: 'stage1'
+output_dir: './exp_output'  
+num_checkpoint_limit: 4
 debug: False
