@@ -553,19 +553,19 @@ def main(cfg):
             if global_step >= cfg.solver.max_train_steps:
                 break
         # save model after each epoch
-        # if accelerator.is_main_process:
-        #     save_path = os.path.join(save_dir, f"checkpoint-{global_step}")
-        #     delete_additional_ckpt(save_dir, 1)
-        #     accelerator.save_state(save_path)
-        #     # save motion module only
-        #     unwrap_net = accelerator.unwrap_model(net)
-        #     save_checkpoint(
-        #         unwrap_net.denoising_unet,
-        #         save_dir,
-        #         "motion_module",
-        #         global_step,
-        #         total_limit=3,
-        #     )
+        if accelerator.is_main_process and (epoch + 1) % cfg.save_model_epoch_interval == 0:
+            save_path = os.path.join(save_dir, f"checkpoint-{global_step}")
+            # delete_additional_ckpt(save_dir, 1)
+            # accelerator.save_state(save_path)
+            # save motion module only
+            unwrap_net = accelerator.unwrap_model(net)
+            save_checkpoint(
+                unwrap_net.denoising_unet,
+                save_dir,
+                "motion_module",
+                global_step,
+                total_limit=2,
+            )
 
     # Create the pipeline using the trained modules and save it.
     accelerator.wait_for_everyone()

@@ -1,12 +1,14 @@
 import cv2
+import os
 import json
 import numpy as np
 import tkinter as tk
 from PIL import Image, ImageTk
 
 # Input and output image paths
-image_path = "/Users/lany2/Downloads/10623/project/frame_0.png"
-output_path = "/Users/lany2/Downloads/10623/project/frame_0labeled.png"
+image_path = "cat/Dead/Dead (4).png"
+output_resize_path = "cat/Dead/frame_4.png"
+output_path = "cat/Dead/humanpose_4.png"
 
 # Keypoints for the OpenPose COCO model and their respective colors (in BGR format)
 keypoints = ["nose", "neck", "right_shoulder", "right_elbow", "right_wrist", 
@@ -54,6 +56,9 @@ root.title("Pose Annotation Tool")
 
 # Load the image for annotation display
 img = cv2.imread(image_path)
+img = cv2.resize(img, (512, 512))
+cv2.imwrite(image_path, img)
+os.rename(image_path, output_resize_path)
 img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 img_pil = Image.fromarray(img_rgb)
 img_tk = ImageTk.PhotoImage(img_pil)
@@ -137,7 +142,7 @@ for idx, (keypoint_name, position) in enumerate(annotations.items()):
 cv2.imwrite(output_path, black_background)
 
 # Save annotation data to JSON
-with open("annotations.json", "w") as f:
-    json.dump(annotations, f)
+# with open("annotations.json", "w") as f:
+#     json.dump(annotations, f)
 
-print(f"Image saved to {output_path}, annotation data saved to annotations.json")
+# print(f"Image saved to {output_path}, annotation data saved to annotations.json")

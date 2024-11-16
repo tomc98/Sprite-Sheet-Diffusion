@@ -39,7 +39,7 @@ def parse_args():
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--cfg", type=float, default=3.5)
     parser.add_argument("--steps", type=int, default=25)
-    parser.add_argument("--fps", type=int, default=10)
+    parser.add_argument("--fps", type=int, default=2)
     parser.add_argument("-acc", "--accelerate", action='store_true')
     parser.add_argument("--fi_step", type=int, default=3)
     args = parser.parse_args()
@@ -125,12 +125,7 @@ def main():
     save_dir_name = f"{time_str}--seed_{args.seed}-{args.W}x{args.H}"
 
     save_dir = Path(f"output/{date_str}/{save_dir_name}")
-    save_dir.mkdir(exist_ok=True, parents=True)
-
-
-    lmk_extractor = LMKExtractor()
-    vis = FaceMeshVisualizer(forehead_edge=False)
-    
+    save_dir.mkdir(exist_ok=True, parents=True)    
     pose_extractor = OpenposeDetector()
     
     if args.accelerate:
@@ -244,16 +239,16 @@ def main():
                 fps=src_fps if args.fps is None else args.fps,
             )
 
-            audio_output = 'audio_from_video.aac'
+            # audio_output = 'audio_from_video.aac'
             # extract audio
-            ffmpeg.input(pose_video_path).output(audio_output, acodec='copy').run()
+            # ffmpeg.input(pose_video_path).output(audio_output, acodec='copy').run()
             # merge audio and video
-            stream = ffmpeg.input(save_path)
-            audio = ffmpeg.input(audio_output)
-            ffmpeg.output(stream.video, audio.audio, save_path.replace('_noaudio.mp4', '.mp4'), vcodec='copy', acodec='aac', shortest=None).run()
+            # stream = ffmpeg.input(save_path)
+            # audio = ffmpeg.input(audio_output)
+            # ffmpeg.output(stream.video, audio.audio, save_path.replace('_noaudio.mp4', '.mp4'), vcodec='copy', acodec='aac', shortest=None).run()
             
-            os.remove(save_path)
-            os.remove(audio_output)
+            # os.remove(save_path)
+            # os.remove(audio_output)
 
 if __name__ == "__main__":
     main()

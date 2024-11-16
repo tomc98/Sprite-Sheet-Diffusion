@@ -28,7 +28,7 @@ solver:
 
 val:
   validation_steps: 500
-  validation_steps_tuple: [1, 10, 20, 50, 80, 100, 120, 140, 160, 180, 200, 220, 240, 260, 280, 300, 320, 340, 360, 380, 400, 420, 440, 460, 480, 500, 520, 540, 560, 580, 600, 620, 640, 680, 700, 720, 740, 760, 780, 800]
+  validation_steps_tuple: [1, 10, 20, 50, 80, 100, 200, 300, 400, 500, 600, 700]
 
 
 noise_scheduler_kwargs:
@@ -60,5 +60,6 @@ resume_from_checkpoint: ''
 checkpointing_steps: 2000
 exp_name: 'stage2'
 output_dir: 'exp_output'  # '/media/biometrics/Elements/Sprite-Sheet-Diffusion/ModelTraining/exp_output' 
-num_checkpoint_limit: 10
+num_checkpoint_limit: 3
+save_model_epoch_interval: 5
 debug: False
