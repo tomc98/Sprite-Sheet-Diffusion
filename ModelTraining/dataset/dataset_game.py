@@ -59,8 +59,12 @@ class GameDatasetValid(Dataset):
         data_dic_name_list = []
         for character in data_dic['characters']:
             character_name = character['name']
-            main_reference = os.path.join(data_path, character['main_reference'])
-            main_reference_pose = os.path.join(data_path, character['main_reference_pose'])
+            if character['main_reference']:
+                main_reference = os.path.join(data_path, character['main_reference'])
+                main_reference_pose = os.path.join(data_path, character['main_reference_pose'])
+            else:
+                main_reference = None
+                main_reference_pose = None
             for motion in character['motions']:
                 motion_name = motion['motion_name']
                 # Create a unique identifier for each (character, motion)
@@ -89,6 +93,17 @@ class GameDatasetValid(Dataset):
                     motion_name = motion['motion_name']
                     unique_id = f"{character_name}_{motion_name}"
                     data_dic_name_list.append(unique_id)
+        
+        # Remove any invalid entries if necessary (based on your original logic)
+        # This section can be customized based on your dataset's specifics
+        # For example, removing entries without ground_truth frames
+        valid_data_dic_name_list = []
+        for unique_id in data_dic_name_list:
+            if len(data_dic[unique_id]['ground_truth']) >= 1:
+                valid_data_dic_name_list.append(unique_id)
+        
+        # Update the data_dic_name_list to include only valid entries
+        data_dic_name_list = valid_data_dic_name_list
 
         random.shuffle(data_dic_name_list)
         zero_rank_print("finish loading")
@@ -120,14 +135,21 @@ class GameDatasetValid(Dataset):
         # pixel_values_pose = pixel_values_pose / 255.0  # Normalize to [0,1]
 
         # Reference Image processed by CLIP
+        # Reference Image processed by CLIP
         reference_path = sample_info['reference']
+        ref_pose_path = sample_info['reference_pose']
+        ref_img_idx = 0
+        if not reference_path or reference_path == "":
+            ref_img_idx = random.randint(0, len(sample_info['ground_truth']) - 1)
+            reference_path = ground_truth_paths[ref_img_idx]
+            ref_pose_path = poses_paths[ref_img_idx]
+
         ref_img = cv2.imread(reference_path)
         ref_img = cv2.cvtColor(ref_img, cv2.COLOR_BGR2RGB)
         ref_img = self.contrast_normalization(ref_img)
 
         # Reference Pose Image
         # Assuming the reference pose is the first pose in the list
-        ref_pose_path = sample_info['reference_pose']
         if ref_pose_path:
             ref_img = cv2.imread(ref_pose_path)
             pixel_values_ref_pose = cv2.cvtColor(ref_img, cv2.COLOR_BGR2RGB)
@@ -216,8 +238,12 @@ class GameDataset(Dataset):
         data_dic_name_list = []
         for character in data_dic['characters']:
             character_name = character['name']
-            main_reference = os.path.join(data_path, character['main_reference'])
-            main_reference_pose = os.path.join(data_path, character['main_reference_pose'])
+            if character['main_reference']:
+                main_reference = os.path.join(data_path, character['main_reference'])
+                main_reference_pose = os.path.join(data_path, character['main_reference_pose'])
+            else:
+                main_reference = None
+                main_reference_pose = None
             for motion in character['motions']:
                 motion_name = motion['motion_name']
                 # Create a unique identifier for each (character, motion)
@@ -290,6 +316,14 @@ class GameDataset(Dataset):
 
         # Reference Image processed by CLIP
         reference_path = sample_info['reference']
+        ref_pose_path = sample_info['reference_pose']
+
+        ref_img_idx = 0
+        if not reference_path or reference_path == "":
+            ref_img_idx = random.randint(0, len(sample_info['ground_truth']) - 1)
+            reference_path = ground_truth_paths[ref_img_idx]
+            ref_pose_path = poses_paths[ref_img_idx]
+
         ref_img = cv2.imread(reference_path)
         ref_img = cv2.cvtColor(ref_img, cv2.COLOR_BGR2RGB)
         ref_img = self.contrast_normalization(ref_img)
@@ -303,7 +337,6 @@ class GameDataset(Dataset):
 
         # Reference Pose Image
         # Assuming the reference pose is the first pose in the list
-        ref_pose_path = sample_info['reference_pose']
         if ref_pose_path:
             ref_img = cv2.imread(ref_pose_path)
             ref_img = cv2.cvtColor(ref_img, cv2.COLOR_BGR2RGB)

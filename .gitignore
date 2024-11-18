@@ -14,7 +14,8 @@ __pycache__
 *.gif
 wandb/
 game_animation/
-
+game_animation_v1/
+!data/high_quality.zip
 # MacOS
 .DS_Store/
 .DS_Store

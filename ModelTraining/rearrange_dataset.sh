@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define source and destination directories
-SOURCE_DIR="motion_frames"
+SOURCE_DIR="motion_frame_high_quality"
 DEST_DIR="game_animation"
 
 # Create the root of the destination directory

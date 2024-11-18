@@ -1,9 +1,15 @@
 import os
 import json
 import cv2
+import re
 import numpy as np
 from PIL import Image
 from openpose import OpenposeDetector
+
+def numerical_sort_key(filename):
+    match = re.search(r'(\d+)', filename)
+    return int(match.group(1)) if match else 0
+
 
 def generate_dataset_json(dataset_dir, output_json):
     pose_detector =  OpenposeDetector()
@@ -23,6 +29,7 @@ def generate_dataset_json(dataset_dir, output_json):
 
         # Path to main_reference.png
         main_reference_path = os.path.join(character_path, "main_reference.png")
+        main_reference_pose_path = ""
         if not os.path.isfile(main_reference_path):
             print(f"Warning: main_reference.png not found for character {character_name}")
             main_reference = None
@@ -79,7 +86,7 @@ def generate_dataset_json(dataset_dir, output_json):
                     os.path.join(poses_dir, fname)
                     for fname in os.listdir(poses_dir)
                     if fname.lower().endswith(".png")
-                ])
+                ], key=numerical_sort_key)
             else:
                 print(f"    Warning: poses directory not found for motion {motion_name} of character {character_name}")
                 poses = []
@@ -91,7 +98,7 @@ def generate_dataset_json(dataset_dir, output_json):
                     os.path.join(ground_truth_dir, fname)
                     for fname in os.listdir(ground_truth_dir)
                     if fname.lower().endswith(".png")
-                ])
+                ], key=numerical_sort_key)
             else:
                 print(f"    Warning: ground_truth directory not found for motion {motion_name} of character {character_name}")
                 ground_truth = []

@@ -26,7 +26,7 @@ solver:
 
 val:
   validation_steps: 500
-  validation_steps_tuple: [1, 10, 50, 80, 100, 120, 140, 160, 180, 200, 220, 240, 260, 500]
+  validation_steps_tuple: [1, 10, 50, 80, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000]
 
 
 noise_scheduler_kwargs:
@@ -40,9 +40,11 @@ noise_scheduler_kwargs:
 base_model_path: './pretrained_model/stable-diffusion-v1-5'
 vae_model_path: './pretrained_model/sd-vae-ft-mse'
 image_encoder_path: './pretrained_model/image_encoder'
-controlnet_openpose_path: './pretrained_model/control_v11p_sd15_openpose.pth'
+controlnet_openpose_path: './pretrained_model/pose_guider.pth'
+stage1_ckpt_dir: './pretrained_model/'
+stage1_ckpt_step: 300000
 
-train_bs: 1
+train_bs: 2
 
 weight_dtype: 'fp16'  # [fp16, fp32]
 uncond_ratio: 0.1
@@ -57,5 +59,5 @@ checkpointing_steps: 2000
 save_model_epoch_interval: 5
 exp_name: 'stage1'
 output_dir: './exp_output'  
-num_checkpoint_limit: 4
+num_checkpoint_limit: 2
 debug: False

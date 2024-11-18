@@ -145,39 +145,33 @@ def main(cfg):
     reference_unet = UNet2DConditionModel.from_pretrained(
         cfg.base_model_path,
         subfolder="unet",
+        # use_safetensors=True,
     ).to(device="cuda") #  dtype=weight_dtype
     
     denoising_unet = UNet3DConditionModel.from_pretrained_2d(
         cfg.base_model_path,
         "",
         subfolder="unet",
+        # use_safetensors=True,
         unet_additional_kwargs={
             "use_motion_module": False,
             "unet_use_temporal_attention": False,
         },
     ).to(device="cuda")
 
-    # denoising_unet = UNet3DConditionModel.from_pretrained_2d(
-    #     cfg.base_model_path,
-    #     cfg.mm_path,
-    #     subfolder="unet",
-    #     unet_additional_kwargs=OmegaConf.to_container(
-    #         infer_config.unet_additional_kwargs
-    #     ),
-    # ).to(device="cuda")
     if cfg.pose_guider_pretrain:
         pose_guider = PoseGuider(noise_latent_channels=320).to(device="cuda")
         # load pretrained controlnet-openpose params for pose_guider
         if cfg.controlnet_openpose_path != "":
             logger.info(f"Load pretrained model for pose guider: {cfg.controlnet_openpose_path}")
             controlnet_openpose_state_dict = torch.load(cfg.controlnet_openpose_path)
-            # state_dict_to_load = {}
-            # for k in controlnet_openpose_state_dict.keys():
-            #     if k.startswith("controlnet_cond_embedding.") and k.find("conv_out") < 0:
-            #         new_k = k.replace("controlnet_cond_embedding.", "")
-            #         state_dict_to_load[new_k] = controlnet_openpose_state_dict[k]
-            # miss, _ = pose_guider.load_state_dict(state_dict_to_load, strict=False)
-            miss, unexpected = pose_guider.load_state_dict(controlnet_openpose_state_dict, strict=False)
+            state_dict_to_load = {}
+            for k in controlnet_openpose_state_dict.keys():
+                if k.startswith("controlnet_cond_embedding.") and k.find("conv_out") < 0:
+                    new_k = k.replace("controlnet_cond_embedding.", "")
+                    state_dict_to_load[new_k] = controlnet_openpose_state_dict[k]
+            miss, unexpected = pose_guider.load_state_dict(state_dict_to_load, strict=False)
+            # miss, unexpected = pose_guider.load_state_dict(controlnet_openpose_state_dict, strict=False)
             logger.info(f"Missing key for pose guider: {len(miss)} {len(unexpected)}")
     else:
         pose_guider = PoseGuider(noise_latent_channels=320).to(device="cuda")
@@ -187,8 +181,25 @@ def main(cfg):
     image_enc.requires_grad_(False)
     reference_unet.requires_grad_(False)
     denoising_unet.requires_grad_(True)
-    pose_guider.requires_grad_(False)
+    pose_guider.requires_grad_(True)
     do_classifier_free_guidance = False
+    
+    stage1_ckpt_dir = cfg.stage1_ckpt_dir
+    denoising_unet.load_state_dict(
+        torch.load(
+            os.path.join(stage1_ckpt_dir, f"denoising_unet.pth"),
+            map_location="cpu",
+        ),
+        strict=False,
+    )
+    
+    reference_unet.load_state_dict(
+        torch.load(
+            os.path.join(stage1_ckpt_dir, f"reference_unet.pth"),
+            map_location="cpu",
+        ),
+        strict=False,
+    )
     
     #  Some top layer parames of reference_unet don't need grad
     for name, param in reference_unet.named_parameters():
@@ -548,31 +559,31 @@ def main(cfg):
                 break
         # save model after each epoch
         # save model after each epoch
-        # if (
-        #     epoch + 1
-        # ) % cfg.save_model_epoch_interval == 0 and accelerator.is_main_process:
-        #     unwrap_net = accelerator.unwrap_model(net)
-        #     save_checkpoint(
-        #         unwrap_net.reference_unet,
-        #         save_dir,
-        #         "reference_unet",
-        #         global_step,
-        #         total_limit=3,
-        #     )
-        #     save_checkpoint(
-        #         unwrap_net.denoising_unet,
-        #         save_dir,
-        #         "denoising_unet",
-        #         global_step,
-        #         total_limit=3,
-        #     )
-        #     save_checkpoint(
-        #         unwrap_net.pose_guider,
-        #         save_dir,
-        #         "pose_guider",
-        #         global_step,
-        #         total_limit=3,
-        #     )
+        if (
+            epoch + 1
+        ) % cfg.save_model_epoch_interval == 0 and accelerator.is_main_process:
+            unwrap_net = accelerator.unwrap_model(net)
+            save_checkpoint(
+                unwrap_net.reference_unet,
+                save_dir,
+                "reference_unet",
+                global_step,
+                total_limit=3,
+            )
+            save_checkpoint(
+                unwrap_net.denoising_unet,
+                save_dir,
+                "denoising_unet",
+                global_step,
+                total_limit=3,
+            )
+            save_checkpoint(
+                unwrap_net.pose_guider,
+                save_dir,
+                "pose_guider",
+                global_step,
+                total_limit=3,
+            )
 
     # Create the pipeline using the trained modules and save it.
     accelerator.wait_for_everyone()
