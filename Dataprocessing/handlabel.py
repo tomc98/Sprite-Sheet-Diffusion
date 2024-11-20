@@ -6,9 +6,9 @@ import tkinter as tk
 from PIL import Image, ImageTk
 
 # Input and output image paths
-image_path = "cat/Dead/Dead (4).png"
-output_resize_path = "cat/Dead/frame_4.png"
-output_path = "cat/Dead/humanpose_4.png"
+image_path = "cute_dino/Walk/Walk (8).png"
+output_resize_path = "cute_dino/Walk/frame_7.png"
+output_path = "cute_dino/Walk/humanpose_7.png"
 
 # Keypoints for the OpenPose COCO model and their respective colors (in BGR format)
 keypoints = ["nose", "neck", "right_shoulder", "right_elbow", "right_wrist", 
