@@ -1,0 +1,6 @@
+torch-fidelity
+pandas
+torchmetrics
+lpips 
+pyssim
+tabulate
