@@ -1,4 +1,3 @@
-# https://github.com/google-research/google-research/tree/master/cmmd
 import os
 import numpy as np
 import cv2
