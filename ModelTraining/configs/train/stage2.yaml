@@ -1,6 +1,6 @@
 data:
-  json_path: "data/game_animation/game_animation.json"
-  data_path: "data/"
+  json_path: "data/ssd_high_quality/train/game_animation.json"
+  data_path: "data/ssd_high_quality/"
   sample_size:  [512, 512]
   sample_stride_aug: True
 

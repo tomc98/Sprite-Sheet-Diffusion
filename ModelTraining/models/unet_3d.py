@@ -483,7 +483,8 @@ class UNet3DConditionModel(ModelMixin, ConfigMixin):
         # pre-process
         sample = self.conv_in(sample)
         if pose_cond_fea is not None:
-            sample = sample + pose_cond_fea[0]
+            sample = sample + pose_cond_fea
+            #sample = sample + pose_cond_fea[0]
 
         # down
         down_block_res_samples = (sample,)
@@ -505,9 +506,9 @@ class UNet3DConditionModel(ModelMixin, ConfigMixin):
                     temb=emb,
                     encoder_hidden_states=encoder_hidden_states,
                 )
-            if pose_cond_fea is not None:
-                sample = sample + pose_cond_fea[block_count]
-                block_count += 1
+            # if pose_cond_fea is not None:
+            #     sample = sample + pose_cond_fea[block_count]
+            #     block_count += 1
             down_block_res_samples += res_samples
 
         if down_block_additional_residuals is not None:

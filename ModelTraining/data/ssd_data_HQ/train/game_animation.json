@@ -1,0 +1,1092 @@
+{
+    "characters": [
+        {
+            "name": "adventure_girl",
+            "main_reference": null,
+            "main_reference_pose": "",
+            "motions": [
+                {
+                    "motion_name": "jump",
+                    "reference": null,
+                    "poses": [
+                        "ssd_data_HQ/train/characters/adventure_girl/motions/jump/poses/humanpose_1.png",
+                        "ssd_data_HQ/train/characters/adventure_girl/motions/jump/poses/humanpose_2.png",
+                        "ssd_data_HQ/train/characters/adventure_girl/motions/jump/poses/humanpose_3.png",
+                        "ssd_data_HQ/train/characters/adventure_girl/motions/jump/poses/humanpose_4.png"
+                    ],
+                    "ground_truth": [
+                        "ssd_data_HQ/train/characters/adventure_girl/motions/jump/ground_truth/frame_1.png",
+                        "ssd_data_HQ/train/characters/adventure_girl/motions/jump/ground_truth/frame_2.png",
+                        "ssd_data_HQ/train/characters/adventure_girl/motions/jump/ground_truth/frame_3.png",
+                        "ssd_data_HQ/train/characters/adventure_girl/motions/jump/ground_truth/frame_4.png"
+                    ]
+                },
+                {
+                    "motion_name": "melee",
+                    "reference": null,
+                    "poses": [
+                        "ssd_data_HQ/train/characters/adventure_girl/motions/melee/poses/humanpose_1.png",
+                        "ssd_data_HQ/train/characters/adventure_girl/motions/melee/poses/humanpose_2.png",
+                        "ssd_data_HQ/train/characters/adventure_girl/motions/melee/poses/humanpose_3.png",
+                        "ssd_data_HQ/train/characters/adventure_girl/motions/melee/poses/humanpose_4.png",
+                        "ssd_data_HQ/train/characters/adventure_girl/motions/melee/poses/humanpose_5.png"
+                    ],
+                    "ground_truth": [
+                        "ssd_data_HQ/train/characters/adventure_girl/motions/melee/ground_truth/frame_1.png",
+                        "ssd_data_HQ/train/characters/adventure_girl/motions/melee/ground_truth/frame_2.png",
+                        "ssd_data_HQ/train/characters/adventure_girl/motions/melee/ground_truth/frame_3.png",
+                        "ssd_data_HQ/train/characters/adventure_girl/motions/melee/ground_truth/frame_4.png",
+                        "ssd_data_HQ/train/characters/adventure_girl/motions/melee/ground_truth/frame_5.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "cat_finished",
+            "main_reference": null,
+            "main_reference_pose": "",
+            "motions": [
+                {
+                    "motion_name": "Jump",
+                    "reference": null,
+                    "poses": [
+                        "ssd_data_HQ/train/characters/cat_finished/motions/Jump/poses/humanpose_1.png",
+                        "ssd_data_HQ/train/characters/cat_finished/motions/Jump/poses/humanpose_2.png",
+                        "ssd_data_HQ/train/characters/cat_finished/motions/Jump/poses/humanpose_3.png",
+                        "ssd_data_HQ/train/characters/cat_finished/motions/Jump/poses/humanpose_4.png",
+                        "ssd_data_HQ/train/characters/cat_finished/motions/Jump/poses/humanpose_5.png",
+                        "ssd_data_HQ/train/characters/cat_finished/motions/Jump/poses/humanpose_6.png",
+                        "ssd_data_HQ/train/characters/cat_finished/motions/Jump/poses/humanpose_7.png",
+                        "ssd_data_HQ/train/characters/cat_finished/motions/Jump/poses/humanpose_8.png"
+                    ],
+                    "ground_truth": [
+                        "ssd_data_HQ/train/characters/cat_finished/motions/Jump/ground_truth/frame_1.png",
+                        "ssd_data_HQ/train/characters/cat_finished/motions/Jump/ground_truth/frame_2.png",
+                        "ssd_data_HQ/train/characters/cat_finished/motions/Jump/ground_truth/frame_3.png",
+                        "ssd_data_HQ/train/characters/cat_finished/motions/Jump/ground_truth/frame_4.png",
+                        "ssd_data_HQ/train/characters/cat_finished/motions/Jump/ground_truth/frame_5.png",
+                        "ssd_data_HQ/train/characters/cat_finished/motions/Jump/ground_truth/frame_6.png",
+                        "ssd_data_HQ/train/characters/cat_finished/motions/Jump/ground_truth/frame_7.png",
+                        "ssd_data_HQ/train/characters/cat_finished/motions/Jump/ground_truth/frame_8.png"
+                    ]
+                },
+                {
+                    "motion_name": "Slide",
+                    "reference": null,
+                    "poses": [
+                        "ssd_data_HQ/train/characters/cat_finished/motions/Slide/poses/humanpose_1.png",
+                        "ssd_data_HQ/train/characters/cat_finished/motions/Slide/poses/humanpose_2.png",
+                        "ssd_data_HQ/train/characters/cat_finished/motions/Slide/poses/humanpose_3.png",
+                        "ssd_data_HQ/train/characters/cat_finished/motions/Slide/poses/humanpose_4.png",
+                        "ssd_data_HQ/train/characters/cat_finished/motions/Slide/poses/humanpose_5.png",
+                        "ssd_data_HQ/train/characters/cat_finished/motions/Slide/poses/humanpose_6.png",
+                        "ssd_data_HQ/train/characters/cat_finished/motions/Slide/poses/humanpose_7.png",
+                        "ssd_data_HQ/train/characters/cat_finished/motions/Slide/poses/humanpose_8.png",
+                        "ssd_data_HQ/train/characters/cat_finished/motions/Slide/poses/humanpose_9.png",
+                        "ssd_data_HQ/train/characters/cat_finished/motions/Slide/poses/humanpose_10.png"
+                    ],
+                    "ground_truth": [
+                        "ssd_data_HQ/train/characters/cat_finished/motions/Slide/ground_truth/frame_1.png",
+                        "ssd_data_HQ/train/characters/cat_finished/motions/Slide/ground_truth/frame_2.png",
+                        "ssd_data_HQ/train/characters/cat_finished/motions/Slide/ground_truth/frame_3.png",
+                        "ssd_data_HQ/train/characters/cat_finished/motions/Slide/ground_truth/frame_4.png",
+                        "ssd_data_HQ/train/characters/cat_finished/motions/Slide/ground_truth/frame_5.png",
+                        "ssd_data_HQ/train/characters/cat_finished/motions/Slide/ground_truth/frame_6.png",
+                        "ssd_data_HQ/train/characters/cat_finished/motions/Slide/ground_truth/frame_7.png",
+                        "ssd_data_HQ/train/characters/cat_finished/motions/Slide/ground_truth/frame_8.png",
+                        "ssd_data_HQ/train/characters/cat_finished/motions/Slide/ground_truth/frame_9.png",
+                        "ssd_data_HQ/train/characters/cat_finished/motions/Slide/ground_truth/frame_10.png"
+                    ]
+                },
+                {
+                    "motion_name": "Walk",
+                    "reference": null,
+                    "poses": [
+                        "ssd_data_HQ/train/characters/cat_finished/motions/Walk/poses/humanpose_1.png",
+                        "ssd_data_HQ/train/characters/cat_finished/motions/Walk/poses/humanpose_2.png",
+                        "ssd_data_HQ/train/characters/cat_finished/motions/Walk/poses/humanpose_3.png",
+                        "ssd_data_HQ/train/characters/cat_finished/motions/Walk/poses/humanpose_4.png",
+                        "ssd_data_HQ/train/characters/cat_finished/motions/Walk/poses/humanpose_5.png",
+                        "ssd_data_HQ/train/characters/cat_finished/motions/Walk/poses/humanpose_6.png",
+                        "ssd_data_HQ/train/characters/cat_finished/motions/Walk/poses/humanpose_7.png",
+                        "ssd_data_HQ/train/characters/cat_finished/motions/Walk/poses/humanpose_8.png",
+                        "ssd_data_HQ/train/characters/cat_finished/motions/Walk/poses/humanpose_9.png",
+                        "ssd_data_HQ/train/characters/cat_finished/motions/Walk/poses/humanpose_10.png"
+                    ],
+                    "ground_truth": [
+                        "ssd_data_HQ/train/characters/cat_finished/motions/Walk/ground_truth/frame_1.png",
+                        "ssd_data_HQ/train/characters/cat_finished/motions/Walk/ground_truth/frame_2.png",
+                        "ssd_data_HQ/train/characters/cat_finished/motions/Walk/ground_truth/frame_3.png",
+                        "ssd_data_HQ/train/characters/cat_finished/motions/Walk/ground_truth/frame_4.png",
+                        "ssd_data_HQ/train/characters/cat_finished/motions/Walk/ground_truth/frame_5.png",
+                        "ssd_data_HQ/train/characters/cat_finished/motions/Walk/ground_truth/frame_6.png",
+                        "ssd_data_HQ/train/characters/cat_finished/motions/Walk/ground_truth/frame_7.png",
+                        "ssd_data_HQ/train/characters/cat_finished/motions/Walk/ground_truth/frame_8.png",
+                        "ssd_data_HQ/train/characters/cat_finished/motions/Walk/ground_truth/frame_9.png",
+                        "ssd_data_HQ/train/characters/cat_finished/motions/Walk/ground_truth/frame_10.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "cute_dino",
+            "main_reference": null,
+            "main_reference_pose": "",
+            "motions": [
+                {
+                    "motion_name": "Dead",
+                    "reference": null,
+                    "poses": [
+                        "ssd_data_HQ/train/characters/cute_dino/motions/Dead/poses/humanpose_1.png",
+                        "ssd_data_HQ/train/characters/cute_dino/motions/Dead/poses/humanpose_2.png",
+                        "ssd_data_HQ/train/characters/cute_dino/motions/Dead/poses/humanpose_3.png",
+                        "ssd_data_HQ/train/characters/cute_dino/motions/Dead/poses/humanpose_4.png",
+                        "ssd_data_HQ/train/characters/cute_dino/motions/Dead/poses/humanpose_5.png"
+                    ],
+                    "ground_truth": [
+                        "ssd_data_HQ/train/characters/cute_dino/motions/Dead/ground_truth/frame_1.png",
+                        "ssd_data_HQ/train/characters/cute_dino/motions/Dead/ground_truth/frame_2.png",
+                        "ssd_data_HQ/train/characters/cute_dino/motions/Dead/ground_truth/frame_3.png",
+                        "ssd_data_HQ/train/characters/cute_dino/motions/Dead/ground_truth/frame_4.png",
+                        "ssd_data_HQ/train/characters/cute_dino/motions/Dead/ground_truth/frame_5.png"
+                    ]
+                },
+                {
+                    "motion_name": "Run",
+                    "reference": null,
+                    "poses": [
+                        "ssd_data_HQ/train/characters/cute_dino/motions/Run/poses/humanpose_1.png",
+                        "ssd_data_HQ/train/characters/cute_dino/motions/Run/poses/humanpose_2.png",
+                        "ssd_data_HQ/train/characters/cute_dino/motions/Run/poses/humanpose_3.png",
+                        "ssd_data_HQ/train/characters/cute_dino/motions/Run/poses/humanpose_4.png",
+                        "ssd_data_HQ/train/characters/cute_dino/motions/Run/poses/humanpose_5.png",
+                        "ssd_data_HQ/train/characters/cute_dino/motions/Run/poses/humanpose_6.png",
+                        "ssd_data_HQ/train/characters/cute_dino/motions/Run/poses/humanpose_7.png",
+                        "ssd_data_HQ/train/characters/cute_dino/motions/Run/poses/humanpose_8.png"
+                    ],
+                    "ground_truth": [
+                        "ssd_data_HQ/train/characters/cute_dino/motions/Run/ground_truth/frame_1.png",
+                        "ssd_data_HQ/train/characters/cute_dino/motions/Run/ground_truth/frame_2.png",
+                        "ssd_data_HQ/train/characters/cute_dino/motions/Run/ground_truth/frame_3.png",
+                        "ssd_data_HQ/train/characters/cute_dino/motions/Run/ground_truth/frame_4.png",
+                        "ssd_data_HQ/train/characters/cute_dino/motions/Run/ground_truth/frame_5.png",
+                        "ssd_data_HQ/train/characters/cute_dino/motions/Run/ground_truth/frame_6.png",
+                        "ssd_data_HQ/train/characters/cute_dino/motions/Run/ground_truth/frame_7.png",
+                        "ssd_data_HQ/train/characters/cute_dino/motions/Run/ground_truth/frame_8.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "cute_girl",
+            "main_reference": null,
+            "main_reference_pose": "",
+            "motions": [
+                {
+                    "motion_name": "Dead",
+                    "reference": null,
+                    "poses": [
+                        "ssd_data_HQ/train/characters/cute_girl/motions/Dead/poses/humanpose_1.png",
+                        "ssd_data_HQ/train/characters/cute_girl/motions/Dead/poses/humanpose_2.png",
+                        "ssd_data_HQ/train/characters/cute_girl/motions/Dead/poses/humanpose_3.png",
+                        "ssd_data_HQ/train/characters/cute_girl/motions/Dead/poses/humanpose_4.png",
+                        "ssd_data_HQ/train/characters/cute_girl/motions/Dead/poses/humanpose_5.png"
+                    ],
+                    "ground_truth": [
+                        "ssd_data_HQ/train/characters/cute_girl/motions/Dead/ground_truth/frame_1.png",
+                        "ssd_data_HQ/train/characters/cute_girl/motions/Dead/ground_truth/frame_2.png",
+                        "ssd_data_HQ/train/characters/cute_girl/motions/Dead/ground_truth/frame_3.png",
+                        "ssd_data_HQ/train/characters/cute_girl/motions/Dead/ground_truth/frame_4.png",
+                        "ssd_data_HQ/train/characters/cute_girl/motions/Dead/ground_truth/frame_5.png"
+                    ]
+                },
+                {
+                    "motion_name": "Run",
+                    "reference": null,
+                    "poses": [
+                        "ssd_data_HQ/train/characters/cute_girl/motions/Run/poses/humanpose_1.png",
+                        "ssd_data_HQ/train/characters/cute_girl/motions/Run/poses/humanpose_2.png",
+                        "ssd_data_HQ/train/characters/cute_girl/motions/Run/poses/humanpose_3.png",
+                        "ssd_data_HQ/train/characters/cute_girl/motions/Run/poses/humanpose_4.png",
+                        "ssd_data_HQ/train/characters/cute_girl/motions/Run/poses/humanpose_5.png",
+                        "ssd_data_HQ/train/characters/cute_girl/motions/Run/poses/humanpose_6.png",
+                        "ssd_data_HQ/train/characters/cute_girl/motions/Run/poses/humanpose_7.png",
+                        "ssd_data_HQ/train/characters/cute_girl/motions/Run/poses/humanpose_8.png",
+                        "ssd_data_HQ/train/characters/cute_girl/motions/Run/poses/humanpose_9.png"
+                    ],
+                    "ground_truth": [
+                        "ssd_data_HQ/train/characters/cute_girl/motions/Run/ground_truth/frame_1.png",
+                        "ssd_data_HQ/train/characters/cute_girl/motions/Run/ground_truth/frame_2.png",
+                        "ssd_data_HQ/train/characters/cute_girl/motions/Run/ground_truth/frame_3.png",
+                        "ssd_data_HQ/train/characters/cute_girl/motions/Run/ground_truth/frame_4.png",
+                        "ssd_data_HQ/train/characters/cute_girl/motions/Run/ground_truth/frame_5.png",
+                        "ssd_data_HQ/train/characters/cute_girl/motions/Run/ground_truth/frame_6.png",
+                        "ssd_data_HQ/train/characters/cute_girl/motions/Run/ground_truth/frame_7.png",
+                        "ssd_data_HQ/train/characters/cute_girl/motions/Run/ground_truth/frame_8.png",
+                        "ssd_data_HQ/train/characters/cute_girl/motions/Run/ground_truth/frame_9.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "dog_finished",
+            "main_reference": null,
+            "main_reference_pose": "",
+            "motions": [
+                {
+                    "motion_name": "Fall",
+                    "reference": null,
+                    "poses": [
+                        "ssd_data_HQ/train/characters/dog_finished/motions/Fall/poses/humanpose_1.png",
+                        "ssd_data_HQ/train/characters/dog_finished/motions/Fall/poses/humanpose_2.png",
+                        "ssd_data_HQ/train/characters/dog_finished/motions/Fall/poses/humanpose_3.png",
+                        "ssd_data_HQ/train/characters/dog_finished/motions/Fall/poses/humanpose_4.png",
+                        "ssd_data_HQ/train/characters/dog_finished/motions/Fall/poses/humanpose_5.png",
+                        "ssd_data_HQ/train/characters/dog_finished/motions/Fall/poses/humanpose_6.png",
+                        "ssd_data_HQ/train/characters/dog_finished/motions/Fall/poses/humanpose_7.png",
+                        "ssd_data_HQ/train/characters/dog_finished/motions/Fall/poses/humanpose_8.png"
+                    ],
+                    "ground_truth": [
+                        "ssd_data_HQ/train/characters/dog_finished/motions/Fall/ground_truth/frame_1.png",
+                        "ssd_data_HQ/train/characters/dog_finished/motions/Fall/ground_truth/frame_2.png",
+                        "ssd_data_HQ/train/characters/dog_finished/motions/Fall/ground_truth/frame_3.png",
+                        "ssd_data_HQ/train/characters/dog_finished/motions/Fall/ground_truth/frame_4.png",
+                        "ssd_data_HQ/train/characters/dog_finished/motions/Fall/ground_truth/frame_5.png",
+                        "ssd_data_HQ/train/characters/dog_finished/motions/Fall/ground_truth/frame_6.png",
+                        "ssd_data_HQ/train/characters/dog_finished/motions/Fall/ground_truth/frame_7.png",
+                        "ssd_data_HQ/train/characters/dog_finished/motions/Fall/ground_truth/frame_8.png"
+                    ]
+                },
+                {
+                    "motion_name": "Slide",
+                    "reference": null,
+                    "poses": [
+                        "ssd_data_HQ/train/characters/dog_finished/motions/Slide/poses/humanpose_1.png",
+                        "ssd_data_HQ/train/characters/dog_finished/motions/Slide/poses/humanpose_2.png",
+                        "ssd_data_HQ/train/characters/dog_finished/motions/Slide/poses/humanpose_3.png",
+                        "ssd_data_HQ/train/characters/dog_finished/motions/Slide/poses/humanpose_4.png",
+                        "ssd_data_HQ/train/characters/dog_finished/motions/Slide/poses/humanpose_5.png",
+                        "ssd_data_HQ/train/characters/dog_finished/motions/Slide/poses/humanpose_6.png",
+                        "ssd_data_HQ/train/characters/dog_finished/motions/Slide/poses/humanpose_7.png",
+                        "ssd_data_HQ/train/characters/dog_finished/motions/Slide/poses/humanpose_8.png",
+                        "ssd_data_HQ/train/characters/dog_finished/motions/Slide/poses/humanpose_9.png",
+                        "ssd_data_HQ/train/characters/dog_finished/motions/Slide/poses/humanpose_10.png"
+                    ],
+                    "ground_truth": [
+                        "ssd_data_HQ/train/characters/dog_finished/motions/Slide/ground_truth/frame_1.png",
+                        "ssd_data_HQ/train/characters/dog_finished/motions/Slide/ground_truth/frame_2.png",
+                        "ssd_data_HQ/train/characters/dog_finished/motions/Slide/ground_truth/frame_3.png",
+                        "ssd_data_HQ/train/characters/dog_finished/motions/Slide/ground_truth/frame_4.png",
+                        "ssd_data_HQ/train/characters/dog_finished/motions/Slide/ground_truth/frame_5.png",
+                        "ssd_data_HQ/train/characters/dog_finished/motions/Slide/ground_truth/frame_6.png",
+                        "ssd_data_HQ/train/characters/dog_finished/motions/Slide/ground_truth/frame_7.png",
+                        "ssd_data_HQ/train/characters/dog_finished/motions/Slide/ground_truth/frame_8.png",
+                        "ssd_data_HQ/train/characters/dog_finished/motions/Slide/ground_truth/frame_9.png",
+                        "ssd_data_HQ/train/characters/dog_finished/motions/Slide/ground_truth/frame_10.png"
+                    ]
+                },
+                {
+                    "motion_name": "Walk",
+                    "reference": null,
+                    "poses": [
+                        "ssd_data_HQ/train/characters/dog_finished/motions/Walk/poses/humanpose_1.png",
+                        "ssd_data_HQ/train/characters/dog_finished/motions/Walk/poses/humanpose_2.png",
+                        "ssd_data_HQ/train/characters/dog_finished/motions/Walk/poses/humanpose_3.png",
+                        "ssd_data_HQ/train/characters/dog_finished/motions/Walk/poses/humanpose_4.png",
+                        "ssd_data_HQ/train/characters/dog_finished/motions/Walk/poses/humanpose_5.png",
+                        "ssd_data_HQ/train/characters/dog_finished/motions/Walk/poses/humanpose_6.png",
+                        "ssd_data_HQ/train/characters/dog_finished/motions/Walk/poses/humanpose_7.png",
+                        "ssd_data_HQ/train/characters/dog_finished/motions/Walk/poses/humanpose_8.png",
+                        "ssd_data_HQ/train/characters/dog_finished/motions/Walk/poses/humanpose_9.png",
+                        "ssd_data_HQ/train/characters/dog_finished/motions/Walk/poses/humanpose_10.png"
+                    ],
+                    "ground_truth": [
+                        "ssd_data_HQ/train/characters/dog_finished/motions/Walk/ground_truth/frame_1.png",
+                        "ssd_data_HQ/train/characters/dog_finished/motions/Walk/ground_truth/frame_2.png",
+                        "ssd_data_HQ/train/characters/dog_finished/motions/Walk/ground_truth/frame_3.png",
+                        "ssd_data_HQ/train/characters/dog_finished/motions/Walk/ground_truth/frame_4.png",
+                        "ssd_data_HQ/train/characters/dog_finished/motions/Walk/ground_truth/frame_5.png",
+                        "ssd_data_HQ/train/characters/dog_finished/motions/Walk/ground_truth/frame_6.png",
+                        "ssd_data_HQ/train/characters/dog_finished/motions/Walk/ground_truth/frame_7.png",
+                        "ssd_data_HQ/train/characters/dog_finished/motions/Walk/ground_truth/frame_8.png",
+                        "ssd_data_HQ/train/characters/dog_finished/motions/Walk/ground_truth/frame_9.png",
+                        "ssd_data_HQ/train/characters/dog_finished/motions/Walk/ground_truth/frame_10.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "freeknight_finished",
+            "main_reference": null,
+            "main_reference_pose": "",
+            "motions": [
+                {
+                    "motion_name": "Attack",
+                    "reference": null,
+                    "poses": [
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Attack/poses/humanpose_1.png",
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Attack/poses/humanpose_2.png",
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Attack/poses/humanpose_3.png",
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Attack/poses/humanpose_4.png",
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Attack/poses/humanpose_5.png",
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Attack/poses/humanpose_6.png",
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Attack/poses/humanpose_7.png",
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Attack/poses/humanpose_8.png",
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Attack/poses/humanpose_9.png",
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Attack/poses/humanpose_10.png"
+                    ],
+                    "ground_truth": [
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Attack/ground_truth/frame_1.png",
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Attack/ground_truth/frame_2.png",
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Attack/ground_truth/frame_3.png",
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Attack/ground_truth/frame_4.png",
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Attack/ground_truth/frame_5.png",
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Attack/ground_truth/frame_6.png",
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Attack/ground_truth/frame_7.png",
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Attack/ground_truth/frame_8.png",
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Attack/ground_truth/frame_9.png",
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Attack/ground_truth/frame_10.png"
+                    ]
+                },
+                {
+                    "motion_name": "Jump",
+                    "reference": null,
+                    "poses": [
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Jump/poses/humanpose_1.png",
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Jump/poses/humanpose_2.png",
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Jump/poses/humanpose_3.png",
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Jump/poses/humanpose_4.png",
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Jump/poses/humanpose_5.png",
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Jump/poses/humanpose_6.png",
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Jump/poses/humanpose_7.png",
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Jump/poses/humanpose_8.png",
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Jump/poses/humanpose_9.png",
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Jump/poses/humanpose_10.png"
+                    ],
+                    "ground_truth": [
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Jump/ground_truth/frame_1.png",
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Jump/ground_truth/frame_2.png",
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Jump/ground_truth/frame_3.png",
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Jump/ground_truth/frame_4.png",
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Jump/ground_truth/frame_5.png",
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Jump/ground_truth/frame_6.png",
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Jump/ground_truth/frame_7.png",
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Jump/ground_truth/frame_8.png",
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Jump/ground_truth/frame_9.png",
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Jump/ground_truth/frame_10.png"
+                    ]
+                },
+                {
+                    "motion_name": "Run",
+                    "reference": null,
+                    "poses": [
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Run/poses/humanpose_1.png",
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Run/poses/humanpose_2.png",
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Run/poses/humanpose_3.png",
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Run/poses/humanpose_4.png",
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Run/poses/humanpose_5.png",
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Run/poses/humanpose_6.png",
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Run/poses/humanpose_7.png",
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Run/poses/humanpose_8.png",
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Run/poses/humanpose_9.png",
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Run/poses/humanpose_10.png"
+                    ],
+                    "ground_truth": [
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Run/ground_truth/frame_1.png",
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Run/ground_truth/frame_2.png",
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Run/ground_truth/frame_3.png",
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Run/ground_truth/frame_4.png",
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Run/ground_truth/frame_5.png",
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Run/ground_truth/frame_6.png",
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Run/ground_truth/frame_7.png",
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Run/ground_truth/frame_8.png",
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Run/ground_truth/frame_9.png",
+                        "ssd_data_HQ/train/characters/freeknight_finished/motions/Run/ground_truth/frame_10.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "jackfree_finished",
+            "main_reference": null,
+            "main_reference_pose": "",
+            "motions": [
+                {
+                    "motion_name": "Idle",
+                    "reference": null,
+                    "poses": [
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Idle/poses/humanpose_1.png",
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Idle/poses/humanpose_2.png",
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Idle/poses/humanpose_3.png",
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Idle/poses/humanpose_4.png",
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Idle/poses/humanpose_5.png",
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Idle/poses/humanpose_6.png",
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Idle/poses/humanpose_7.png",
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Idle/poses/humanpose_8.png",
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Idle/poses/humanpose_9.png",
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Idle/poses/humanpose_10.png"
+                    ],
+                    "ground_truth": [
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Idle/ground_truth/frame_1.png",
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Idle/ground_truth/frame_2.png",
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Idle/ground_truth/frame_3.png",
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Idle/ground_truth/frame_4.png",
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Idle/ground_truth/frame_5.png",
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Idle/ground_truth/frame_6.png",
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Idle/ground_truth/frame_7.png",
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Idle/ground_truth/frame_8.png",
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Idle/ground_truth/frame_9.png",
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Idle/ground_truth/frame_10.png"
+                    ]
+                },
+                {
+                    "motion_name": "Jump",
+                    "reference": null,
+                    "poses": [
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Jump/poses/humanpose_1.png",
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Jump/poses/humanpose_2.png",
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Jump/poses/humanpose_3.png",
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Jump/poses/humanpose_4.png",
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Jump/poses/humanpose_5.png",
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Jump/poses/humanpose_6.png",
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Jump/poses/humanpose_7.png",
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Jump/poses/humanpose_8.png",
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Jump/poses/humanpose_9.png",
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Jump/poses/humanpose_10.png"
+                    ],
+                    "ground_truth": [
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Jump/ground_truth/frame_1.png",
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Jump/ground_truth/frame_2.png",
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Jump/ground_truth/frame_3.png",
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Jump/ground_truth/frame_4.png",
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Jump/ground_truth/frame_5.png",
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Jump/ground_truth/frame_6.png",
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Jump/ground_truth/frame_7.png",
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Jump/ground_truth/frame_8.png",
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Jump/ground_truth/frame_9.png",
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Jump/ground_truth/frame_10.png"
+                    ]
+                },
+                {
+                    "motion_name": "Walk",
+                    "reference": null,
+                    "poses": [
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Walk/poses/humanpose_1.png",
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Walk/poses/humanpose_2.png",
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Walk/poses/humanpose_3.png",
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Walk/poses/humanpose_4.png",
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Walk/poses/humanpose_5.png",
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Walk/poses/humanpose_6.png",
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Walk/poses/humanpose_7.png",
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Walk/poses/humanpose_8.png",
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Walk/poses/humanpose_9.png",
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Walk/poses/humanpose_10.png"
+                    ],
+                    "ground_truth": [
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Walk/ground_truth/frame_1.png",
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Walk/ground_truth/frame_2.png",
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Walk/ground_truth/frame_3.png",
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Walk/ground_truth/frame_4.png",
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Walk/ground_truth/frame_5.png",
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Walk/ground_truth/frame_6.png",
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Walk/ground_truth/frame_7.png",
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Walk/ground_truth/frame_8.png",
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Walk/ground_truth/frame_9.png",
+                        "ssd_data_HQ/train/characters/jackfree_finished/motions/Walk/ground_truth/frame_10.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "ninjaadventurenew",
+            "main_reference": null,
+            "main_reference_pose": "",
+            "motions": [
+                {
+                    "motion_name": "attack",
+                    "reference": null,
+                    "poses": [
+                        "ssd_data_HQ/train/characters/ninjaadventurenew/motions/attack/poses/humanpose_1.png",
+                        "ssd_data_HQ/train/characters/ninjaadventurenew/motions/attack/poses/humanpose_2.png",
+                        "ssd_data_HQ/train/characters/ninjaadventurenew/motions/attack/poses/humanpose_3.png",
+                        "ssd_data_HQ/train/characters/ninjaadventurenew/motions/attack/poses/humanpose_4.png"
+                    ],
+                    "ground_truth": [
+                        "ssd_data_HQ/train/characters/ninjaadventurenew/motions/attack/ground_truth/frame_1.png",
+                        "ssd_data_HQ/train/characters/ninjaadventurenew/motions/attack/ground_truth/frame_2.png",
+                        "ssd_data_HQ/train/characters/ninjaadventurenew/motions/attack/ground_truth/frame_3.png",
+                        "ssd_data_HQ/train/characters/ninjaadventurenew/motions/attack/ground_truth/frame_4.png"
+                    ]
+                },
+                {
+                    "motion_name": "dead",
+                    "reference": null,
+                    "poses": [
+                        "ssd_data_HQ/train/characters/ninjaadventurenew/motions/dead/poses/humanpose_1.png",
+                        "ssd_data_HQ/train/characters/ninjaadventurenew/motions/dead/poses/humanpose_2.png",
+                        "ssd_data_HQ/train/characters/ninjaadventurenew/motions/dead/poses/humanpose_3.png",
+                        "ssd_data_HQ/train/characters/ninjaadventurenew/motions/dead/poses/humanpose_4.png",
+                        "ssd_data_HQ/train/characters/ninjaadventurenew/motions/dead/poses/humanpose_5.png"
+                    ],
+                    "ground_truth": [
+                        "ssd_data_HQ/train/characters/ninjaadventurenew/motions/dead/ground_truth/frame_1.png",
+                        "ssd_data_HQ/train/characters/ninjaadventurenew/motions/dead/ground_truth/frame_2.png",
+                        "ssd_data_HQ/train/characters/ninjaadventurenew/motions/dead/ground_truth/frame_3.png",
+                        "ssd_data_HQ/train/characters/ninjaadventurenew/motions/dead/ground_truth/frame_4.png",
+                        "ssd_data_HQ/train/characters/ninjaadventurenew/motions/dead/ground_truth/frame_5.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "ninjagirlnew",
+            "main_reference": null,
+            "main_reference_pose": "",
+            "motions": [
+                {
+                    "motion_name": "attack",
+                    "reference": null,
+                    "poses": [
+                        "ssd_data_HQ/train/characters/ninjagirlnew/motions/attack/poses/humanpose_1.png",
+                        "ssd_data_HQ/train/characters/ninjagirlnew/motions/attack/poses/humanpose_2.png",
+                        "ssd_data_HQ/train/characters/ninjagirlnew/motions/attack/poses/humanpose_3.png",
+                        "ssd_data_HQ/train/characters/ninjagirlnew/motions/attack/poses/humanpose_4.png"
+                    ],
+                    "ground_truth": [
+                        "ssd_data_HQ/train/characters/ninjagirlnew/motions/attack/ground_truth/frame_1.png",
+                        "ssd_data_HQ/train/characters/ninjagirlnew/motions/attack/ground_truth/frame_2.png",
+                        "ssd_data_HQ/train/characters/ninjagirlnew/motions/attack/ground_truth/frame_3.png",
+                        "ssd_data_HQ/train/characters/ninjagirlnew/motions/attack/ground_truth/frame_4.png"
+                    ]
+                },
+                {
+                    "motion_name": "jump",
+                    "reference": null,
+                    "poses": [
+                        "ssd_data_HQ/train/characters/ninjagirlnew/motions/jump/poses/humanpose_1.png",
+                        "ssd_data_HQ/train/characters/ninjagirlnew/motions/jump/poses/humanpose_2.png",
+                        "ssd_data_HQ/train/characters/ninjagirlnew/motions/jump/poses/humanpose_3.png"
+                    ],
+                    "ground_truth": [
+                        "ssd_data_HQ/train/characters/ninjagirlnew/motions/jump/ground_truth/frame_1.png",
+                        "ssd_data_HQ/train/characters/ninjagirlnew/motions/jump/ground_truth/frame_2.png",
+                        "ssd_data_HQ/train/characters/ninjagirlnew/motions/jump/ground_truth/frame_3.png"
+                    ]
+                },
+                {
+                    "motion_name": "throw",
+                    "reference": null,
+                    "poses": [
+                        "ssd_data_HQ/train/characters/ninjagirlnew/motions/throw/poses/humanpose_1.png",
+                        "ssd_data_HQ/train/characters/ninjagirlnew/motions/throw/poses/humanpose_2.png",
+                        "ssd_data_HQ/train/characters/ninjagirlnew/motions/throw/poses/humanpose_3.png",
+                        "ssd_data_HQ/train/characters/ninjagirlnew/motions/throw/poses/humanpose_4.png",
+                        "ssd_data_HQ/train/characters/ninjagirlnew/motions/throw/poses/humanpose_5.png"
+                    ],
+                    "ground_truth": [
+                        "ssd_data_HQ/train/characters/ninjagirlnew/motions/throw/ground_truth/frame_1.png",
+                        "ssd_data_HQ/train/characters/ninjagirlnew/motions/throw/ground_truth/frame_2.png",
+                        "ssd_data_HQ/train/characters/ninjagirlnew/motions/throw/ground_truth/frame_3.png",
+                        "ssd_data_HQ/train/characters/ninjagirlnew/motions/throw/ground_truth/frame_4.png",
+                        "ssd_data_HQ/train/characters/ninjagirlnew/motions/throw/ground_truth/frame_5.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "red_hat_boy",
+            "main_reference": null,
+            "main_reference_pose": "",
+            "motions": [
+                {
+                    "motion_name": "Jump",
+                    "reference": null,
+                    "poses": [
+                        "ssd_data_HQ/train/characters/red_hat_boy/motions/Jump/poses/humanpose_1.png",
+                        "ssd_data_HQ/train/characters/red_hat_boy/motions/Jump/poses/humanpose_2.png",
+                        "ssd_data_HQ/train/characters/red_hat_boy/motions/Jump/poses/humanpose_3.png",
+                        "ssd_data_HQ/train/characters/red_hat_boy/motions/Jump/poses/humanpose_4.png"
+                    ],
+                    "ground_truth": [
+                        "ssd_data_HQ/train/characters/red_hat_boy/motions/Jump/ground_truth/frame_1.png",
+                        "ssd_data_HQ/train/characters/red_hat_boy/motions/Jump/ground_truth/frame_2.png",
+                        "ssd_data_HQ/train/characters/red_hat_boy/motions/Jump/ground_truth/frame_3.png",
+                        "ssd_data_HQ/train/characters/red_hat_boy/motions/Jump/ground_truth/frame_4.png"
+                    ]
+                },
+                {
+                    "motion_name": "Run",
+                    "reference": null,
+                    "poses": [
+                        "ssd_data_HQ/train/characters/red_hat_boy/motions/Run/poses/humanpose_1.png",
+                        "ssd_data_HQ/train/characters/red_hat_boy/motions/Run/poses/humanpose_2.png",
+                        "ssd_data_HQ/train/characters/red_hat_boy/motions/Run/poses/humanpose_3.png",
+                        "ssd_data_HQ/train/characters/red_hat_boy/motions/Run/poses/humanpose_4.png",
+                        "ssd_data_HQ/train/characters/red_hat_boy/motions/Run/poses/humanpose_5.png",
+                        "ssd_data_HQ/train/characters/red_hat_boy/motions/Run/poses/humanpose_6.png",
+                        "ssd_data_HQ/train/characters/red_hat_boy/motions/Run/poses/humanpose_7.png",
+                        "ssd_data_HQ/train/characters/red_hat_boy/motions/Run/poses/humanpose_8.png"
+                    ],
+                    "ground_truth": [
+                        "ssd_data_HQ/train/characters/red_hat_boy/motions/Run/ground_truth/frame_1.png",
+                        "ssd_data_HQ/train/characters/red_hat_boy/motions/Run/ground_truth/frame_2.png",
+                        "ssd_data_HQ/train/characters/red_hat_boy/motions/Run/ground_truth/frame_3.png",
+                        "ssd_data_HQ/train/characters/red_hat_boy/motions/Run/ground_truth/frame_4.png",
+                        "ssd_data_HQ/train/characters/red_hat_boy/motions/Run/ground_truth/frame_5.png",
+                        "ssd_data_HQ/train/characters/red_hat_boy/motions/Run/ground_truth/frame_6.png",
+                        "ssd_data_HQ/train/characters/red_hat_boy/motions/Run/ground_truth/frame_7.png",
+                        "ssd_data_HQ/train/characters/red_hat_boy/motions/Run/ground_truth/frame_8.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "robot",
+            "main_reference": null,
+            "main_reference_pose": "",
+            "motions": [
+                {
+                    "motion_name": "JumpMelee",
+                    "reference": null,
+                    "poses": [
+                        "ssd_data_HQ/train/characters/robot/motions/JumpMelee/poses/humanpose_1.png",
+                        "ssd_data_HQ/train/characters/robot/motions/JumpMelee/poses/humanpose_2.png",
+                        "ssd_data_HQ/train/characters/robot/motions/JumpMelee/poses/humanpose_3.png",
+                        "ssd_data_HQ/train/characters/robot/motions/JumpMelee/poses/humanpose_4.png",
+                        "ssd_data_HQ/train/characters/robot/motions/JumpMelee/poses/humanpose_5.png",
+                        "ssd_data_HQ/train/characters/robot/motions/JumpMelee/poses/humanpose_6.png",
+                        "ssd_data_HQ/train/characters/robot/motions/JumpMelee/poses/humanpose_7.png",
+                        "ssd_data_HQ/train/characters/robot/motions/JumpMelee/poses/humanpose_8.png"
+                    ],
+                    "ground_truth": [
+                        "ssd_data_HQ/train/characters/robot/motions/JumpMelee/ground_truth/frame_1.png",
+                        "ssd_data_HQ/train/characters/robot/motions/JumpMelee/ground_truth/frame_2.png",
+                        "ssd_data_HQ/train/characters/robot/motions/JumpMelee/ground_truth/frame_3.png",
+                        "ssd_data_HQ/train/characters/robot/motions/JumpMelee/ground_truth/frame_4.png",
+                        "ssd_data_HQ/train/characters/robot/motions/JumpMelee/ground_truth/frame_5.png",
+                        "ssd_data_HQ/train/characters/robot/motions/JumpMelee/ground_truth/frame_6.png",
+                        "ssd_data_HQ/train/characters/robot/motions/JumpMelee/ground_truth/frame_7.png",
+                        "ssd_data_HQ/train/characters/robot/motions/JumpMelee/ground_truth/frame_8.png"
+                    ]
+                },
+                {
+                    "motion_name": "JumpShoot",
+                    "reference": null,
+                    "poses": [
+                        "ssd_data_HQ/train/characters/robot/motions/JumpShoot/poses/humanpose_1.png",
+                        "ssd_data_HQ/train/characters/robot/motions/JumpShoot/poses/humanpose_2.png",
+                        "ssd_data_HQ/train/characters/robot/motions/JumpShoot/poses/humanpose_3.png",
+                        "ssd_data_HQ/train/characters/robot/motions/JumpShoot/poses/humanpose_4.png",
+                        "ssd_data_HQ/train/characters/robot/motions/JumpShoot/poses/humanpose_5.png"
+                    ],
+                    "ground_truth": [
+                        "ssd_data_HQ/train/characters/robot/motions/JumpShoot/ground_truth/frame_1.png",
+                        "ssd_data_HQ/train/characters/robot/motions/JumpShoot/ground_truth/frame_2.png",
+                        "ssd_data_HQ/train/characters/robot/motions/JumpShoot/ground_truth/frame_3.png",
+                        "ssd_data_HQ/train/characters/robot/motions/JumpShoot/ground_truth/frame_4.png",
+                        "ssd_data_HQ/train/characters/robot/motions/JumpShoot/ground_truth/frame_5.png"
+                    ]
+                },
+                {
+                    "motion_name": "RunShoot",
+                    "reference": null,
+                    "poses": [
+                        "ssd_data_HQ/train/characters/robot/motions/RunShoot/poses/humanpose_1.png",
+                        "ssd_data_HQ/train/characters/robot/motions/RunShoot/poses/humanpose_2.png",
+                        "ssd_data_HQ/train/characters/robot/motions/RunShoot/poses/humanpose_3.png",
+                        "ssd_data_HQ/train/characters/robot/motions/RunShoot/poses/humanpose_4.png",
+                        "ssd_data_HQ/train/characters/robot/motions/RunShoot/poses/humanpose_5.png",
+                        "ssd_data_HQ/train/characters/robot/motions/RunShoot/poses/humanpose_6.png",
+                        "ssd_data_HQ/train/characters/robot/motions/RunShoot/poses/humanpose_7.png",
+                        "ssd_data_HQ/train/characters/robot/motions/RunShoot/poses/humanpose_8.png",
+                        "ssd_data_HQ/train/characters/robot/motions/RunShoot/poses/humanpose_9.png"
+                    ],
+                    "ground_truth": [
+                        "ssd_data_HQ/train/characters/robot/motions/RunShoot/ground_truth/frame_1.png",
+                        "ssd_data_HQ/train/characters/robot/motions/RunShoot/ground_truth/frame_2.png",
+                        "ssd_data_HQ/train/characters/robot/motions/RunShoot/ground_truth/frame_3.png",
+                        "ssd_data_HQ/train/characters/robot/motions/RunShoot/ground_truth/frame_4.png",
+                        "ssd_data_HQ/train/characters/robot/motions/RunShoot/ground_truth/frame_5.png",
+                        "ssd_data_HQ/train/characters/robot/motions/RunShoot/ground_truth/frame_6.png",
+                        "ssd_data_HQ/train/characters/robot/motions/RunShoot/ground_truth/frame_7.png",
+                        "ssd_data_HQ/train/characters/robot/motions/RunShoot/ground_truth/frame_8.png",
+                        "ssd_data_HQ/train/characters/robot/motions/RunShoot/ground_truth/frame_9.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "santa",
+            "main_reference": null,
+            "main_reference_pose": "",
+            "motions": [
+                {
+                    "motion_name": "Dead",
+                    "reference": null,
+                    "poses": [
+                        "ssd_data_HQ/train/characters/santa/motions/Dead/poses/humanpose_1.png",
+                        "ssd_data_HQ/train/characters/santa/motions/Dead/poses/humanpose_2.png",
+                        "ssd_data_HQ/train/characters/santa/motions/Dead/poses/humanpose_3.png",
+                        "ssd_data_HQ/train/characters/santa/motions/Dead/poses/humanpose_4.png",
+                        "ssd_data_HQ/train/characters/santa/motions/Dead/poses/humanpose_5.png",
+                        "ssd_data_HQ/train/characters/santa/motions/Dead/poses/humanpose_6.png",
+                        "ssd_data_HQ/train/characters/santa/motions/Dead/poses/humanpose_7.png"
+                    ],
+                    "ground_truth": [
+                        "ssd_data_HQ/train/characters/santa/motions/Dead/ground_truth/frame_1.png",
+                        "ssd_data_HQ/train/characters/santa/motions/Dead/ground_truth/frame_2.png",
+                        "ssd_data_HQ/train/characters/santa/motions/Dead/ground_truth/frame_3.png",
+                        "ssd_data_HQ/train/characters/santa/motions/Dead/ground_truth/frame_4.png",
+                        "ssd_data_HQ/train/characters/santa/motions/Dead/ground_truth/frame_5.png",
+                        "ssd_data_HQ/train/characters/santa/motions/Dead/ground_truth/frame_6.png",
+                        "ssd_data_HQ/train/characters/santa/motions/Dead/ground_truth/frame_7.png"
+                    ]
+                },
+                {
+                    "motion_name": "Jump",
+                    "reference": null,
+                    "poses": [
+                        "ssd_data_HQ/train/characters/santa/motions/Jump/poses/humanpose_1.png",
+                        "ssd_data_HQ/train/characters/santa/motions/Jump/poses/humanpose_2.png",
+                        "ssd_data_HQ/train/characters/santa/motions/Jump/poses/humanpose_3.png",
+                        "ssd_data_HQ/train/characters/santa/motions/Jump/poses/humanpose_4.png",
+                        "ssd_data_HQ/train/characters/santa/motions/Jump/poses/humanpose_5.png"
+                    ],
+                    "ground_truth": [
+                        "ssd_data_HQ/train/characters/santa/motions/Jump/ground_truth/frame_1.png",
+                        "ssd_data_HQ/train/characters/santa/motions/Jump/ground_truth/frame_2.png",
+                        "ssd_data_HQ/train/characters/santa/motions/Jump/ground_truth/frame_3.png",
+                        "ssd_data_HQ/train/characters/santa/motions/Jump/ground_truth/frame_4.png",
+                        "ssd_data_HQ/train/characters/santa/motions/Jump/ground_truth/frame_5.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "templerun",
+            "main_reference": null,
+            "main_reference_pose": "",
+            "motions": [
+                {
+                    "motion_name": "dead",
+                    "reference": null,
+                    "poses": [
+                        "ssd_data_HQ/train/characters/templerun/motions/dead/poses/humanpose_1.png",
+                        "ssd_data_HQ/train/characters/templerun/motions/dead/poses/humanpose_2.png",
+                        "ssd_data_HQ/train/characters/templerun/motions/dead/poses/humanpose_3.png",
+                        "ssd_data_HQ/train/characters/templerun/motions/dead/poses/humanpose_4.png",
+                        "ssd_data_HQ/train/characters/templerun/motions/dead/poses/humanpose_5.png"
+                    ],
+                    "ground_truth": [
+                        "ssd_data_HQ/train/characters/templerun/motions/dead/ground_truth/frame_1.png",
+                        "ssd_data_HQ/train/characters/templerun/motions/dead/ground_truth/frame_2.png",
+                        "ssd_data_HQ/train/characters/templerun/motions/dead/ground_truth/frame_3.png",
+                        "ssd_data_HQ/train/characters/templerun/motions/dead/ground_truth/frame_4.png",
+                        "ssd_data_HQ/train/characters/templerun/motions/dead/ground_truth/frame_5.png"
+                    ]
+                },
+                {
+                    "motion_name": "jump",
+                    "reference": null,
+                    "poses": [
+                        "ssd_data_HQ/train/characters/templerun/motions/jump/poses/humanpose_1.png",
+                        "ssd_data_HQ/train/characters/templerun/motions/jump/poses/humanpose_2.png",
+                        "ssd_data_HQ/train/characters/templerun/motions/jump/poses/humanpose_3.png",
+                        "ssd_data_HQ/train/characters/templerun/motions/jump/poses/humanpose_4.png",
+                        "ssd_data_HQ/train/characters/templerun/motions/jump/poses/humanpose_5.png"
+                    ],
+                    "ground_truth": [
+                        "ssd_data_HQ/train/characters/templerun/motions/jump/ground_truth/frame_1.png",
+                        "ssd_data_HQ/train/characters/templerun/motions/jump/ground_truth/frame_2.png",
+                        "ssd_data_HQ/train/characters/templerun/motions/jump/ground_truth/frame_3.png",
+                        "ssd_data_HQ/train/characters/templerun/motions/jump/ground_truth/frame_4.png",
+                        "ssd_data_HQ/train/characters/templerun/motions/jump/ground_truth/frame_5.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "the_boy",
+            "main_reference": null,
+            "main_reference_pose": "",
+            "motions": [
+                {
+                    "motion_name": "Run",
+                    "reference": null,
+                    "poses": [
+                        "ssd_data_HQ/train/characters/the_boy/motions/Run/poses/humanpose_1.png",
+                        "ssd_data_HQ/train/characters/the_boy/motions/Run/poses/humanpose_2.png",
+                        "ssd_data_HQ/train/characters/the_boy/motions/Run/poses/humanpose_3.png",
+                        "ssd_data_HQ/train/characters/the_boy/motions/Run/poses/humanpose_4.png",
+                        "ssd_data_HQ/train/characters/the_boy/motions/Run/poses/humanpose_5.png",
+                        "ssd_data_HQ/train/characters/the_boy/motions/Run/poses/humanpose_6.png",
+                        "ssd_data_HQ/train/characters/the_boy/motions/Run/poses/humanpose_7.png",
+                        "ssd_data_HQ/train/characters/the_boy/motions/Run/poses/humanpose_8.png",
+                        "ssd_data_HQ/train/characters/the_boy/motions/Run/poses/humanpose_9.png",
+                        "ssd_data_HQ/train/characters/the_boy/motions/Run/poses/humanpose_10.png",
+                        "ssd_data_HQ/train/characters/the_boy/motions/Run/poses/humanpose_11.png",
+                        "ssd_data_HQ/train/characters/the_boy/motions/Run/poses/humanpose_12.png",
+                        "ssd_data_HQ/train/characters/the_boy/motions/Run/poses/humanpose_13.png",
+                        "ssd_data_HQ/train/characters/the_boy/motions/Run/poses/humanpose_14.png"
+                    ],
+                    "ground_truth": [
+                        "ssd_data_HQ/train/characters/the_boy/motions/Run/ground_truth/frame_1.png",
+                        "ssd_data_HQ/train/characters/the_boy/motions/Run/ground_truth/frame_2.png",
+                        "ssd_data_HQ/train/characters/the_boy/motions/Run/ground_truth/frame_3.png",
+                        "ssd_data_HQ/train/characters/the_boy/motions/Run/ground_truth/frame_4.png",
+                        "ssd_data_HQ/train/characters/the_boy/motions/Run/ground_truth/frame_5.png",
+                        "ssd_data_HQ/train/characters/the_boy/motions/Run/ground_truth/frame_6.png",
+                        "ssd_data_HQ/train/characters/the_boy/motions/Run/ground_truth/frame_7.png",
+                        "ssd_data_HQ/train/characters/the_boy/motions/Run/ground_truth/frame_8.png",
+                        "ssd_data_HQ/train/characters/the_boy/motions/Run/ground_truth/frame_9.png",
+                        "ssd_data_HQ/train/characters/the_boy/motions/Run/ground_truth/frame_10.png",
+                        "ssd_data_HQ/train/characters/the_boy/motions/Run/ground_truth/frame_11.png",
+                        "ssd_data_HQ/train/characters/the_boy/motions/Run/ground_truth/frame_12.png",
+                        "ssd_data_HQ/train/characters/the_boy/motions/Run/ground_truth/frame_13.png",
+                        "ssd_data_HQ/train/characters/the_boy/motions/Run/ground_truth/frame_14.png"
+                    ]
+                },
+                {
+                    "motion_name": "Walk",
+                    "reference": null,
+                    "poses": [
+                        "ssd_data_HQ/train/characters/the_boy/motions/Walk/poses/humanpose_1.png",
+                        "ssd_data_HQ/train/characters/the_boy/motions/Walk/poses/humanpose_2.png",
+                        "ssd_data_HQ/train/characters/the_boy/motions/Walk/poses/humanpose_3.png",
+                        "ssd_data_HQ/train/characters/the_boy/motions/Walk/poses/humanpose_4.png",
+                        "ssd_data_HQ/train/characters/the_boy/motions/Walk/poses/humanpose_5.png",
+                        "ssd_data_HQ/train/characters/the_boy/motions/Walk/poses/humanpose_6.png",
+                        "ssd_data_HQ/train/characters/the_boy/motions/Walk/poses/humanpose_7.png",
+                        "ssd_data_HQ/train/characters/the_boy/motions/Walk/poses/humanpose_8.png",
+                        "ssd_data_HQ/train/characters/the_boy/motions/Walk/poses/humanpose_9.png",
+                        "ssd_data_HQ/train/characters/the_boy/motions/Walk/poses/humanpose_10.png",
+                        "ssd_data_HQ/train/characters/the_boy/motions/Walk/poses/humanpose_11.png",
+                        "ssd_data_HQ/train/characters/the_boy/motions/Walk/poses/humanpose_12.png",
+                        "ssd_data_HQ/train/characters/the_boy/motions/Walk/poses/humanpose_13.png",
+                        "ssd_data_HQ/train/characters/the_boy/motions/Walk/poses/humanpose_14.png",
+                        "ssd_data_HQ/train/characters/the_boy/motions/Walk/poses/humanpose_15.png"
+                    ],
+                    "ground_truth": [
+                        "ssd_data_HQ/train/characters/the_boy/motions/Walk/ground_truth/frame_1.png",
+                        "ssd_data_HQ/train/characters/the_boy/motions/Walk/ground_truth/frame_2.png",
+                        "ssd_data_HQ/train/characters/the_boy/motions/Walk/ground_truth/frame_3.png",
+                        "ssd_data_HQ/train/characters/the_boy/motions/Walk/ground_truth/frame_4.png",
+                        "ssd_data_HQ/train/characters/the_boy/motions/Walk/ground_truth/frame_5.png",
+                        "ssd_data_HQ/train/characters/the_boy/motions/Walk/ground_truth/frame_6.png",
+                        "ssd_data_HQ/train/characters/the_boy/motions/Walk/ground_truth/frame_7.png",
+                        "ssd_data_HQ/train/characters/the_boy/motions/Walk/ground_truth/frame_8.png",
+                        "ssd_data_HQ/train/characters/the_boy/motions/Walk/ground_truth/frame_9.png",
+                        "ssd_data_HQ/train/characters/the_boy/motions/Walk/ground_truth/frame_10.png",
+                        "ssd_data_HQ/train/characters/the_boy/motions/Walk/ground_truth/frame_11.png",
+                        "ssd_data_HQ/train/characters/the_boy/motions/Walk/ground_truth/frame_12.png",
+                        "ssd_data_HQ/train/characters/the_boy/motions/Walk/ground_truth/frame_13.png",
+                        "ssd_data_HQ/train/characters/the_boy/motions/Walk/ground_truth/frame_14.png",
+                        "ssd_data_HQ/train/characters/the_boy/motions/Walk/ground_truth/frame_15.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "zombie_female",
+            "main_reference": null,
+            "main_reference_pose": "",
+            "motions": [
+                {
+                    "motion_name": "Dead",
+                    "reference": null,
+                    "poses": [
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Dead/poses/humanpose_1.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Dead/poses/humanpose_2.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Dead/poses/humanpose_3.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Dead/poses/humanpose_4.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Dead/poses/humanpose_5.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Dead/poses/humanpose_6.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Dead/poses/humanpose_7.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Dead/poses/humanpose_8.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Dead/poses/humanpose_9.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Dead/poses/humanpose_10.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Dead/poses/humanpose_11.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Dead/poses/humanpose_12.png"
+                    ],
+                    "ground_truth": [
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Dead/ground_truth/frame_1.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Dead/ground_truth/frame_2.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Dead/ground_truth/frame_3.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Dead/ground_truth/frame_4.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Dead/ground_truth/frame_5.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Dead/ground_truth/frame_6.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Dead/ground_truth/frame_7.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Dead/ground_truth/frame_8.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Dead/ground_truth/frame_9.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Dead/ground_truth/frame_10.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Dead/ground_truth/frame_11.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Dead/ground_truth/frame_12.png"
+                    ]
+                },
+                {
+                    "motion_name": "Idle",
+                    "reference": null,
+                    "poses": [
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Idle/poses/humanpose_1.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Idle/poses/humanpose_2.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Idle/poses/humanpose_3.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Idle/poses/humanpose_4.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Idle/poses/humanpose_5.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Idle/poses/humanpose_6.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Idle/poses/humanpose_7.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Idle/poses/humanpose_8.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Idle/poses/humanpose_9.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Idle/poses/humanpose_10.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Idle/poses/humanpose_11.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Idle/poses/humanpose_12.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Idle/poses/humanpose_13.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Idle/poses/humanpose_14.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Idle/poses/humanpose_15.png"
+                    ],
+                    "ground_truth": [
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Idle/ground_truth/frame_1.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Idle/ground_truth/frame_2.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Idle/ground_truth/frame_3.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Idle/ground_truth/frame_4.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Idle/ground_truth/frame_5.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Idle/ground_truth/frame_6.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Idle/ground_truth/frame_7.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Idle/ground_truth/frame_8.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Idle/ground_truth/frame_9.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Idle/ground_truth/frame_10.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Idle/ground_truth/frame_11.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Idle/ground_truth/frame_12.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Idle/ground_truth/frame_13.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Idle/ground_truth/frame_14.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Idle/ground_truth/frame_15.png"
+                    ]
+                },
+                {
+                    "motion_name": "Walk",
+                    "reference": null,
+                    "poses": [
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Walk/poses/humanpose_1.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Walk/poses/humanpose_2.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Walk/poses/humanpose_3.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Walk/poses/humanpose_4.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Walk/poses/humanpose_5.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Walk/poses/humanpose_6.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Walk/poses/humanpose_7.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Walk/poses/humanpose_8.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Walk/poses/humanpose_9.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Walk/poses/humanpose_10.png"
+                    ],
+                    "ground_truth": [
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Walk/ground_truth/frame_1.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Walk/ground_truth/frame_2.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Walk/ground_truth/frame_3.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Walk/ground_truth/frame_4.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Walk/ground_truth/frame_5.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Walk/ground_truth/frame_6.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Walk/ground_truth/frame_7.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Walk/ground_truth/frame_8.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Walk/ground_truth/frame_9.png",
+                        "ssd_data_HQ/train/characters/zombie_female/motions/Walk/ground_truth/frame_10.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "zombie_finished",
+            "main_reference": null,
+            "main_reference_pose": "",
+            "motions": [
+                {
+                    "motion_name": "Attack",
+                    "reference": null,
+                    "poses": [
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Attack/poses/humanpose_1.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Attack/poses/humanpose_2.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Attack/poses/humanpose_3.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Attack/poses/humanpose_4.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Attack/poses/humanpose_5.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Attack/poses/humanpose_6.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Attack/poses/humanpose_7.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Attack/poses/humanpose_8.png"
+                    ],
+                    "ground_truth": [
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Attack/ground_truth/frame_1.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Attack/ground_truth/frame_2.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Attack/ground_truth/frame_3.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Attack/ground_truth/frame_4.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Attack/ground_truth/frame_5.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Attack/ground_truth/frame_6.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Attack/ground_truth/frame_7.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Attack/ground_truth/frame_8.png"
+                    ]
+                },
+                {
+                    "motion_name": "Idle",
+                    "reference": null,
+                    "poses": [
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Idle/poses/humanpose_1.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Idle/poses/humanpose_2.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Idle/poses/humanpose_3.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Idle/poses/humanpose_4.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Idle/poses/humanpose_5.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Idle/poses/humanpose_6.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Idle/poses/humanpose_7.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Idle/poses/humanpose_8.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Idle/poses/humanpose_9.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Idle/poses/humanpose_10.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Idle/poses/humanpose_11.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Idle/poses/humanpose_12.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Idle/poses/humanpose_13.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Idle/poses/humanpose_14.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Idle/poses/humanpose_15.png"
+                    ],
+                    "ground_truth": [
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Idle/ground_truth/frame_1.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Idle/ground_truth/frame_2.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Idle/ground_truth/frame_3.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Idle/ground_truth/frame_4.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Idle/ground_truth/frame_5.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Idle/ground_truth/frame_6.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Idle/ground_truth/frame_7.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Idle/ground_truth/frame_8.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Idle/ground_truth/frame_9.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Idle/ground_truth/frame_10.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Idle/ground_truth/frame_11.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Idle/ground_truth/frame_12.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Idle/ground_truth/frame_13.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Idle/ground_truth/frame_14.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Idle/ground_truth/frame_15.png"
+                    ]
+                },
+                {
+                    "motion_name": "Walk",
+                    "reference": null,
+                    "poses": [
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Walk/poses/humanpose_1.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Walk/poses/humanpose_2.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Walk/poses/humanpose_3.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Walk/poses/humanpose_4.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Walk/poses/humanpose_5.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Walk/poses/humanpose_6.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Walk/poses/humanpose_7.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Walk/poses/humanpose_8.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Walk/poses/humanpose_9.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Walk/poses/humanpose_10.png"
+                    ],
+                    "ground_truth": [
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Walk/ground_truth/frame_1.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Walk/ground_truth/frame_2.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Walk/ground_truth/frame_3.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Walk/ground_truth/frame_4.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Walk/ground_truth/frame_5.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Walk/ground_truth/frame_6.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Walk/ground_truth/frame_7.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Walk/ground_truth/frame_8.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Walk/ground_truth/frame_9.png",
+                        "ssd_data_HQ/train/characters/zombie_finished/motions/Walk/ground_truth/frame_10.png"
+                    ]
+                }
+            ]
+        }
+    ]
+}

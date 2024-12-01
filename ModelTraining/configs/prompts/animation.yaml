@@ -15,5 +15,15 @@ test_cases:
   #   - "./configs/inference/pose_images/guile"
   # "./configs/inference/ref_images/Alice.png":
   #   - "./configs/inference/pose_images/Alice"
-  "./configs/inference/ref_images/kawa.png":
-    - "./configs/inference/pose_images/kawa"
+  # "./configs/inference/ref_images/kawa.png":
+  #   - "./configs/inference/pose_images/kawa"
+  # "./configs/inference/ref_images/Freeknight.png":
+  #   - "./configs/inference/pose_images/Freeknight"
+  # "./configs/inference/ref_images/William.png":
+  #   - "./configs/inference/pose_images/William"
+  # "./configs/inference/ref_images/cute_girl.png":
+  #   - "./configs/inference/pose_images/cute_girl_jump"
+  # "./configs/inference/ref_images/adventure_girl.png":
+  #   - "./configs/inference/pose_images/adventure_girl_dead"
+  "./configs/inference/ref_images/dog.png":
+    - "./configs/inference/pose_images/dog_fall"

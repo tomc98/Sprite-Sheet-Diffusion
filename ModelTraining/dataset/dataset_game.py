@@ -204,6 +204,7 @@ class GameDataset(Dataset):
             json_path,
             data_path = "",
             extra_json_path=None,
+            sample_n_frames=8,
             sample_size=[512, 512],
             is_image=False, 
             sample_stride_aug=False
@@ -217,6 +218,7 @@ class GameDataset(Dataset):
 
         self.sample_size = sample_size
         self.sample_stride_aug = sample_stride_aug
+        self.sample_n_frames = sample_n_frames
         self.is_image = is_image
 
         # Define transformations
@@ -353,6 +355,13 @@ class GameDataset(Dataset):
             random_idx = random.randint(0, len(pixel_values)-1)
             pixel_values = pixel_values[random_idx]
             pixel_values_pose = pixel_values_pose[random_idx]
+        else:
+            video_length = len(sample_info['ground_truth'])
+            clip_length = min(video_length, (self.sample_n_frames))
+            start_idx   = random.randint(0, video_length - clip_length)
+            batch_index = np.linspace(start_idx, start_idx + clip_length - 1, self.sample_n_frames, dtype=int)
+            pixel_values = pixel_values[start_idx:start_idx + clip_length - 1]
+            pixel_values_pose = pixel_values_pose[start_idx:start_idx + clip_length - 1]
 
         return {
             'pixel_values': pixel_values,  # Ground Truth Images
