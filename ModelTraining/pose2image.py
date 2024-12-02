@@ -192,7 +192,7 @@ def main(cfg):
         logger.info(f"Missing key for pose guider: {len(miss)}")
     else:
         pose_guider = PoseGuiderOrg(
-            conditioning_embedding_channels=320,
+            conditioning_embedding_channels=320, block_out_channels=(16, 32, 96, 256)
         ).to(device="cuda")
     
     # Freeze
@@ -305,7 +305,7 @@ def main(cfg):
     )
 
     train_dataset = GameDataset(**cfg.data, is_image=True)
-    valid_dataset = GameDatasetValid(**cfg.data, is_image=True)
+    valid_dataset = GameDatasetValid(**cfg.val_data, is_image=True)
     train_dataloader = torch.utils.data.DataLoader(
         train_dataset, 
         batch_size=cfg.train_bs, 
@@ -567,7 +567,7 @@ def main(cfg):
                         )
 
             logs = {
-                "step_loss": loss.detach().item(),
+                "c": loss.detach().item(),
                 "lr": lr_scheduler.get_last_lr()[0],
                 "td": f"{t_data:.2f}s",
             }
@@ -682,12 +682,12 @@ def log_validation(
         ref_image_pil = Image.fromarray(sample['pixel_values_ref_img']).convert("RGB")
         pose_image_pil = Image.fromarray(sample['pixel_values_pose']).convert("RGB")
         gt_image_pil = Image.fromarray(sample['pixel_values']).convert("RGB")
-        ref_pose_pil = Image.fromarray(sample['pixel_values_ref_pose']).convert("RGB")
+        # ref_pose_pil = Image.fromarray(sample['pixel_values_ref_pose']).convert("RGB")
 
         image = pipe(
             ref_image_pil,
             pose_image_pil,
-            ref_pose_pil,
+            # ref_pose_pil,
             width,
             height,
             num_inference_steps=25,

@@ -1,24 +1,127 @@
 {
     "characters": [
         {
-            "name": "adventure_girl",
+            "name": "Louis_hand",
             "main_reference": null,
             "main_reference_pose": "",
             "motions": [
                 {
-                    "motion_name": "dead",
-                    "reference": null,
+                    "motion_name": "drink",
+                    "reference": "ssd_data_HQ/test/characters/Louis_hand/motions/drink/reference.png",
                     "poses": [
-                        "ssd_data_HQ/test/characters/adventure_girl/motions/dead/poses/humanpose_1.png",
-                        "ssd_data_HQ/test/characters/adventure_girl/motions/dead/poses/humanpose_2.png",
-                        "ssd_data_HQ/test/characters/adventure_girl/motions/dead/poses/humanpose_3.png",
-                        "ssd_data_HQ/test/characters/adventure_girl/motions/dead/poses/humanpose_4.png"
+                        "ssd_data_HQ/test/characters/Louis_hand/motions/drink/poses/humanpose_0.png",
+                        "ssd_data_HQ/test/characters/Louis_hand/motions/drink/poses/humanpose_1.png",
+                        "ssd_data_HQ/test/characters/Louis_hand/motions/drink/poses/humanpose_2.png"
                     ],
                     "ground_truth": [
-                        "ssd_data_HQ/test/characters/adventure_girl/motions/dead/ground_truth/frame_1.png",
-                        "ssd_data_HQ/test/characters/adventure_girl/motions/dead/ground_truth/frame_2.png",
-                        "ssd_data_HQ/test/characters/adventure_girl/motions/dead/ground_truth/frame_3.png",
-                        "ssd_data_HQ/test/characters/adventure_girl/motions/dead/ground_truth/frame_4.png"
+                        "ssd_data_HQ/test/characters/Louis_hand/motions/drink/ground_truth/frame_0.png",
+                        "ssd_data_HQ/test/characters/Louis_hand/motions/drink/ground_truth/frame_1.png",
+                        "ssd_data_HQ/test/characters/Louis_hand/motions/drink/ground_truth/frame_2.png"
+                    ]
+                },
+                {
+                    "motion_name": "got_hit",
+                    "reference": "ssd_data_HQ/test/characters/Louis_hand/motions/got_hit/reference.png",
+                    "poses": [
+                        "ssd_data_HQ/test/characters/Louis_hand/motions/got_hit/poses/humanpose_0.png",
+                        "ssd_data_HQ/test/characters/Louis_hand/motions/got_hit/poses/humanpose_1.png",
+                        "ssd_data_HQ/test/characters/Louis_hand/motions/got_hit/poses/humanpose_2.png",
+                        "ssd_data_HQ/test/characters/Louis_hand/motions/got_hit/poses/humanpose_3.png",
+                        "ssd_data_HQ/test/characters/Louis_hand/motions/got_hit/poses/humanpose_4.png"
+                    ],
+                    "ground_truth": [
+                        "ssd_data_HQ/test/characters/Louis_hand/motions/got_hit/ground_truth/frame_0.png",
+                        "ssd_data_HQ/test/characters/Louis_hand/motions/got_hit/ground_truth/frame_1.png",
+                        "ssd_data_HQ/test/characters/Louis_hand/motions/got_hit/ground_truth/frame_2.png",
+                        "ssd_data_HQ/test/characters/Louis_hand/motions/got_hit/ground_truth/frame_3.png",
+                        "ssd_data_HQ/test/characters/Louis_hand/motions/got_hit/ground_truth/frame_4.png"
+                    ]
+                },
+                {
+                    "motion_name": "punch",
+                    "reference": "ssd_data_HQ/test/characters/Louis_hand/motions/punch/reference.png",
+                    "poses": [
+                        "ssd_data_HQ/test/characters/Louis_hand/motions/punch/poses/humanpose_0.png",
+                        "ssd_data_HQ/test/characters/Louis_hand/motions/punch/poses/humanpose_1.png",
+                        "ssd_data_HQ/test/characters/Louis_hand/motions/punch/poses/humanpose_2.png",
+                        "ssd_data_HQ/test/characters/Louis_hand/motions/punch/poses/humanpose_3.png"
+                    ],
+                    "ground_truth": [
+                        "ssd_data_HQ/test/characters/Louis_hand/motions/punch/ground_truth/frame_0.png",
+                        "ssd_data_HQ/test/characters/Louis_hand/motions/punch/ground_truth/frame_1.png",
+                        "ssd_data_HQ/test/characters/Louis_hand/motions/punch/ground_truth/frame_2.png",
+                        "ssd_data_HQ/test/characters/Louis_hand/motions/punch/ground_truth/frame_3.png"
+                    ]
+                },
+                {
+                    "motion_name": "weightlifting_walk",
+                    "reference": "ssd_data_HQ/test/characters/Louis_hand/motions/weightlifting_walk/reference.png",
+                    "poses": [
+                        "ssd_data_HQ/test/characters/Louis_hand/motions/weightlifting_walk/poses/humanpose_0.png",
+                        "ssd_data_HQ/test/characters/Louis_hand/motions/weightlifting_walk/poses/humanpose_1.png",
+                        "ssd_data_HQ/test/characters/Louis_hand/motions/weightlifting_walk/poses/humanpose_2.png",
+                        "ssd_data_HQ/test/characters/Louis_hand/motions/weightlifting_walk/poses/humanpose_3.png"
+                    ],
+                    "ground_truth": [
+                        "ssd_data_HQ/test/characters/Louis_hand/motions/weightlifting_walk/ground_truth/frame_0.png",
+                        "ssd_data_HQ/test/characters/Louis_hand/motions/weightlifting_walk/ground_truth/frame_1.png",
+                        "ssd_data_HQ/test/characters/Louis_hand/motions/weightlifting_walk/ground_truth/frame_2.png",
+                        "ssd_data_HQ/test/characters/Louis_hand/motions/weightlifting_walk/ground_truth/frame_3.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Osaka_hand",
+            "main_reference": null,
+            "main_reference_pose": "",
+            "motions": [
+                {
+                    "motion_name": "crunch",
+                    "reference": "ssd_data_HQ/test/characters/Osaka_hand/motions/crunch/reference.png",
+                    "poses": [
+                        "ssd_data_HQ/test/characters/Osaka_hand/motions/crunch/poses/humanpose_0.png",
+                        "ssd_data_HQ/test/characters/Osaka_hand/motions/crunch/poses/humanpose_1.png"
+                    ],
+                    "ground_truth": [
+                        "ssd_data_HQ/test/characters/Osaka_hand/motions/crunch/ground_truth/frame_0.png",
+                        "ssd_data_HQ/test/characters/Osaka_hand/motions/crunch/ground_truth/frame_1.png"
+                    ]
+                },
+                {
+                    "motion_name": "dash",
+                    "reference": "ssd_data_HQ/test/characters/Osaka_hand/motions/dash/reference.png",
+                    "poses": [
+                        "ssd_data_HQ/test/characters/Osaka_hand/motions/dash/poses/humanpose_0.png",
+                        "ssd_data_HQ/test/characters/Osaka_hand/motions/dash/poses/humanpose_1.png",
+                        "ssd_data_HQ/test/characters/Osaka_hand/motions/dash/poses/humanpose_2.png",
+                        "ssd_data_HQ/test/characters/Osaka_hand/motions/dash/poses/humanpose_3.png"
+                    ],
+                    "ground_truth": [
+                        "ssd_data_HQ/test/characters/Osaka_hand/motions/dash/ground_truth/frame_0.png",
+                        "ssd_data_HQ/test/characters/Osaka_hand/motions/dash/ground_truth/frame_1.png",
+                        "ssd_data_HQ/test/characters/Osaka_hand/motions/dash/ground_truth/frame_2.png",
+                        "ssd_data_HQ/test/characters/Osaka_hand/motions/dash/ground_truth/frame_3.png"
+                    ]
+                },
+                {
+                    "motion_name": "walk",
+                    "reference": "ssd_data_HQ/test/characters/Osaka_hand/motions/walk/reference.png",
+                    "poses": [
+                        "ssd_data_HQ/test/characters/Osaka_hand/motions/walk/poses/humanpose_0.png",
+                        "ssd_data_HQ/test/characters/Osaka_hand/motions/walk/poses/humanpose_1.png",
+                        "ssd_data_HQ/test/characters/Osaka_hand/motions/walk/poses/humanpose_2.png",
+                        "ssd_data_HQ/test/characters/Osaka_hand/motions/walk/poses/humanpose_3.png",
+                        "ssd_data_HQ/test/characters/Osaka_hand/motions/walk/poses/humanpose_4.png",
+                        "ssd_data_HQ/test/characters/Osaka_hand/motions/walk/poses/humanpose_5.png"
+                    ],
+                    "ground_truth": [
+                        "ssd_data_HQ/test/characters/Osaka_hand/motions/walk/ground_truth/frame_0.png",
+                        "ssd_data_HQ/test/characters/Osaka_hand/motions/walk/ground_truth/frame_1.png",
+                        "ssd_data_HQ/test/characters/Osaka_hand/motions/walk/ground_truth/frame_2.png",
+                        "ssd_data_HQ/test/characters/Osaka_hand/motions/walk/ground_truth/frame_3.png",
+                        "ssd_data_HQ/test/characters/Osaka_hand/motions/walk/ground_truth/frame_4.png",
+                        "ssd_data_HQ/test/characters/Osaka_hand/motions/walk/ground_truth/frame_5.png"
                     ]
                 }
             ]
@@ -28,58 +131,6 @@
             "main_reference": null,
             "main_reference_pose": "",
             "motions": [
-                {
-                    "motion_name": "Dead",
-                    "reference": null,
-                    "poses": [
-                        "ssd_data_HQ/test/characters/cat_finished/motions/Dead/poses/humanpose_1.png",
-                        "ssd_data_HQ/test/characters/cat_finished/motions/Dead/poses/humanpose_2.png",
-                        "ssd_data_HQ/test/characters/cat_finished/motions/Dead/poses/humanpose_3.png",
-                        "ssd_data_HQ/test/characters/cat_finished/motions/Dead/poses/humanpose_4.png",
-                        "ssd_data_HQ/test/characters/cat_finished/motions/Dead/poses/humanpose_5.png",
-                        "ssd_data_HQ/test/characters/cat_finished/motions/Dead/poses/humanpose_6.png",
-                        "ssd_data_HQ/test/characters/cat_finished/motions/Dead/poses/humanpose_7.png",
-                        "ssd_data_HQ/test/characters/cat_finished/motions/Dead/poses/humanpose_8.png",
-                        "ssd_data_HQ/test/characters/cat_finished/motions/Dead/poses/humanpose_9.png",
-                        "ssd_data_HQ/test/characters/cat_finished/motions/Dead/poses/humanpose_10.png"
-                    ],
-                    "ground_truth": [
-                        "ssd_data_HQ/test/characters/cat_finished/motions/Dead/ground_truth/frame_1.png",
-                        "ssd_data_HQ/test/characters/cat_finished/motions/Dead/ground_truth/frame_2.png",
-                        "ssd_data_HQ/test/characters/cat_finished/motions/Dead/ground_truth/frame_3.png",
-                        "ssd_data_HQ/test/characters/cat_finished/motions/Dead/ground_truth/frame_4.png",
-                        "ssd_data_HQ/test/characters/cat_finished/motions/Dead/ground_truth/frame_5.png",
-                        "ssd_data_HQ/test/characters/cat_finished/motions/Dead/ground_truth/frame_6.png",
-                        "ssd_data_HQ/test/characters/cat_finished/motions/Dead/ground_truth/frame_7.png",
-                        "ssd_data_HQ/test/characters/cat_finished/motions/Dead/ground_truth/frame_8.png",
-                        "ssd_data_HQ/test/characters/cat_finished/motions/Dead/ground_truth/frame_9.png",
-                        "ssd_data_HQ/test/characters/cat_finished/motions/Dead/ground_truth/frame_10.png"
-                    ]
-                },
-                {
-                    "motion_name": "Fall",
-                    "reference": null,
-                    "poses": [
-                        "ssd_data_HQ/test/characters/cat_finished/motions/Fall/poses/humanpose_1.png",
-                        "ssd_data_HQ/test/characters/cat_finished/motions/Fall/poses/humanpose_2.png",
-                        "ssd_data_HQ/test/characters/cat_finished/motions/Fall/poses/humanpose_3.png",
-                        "ssd_data_HQ/test/characters/cat_finished/motions/Fall/poses/humanpose_4.png",
-                        "ssd_data_HQ/test/characters/cat_finished/motions/Fall/poses/humanpose_5.png",
-                        "ssd_data_HQ/test/characters/cat_finished/motions/Fall/poses/humanpose_6.png",
-                        "ssd_data_HQ/test/characters/cat_finished/motions/Fall/poses/humanpose_7.png",
-                        "ssd_data_HQ/test/characters/cat_finished/motions/Fall/poses/humanpose_8.png"
-                    ],
-                    "ground_truth": [
-                        "ssd_data_HQ/test/characters/cat_finished/motions/Fall/ground_truth/frame_1.png",
-                        "ssd_data_HQ/test/characters/cat_finished/motions/Fall/ground_truth/frame_2.png",
-                        "ssd_data_HQ/test/characters/cat_finished/motions/Fall/ground_truth/frame_3.png",
-                        "ssd_data_HQ/test/characters/cat_finished/motions/Fall/ground_truth/frame_4.png",
-                        "ssd_data_HQ/test/characters/cat_finished/motions/Fall/ground_truth/frame_5.png",
-                        "ssd_data_HQ/test/characters/cat_finished/motions/Fall/ground_truth/frame_6.png",
-                        "ssd_data_HQ/test/characters/cat_finished/motions/Fall/ground_truth/frame_7.png",
-                        "ssd_data_HQ/test/characters/cat_finished/motions/Fall/ground_truth/frame_8.png"
-                    ]
-                },
                 {
                     "motion_name": "Hurt",
                     "reference": null,
@@ -137,86 +188,64 @@
                     ]
                 },
                 {
-                    "motion_name": "Run",
+                    "motion_name": "Jump",
                     "reference": null,
                     "poses": [
-                        "ssd_data_HQ/test/characters/cat_finished/motions/Run/poses/humanpose_1.png",
-                        "ssd_data_HQ/test/characters/cat_finished/motions/Run/poses/humanpose_2.png",
-                        "ssd_data_HQ/test/characters/cat_finished/motions/Run/poses/humanpose_3.png",
-                        "ssd_data_HQ/test/characters/cat_finished/motions/Run/poses/humanpose_4.png",
-                        "ssd_data_HQ/test/characters/cat_finished/motions/Run/poses/humanpose_5.png",
-                        "ssd_data_HQ/test/characters/cat_finished/motions/Run/poses/humanpose_6.png",
-                        "ssd_data_HQ/test/characters/cat_finished/motions/Run/poses/humanpose_7.png",
-                        "ssd_data_HQ/test/characters/cat_finished/motions/Run/poses/humanpose_8.png"
+                        "ssd_data_HQ/test/characters/cat_finished/motions/Jump/poses/humanpose_1.png",
+                        "ssd_data_HQ/test/characters/cat_finished/motions/Jump/poses/humanpose_2.png",
+                        "ssd_data_HQ/test/characters/cat_finished/motions/Jump/poses/humanpose_3.png",
+                        "ssd_data_HQ/test/characters/cat_finished/motions/Jump/poses/humanpose_4.png",
+                        "ssd_data_HQ/test/characters/cat_finished/motions/Jump/poses/humanpose_5.png",
+                        "ssd_data_HQ/test/characters/cat_finished/motions/Jump/poses/humanpose_6.png",
+                        "ssd_data_HQ/test/characters/cat_finished/motions/Jump/poses/humanpose_7.png",
+                        "ssd_data_HQ/test/characters/cat_finished/motions/Jump/poses/humanpose_8.png"
                     ],
                     "ground_truth": [
-                        "ssd_data_HQ/test/characters/cat_finished/motions/Run/ground_truth/frame_1.png",
-                        "ssd_data_HQ/test/characters/cat_finished/motions/Run/ground_truth/frame_2.png",
-                        "ssd_data_HQ/test/characters/cat_finished/motions/Run/ground_truth/frame_3.png",
-                        "ssd_data_HQ/test/characters/cat_finished/motions/Run/ground_truth/frame_4.png",
-                        "ssd_data_HQ/test/characters/cat_finished/motions/Run/ground_truth/frame_5.png",
-                        "ssd_data_HQ/test/characters/cat_finished/motions/Run/ground_truth/frame_6.png",
-                        "ssd_data_HQ/test/characters/cat_finished/motions/Run/ground_truth/frame_7.png",
-                        "ssd_data_HQ/test/characters/cat_finished/motions/Run/ground_truth/frame_8.png"
+                        "ssd_data_HQ/test/characters/cat_finished/motions/Jump/ground_truth/frame_1.png",
+                        "ssd_data_HQ/test/characters/cat_finished/motions/Jump/ground_truth/frame_2.png",
+                        "ssd_data_HQ/test/characters/cat_finished/motions/Jump/ground_truth/frame_3.png",
+                        "ssd_data_HQ/test/characters/cat_finished/motions/Jump/ground_truth/frame_4.png",
+                        "ssd_data_HQ/test/characters/cat_finished/motions/Jump/ground_truth/frame_5.png",
+                        "ssd_data_HQ/test/characters/cat_finished/motions/Jump/ground_truth/frame_6.png",
+                        "ssd_data_HQ/test/characters/cat_finished/motions/Jump/ground_truth/frame_7.png",
+                        "ssd_data_HQ/test/characters/cat_finished/motions/Jump/ground_truth/frame_8.png"
                     ]
-                }
-            ]
-        },
-        {
-            "name": "cute_dino",
-            "main_reference": null,
-            "main_reference_pose": "",
-            "motions": [
+                },
                 {
                     "motion_name": "Walk",
                     "reference": null,
                     "poses": [
-                        "ssd_data_HQ/test/characters/cute_dino/motions/Walk/poses/humanpose_1.png",
-                        "ssd_data_HQ/test/characters/cute_dino/motions/Walk/poses/humanpose_2.png",
-                        "ssd_data_HQ/test/characters/cute_dino/motions/Walk/poses/humanpose_3.png",
-                        "ssd_data_HQ/test/characters/cute_dino/motions/Walk/poses/humanpose_4.png",
-                        "ssd_data_HQ/test/characters/cute_dino/motions/Walk/poses/humanpose_5.png",
-                        "ssd_data_HQ/test/characters/cute_dino/motions/Walk/poses/humanpose_6.png",
-                        "ssd_data_HQ/test/characters/cute_dino/motions/Walk/poses/humanpose_7.png"
+                        "ssd_data_HQ/test/characters/cat_finished/motions/Walk/poses/humanpose_1.png",
+                        "ssd_data_HQ/test/characters/cat_finished/motions/Walk/poses/humanpose_2.png",
+                        "ssd_data_HQ/test/characters/cat_finished/motions/Walk/poses/humanpose_3.png",
+                        "ssd_data_HQ/test/characters/cat_finished/motions/Walk/poses/humanpose_4.png",
+                        "ssd_data_HQ/test/characters/cat_finished/motions/Walk/poses/humanpose_5.png",
+                        "ssd_data_HQ/test/characters/cat_finished/motions/Walk/poses/humanpose_6.png",
+                        "ssd_data_HQ/test/characters/cat_finished/motions/Walk/poses/humanpose_7.png",
+                        "ssd_data_HQ/test/characters/cat_finished/motions/Walk/poses/humanpose_8.png",
+                        "ssd_data_HQ/test/characters/cat_finished/motions/Walk/poses/humanpose_9.png",
+                        "ssd_data_HQ/test/characters/cat_finished/motions/Walk/poses/humanpose_10.png"
                     ],
                     "ground_truth": [
-                        "ssd_data_HQ/test/characters/cute_dino/motions/Walk/ground_truth/frame_1.png",
-                        "ssd_data_HQ/test/characters/cute_dino/motions/Walk/ground_truth/frame_2.png",
-                        "ssd_data_HQ/test/characters/cute_dino/motions/Walk/ground_truth/frame_3.png",
-                        "ssd_data_HQ/test/characters/cute_dino/motions/Walk/ground_truth/frame_4.png",
-                        "ssd_data_HQ/test/characters/cute_dino/motions/Walk/ground_truth/frame_5.png",
-                        "ssd_data_HQ/test/characters/cute_dino/motions/Walk/ground_truth/frame_6.png",
-                        "ssd_data_HQ/test/characters/cute_dino/motions/Walk/ground_truth/frame_7.png"
+                        "ssd_data_HQ/test/characters/cat_finished/motions/Walk/ground_truth/frame_1.png",
+                        "ssd_data_HQ/test/characters/cat_finished/motions/Walk/ground_truth/frame_2.png",
+                        "ssd_data_HQ/test/characters/cat_finished/motions/Walk/ground_truth/frame_3.png",
+                        "ssd_data_HQ/test/characters/cat_finished/motions/Walk/ground_truth/frame_4.png",
+                        "ssd_data_HQ/test/characters/cat_finished/motions/Walk/ground_truth/frame_5.png",
+                        "ssd_data_HQ/test/characters/cat_finished/motions/Walk/ground_truth/frame_6.png",
+                        "ssd_data_HQ/test/characters/cat_finished/motions/Walk/ground_truth/frame_7.png",
+                        "ssd_data_HQ/test/characters/cat_finished/motions/Walk/ground_truth/frame_8.png",
+                        "ssd_data_HQ/test/characters/cat_finished/motions/Walk/ground_truth/frame_9.png",
+                        "ssd_data_HQ/test/characters/cat_finished/motions/Walk/ground_truth/frame_10.png"
                     ]
                 }
             ]
         },
         {
-            "name": "cute_girl",
+            "name": "characters",
             "main_reference": null,
             "main_reference_pose": "",
-            "motions": [
-                {
-                    "motion_name": "Jump",
-                    "reference": null,
-                    "poses": [
-                        "ssd_data_HQ/test/characters/cute_girl/motions/Jump/poses/humanpose_1.png",
-                        "ssd_data_HQ/test/characters/cute_girl/motions/Jump/poses/humanpose_2.png",
-                        "ssd_data_HQ/test/characters/cute_girl/motions/Jump/poses/humanpose_3.png",
-                        "ssd_data_HQ/test/characters/cute_girl/motions/Jump/poses/humanpose_4.png",
-                        "ssd_data_HQ/test/characters/cute_girl/motions/Jump/poses/humanpose_5.png",
-                        "ssd_data_HQ/test/characters/cute_girl/motions/Jump/poses/humanpose_6.png"
-                    ],
-                    "ground_truth": [
-                        "ssd_data_HQ/test/characters/cute_girl/motions/Jump/ground_truth/frame_1.png",
-                        "ssd_data_HQ/test/characters/cute_girl/motions/Jump/ground_truth/frame_2.png",
-                        "ssd_data_HQ/test/characters/cute_girl/motions/Jump/ground_truth/frame_3.png",
-                        "ssd_data_HQ/test/characters/cute_girl/motions/Jump/ground_truth/frame_4.png",
-                        "ssd_data_HQ/test/characters/cute_girl/motions/Jump/ground_truth/frame_5.png",
-                        "ssd_data_HQ/test/characters/cute_girl/motions/Jump/ground_truth/frame_6.png"
-                    ]
-                }
-            ]
+            "motions": []
         },
         {
             "name": "dog_finished",
@@ -252,34 +281,6 @@
                     ]
                 },
                 {
-                    "motion_name": "Hurt",
-                    "reference": null,
-                    "poses": [
-                        "ssd_data_HQ/test/characters/dog_finished/motions/Hurt/poses/humanpose_1.png",
-                        "ssd_data_HQ/test/characters/dog_finished/motions/Hurt/poses/humanpose_2.png",
-                        "ssd_data_HQ/test/characters/dog_finished/motions/Hurt/poses/humanpose_3.png",
-                        "ssd_data_HQ/test/characters/dog_finished/motions/Hurt/poses/humanpose_4.png",
-                        "ssd_data_HQ/test/characters/dog_finished/motions/Hurt/poses/humanpose_5.png",
-                        "ssd_data_HQ/test/characters/dog_finished/motions/Hurt/poses/humanpose_6.png",
-                        "ssd_data_HQ/test/characters/dog_finished/motions/Hurt/poses/humanpose_7.png",
-                        "ssd_data_HQ/test/characters/dog_finished/motions/Hurt/poses/humanpose_8.png",
-                        "ssd_data_HQ/test/characters/dog_finished/motions/Hurt/poses/humanpose_9.png",
-                        "ssd_data_HQ/test/characters/dog_finished/motions/Hurt/poses/humanpose_10.png"
-                    ],
-                    "ground_truth": [
-                        "ssd_data_HQ/test/characters/dog_finished/motions/Hurt/ground_truth/frame_1.png",
-                        "ssd_data_HQ/test/characters/dog_finished/motions/Hurt/ground_truth/frame_2.png",
-                        "ssd_data_HQ/test/characters/dog_finished/motions/Hurt/ground_truth/frame_3.png",
-                        "ssd_data_HQ/test/characters/dog_finished/motions/Hurt/ground_truth/frame_4.png",
-                        "ssd_data_HQ/test/characters/dog_finished/motions/Hurt/ground_truth/frame_5.png",
-                        "ssd_data_HQ/test/characters/dog_finished/motions/Hurt/ground_truth/frame_6.png",
-                        "ssd_data_HQ/test/characters/dog_finished/motions/Hurt/ground_truth/frame_7.png",
-                        "ssd_data_HQ/test/characters/dog_finished/motions/Hurt/ground_truth/frame_8.png",
-                        "ssd_data_HQ/test/characters/dog_finished/motions/Hurt/ground_truth/frame_9.png",
-                        "ssd_data_HQ/test/characters/dog_finished/motions/Hurt/ground_truth/frame_10.png"
-                    ]
-                },
-                {
                     "motion_name": "Idle",
                     "reference": null,
                     "poses": [
@@ -308,30 +309,6 @@
                     ]
                 },
                 {
-                    "motion_name": "Jump",
-                    "reference": null,
-                    "poses": [
-                        "ssd_data_HQ/test/characters/dog_finished/motions/Jump/poses/humanpose_1.png",
-                        "ssd_data_HQ/test/characters/dog_finished/motions/Jump/poses/humanpose_2.png",
-                        "ssd_data_HQ/test/characters/dog_finished/motions/Jump/poses/humanpose_3.png",
-                        "ssd_data_HQ/test/characters/dog_finished/motions/Jump/poses/humanpose_4.png",
-                        "ssd_data_HQ/test/characters/dog_finished/motions/Jump/poses/humanpose_5.png",
-                        "ssd_data_HQ/test/characters/dog_finished/motions/Jump/poses/humanpose_6.png",
-                        "ssd_data_HQ/test/characters/dog_finished/motions/Jump/poses/humanpose_7.png",
-                        "ssd_data_HQ/test/characters/dog_finished/motions/Jump/poses/humanpose_8.png"
-                    ],
-                    "ground_truth": [
-                        "ssd_data_HQ/test/characters/dog_finished/motions/Jump/ground_truth/frame_1.png",
-                        "ssd_data_HQ/test/characters/dog_finished/motions/Jump/ground_truth/frame_2.png",
-                        "ssd_data_HQ/test/characters/dog_finished/motions/Jump/ground_truth/frame_3.png",
-                        "ssd_data_HQ/test/characters/dog_finished/motions/Jump/ground_truth/frame_4.png",
-                        "ssd_data_HQ/test/characters/dog_finished/motions/Jump/ground_truth/frame_5.png",
-                        "ssd_data_HQ/test/characters/dog_finished/motions/Jump/ground_truth/frame_6.png",
-                        "ssd_data_HQ/test/characters/dog_finished/motions/Jump/ground_truth/frame_7.png",
-                        "ssd_data_HQ/test/characters/dog_finished/motions/Jump/ground_truth/frame_8.png"
-                    ]
-                },
-                {
                     "motion_name": "Run",
                     "reference": null,
                     "poses": [
@@ -354,6 +331,34 @@
                         "ssd_data_HQ/test/characters/dog_finished/motions/Run/ground_truth/frame_7.png",
                         "ssd_data_HQ/test/characters/dog_finished/motions/Run/ground_truth/frame_8.png"
                     ]
+                },
+                {
+                    "motion_name": "Slide",
+                    "reference": null,
+                    "poses": [
+                        "ssd_data_HQ/test/characters/dog_finished/motions/Slide/poses/humanpose_1.png",
+                        "ssd_data_HQ/test/characters/dog_finished/motions/Slide/poses/humanpose_2.png",
+                        "ssd_data_HQ/test/characters/dog_finished/motions/Slide/poses/humanpose_3.png",
+                        "ssd_data_HQ/test/characters/dog_finished/motions/Slide/poses/humanpose_4.png",
+                        "ssd_data_HQ/test/characters/dog_finished/motions/Slide/poses/humanpose_5.png",
+                        "ssd_data_HQ/test/characters/dog_finished/motions/Slide/poses/humanpose_6.png",
+                        "ssd_data_HQ/test/characters/dog_finished/motions/Slide/poses/humanpose_7.png",
+                        "ssd_data_HQ/test/characters/dog_finished/motions/Slide/poses/humanpose_8.png",
+                        "ssd_data_HQ/test/characters/dog_finished/motions/Slide/poses/humanpose_9.png",
+                        "ssd_data_HQ/test/characters/dog_finished/motions/Slide/poses/humanpose_10.png"
+                    ],
+                    "ground_truth": [
+                        "ssd_data_HQ/test/characters/dog_finished/motions/Slide/ground_truth/frame_1.png",
+                        "ssd_data_HQ/test/characters/dog_finished/motions/Slide/ground_truth/frame_2.png",
+                        "ssd_data_HQ/test/characters/dog_finished/motions/Slide/ground_truth/frame_3.png",
+                        "ssd_data_HQ/test/characters/dog_finished/motions/Slide/ground_truth/frame_4.png",
+                        "ssd_data_HQ/test/characters/dog_finished/motions/Slide/ground_truth/frame_5.png",
+                        "ssd_data_HQ/test/characters/dog_finished/motions/Slide/ground_truth/frame_6.png",
+                        "ssd_data_HQ/test/characters/dog_finished/motions/Slide/ground_truth/frame_7.png",
+                        "ssd_data_HQ/test/characters/dog_finished/motions/Slide/ground_truth/frame_8.png",
+                        "ssd_data_HQ/test/characters/dog_finished/motions/Slide/ground_truth/frame_9.png",
+                        "ssd_data_HQ/test/characters/dog_finished/motions/Slide/ground_truth/frame_10.png"
+                    ]
                 }
             ]
         },
@@ -362,6 +367,34 @@
             "main_reference": null,
             "main_reference_pose": "",
             "motions": [
+                {
+                    "motion_name": "Attack",
+                    "reference": null,
+                    "poses": [
+                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Attack/poses/humanpose_1.png",
+                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Attack/poses/humanpose_2.png",
+                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Attack/poses/humanpose_3.png",
+                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Attack/poses/humanpose_4.png",
+                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Attack/poses/humanpose_5.png",
+                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Attack/poses/humanpose_6.png",
+                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Attack/poses/humanpose_7.png",
+                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Attack/poses/humanpose_8.png",
+                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Attack/poses/humanpose_9.png",
+                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Attack/poses/humanpose_10.png"
+                    ],
+                    "ground_truth": [
+                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Attack/ground_truth/frame_1.png",
+                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Attack/ground_truth/frame_2.png",
+                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Attack/ground_truth/frame_3.png",
+                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Attack/ground_truth/frame_4.png",
+                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Attack/ground_truth/frame_5.png",
+                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Attack/ground_truth/frame_6.png",
+                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Attack/ground_truth/frame_7.png",
+                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Attack/ground_truth/frame_8.png",
+                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Attack/ground_truth/frame_9.png",
+                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Attack/ground_truth/frame_10.png"
+                    ]
+                },
                 {
                     "motion_name": "Dead",
                     "reference": null,
@@ -391,87 +424,31 @@
                     ]
                 },
                 {
-                    "motion_name": "Idle",
+                    "motion_name": "Jump",
                     "reference": null,
                     "poses": [
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Idle/poses/humanpose_1.png",
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Idle/poses/humanpose_2.png",
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Idle/poses/humanpose_3.png",
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Idle/poses/humanpose_4.png",
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Idle/poses/humanpose_5.png",
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Idle/poses/humanpose_6.png",
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Idle/poses/humanpose_7.png",
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Idle/poses/humanpose_8.png",
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Idle/poses/humanpose_9.png",
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Idle/poses/humanpose_10.png"
+                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Jump/poses/humanpose_1.png",
+                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Jump/poses/humanpose_2.png",
+                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Jump/poses/humanpose_3.png",
+                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Jump/poses/humanpose_4.png",
+                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Jump/poses/humanpose_5.png",
+                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Jump/poses/humanpose_6.png",
+                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Jump/poses/humanpose_7.png",
+                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Jump/poses/humanpose_8.png",
+                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Jump/poses/humanpose_9.png",
+                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Jump/poses/humanpose_10.png"
                     ],
                     "ground_truth": [
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Idle/ground_truth/frame_1.png",
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Idle/ground_truth/frame_2.png",
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Idle/ground_truth/frame_3.png",
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Idle/ground_truth/frame_4.png",
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Idle/ground_truth/frame_5.png",
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Idle/ground_truth/frame_6.png",
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Idle/ground_truth/frame_7.png",
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Idle/ground_truth/frame_8.png",
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Idle/ground_truth/frame_9.png",
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Idle/ground_truth/frame_10.png"
-                    ]
-                },
-                {
-                    "motion_name": "JumpAttack",
-                    "reference": null,
-                    "poses": [
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/JumpAttack/poses/humanpose_1.png",
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/JumpAttack/poses/humanpose_2.png",
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/JumpAttack/poses/humanpose_3.png",
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/JumpAttack/poses/humanpose_4.png",
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/JumpAttack/poses/humanpose_5.png",
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/JumpAttack/poses/humanpose_6.png",
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/JumpAttack/poses/humanpose_7.png",
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/JumpAttack/poses/humanpose_8.png",
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/JumpAttack/poses/humanpose_9.png",
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/JumpAttack/poses/humanpose_10.png"
-                    ],
-                    "ground_truth": [
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/JumpAttack/ground_truth/frame_1.png",
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/JumpAttack/ground_truth/frame_2.png",
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/JumpAttack/ground_truth/frame_3.png",
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/JumpAttack/ground_truth/frame_4.png",
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/JumpAttack/ground_truth/frame_5.png",
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/JumpAttack/ground_truth/frame_6.png",
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/JumpAttack/ground_truth/frame_7.png",
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/JumpAttack/ground_truth/frame_8.png",
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/JumpAttack/ground_truth/frame_9.png",
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/JumpAttack/ground_truth/frame_10.png"
-                    ]
-                },
-                {
-                    "motion_name": "Walk",
-                    "reference": null,
-                    "poses": [
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Walk/poses/humanpose_1.png",
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Walk/poses/humanpose_2.png",
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Walk/poses/humanpose_3.png",
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Walk/poses/humanpose_4.png",
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Walk/poses/humanpose_5.png",
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Walk/poses/humanpose_6.png",
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Walk/poses/humanpose_7.png",
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Walk/poses/humanpose_8.png",
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Walk/poses/humanpose_9.png",
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Walk/poses/humanpose_10.png"
-                    ],
-                    "ground_truth": [
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Walk/ground_truth/frame_1.png",
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Walk/ground_truth/frame_2.png",
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Walk/ground_truth/frame_3.png",
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Walk/ground_truth/frame_4.png",
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Walk/ground_truth/frame_5.png",
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Walk/ground_truth/frame_6.png",
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Walk/ground_truth/frame_7.png",
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Walk/ground_truth/frame_8.png",
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Walk/ground_truth/frame_9.png",
-                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Walk/ground_truth/frame_10.png"
+                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Jump/ground_truth/frame_1.png",
+                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Jump/ground_truth/frame_2.png",
+                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Jump/ground_truth/frame_3.png",
+                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Jump/ground_truth/frame_4.png",
+                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Jump/ground_truth/frame_5.png",
+                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Jump/ground_truth/frame_6.png",
+                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Jump/ground_truth/frame_7.png",
+                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Jump/ground_truth/frame_8.png",
+                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Jump/ground_truth/frame_9.png",
+                        "ssd_data_HQ/test/characters/freeknight_finished/motions/Jump/ground_truth/frame_10.png"
                     ]
                 }
             ]
@@ -510,130 +487,31 @@
                     ]
                 },
                 {
-                    "motion_name": "Run",
+                    "motion_name": "Walk",
                     "reference": null,
                     "poses": [
-                        "ssd_data_HQ/test/characters/jackfree_finished/motions/Run/poses/humanpose_1.png",
-                        "ssd_data_HQ/test/characters/jackfree_finished/motions/Run/poses/humanpose_2.png",
-                        "ssd_data_HQ/test/characters/jackfree_finished/motions/Run/poses/humanpose_3.png",
-                        "ssd_data_HQ/test/characters/jackfree_finished/motions/Run/poses/humanpose_4.png",
-                        "ssd_data_HQ/test/characters/jackfree_finished/motions/Run/poses/humanpose_5.png",
-                        "ssd_data_HQ/test/characters/jackfree_finished/motions/Run/poses/humanpose_6.png",
-                        "ssd_data_HQ/test/characters/jackfree_finished/motions/Run/poses/humanpose_7.png",
-                        "ssd_data_HQ/test/characters/jackfree_finished/motions/Run/poses/humanpose_8.png"
+                        "ssd_data_HQ/test/characters/jackfree_finished/motions/Walk/poses/humanpose_1.png",
+                        "ssd_data_HQ/test/characters/jackfree_finished/motions/Walk/poses/humanpose_2.png",
+                        "ssd_data_HQ/test/characters/jackfree_finished/motions/Walk/poses/humanpose_3.png",
+                        "ssd_data_HQ/test/characters/jackfree_finished/motions/Walk/poses/humanpose_4.png",
+                        "ssd_data_HQ/test/characters/jackfree_finished/motions/Walk/poses/humanpose_5.png",
+                        "ssd_data_HQ/test/characters/jackfree_finished/motions/Walk/poses/humanpose_6.png",
+                        "ssd_data_HQ/test/characters/jackfree_finished/motions/Walk/poses/humanpose_7.png",
+                        "ssd_data_HQ/test/characters/jackfree_finished/motions/Walk/poses/humanpose_8.png",
+                        "ssd_data_HQ/test/characters/jackfree_finished/motions/Walk/poses/humanpose_9.png",
+                        "ssd_data_HQ/test/characters/jackfree_finished/motions/Walk/poses/humanpose_10.png"
                     ],
                     "ground_truth": [
-                        "ssd_data_HQ/test/characters/jackfree_finished/motions/Run/ground_truth/frame_1.png",
-                        "ssd_data_HQ/test/characters/jackfree_finished/motions/Run/ground_truth/frame_2.png",
-                        "ssd_data_HQ/test/characters/jackfree_finished/motions/Run/ground_truth/frame_3.png",
-                        "ssd_data_HQ/test/characters/jackfree_finished/motions/Run/ground_truth/frame_4.png",
-                        "ssd_data_HQ/test/characters/jackfree_finished/motions/Run/ground_truth/frame_5.png",
-                        "ssd_data_HQ/test/characters/jackfree_finished/motions/Run/ground_truth/frame_6.png",
-                        "ssd_data_HQ/test/characters/jackfree_finished/motions/Run/ground_truth/frame_7.png",
-                        "ssd_data_HQ/test/characters/jackfree_finished/motions/Run/ground_truth/frame_8.png"
-                    ]
-                },
-                {
-                    "motion_name": "Slide",
-                    "reference": null,
-                    "poses": [
-                        "ssd_data_HQ/test/characters/jackfree_finished/motions/Slide/poses/humanpose_1.png",
-                        "ssd_data_HQ/test/characters/jackfree_finished/motions/Slide/poses/humanpose_2.png",
-                        "ssd_data_HQ/test/characters/jackfree_finished/motions/Slide/poses/humanpose_3.png",
-                        "ssd_data_HQ/test/characters/jackfree_finished/motions/Slide/poses/humanpose_4.png",
-                        "ssd_data_HQ/test/characters/jackfree_finished/motions/Slide/poses/humanpose_5.png",
-                        "ssd_data_HQ/test/characters/jackfree_finished/motions/Slide/poses/humanpose_6.png",
-                        "ssd_data_HQ/test/characters/jackfree_finished/motions/Slide/poses/humanpose_7.png",
-                        "ssd_data_HQ/test/characters/jackfree_finished/motions/Slide/poses/humanpose_8.png",
-                        "ssd_data_HQ/test/characters/jackfree_finished/motions/Slide/poses/humanpose_9.png",
-                        "ssd_data_HQ/test/characters/jackfree_finished/motions/Slide/poses/humanpose_10.png"
-                    ],
-                    "ground_truth": [
-                        "ssd_data_HQ/test/characters/jackfree_finished/motions/Slide/ground_truth/frame_1.png",
-                        "ssd_data_HQ/test/characters/jackfree_finished/motions/Slide/ground_truth/frame_2.png",
-                        "ssd_data_HQ/test/characters/jackfree_finished/motions/Slide/ground_truth/frame_3.png",
-                        "ssd_data_HQ/test/characters/jackfree_finished/motions/Slide/ground_truth/frame_4.png",
-                        "ssd_data_HQ/test/characters/jackfree_finished/motions/Slide/ground_truth/frame_5.png",
-                        "ssd_data_HQ/test/characters/jackfree_finished/motions/Slide/ground_truth/frame_6.png",
-                        "ssd_data_HQ/test/characters/jackfree_finished/motions/Slide/ground_truth/frame_7.png",
-                        "ssd_data_HQ/test/characters/jackfree_finished/motions/Slide/ground_truth/frame_8.png",
-                        "ssd_data_HQ/test/characters/jackfree_finished/motions/Slide/ground_truth/frame_9.png",
-                        "ssd_data_HQ/test/characters/jackfree_finished/motions/Slide/ground_truth/frame_10.png"
-                    ]
-                }
-            ]
-        },
-        {
-            "name": "ninjaadventurenew",
-            "main_reference": null,
-            "main_reference_pose": "",
-            "motions": [
-                {
-                    "motion_name": "climb",
-                    "reference": null,
-                    "poses": [
-                        "ssd_data_HQ/test/characters/ninjaadventurenew/motions/climb/poses/humanpose_1.png",
-                        "ssd_data_HQ/test/characters/ninjaadventurenew/motions/climb/poses/humanpose_2.png",
-                        "ssd_data_HQ/test/characters/ninjaadventurenew/motions/climb/poses/humanpose_3.png",
-                        "ssd_data_HQ/test/characters/ninjaadventurenew/motions/climb/poses/humanpose_4.png"
-                    ],
-                    "ground_truth": [
-                        "ssd_data_HQ/test/characters/ninjaadventurenew/motions/climb/ground_truth/frame_1.png",
-                        "ssd_data_HQ/test/characters/ninjaadventurenew/motions/climb/ground_truth/frame_2.png",
-                        "ssd_data_HQ/test/characters/ninjaadventurenew/motions/climb/ground_truth/frame_3.png",
-                        "ssd_data_HQ/test/characters/ninjaadventurenew/motions/climb/ground_truth/frame_4.png"
-                    ]
-                }
-            ]
-        },
-        {
-            "name": "ninjagirlnew",
-            "main_reference": null,
-            "main_reference_pose": "",
-            "motions": [
-                {
-                    "motion_name": "run",
-                    "reference": null,
-                    "poses": [
-                        "ssd_data_HQ/test/characters/ninjagirlnew/motions/run/poses/humanpose_1.png",
-                        "ssd_data_HQ/test/characters/ninjagirlnew/motions/run/poses/humanpose_2.png",
-                        "ssd_data_HQ/test/characters/ninjagirlnew/motions/run/poses/humanpose_3.png",
-                        "ssd_data_HQ/test/characters/ninjagirlnew/motions/run/poses/humanpose_5.png",
-                        "ssd_data_HQ/test/characters/ninjagirlnew/motions/run/poses/humanpose_6.png",
-                        "ssd_data_HQ/test/characters/ninjagirlnew/motions/run/poses/humanpose_7.png",
-                        "ssd_data_HQ/test/characters/ninjagirlnew/motions/run/poses/humanpose_8.png",
-                        "ssd_data_HQ/test/characters/ninjagirlnew/motions/run/poses/humanpose_9.png"
-                    ],
-                    "ground_truth": [
-                        "ssd_data_HQ/test/characters/ninjagirlnew/motions/run/ground_truth/frame_1.png",
-                        "ssd_data_HQ/test/characters/ninjagirlnew/motions/run/ground_truth/frame_2.png",
-                        "ssd_data_HQ/test/characters/ninjagirlnew/motions/run/ground_truth/frame_3.png",
-                        "ssd_data_HQ/test/characters/ninjagirlnew/motions/run/ground_truth/frame_5.png",
-                        "ssd_data_HQ/test/characters/ninjagirlnew/motions/run/ground_truth/frame_6.png",
-                        "ssd_data_HQ/test/characters/ninjagirlnew/motions/run/ground_truth/frame_7.png",
-                        "ssd_data_HQ/test/characters/ninjagirlnew/motions/run/ground_truth/frame_8.png",
-                        "ssd_data_HQ/test/characters/ninjagirlnew/motions/run/ground_truth/frame_9.png"
-                    ]
-                }
-            ]
-        },
-        {
-            "name": "red_hat_boy",
-            "main_reference": null,
-            "main_reference_pose": "",
-            "motions": [
-                {
-                    "motion_name": "Hurt",
-                    "reference": null,
-                    "poses": [
-                        "ssd_data_HQ/test/characters/red_hat_boy/motions/Hurt/poses/humanpose_1.png",
-                        "ssd_data_HQ/test/characters/red_hat_boy/motions/Hurt/poses/humanpose_2.png",
-                        "ssd_data_HQ/test/characters/red_hat_boy/motions/Hurt/poses/humanpose_3.png"
-                    ],
-                    "ground_truth": [
-                        "ssd_data_HQ/test/characters/red_hat_boy/motions/Hurt/ground_truth/frame_1.png",
-                        "ssd_data_HQ/test/characters/red_hat_boy/motions/Hurt/ground_truth/frame_2.png",
-                        "ssd_data_HQ/test/characters/red_hat_boy/motions/Hurt/ground_truth/frame_3.png"
+                        "ssd_data_HQ/test/characters/jackfree_finished/motions/Walk/ground_truth/frame_1.png",
+                        "ssd_data_HQ/test/characters/jackfree_finished/motions/Walk/ground_truth/frame_2.png",
+                        "ssd_data_HQ/test/characters/jackfree_finished/motions/Walk/ground_truth/frame_3.png",
+                        "ssd_data_HQ/test/characters/jackfree_finished/motions/Walk/ground_truth/frame_4.png",
+                        "ssd_data_HQ/test/characters/jackfree_finished/motions/Walk/ground_truth/frame_5.png",
+                        "ssd_data_HQ/test/characters/jackfree_finished/motions/Walk/ground_truth/frame_6.png",
+                        "ssd_data_HQ/test/characters/jackfree_finished/motions/Walk/ground_truth/frame_7.png",
+                        "ssd_data_HQ/test/characters/jackfree_finished/motions/Walk/ground_truth/frame_8.png",
+                        "ssd_data_HQ/test/characters/jackfree_finished/motions/Walk/ground_truth/frame_9.png",
+                        "ssd_data_HQ/test/characters/jackfree_finished/motions/Walk/ground_truth/frame_10.png"
                     ]
                 }
             ]
@@ -700,31 +578,21 @@
                     ]
                 },
                 {
-                    "motion_name": "Jump",
+                    "motion_name": "JumpShoot",
                     "reference": null,
                     "poses": [
-                        "ssd_data_HQ/test/characters/robot/motions/Jump/poses/humanpose_1.png",
-                        "ssd_data_HQ/test/characters/robot/motions/Jump/poses/humanpose_2.png",
-                        "ssd_data_HQ/test/characters/robot/motions/Jump/poses/humanpose_3.png",
-                        "ssd_data_HQ/test/characters/robot/motions/Jump/poses/humanpose_4.png",
-                        "ssd_data_HQ/test/characters/robot/motions/Jump/poses/humanpose_5.png",
-                        "ssd_data_HQ/test/characters/robot/motions/Jump/poses/humanpose_6.png",
-                        "ssd_data_HQ/test/characters/robot/motions/Jump/poses/humanpose_7.png",
-                        "ssd_data_HQ/test/characters/robot/motions/Jump/poses/humanpose_8.png",
-                        "ssd_data_HQ/test/characters/robot/motions/Jump/poses/humanpose_9.png",
-                        "ssd_data_HQ/test/characters/robot/motions/Jump/poses/humanpose_10.png"
+                        "ssd_data_HQ/test/characters/robot/motions/JumpShoot/poses/humanpose_1.png",
+                        "ssd_data_HQ/test/characters/robot/motions/JumpShoot/poses/humanpose_2.png",
+                        "ssd_data_HQ/test/characters/robot/motions/JumpShoot/poses/humanpose_3.png",
+                        "ssd_data_HQ/test/characters/robot/motions/JumpShoot/poses/humanpose_4.png",
+                        "ssd_data_HQ/test/characters/robot/motions/JumpShoot/poses/humanpose_5.png"
                     ],
                     "ground_truth": [
-                        "ssd_data_HQ/test/characters/robot/motions/Jump/ground_truth/frame_1.png",
-                        "ssd_data_HQ/test/characters/robot/motions/Jump/ground_truth/frame_2.png",
-                        "ssd_data_HQ/test/characters/robot/motions/Jump/ground_truth/frame_3.png",
-                        "ssd_data_HQ/test/characters/robot/motions/Jump/ground_truth/frame_4.png",
-                        "ssd_data_HQ/test/characters/robot/motions/Jump/ground_truth/frame_5.png",
-                        "ssd_data_HQ/test/characters/robot/motions/Jump/ground_truth/frame_6.png",
-                        "ssd_data_HQ/test/characters/robot/motions/Jump/ground_truth/frame_7.png",
-                        "ssd_data_HQ/test/characters/robot/motions/Jump/ground_truth/frame_8.png",
-                        "ssd_data_HQ/test/characters/robot/motions/Jump/ground_truth/frame_9.png",
-                        "ssd_data_HQ/test/characters/robot/motions/Jump/ground_truth/frame_10.png"
+                        "ssd_data_HQ/test/characters/robot/motions/JumpShoot/ground_truth/frame_1.png",
+                        "ssd_data_HQ/test/characters/robot/motions/JumpShoot/ground_truth/frame_2.png",
+                        "ssd_data_HQ/test/characters/robot/motions/JumpShoot/ground_truth/frame_3.png",
+                        "ssd_data_HQ/test/characters/robot/motions/JumpShoot/ground_truth/frame_4.png",
+                        "ssd_data_HQ/test/characters/robot/motions/JumpShoot/ground_truth/frame_5.png"
                     ]
                 },
                 {
@@ -789,187 +657,6 @@
                         "ssd_data_HQ/test/characters/robot/motions/Shoot/ground_truth/frame_2.png",
                         "ssd_data_HQ/test/characters/robot/motions/Shoot/ground_truth/frame_3.png",
                         "ssd_data_HQ/test/characters/robot/motions/Shoot/ground_truth/frame_4.png"
-                    ]
-                },
-                {
-                    "motion_name": "Slide",
-                    "reference": null,
-                    "poses": [
-                        "ssd_data_HQ/test/characters/robot/motions/Slide/poses/humanpose_1.png",
-                        "ssd_data_HQ/test/characters/robot/motions/Slide/poses/humanpose_2.png",
-                        "ssd_data_HQ/test/characters/robot/motions/Slide/poses/humanpose_3.png",
-                        "ssd_data_HQ/test/characters/robot/motions/Slide/poses/humanpose_4.png",
-                        "ssd_data_HQ/test/characters/robot/motions/Slide/poses/humanpose_5.png",
-                        "ssd_data_HQ/test/characters/robot/motions/Slide/poses/humanpose_6.png",
-                        "ssd_data_HQ/test/characters/robot/motions/Slide/poses/humanpose_7.png",
-                        "ssd_data_HQ/test/characters/robot/motions/Slide/poses/humanpose_8.png",
-                        "ssd_data_HQ/test/characters/robot/motions/Slide/poses/humanpose_9.png",
-                        "ssd_data_HQ/test/characters/robot/motions/Slide/poses/humanpose_10.png"
-                    ],
-                    "ground_truth": [
-                        "ssd_data_HQ/test/characters/robot/motions/Slide/ground_truth/frame_1.png",
-                        "ssd_data_HQ/test/characters/robot/motions/Slide/ground_truth/frame_2.png",
-                        "ssd_data_HQ/test/characters/robot/motions/Slide/ground_truth/frame_3.png",
-                        "ssd_data_HQ/test/characters/robot/motions/Slide/ground_truth/frame_4.png",
-                        "ssd_data_HQ/test/characters/robot/motions/Slide/ground_truth/frame_5.png",
-                        "ssd_data_HQ/test/characters/robot/motions/Slide/ground_truth/frame_6.png",
-                        "ssd_data_HQ/test/characters/robot/motions/Slide/ground_truth/frame_7.png",
-                        "ssd_data_HQ/test/characters/robot/motions/Slide/ground_truth/frame_8.png",
-                        "ssd_data_HQ/test/characters/robot/motions/Slide/ground_truth/frame_9.png",
-                        "ssd_data_HQ/test/characters/robot/motions/Slide/ground_truth/frame_10.png"
-                    ]
-                }
-            ]
-        },
-        {
-            "name": "santa",
-            "main_reference": null,
-            "main_reference_pose": "",
-            "motions": [
-                {
-                    "motion_name": "Run",
-                    "reference": null,
-                    "poses": [
-                        "ssd_data_HQ/test/characters/santa/motions/Run/poses/humanpose_1.png",
-                        "ssd_data_HQ/test/characters/santa/motions/Run/poses/humanpose_2.png",
-                        "ssd_data_HQ/test/characters/santa/motions/Run/poses/humanpose_3.png",
-                        "ssd_data_HQ/test/characters/santa/motions/Run/poses/humanpose_4.png",
-                        "ssd_data_HQ/test/characters/santa/motions/Run/poses/humanpose_5.png"
-                    ],
-                    "ground_truth": [
-                        "ssd_data_HQ/test/characters/santa/motions/Run/ground_truth/frame_1.png",
-                        "ssd_data_HQ/test/characters/santa/motions/Run/ground_truth/frame_2.png",
-                        "ssd_data_HQ/test/characters/santa/motions/Run/ground_truth/frame_3.png",
-                        "ssd_data_HQ/test/characters/santa/motions/Run/ground_truth/frame_4.png",
-                        "ssd_data_HQ/test/characters/santa/motions/Run/ground_truth/frame_5.png"
-                    ]
-                }
-            ]
-        },
-        {
-            "name": "templerun",
-            "main_reference": null,
-            "main_reference_pose": "",
-            "motions": [
-                {
-                    "motion_name": "run",
-                    "reference": null,
-                    "poses": [
-                        "ssd_data_HQ/test/characters/templerun/motions/run/poses/humanpose_1.png",
-                        "ssd_data_HQ/test/characters/templerun/motions/run/poses/humanpose_2.png",
-                        "ssd_data_HQ/test/characters/templerun/motions/run/poses/humanpose_3.png",
-                        "ssd_data_HQ/test/characters/templerun/motions/run/poses/humanpose_4.png",
-                        "ssd_data_HQ/test/characters/templerun/motions/run/poses/humanpose_5.png",
-                        "ssd_data_HQ/test/characters/templerun/motions/run/poses/humanpose_6.png",
-                        "ssd_data_HQ/test/characters/templerun/motions/run/poses/humanpose_7.png"
-                    ],
-                    "ground_truth": [
-                        "ssd_data_HQ/test/characters/templerun/motions/run/ground_truth/frame_1.png",
-                        "ssd_data_HQ/test/characters/templerun/motions/run/ground_truth/frame_2.png",
-                        "ssd_data_HQ/test/characters/templerun/motions/run/ground_truth/frame_3.png",
-                        "ssd_data_HQ/test/characters/templerun/motions/run/ground_truth/frame_4.png",
-                        "ssd_data_HQ/test/characters/templerun/motions/run/ground_truth/frame_5.png",
-                        "ssd_data_HQ/test/characters/templerun/motions/run/ground_truth/frame_6.png",
-                        "ssd_data_HQ/test/characters/templerun/motions/run/ground_truth/frame_7.png"
-                    ]
-                }
-            ]
-        },
-        {
-            "name": "the_boy",
-            "main_reference": null,
-            "main_reference_pose": "",
-            "motions": [
-                {
-                    "motion_name": "Jump",
-                    "reference": null,
-                    "poses": [
-                        "ssd_data_HQ/test/characters/the_boy/motions/Jump/poses/humanpose_1.png",
-                        "ssd_data_HQ/test/characters/the_boy/motions/Jump/poses/humanpose_2.png",
-                        "ssd_data_HQ/test/characters/the_boy/motions/Jump/poses/humanpose_3.png",
-                        "ssd_data_HQ/test/characters/the_boy/motions/Jump/poses/humanpose_4.png",
-                        "ssd_data_HQ/test/characters/the_boy/motions/Jump/poses/humanpose_5.png",
-                        "ssd_data_HQ/test/characters/the_boy/motions/Jump/poses/humanpose_6.png",
-                        "ssd_data_HQ/test/characters/the_boy/motions/Jump/poses/humanpose_7.png"
-                    ],
-                    "ground_truth": [
-                        "ssd_data_HQ/test/characters/the_boy/motions/Jump/ground_truth/frame_1.png",
-                        "ssd_data_HQ/test/characters/the_boy/motions/Jump/ground_truth/frame_2.png",
-                        "ssd_data_HQ/test/characters/the_boy/motions/Jump/ground_truth/frame_3.png",
-                        "ssd_data_HQ/test/characters/the_boy/motions/Jump/ground_truth/frame_4.png",
-                        "ssd_data_HQ/test/characters/the_boy/motions/Jump/ground_truth/frame_5.png",
-                        "ssd_data_HQ/test/characters/the_boy/motions/Jump/ground_truth/frame_6.png",
-                        "ssd_data_HQ/test/characters/the_boy/motions/Jump/ground_truth/frame_7.png"
-                    ]
-                }
-            ]
-        },
-        {
-            "name": "zombie_female",
-            "main_reference": null,
-            "main_reference_pose": "",
-            "motions": [
-                {
-                    "motion_name": "Attack",
-                    "reference": null,
-                    "poses": [
-                        "ssd_data_HQ/test/characters/zombie_female/motions/Attack/poses/humanpose_1.png",
-                        "ssd_data_HQ/test/characters/zombie_female/motions/Attack/poses/humanpose_2.png",
-                        "ssd_data_HQ/test/characters/zombie_female/motions/Attack/poses/humanpose_3.png",
-                        "ssd_data_HQ/test/characters/zombie_female/motions/Attack/poses/humanpose_4.png",
-                        "ssd_data_HQ/test/characters/zombie_female/motions/Attack/poses/humanpose_5.png",
-                        "ssd_data_HQ/test/characters/zombie_female/motions/Attack/poses/humanpose_6.png",
-                        "ssd_data_HQ/test/characters/zombie_female/motions/Attack/poses/humanpose_7.png",
-                        "ssd_data_HQ/test/characters/zombie_female/motions/Attack/poses/humanpose_8.png"
-                    ],
-                    "ground_truth": [
-                        "ssd_data_HQ/test/characters/zombie_female/motions/Attack/ground_truth/frame_1.png",
-                        "ssd_data_HQ/test/characters/zombie_female/motions/Attack/ground_truth/frame_2.png",
-                        "ssd_data_HQ/test/characters/zombie_female/motions/Attack/ground_truth/frame_3.png",
-                        "ssd_data_HQ/test/characters/zombie_female/motions/Attack/ground_truth/frame_4.png",
-                        "ssd_data_HQ/test/characters/zombie_female/motions/Attack/ground_truth/frame_5.png",
-                        "ssd_data_HQ/test/characters/zombie_female/motions/Attack/ground_truth/frame_6.png",
-                        "ssd_data_HQ/test/characters/zombie_female/motions/Attack/ground_truth/frame_7.png",
-                        "ssd_data_HQ/test/characters/zombie_female/motions/Attack/ground_truth/frame_8.png"
-                    ]
-                }
-            ]
-        },
-        {
-            "name": "zombie_finished",
-            "main_reference": null,
-            "main_reference_pose": "",
-            "motions": [
-                {
-                    "motion_name": "Dead",
-                    "reference": null,
-                    "poses": [
-                        "ssd_data_HQ/test/characters/zombie_finished/motions/Dead/poses/humanpose_1.png",
-                        "ssd_data_HQ/test/characters/zombie_finished/motions/Dead/poses/humanpose_2.png",
-                        "ssd_data_HQ/test/characters/zombie_finished/motions/Dead/poses/humanpose_3.png",
-                        "ssd_data_HQ/test/characters/zombie_finished/motions/Dead/poses/humanpose_4.png",
-                        "ssd_data_HQ/test/characters/zombie_finished/motions/Dead/poses/humanpose_5.png",
-                        "ssd_data_HQ/test/characters/zombie_finished/motions/Dead/poses/humanpose_6.png",
-                        "ssd_data_HQ/test/characters/zombie_finished/motions/Dead/poses/humanpose_7.png",
-                        "ssd_data_HQ/test/characters/zombie_finished/motions/Dead/poses/humanpose_8.png",
-                        "ssd_data_HQ/test/characters/zombie_finished/motions/Dead/poses/humanpose_9.png",
-                        "ssd_data_HQ/test/characters/zombie_finished/motions/Dead/poses/humanpose_10.png",
-                        "ssd_data_HQ/test/characters/zombie_finished/motions/Dead/poses/humanpose_11.png",
-                        "ssd_data_HQ/test/characters/zombie_finished/motions/Dead/poses/humanpose_12.png"
-                    ],
-                    "ground_truth": [
-                        "ssd_data_HQ/test/characters/zombie_finished/motions/Dead/ground_truth/frame_1.png",
-                        "ssd_data_HQ/test/characters/zombie_finished/motions/Dead/ground_truth/frame_2.png",
-                        "ssd_data_HQ/test/characters/zombie_finished/motions/Dead/ground_truth/frame_3.png",
-                        "ssd_data_HQ/test/characters/zombie_finished/motions/Dead/ground_truth/frame_4.png",
-                        "ssd_data_HQ/test/characters/zombie_finished/motions/Dead/ground_truth/frame_5.png",
-                        "ssd_data_HQ/test/characters/zombie_finished/motions/Dead/ground_truth/frame_6.png",
-                        "ssd_data_HQ/test/characters/zombie_finished/motions/Dead/ground_truth/frame_7.png",
-                        "ssd_data_HQ/test/characters/zombie_finished/motions/Dead/ground_truth/frame_8.png",
-                        "ssd_data_HQ/test/characters/zombie_finished/motions/Dead/ground_truth/frame_9.png",
-                        "ssd_data_HQ/test/characters/zombie_finished/motions/Dead/ground_truth/frame_10.png",
-                        "ssd_data_HQ/test/characters/zombie_finished/motions/Dead/ground_truth/frame_11.png",
-                        "ssd_data_HQ/test/characters/zombie_finished/motions/Dead/ground_truth/frame_12.png"
                     ]
                 }
             ]

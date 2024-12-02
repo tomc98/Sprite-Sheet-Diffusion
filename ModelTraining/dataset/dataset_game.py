@@ -151,10 +151,10 @@ class GameDatasetValid(Dataset):
         # Reference Pose Image
         # Assuming the reference pose is the first pose in the list
         if ref_pose_path:
-            ref_img = cv2.imread(ref_pose_path)
-            pixel_values_ref_pose = cv2.cvtColor(ref_img, cv2.COLOR_BGR2RGB)
-            # pixel_values_ref_pose = torch.from_numpy(ref_img).permute(2, 0, 1).contiguous()
-            # pixel_values_ref_pose = pixel_values_ref_pose / 255.0  # Normalize to [0,1]
+            ref_pose_img = cv2.imread(ref_pose_path)
+            pixel_values_ref_pose = cv2.cvtColor(ref_pose_img, cv2.COLOR_BGR2RGB)
+            pixel_values_ref_pose = torch.from_numpy(pixel_values_ref_pose).permute(2, 0, 1).contiguous()
+            pixel_values_ref_pose = pixel_values_ref_pose / 255.0  # Normalize to [0,1]
         else:
             # If no pose is available, initialize with zeros
             pixel_values_ref_pose = torch.zeros(3, self.sample_size[0], self.sample_size[1])
@@ -340,9 +340,9 @@ class GameDataset(Dataset):
         # Reference Pose Image
         # Assuming the reference pose is the first pose in the list
         if ref_pose_path:
-            ref_img = cv2.imread(ref_pose_path)
-            ref_img = cv2.cvtColor(ref_img, cv2.COLOR_BGR2RGB)
-            pixel_values_ref_pose = torch.from_numpy(ref_img).permute(2, 0, 1).contiguous()
+            ref_pose_img = cv2.imread(ref_pose_path)
+            ref_pose_img = cv2.cvtColor(ref_pose_img, cv2.COLOR_BGR2RGB)
+            pixel_values_ref_pose = torch.from_numpy(ref_pose_img).permute(2, 0, 1).contiguous()
             pixel_values_ref_pose = pixel_values_ref_pose / 255.0  # Normalize to [0,1]
         else:
             # If no pose is available, initialize with zeros

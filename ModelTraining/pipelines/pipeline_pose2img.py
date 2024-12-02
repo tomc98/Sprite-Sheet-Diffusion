@@ -197,7 +197,7 @@ class Pose2ImagePipeline(DiffusionPipeline):
         self,
         ref_image,
         pose_image,
-        ref_pose_image,
+        # ref_pose_image,
         width,
         height,
         num_inference_steps,
@@ -292,17 +292,20 @@ class Pose2ImagePipeline(DiffusionPipeline):
             device=device, dtype=self.pose_guider.dtype
         )
         
-        ref_pose_tensor = self.cond_image_processor.preprocess(
-            ref_pose_image, height=height, width=width
+        # ref_pose_tensor = self.cond_image_processor.preprocess(
+        #     ref_pose_image, height=height, width=width
+        # )
+        # ref_pose_tensor = ref_pose_tensor.to(
+        #     device=device, dtype=self.pose_guider.dtype
+        # )
+        pose_fea = self.pose_guider(pose_cond_tensor)
+        # pose_fea = self.pose_guider(pose_cond_tensor, ref_pose_tensor)
+        # if do_classifier_free_guidance:
+        #     for idxx in range(len(pose_fea)):
+        #         pose_fea[idxx] = torch.cat([pose_fea[idxx]] * 2)
+        pose_fea = (
+            torch.cat([pose_fea] * 2) if do_classifier_free_guidance else pose_fea
         )
-        ref_pose_tensor = ref_pose_tensor.to(
-            device=device, dtype=self.pose_guider.dtype
-        )
-        
-        pose_fea = self.pose_guider(pose_cond_tensor, ref_pose_tensor)
-        if do_classifier_free_guidance:
-            for idxx in range(len(pose_fea)):
-                pose_fea[idxx] = torch.cat([pose_fea[idxx]] * 2)
 
         # denoising loop
         num_warmup_steps = len(timesteps) - num_inference_steps * self.scheduler.order
