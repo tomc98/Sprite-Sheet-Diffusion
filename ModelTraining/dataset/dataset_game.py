@@ -248,6 +248,15 @@ class GameDataset(Dataset):
                 main_reference_pose = None
             for motion in character['motions']:
                 motion_name = motion['motion_name']
+                # check file exists:
+                if len(motion['ground_truth']) < 1:
+                    print(f"Character {character_name}, motion {motion_name}")
+                    continue
+                first_img = motion['ground_truth'][0]
+                first_img_path = os.path.join(data_path, first_img)
+                if not os.path.exists(first_img_path):
+                    print(first_img_path)
+                    continue
                 # Create a unique identifier for each (character, motion)
                 unique_id = f"{character_name}_{motion_name}"
                 data_dic_name_list.append(unique_id)

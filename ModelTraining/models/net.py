@@ -31,9 +31,9 @@ class Net(nn.Module):
         uncond_fwd: bool = False,
     ):
         pose_cond_tensor = pose_img.to(device="cuda")
-        # ref_pose_tensor = ref_pose_img.to(device="cuda")
-        pose_fea = self.pose_guider(pose_cond_tensor)
-        # pose_fea = self.pose_guider(pose_cond_tensor, ref_pose_tensor)
+        ref_pose_tensor = ref_pose_img.to(device="cuda")
+        # pose_fea = self.pose_guider(pose_cond_tensor)
+        pose_fea = self.pose_guider(pose_cond_tensor, ref_pose_tensor)
 
         if not uncond_fwd:
             ref_timesteps = torch.zeros_like(timesteps)

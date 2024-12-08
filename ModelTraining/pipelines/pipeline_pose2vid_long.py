@@ -340,7 +340,7 @@ class Pose2VideoPipeline(DiffusionPipeline):
         self,
         ref_image,
         pose_images,
-        # ref_pose_image,
+        ref_pose_image,
         width,
         height,
         video_length,
@@ -354,7 +354,7 @@ class Pose2VideoPipeline(DiffusionPipeline):
         callback: Optional[Callable[[int, int, torch.FloatTensor], None]] = None,
         callback_steps: Optional[int] = 1,
         context_schedule="uniform",
-        context_frames=24,
+        context_frames=16,
         context_stride=1,
         context_overlap=4,
         context_batch_size=1,
@@ -439,17 +439,17 @@ class Pose2VideoPipeline(DiffusionPipeline):
             pose_cond_tensor = pose_cond_tensor.unsqueeze(2)  # (bs, c, 1, h, w)
             pose_cond_tensor_list.append(pose_cond_tensor)
         pose_cond_tensor = torch.cat(pose_cond_tensor_list, dim=2)  # (bs, c, t, h, w)
+        
         pose_cond_tensor = pose_cond_tensor.to(
             device=device, dtype=self.pose_guider.dtype
         )
         
-        # ref_pose_tensor = self.cond_image_processor.preprocess(
-        #     ref_pose_image, height=height, width=width
-        # )
-        # ref_pose_tensor = ref_pose_tensor.to(
-        #     device=device, dtype=self.pose_guider.dtype
-        # )
-        pose_fea = self.pose_guider(pose_cond_tensor)
+        ref_pose_tensor = self.cond_image_processor.preprocess(
+            ref_pose_image, height=height, width=width
+        )
+        ref_pose_tensor = ref_pose_tensor.to(
+            device=device, dtype=self.pose_guider.dtype
+        )
 
         context_scheduler = get_context_scheduler(context_schedule)
 
@@ -515,10 +515,6 @@ class Pose2VideoPipeline(DiffusionPipeline):
                             i * context_batch_size : (i + 1) * context_batch_size
                         ]
                     )
-                # pose_fea = self.pose_guider(pose_cond_tensor)
-                # pose_fea = (
-                #     torch.cat([pose_fea] * 2) if do_classifier_free_guidance else pose_fea
-                # ) # 2,320,15,64,64
 
                 for context in global_context:
                     # 3.1 expand the latents if we are doing classifier free guidance
@@ -532,27 +528,18 @@ class Pose2VideoPipeline(DiffusionPipeline):
                     )
                     b, c, f, h, w = latent_model_input.shape
                     
-                    latent_pose_input = torch.cat(
-                        [pose_fea[:, :, c] for c in context]
-                    ).repeat(2 if do_classifier_free_guidance else 1, 1, 1, 1, 1)
-
-                    
-                    # pose_cond_input = (
-                    #     torch.cat([pose_cond_tensor[:, :, c] for c in context])
-                    #     .to(device)
-                    #     .repeat(2 if do_classifier_free_guidance else 1, 1, 1, 1, 1)
-                    # )
-
-                    # pose_fea = self.pose_guider(pose_cond_input, ref_pose_tensor)
-                    # import pdb
-                    # pdb.set_trace()
-                    # pose_fea = self.pose_guider(pose_cond_input)
+                    pose_cond_input = (
+                        torch.cat([pose_cond_tensor[:, :, c] for c in context])
+                        .to(device)
+                        .repeat(2 if do_classifier_free_guidance else 1, 1, 1, 1, 1)
+                    )
+                    pose_fea = self.pose_guider(pose_cond_input, ref_pose_tensor)
 
                     pred = self.denoising_unet(
                         latent_model_input,
                         t,
                         encoder_hidden_states=encoder_hidden_states[:b],
-                        pose_cond_fea=latent_pose_input,
+                        pose_cond_fea=pose_fea,
                         return_dict=False,
                     )[0]
 

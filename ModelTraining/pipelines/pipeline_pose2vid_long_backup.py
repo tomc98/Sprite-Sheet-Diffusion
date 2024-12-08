@@ -1,24 +1,31 @@
+# Adapted from https://github.com/magic-research/magic-animate/blob/main/magicanimate/pipelines/pipeline_animation.py
 import inspect
+import math
 from dataclasses import dataclass
 from typing import Callable, List, Optional, Union
 
 import numpy as np
 import torch
-import torch.nn.functional as F
 import torchvision.transforms as transforms
 from diffusers import DiffusionPipeline
 from diffusers.image_processor import VaeImageProcessor
-from diffusers.schedulers import (DDIMScheduler, DPMSolverMultistepScheduler,
-                                  EulerAncestralDiscreteScheduler,
-                                  EulerDiscreteScheduler, LMSDiscreteScheduler,
-                                  PNDMScheduler)
-from diffusers.utils import BaseOutput, is_accelerate_available
+from diffusers.schedulers import (
+    DDIMScheduler,
+    DPMSolverMultistepScheduler,
+    EulerAncestralDiscreteScheduler,
+    EulerDiscreteScheduler,
+    LMSDiscreteScheduler,
+    PNDMScheduler,
+)
+from diffusers.utils import BaseOutput, deprecate, is_accelerate_available, logging
 from diffusers.utils.torch_utils import randn_tensor
 from einops import rearrange
 from tqdm import tqdm
 from transformers import CLIPImageProcessor
 
 from models.mutual_self_attention import ReferenceAttentionControl
+from pipelines.context import get_context_scheduler
+from pipelines.utils import get_tensor_interpolation_method
 
 
 @dataclass
@@ -283,12 +290,57 @@ class Pose2VideoPipeline(DiffusionPipeline):
 
         return text_embeddings
 
+    def interpolate_latents(
+        self, latents: torch.Tensor, interpolation_factor: int, device
+    ):
+        if interpolation_factor < 2:
+            return latents
+
+        new_latents = torch.zeros(
+            (
+                latents.shape[0],
+                latents.shape[1],
+                ((latents.shape[2] - 1) * interpolation_factor) + 1,
+                latents.shape[3],
+                latents.shape[4],
+            ),
+            device=latents.device,
+            dtype=latents.dtype,
+        )
+
+        org_video_length = latents.shape[2]
+        rate = [i / interpolation_factor for i in range(interpolation_factor)][1:]
+
+        new_index = 0
+
+        v0 = None
+        v1 = None
+
+        for i0, i1 in zip(range(org_video_length), range(org_video_length)[1:]):
+            v0 = latents[:, :, i0, :, :]
+            v1 = latents[:, :, i1, :, :]
+
+            new_latents[:, :, new_index, :, :] = v0
+            new_index += 1
+
+            for f in rate:
+                v = get_tensor_interpolation_method()(
+                    v0.to(device=device), v1.to(device=device), f
+                )
+                new_latents[:, :, new_index, :, :] = v.to(latents.device)
+                new_index += 1
+
+        new_latents[:, :, new_index, :, :] = v1
+        new_index += 1
+
+        return new_latents
+
     @torch.no_grad()
     def __call__(
         self,
         ref_image,
         pose_images,
-        ref_pose_image, 
+        ref_pose_image,
         width,
         height,
         video_length,
@@ -301,8 +353,14 @@ class Pose2VideoPipeline(DiffusionPipeline):
         return_dict: bool = True,
         callback: Optional[Callable[[int, int, torch.FloatTensor], None]] = None,
         callback_steps: Optional[int] = 1,
+        context_schedule="uniform",
+        context_frames=24,
+        context_stride=1,
+        context_overlap=4,
+        context_batch_size=1,
+        interpolation_factor=1,
         **kwargs,
-    ):  
+    ):
         # Default height and width to unet
         height = height or self.unet.config.sample_size * self.vae_scale_factor
         width = width or self.unet.config.sample_size * self.vae_scale_factor
@@ -319,19 +377,19 @@ class Pose2VideoPipeline(DiffusionPipeline):
 
         # Prepare clip image embeds
         clip_image = self.clip_image_processor.preprocess(
-            ref_image, return_tensors="pt"
+            ref_image.resize((224, 224)), return_tensors="pt"
         ).pixel_values
         clip_image_embeds = self.image_encoder(
             clip_image.to(device, dtype=self.image_encoder.dtype)
         ).image_embeds
         encoder_hidden_states = clip_image_embeds.unsqueeze(1)
-        
         uncond_encoder_hidden_states = torch.zeros_like(encoder_hidden_states)
 
         if do_classifier_free_guidance:
             encoder_hidden_states = torch.cat(
                 [uncond_encoder_hidden_states, encoder_hidden_states], dim=0
             )
+
         reference_control_writer = ReferenceAttentionControl(
             self.reference_unet,
             do_classifier_free_guidance=do_classifier_free_guidance,
@@ -377,11 +435,10 @@ class Pose2VideoPipeline(DiffusionPipeline):
         for pose_image in pose_images:
             pose_cond_tensor = self.cond_image_processor.preprocess(
                 pose_image, height=height, width=width
-            ).transpose(0, 1) # (c, 1, h, w)
+            )
+            pose_cond_tensor = pose_cond_tensor.unsqueeze(2)  # (bs, c, 1, h, w)
             pose_cond_tensor_list.append(pose_cond_tensor)
-        pose_cond_tensor = torch.cat(pose_cond_tensor_list, dim=1)  # (c, t, h, w)
-
-        pose_cond_tensor = pose_cond_tensor.unsqueeze(0) # (1, c, t, h, w)
+        pose_cond_tensor = torch.cat(pose_cond_tensor_list, dim=2)  # (bs, c, t, h, w)
         pose_cond_tensor = pose_cond_tensor.to(
             device=device, dtype=self.pose_guider.dtype
         )
@@ -393,19 +450,27 @@ class Pose2VideoPipeline(DiffusionPipeline):
             device=device, dtype=self.pose_guider.dtype
         )
         # pose_fea = self.pose_guider(pose_cond_tensor)
-        # pose_fea = (
-        #     torch.cat([pose_fea] * 2) if do_classifier_free_guidance else pose_fea
-        # )
-       
-        pose_fea = self.pose_guider(pose_cond_tensor, ref_pose_tensor)
-        if do_classifier_free_guidance:
-            for idxx in range(len(pose_fea)):
-                pose_fea[idxx] = torch.cat([pose_fea[idxx]] * 2)
+
+        context_scheduler = get_context_scheduler(context_schedule)
 
         # denoising loop
         num_warmup_steps = len(timesteps) - num_inference_steps * self.scheduler.order
         with self.progress_bar(total=num_inference_steps) as progress_bar:
             for i, t in enumerate(timesteps):
+                noise_pred = torch.zeros(
+                    (
+                        latents.shape[0] * (2 if do_classifier_free_guidance else 1),
+                        *latents.shape[1:],
+                    ),
+                    device=latents.device,
+                    dtype=latents.dtype,
+                )
+                counter = torch.zeros(
+                    (1, 1, latents.shape[2], 1, 1),
+                    device=latents.device,
+                    dtype=latents.dtype,
+                )
+
                 # 1. Forward reference image
                 if i == 0:
                     self.reference_unet(
@@ -419,35 +484,90 @@ class Pose2VideoPipeline(DiffusionPipeline):
                     )
                     reference_control_reader.update(reference_control_writer)
 
-                # 3.1 expand the latents if we are doing classifier free guidance
-                latent_model_input = (
-                    torch.cat([latents] * 2) if do_classifier_free_guidance else latents
+                context_queue = list(
+                    context_scheduler(
+                        0,
+                        num_inference_steps,
+                        latents.shape[2],
+                        context_frames,
+                        context_stride,
+                        0,
+                    )
                 )
-                latent_model_input = self.scheduler.scale_model_input(
-                    latent_model_input, t
+                num_context_batches = math.ceil(len(context_queue) / context_batch_size)
+
+                context_queue = list(
+                    context_scheduler(
+                        0,
+                        num_inference_steps,
+                        latents.shape[2],
+                        context_frames,
+                        context_stride,
+                        context_overlap,
+                    )
                 )
 
-                noise_pred = self.denoising_unet(
-                    latent_model_input,
-                    t,
-                    encoder_hidden_states=encoder_hidden_states,
-                    pose_cond_fea=pose_fea,
-                    return_dict=False,
-                )[0]
+                num_context_batches = math.ceil(len(context_queue) / context_batch_size)
+                global_context = []
+                for i in range(num_context_batches):
+                    global_context.append(
+                        context_queue[
+                            i * context_batch_size : (i + 1) * context_batch_size
+                        ]
+                    )
+                # pose_fea = self.pose_guider(pose_cond_tensor)
+                # pose_fea = (
+                #     torch.cat([pose_fea] * 2) if do_classifier_free_guidance else pose_fea
+                # ) # 2,320,15,64,64
+
+                for context in global_context:
+                    # 3.1 expand the latents if we are doing classifier free guidance
+                    latent_model_input = (
+                        torch.cat([latents[:, :, c] for c in context])
+                        .to(device)
+                        .repeat(2 if do_classifier_free_guidance else 1, 1, 1, 1, 1)
+                    )
+                    latent_model_input = self.scheduler.scale_model_input(
+                        latent_model_input, t
+                    )
+                    b, c, f, h, w = latent_model_input.shape
+                    
+                    # latent_pose_input = torch.cat(
+                    #     [pose_fea[:, :, c] for c in context]
+                    # ).repeat(2 if do_classifier_free_guidance else 1, 1, 1, 1, 1)
+
+                    
+                    pose_cond_input = (
+                        torch.cat([pose_cond_tensor[:, :, c] for c in context])
+                        .to(device)
+                        .repeat(2 if do_classifier_free_guidance else 1, 1, 1, 1, 1)
+                    )
+
+                    pose_fea = self.pose_guider(pose_cond_input, ref_pose_tensor)
+
+                    pred = self.denoising_unet(
+                        latent_model_input,
+                        t,
+                        encoder_hidden_states=encoder_hidden_states[:b],
+                        pose_cond_fea=pose_fea,#latent_pose_input,
+                        return_dict=False,
+                    )[0]
+
+                    for j, c in enumerate(context):
+                        noise_pred[:, :, c] = noise_pred[:, :, c] + pred
+                        counter[:, :, c] = counter[:, :, c] + 1
 
                 # perform guidance
                 if do_classifier_free_guidance:
-                    noise_pred_uncond, noise_pred_text = noise_pred.chunk(2)
+                    noise_pred_uncond, noise_pred_text = (noise_pred / counter).chunk(2)
                     noise_pred = noise_pred_uncond + guidance_scale * (
                         noise_pred_text - noise_pred_uncond
                     )
 
-                # compute the previous noisy sample x_t -> x_t-1
                 latents = self.scheduler.step(
-                    noise_pred, t, latents, **extra_step_kwargs, return_dict=False
-                )[0]
+                    noise_pred, t, latents, **extra_step_kwargs
+                ).prev_sample
 
-                # call the callback, if provided
                 if i == len(timesteps) - 1 or (
                     (i + 1) > num_warmup_steps and (i + 1) % self.scheduler.order == 0
                 ):
@@ -459,6 +579,8 @@ class Pose2VideoPipeline(DiffusionPipeline):
             reference_control_reader.clear()
             reference_control_writer.clear()
 
+        if interpolation_factor > 0:
+            latents = self.interpolate_latents(latents, interpolation_factor, device)
         # Post-processing
         images = self.decode_latents(latents)  # (b, c, f, h, w)
 

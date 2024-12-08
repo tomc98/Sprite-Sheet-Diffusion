@@ -355,29 +355,6 @@
             ]
         },
         {
-            "name": "Jump (1)",
-            "main_reference": null,
-            "main_reference_pose": "",
-            "motions": [
-                {
-                    "motion_name": "cache",
-                    "reference": "ssd_data_HQ/train/characters/Jump (1)/motions/cache/reference.png",
-                    "poses": [],
-                    "ground_truth": []
-                },
-                {
-                    "motion_name": "jump",
-                    "reference": "ssd_data_HQ/train/characters/Jump (1)/motions/jump/reference.png",
-                    "poses": [
-                        "ssd_data_HQ/train/characters/Jump (1)/motions/jump/poses/humanpose_0.png"
-                    ],
-                    "ground_truth": [
-                        "ssd_data_HQ/train/characters/Jump (1)/motions/jump/ground_truth/frame_0.png"
-                    ]
-                }
-            ]
-        },
-        {
             "name": "Louis_hand",
             "main_reference": null,
             "main_reference_pose": "",

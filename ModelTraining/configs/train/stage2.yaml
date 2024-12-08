@@ -1,10 +1,14 @@
 data:
-  json_path: "data/ssd_high_quality/train/game_animation.json"
-  data_path: "data/ssd_high_quality/"
+  json_path: "data/ssd_data_HQ/train/game_animation.json"
+  data_path: "data/"
   sample_size:  [512, 512]
   sample_stride_aug: True
 
-
+val_data:
+  json_path: "data/ssd_data_HQ/valid/game_animation.json"
+  data_path: "data/"
+  sample_size:  [512, 512]
+  sample_stride_aug: True
 
 solver:
   gradient_accumulation_steps: 1

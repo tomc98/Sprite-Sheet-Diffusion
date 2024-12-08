@@ -46,6 +46,7 @@ from torchvision import transforms
 from dataset.dataset_game import GameDataset, GameDatasetValid, collate_fn
 from models.mutual_self_attention import ReferenceAttentionControl
 from models.pose_guider import PoseGuider
+from models.pose_guider_org import PoseGuiderOrg
 from models.unet_2d_condition import UNet2DConditionModel
 from models.unet_3d import UNet3DConditionModel
 from pipelines.pipeline_pose2vid import Pose2VideoPipeline
@@ -157,6 +158,10 @@ def main(cfg):
     ).to(device="cuda")
     
     pose_guider = PoseGuider(noise_latent_channels=320).to(device="cuda") # dtype=weight_dtype)
+    # pose_guider = PoseGuiderOrg(
+    #     conditioning_embedding_channels=320, block_out_channels=(16, 32, 96, 256)
+    # ).to(device="cuda", dtype=weight_dtype)
+
     stage1_ckpt_dir = cfg.stage1_ckpt_dir
     stage1_ckpt_step = cfg.stage1_ckpt_step
     denoising_unet.load_state_dict(
@@ -172,14 +177,14 @@ def main(cfg):
             os.path.join(stage1_ckpt_dir, f"reference_unet.pth"),
             map_location="cpu",
         ),
-        strict=False,
+        strict=True,
     )
     pose_guider.load_state_dict(
         torch.load(
             os.path.join(stage1_ckpt_dir, f"pose_guider.pth"),
             map_location="cpu",
         ),
-        strict=False,
+        strict=True,
     )
     
     # Freeze
@@ -273,7 +278,7 @@ def main(cfg):
     )
 
     train_dataset = GameDataset(**cfg.data, is_image=False)
-    valid_dataset = GameDatasetValid(**cfg.data, is_image=False)
+    valid_dataset = GameDatasetValid(**cfg.val_data, is_image=False)
     train_dataloader = torch.utils.data.DataLoader(
         train_dataset, 
         batch_size=cfg.train_bs, 
@@ -666,8 +671,8 @@ def log_validation(
         for gt_image_pil in gt_images[:clip_length]:
             gt_tensor_list.append(pose_transform(gt_image_pil))
 
-        pose_list = sample['pixel_values_pose'][:clip_length]
-        ref_pose = sample['pixel_values_ref_pose']
+        pose_list = pose_images[:clip_length]
+        # ref_pose = sample['pixel_values_ref_pose']
 
         pose_tensor = torch.stack(pose_tensor_list, dim=0)  # (f, c, h, w)
         pose_tensor = pose_tensor.transpose(0, 1) # (c, f, h, w)
@@ -681,7 +686,7 @@ def log_validation(
         pipeline_output = pipe(
             ref_image_pil,
             pose_list,
-            ref_pose,
+            # ref_pose,
             width,
             height,
             clip_length,
