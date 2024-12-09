@@ -160,40 +160,40 @@ def main(cfg):
         },
     ).to(device="cuda")
 
-    # if cfg.pose_guider_pretrain:
-    #     pose_guider = PoseGuider(noise_latent_channels=320).to(device="cuda")
-    #     # load pretrained controlnet-openpose params for pose_guider
-    #     if cfg.controlnet_openpose_path != "":
-    #         logger.info(f"Load pretrained model for pose guider: {cfg.controlnet_openpose_path}")
-    #         controlnet_openpose_state_dict = torch.load(cfg.controlnet_openpose_path)
-    #         state_dict_to_load = {}
-    #         for k in controlnet_openpose_state_dict.keys():
-    #             if k.startswith("controlnet_cond_embedding.") and k.find("conv_out") < 0:
-    #                 new_k = k.replace("controlnet_cond_embedding.", "")
-    #                 state_dict_to_load[new_k] = controlnet_openpose_state_dict[k]
-    #         miss, unexpected = pose_guider.load_state_dict(state_dict_to_load, strict=False)
-    #         # miss, unexpected = pose_guider.load_state_dict(controlnet_openpose_state_dict, strict=False)
-    #         logger.info(f"Missing key for pose guider: {len(miss)} {len(unexpected)}")
-    # else:
-    #     pose_guider = PoseGuider(noise_latent_channels=320).to(device="cuda")
-
     if cfg.pose_guider_pretrain:
-        pose_guider = PoseGuiderOrg(
-            conditioning_embedding_channels=320, block_out_channels=(16, 32, 96, 256)
-        ).to(device="cuda")
+        pose_guider = PoseGuider(noise_latent_channels=320).to(device="cuda")
         # load pretrained controlnet-openpose params for pose_guider
-        controlnet_openpose_state_dict = torch.load(cfg.controlnet_openpose_path)
-        state_dict_to_load = {}
-        for k in controlnet_openpose_state_dict.keys():
-            if k.startswith("controlnet_cond_embedding.") and k.find("conv_out") < 0:
-                new_k = k.replace("controlnet_cond_embedding.", "")
-                state_dict_to_load[new_k] = controlnet_openpose_state_dict[k]
-        miss, _ = pose_guider.load_state_dict(state_dict_to_load, strict=False)
-        logger.info(f"Missing key for pose guider: {len(miss)}")
+        if cfg.controlnet_openpose_path != "":
+            logger.info(f"Load pretrained model for pose guider: {cfg.controlnet_openpose_path}")
+            controlnet_openpose_state_dict = torch.load(cfg.controlnet_openpose_path)
+            state_dict_to_load = {}
+            for k in controlnet_openpose_state_dict.keys():
+                if k.startswith("controlnet_cond_embedding.") and k.find("conv_out") < 0:
+                    new_k = k.replace("controlnet_cond_embedding.", "")
+                    state_dict_to_load[new_k] = controlnet_openpose_state_dict[k]
+            miss, unexpected = pose_guider.load_state_dict(state_dict_to_load, strict=False)
+            # miss, unexpected = pose_guider.load_state_dict(controlnet_openpose_state_dict, strict=False)
+            logger.info(f"Missing key for pose guider: {len(miss)} {len(unexpected)}")
     else:
-        pose_guider = PoseGuiderOrg(
-            conditioning_embedding_channels=320, block_out_channels=(16, 32, 96, 256)
-        ).to(device="cuda")
+        pose_guider = PoseGuider(noise_latent_channels=320).to(device="cuda")
+
+    # if cfg.pose_guider_pretrain:
+    #     pose_guider = PoseGuiderOrg(
+    #         conditioning_embedding_channels=320, block_out_channels=(16, 32, 96, 256)
+    #     ).to(device="cuda")
+    #     # load pretrained controlnet-openpose params for pose_guider
+    #     controlnet_openpose_state_dict = torch.load(cfg.controlnet_openpose_path)
+    #     state_dict_to_load = {}
+    #     for k in controlnet_openpose_state_dict.keys():
+    #         if k.startswith("controlnet_cond_embedding.") and k.find("conv_out") < 0:
+    #             new_k = k.replace("controlnet_cond_embedding.", "")
+    #             state_dict_to_load[new_k] = controlnet_openpose_state_dict[k]
+    #     miss, _ = pose_guider.load_state_dict(state_dict_to_load, strict=False)
+    #     logger.info(f"Missing key for pose guider: {len(miss)}")
+    # else:
+    #     pose_guider = PoseGuiderOrg(
+    #         conditioning_embedding_channels=320, block_out_channels=(16, 32, 96, 256)
+    #     ).to(device="cuda")
     
     # Freeze
     vae.requires_grad_(False)
@@ -682,12 +682,12 @@ def log_validation(
         ref_image_pil = Image.fromarray(sample['pixel_values_ref_img']).convert("RGB")
         pose_image_pil = Image.fromarray(sample['pixel_values_pose']).convert("RGB")
         gt_image_pil = Image.fromarray(sample['pixel_values']).convert("RGB")
-        # ref_pose_pil = Image.fromarray(sample['pixel_values_ref_pose']).convert("RGB")
+        ref_pose_pil = Image.fromarray(sample['pixel_values_ref_pose']).convert("RGB")
 
         image = pipe(
             ref_image_pil,
             pose_image_pil,
-            # ref_pose_pil,
+            ref_pose_pil,
             width,
             height,
             num_inference_steps=25,

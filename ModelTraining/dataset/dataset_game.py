@@ -153,8 +153,10 @@ class GameDatasetValid(Dataset):
         if ref_pose_path:
             ref_pose_img = cv2.imread(ref_pose_path)
             pixel_values_ref_pose = cv2.cvtColor(ref_pose_img, cv2.COLOR_BGR2RGB)
-            pixel_values_ref_pose = torch.from_numpy(pixel_values_ref_pose).permute(2, 0, 1).contiguous()
-            pixel_values_ref_pose = pixel_values_ref_pose / 255.0  # Normalize to [0,1]
+            pixel_values_ref_pose = self.contrast_normalization(pixel_values_ref_pose)
+            pixel_values_ref_pose = np.array(pixel_values_ref_pose)
+            # pixel_values_ref_pose = torch.from_numpy(pixel_values_ref_pose).permute(2, 0, 1).contiguous()
+            # pixel_values_ref_pose = pixel_values_ref_pose / 255.0  # Normalize to [0,1]
         else:
             # If no pose is available, initialize with zeros
             pixel_values_ref_pose = torch.zeros(3, self.sample_size[0], self.sample_size[1])
@@ -185,6 +187,7 @@ class GameDatasetValid(Dataset):
         # pixel_values_pose = self.pixel_transforms(sample['pixel_values_pose'])  # Pose Images
 
         # Process reference images
+        # pixel_values_ref_img = self.pixel_transforms(pixel_values_ref_img)
         # pixel_values_ref_pose = self.pixel_transforms(sample['pixel_values_ref_pose'])  # Reference Pose Image
 
         # Create the sample dictionary with the required variables
@@ -306,13 +309,20 @@ class GameDataset(Dataset):
     def get_batch_wo_pose(self, index):
         unique_id = self.data_dic_name_list[index]
         sample_info = self.data_dic[unique_id]
+        flip_horizontal = random.choice([True, False])
 
         # Ground Truth Images
         ground_truth_paths = sample_info['ground_truth']
         pixel_values = [cv2.imread(path) for path in ground_truth_paths]
         pixel_values = [cv2.cvtColor(img, cv2.COLOR_BGR2RGB) for img in pixel_values]
         pixel_values = [self.contrast_normalization(img) for img in pixel_values]
-        pixel_values = np.array(pixel_values)
+        if flip_horizontal:
+            pixel_values_flip = [cv2.flip(img, 1) for img in pixel_values]
+            pixel_values_flip = np.array(pixel_values_flip)
+            pixel_values = pixel_values_flip
+        else:
+            pixel_values = np.array(pixel_values)
+            pixel_values_flip = pixel_values
         pixel_values = torch.from_numpy(pixel_values).permute(0, 3, 1, 2).contiguous()
         pixel_values = pixel_values / 255.0  # Normalize to [0,1]
 
@@ -321,7 +331,13 @@ class GameDataset(Dataset):
         pixel_values_pose = [cv2.imread(path) for path in poses_paths]
         pixel_values_pose = [cv2.cvtColor(img, cv2.COLOR_BGR2RGB) for img in pixel_values_pose]
         pixel_values_pose = [self.contrast_normalization(img) for img in pixel_values_pose]
-        pixel_values_pose = np.array(pixel_values_pose)
+        if flip_horizontal:
+            pixel_values_pose_flip = [cv2.flip(img, 1) for img in pixel_values_pose]
+            pixel_values_pose_flip = np.array(pixel_values_pose_flip)
+            pixel_values_pose = pixel_values_pose_flip
+        else:
+            pixel_values_pose = np.array(pixel_values_pose)
+            pixel_values_pose_flip = pixel_values_pose
         pixel_values_pose = torch.from_numpy(pixel_values_pose).permute(0, 3, 1, 2).contiguous()
         pixel_values_pose = pixel_values_pose / 255.0  # Normalize to [0,1]
 
@@ -332,30 +348,35 @@ class GameDataset(Dataset):
         ref_img_idx = 0
         if not reference_path or reference_path == "":
             ref_img_idx = random.randint(0, len(sample_info['ground_truth']) - 1)
-            reference_path = ground_truth_paths[ref_img_idx]
-            ref_pose_path = poses_paths[ref_img_idx]
+            pixel_values_ref_img = pixel_values_flip[ref_img_idx]
+            pixel_values_ref_img = torch.from_numpy(pixel_values_ref_img).permute(2, 0, 1).contiguous()
+            pixel_values_ref_img = pixel_values_ref_img / 255.0  # Normalize to [0,1]
+            clip_ref_image = self.clip_image_processor(images=Image.fromarray(pixel_values_flip[ref_img_idx]), return_tensors="pt").pixel_values
 
-        ref_img = cv2.imread(reference_path)
-        ref_img = cv2.cvtColor(ref_img, cv2.COLOR_BGR2RGB)
-        ref_img = self.contrast_normalization(ref_img)
-        ref_img_pil = Image.fromarray(ref_img)
-        clip_ref_image = self.clip_image_processor(images=ref_img_pil, return_tensors="pt").pixel_values
-
-        # Main Reference Image (main_reference.png)
-        pixel_values_ref_img = ref_img
-        pixel_values_ref_img = torch.from_numpy(pixel_values_ref_img).permute(2, 0, 1).contiguous()
-        pixel_values_ref_img = pixel_values_ref_img / 255.0  # Normalize to [0,1]
-
-        # Reference Pose Image
-        # Assuming the reference pose is the first pose in the list
-        if ref_pose_path:
-            ref_pose_img = cv2.imread(ref_pose_path)
-            ref_pose_img = cv2.cvtColor(ref_pose_img, cv2.COLOR_BGR2RGB)
+            ref_pose_img = pixel_values_pose_flip[ref_img_idx]
             pixel_values_ref_pose = torch.from_numpy(ref_pose_img).permute(2, 0, 1).contiguous()
             pixel_values_ref_pose = pixel_values_ref_pose / 255.0  # Normalize to [0,1]
         else:
-            # If no pose is available, initialize with zeros
-            pixel_values_ref_pose = torch.zeros(3, self.sample_size[0], self.sample_size[1])
+            ref_img = cv2.imread(reference_path)
+            ref_img = cv2.cvtColor(ref_img, cv2.COLOR_BGR2RGB)
+            ref_img = self.contrast_normalization(ref_img)
+            ref_img_pil = Image.fromarray(ref_img)
+            clip_ref_image = self.clip_image_processor(images=ref_img_pil, return_tensors="pt").pixel_values
+
+            # Main Reference Image (main_reference.png)
+            pixel_values_ref_img = ref_img
+            pixel_values_ref_img = torch.from_numpy(pixel_values_ref_img).permute(2, 0, 1).contiguous()
+            pixel_values_ref_img = pixel_values_ref_img / 255.0  # Normalize to [0,1]
+            # Reference Pose Image
+            # Assuming the reference pose is the first pose in the list
+            if ref_pose_path:
+                ref_pose_img = cv2.imread(ref_pose_path)
+                ref_pose_img = cv2.cvtColor(ref_pose_img, cv2.COLOR_BGR2RGB)
+                pixel_values_ref_pose = torch.from_numpy(ref_pose_img).permute(2, 0, 1).contiguous()
+                pixel_values_ref_pose = pixel_values_ref_pose / 255.0  # Normalize to [0,1]
+            else:
+                # If no pose is available, initialize with zeros
+                pixel_values_ref_pose = torch.zeros(3, self.sample_size[0], self.sample_size[1])
 
         # Drop Image Embeds (randomly set to 1 with 10% probability)
         drop_image_embeds = 1 if random.random() < 0.1 else 0

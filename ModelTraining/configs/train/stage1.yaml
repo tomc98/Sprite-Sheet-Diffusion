@@ -1,11 +1,11 @@
 data:
-  json_path: "data/ssd_data_HQ/train/game_animation.json"
+  json_path: "data/SSD_data/Train/game_animation.json"
   data_path: "data/"
   sample_size:  [512, 512]
   sample_stride_aug: True
 
 val_data:
-  json_path: "data/ssd_data_HQ/valid/game_animation.json"
+  json_path: "data/SSD_data/Val/game_animation.json"
   data_path: "data/"
   sample_size:  [512, 512]
   sample_stride_aug: True
@@ -50,7 +50,7 @@ controlnet_openpose_path: './pretrained_model/pose_guider.pth'
 stage1_ckpt_dir: './pretrained_model/'
 stage1_ckpt_step: 300000
 
-train_bs: 8
+train_bs: 4
 
 weight_dtype: 'fp16'  # [fp16, fp32]
 uncond_ratio: 0.1
