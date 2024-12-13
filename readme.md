@@ -18,7 +18,7 @@ We implemented two evaluation scripts to automate the evaluation process and gen
 #### Prerequisites
 Please organize your results using the following folder structure:
 
-
+```
 results/
 └── Exp_A/
     ├── character_X/
@@ -38,7 +38,7 @@ results/
     │           ├── ground_truth/
     │           └── predict/
     └── ...
-
+```
 
 #### Image Quality Evaluation
 ```bash
