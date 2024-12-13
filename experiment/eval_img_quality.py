@@ -7,6 +7,7 @@ import torchvision.transforms as transforms
 from tqdm import tqdm
 import pandas as pd
 from ssim import SSIM, Image
+import PIL.Image
 
 
 def ssim_score(input_image_path: str, target_image_path: str) -> float:
@@ -36,10 +37,10 @@ def lpips_score(input_image_path: str, target_image_path: str, loss_fn: object, 
     Calculate the Learned Perceptual Image Patch Similarity (LPIPS) between two images.
     Lower LPIPS score means the images are more similar.
     """
-    input_image = transform(Image.open(input_image_path)).unsqueeze(0)
-    target_image = transform(Image.open(target_image_path)).unsqueeze(0)
+    input_image = transform(PIL.Image.open(input_image_path).convert('RGB')).unsqueeze(0)
+    target_image = transform(PIL.Image.open(target_image_path).convert('RGB')).unsqueeze(0)
     score = loss_fn(input_image, target_image).item()
-    # print("LPIPS Score: ", score)
+
     return score
 
 
