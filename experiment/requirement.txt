@@ -4,3 +4,4 @@ torchmetrics
 lpips 
 pyssim
 tabulate
+vbench
