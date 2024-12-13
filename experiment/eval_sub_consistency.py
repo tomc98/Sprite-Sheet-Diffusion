@@ -129,7 +129,7 @@ if __name__ == "__main__":
     eval_sub_consistency.evaluate(output_video_dir, name=tag, dimension_list=["subject_consistency"], mode="custom_input")
 
     # Save evaluation results to MARKDOWN file
-    save_results(os.path.join(eval_dir, f"{tag}_eval_results.json"), os.path.join(eval_dir, f"RESULTS_frame_consistency_{tag}.md"))
+    save_results(os.path.join(eval_dir, f"{tag}_eval_results.json"), os.path.join(eval_dir, f"RESULTS_sub_consistency_{tag}.md"))
 
 
 
