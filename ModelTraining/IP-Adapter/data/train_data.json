@@ -1,0 +1,2667 @@
+[
+    {
+        "reference_image": "Train/zombie_finished/motions/Walk/ground_truth/frame_1.png",
+        "pose_image": "Train/zombie_finished/motions/Walk/poses/humanpose_10.png",
+        "target_image": "Train/zombie_finished/motions/Walk/ground_truth/frame_10.png"
+    },
+    {
+        "reference_image": "Train/zombie_finished/motions/Walk/ground_truth/frame_1.png",
+        "pose_image": "Train/zombie_finished/motions/Walk/poses/humanpose_2.png",
+        "target_image": "Train/zombie_finished/motions/Walk/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/zombie_finished/motions/Walk/ground_truth/frame_1.png",
+        "pose_image": "Train/zombie_finished/motions/Walk/poses/humanpose_3.png",
+        "target_image": "Train/zombie_finished/motions/Walk/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/zombie_finished/motions/Walk/ground_truth/frame_1.png",
+        "pose_image": "Train/zombie_finished/motions/Walk/poses/humanpose_4.png",
+        "target_image": "Train/zombie_finished/motions/Walk/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/zombie_finished/motions/Walk/ground_truth/frame_1.png",
+        "pose_image": "Train/zombie_finished/motions/Walk/poses/humanpose_5.png",
+        "target_image": "Train/zombie_finished/motions/Walk/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Train/zombie_finished/motions/Walk/ground_truth/frame_1.png",
+        "pose_image": "Train/zombie_finished/motions/Walk/poses/humanpose_6.png",
+        "target_image": "Train/zombie_finished/motions/Walk/ground_truth/frame_6.png"
+    },
+    {
+        "reference_image": "Train/zombie_finished/motions/Walk/ground_truth/frame_1.png",
+        "pose_image": "Train/zombie_finished/motions/Walk/poses/humanpose_7.png",
+        "target_image": "Train/zombie_finished/motions/Walk/ground_truth/frame_7.png"
+    },
+    {
+        "reference_image": "Train/zombie_finished/motions/Walk/ground_truth/frame_1.png",
+        "pose_image": "Train/zombie_finished/motions/Walk/poses/humanpose_8.png",
+        "target_image": "Train/zombie_finished/motions/Walk/ground_truth/frame_8.png"
+    },
+    {
+        "reference_image": "Train/zombie_finished/motions/Walk/ground_truth/frame_1.png",
+        "pose_image": "Train/zombie_finished/motions/Walk/poses/humanpose_9.png",
+        "target_image": "Train/zombie_finished/motions/Walk/ground_truth/frame_9.png"
+    },
+    {
+        "reference_image": "Train/zombie_finished/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Train/zombie_finished/motions/Idle/poses/humanpose_10.png",
+        "target_image": "Train/zombie_finished/motions/Idle/ground_truth/frame_10.png"
+    },
+    {
+        "reference_image": "Train/zombie_finished/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Train/zombie_finished/motions/Idle/poses/humanpose_11.png",
+        "target_image": "Train/zombie_finished/motions/Idle/ground_truth/frame_11.png"
+    },
+    {
+        "reference_image": "Train/zombie_finished/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Train/zombie_finished/motions/Idle/poses/humanpose_12.png",
+        "target_image": "Train/zombie_finished/motions/Idle/ground_truth/frame_12.png"
+    },
+    {
+        "reference_image": "Train/zombie_finished/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Train/zombie_finished/motions/Idle/poses/humanpose_13.png",
+        "target_image": "Train/zombie_finished/motions/Idle/ground_truth/frame_13.png"
+    },
+    {
+        "reference_image": "Train/zombie_finished/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Train/zombie_finished/motions/Idle/poses/humanpose_14.png",
+        "target_image": "Train/zombie_finished/motions/Idle/ground_truth/frame_14.png"
+    },
+    {
+        "reference_image": "Train/zombie_finished/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Train/zombie_finished/motions/Idle/poses/humanpose_15.png",
+        "target_image": "Train/zombie_finished/motions/Idle/ground_truth/frame_15.png"
+    },
+    {
+        "reference_image": "Train/zombie_finished/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Train/zombie_finished/motions/Idle/poses/humanpose_2.png",
+        "target_image": "Train/zombie_finished/motions/Idle/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/zombie_finished/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Train/zombie_finished/motions/Idle/poses/humanpose_3.png",
+        "target_image": "Train/zombie_finished/motions/Idle/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/zombie_finished/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Train/zombie_finished/motions/Idle/poses/humanpose_4.png",
+        "target_image": "Train/zombie_finished/motions/Idle/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/zombie_finished/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Train/zombie_finished/motions/Idle/poses/humanpose_5.png",
+        "target_image": "Train/zombie_finished/motions/Idle/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Train/zombie_finished/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Train/zombie_finished/motions/Idle/poses/humanpose_6.png",
+        "target_image": "Train/zombie_finished/motions/Idle/ground_truth/frame_6.png"
+    },
+    {
+        "reference_image": "Train/zombie_finished/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Train/zombie_finished/motions/Idle/poses/humanpose_7.png",
+        "target_image": "Train/zombie_finished/motions/Idle/ground_truth/frame_7.png"
+    },
+    {
+        "reference_image": "Train/zombie_finished/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Train/zombie_finished/motions/Idle/poses/humanpose_8.png",
+        "target_image": "Train/zombie_finished/motions/Idle/ground_truth/frame_8.png"
+    },
+    {
+        "reference_image": "Train/zombie_finished/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Train/zombie_finished/motions/Idle/poses/humanpose_9.png",
+        "target_image": "Train/zombie_finished/motions/Idle/ground_truth/frame_9.png"
+    },
+    {
+        "reference_image": "Train/adventure_girl/motions/melee/ground_truth/frame_1.png",
+        "pose_image": "Train/adventure_girl/motions/melee/poses/humanpose_2.png",
+        "target_image": "Train/adventure_girl/motions/melee/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/adventure_girl/motions/melee/ground_truth/frame_1.png",
+        "pose_image": "Train/adventure_girl/motions/melee/poses/humanpose_3.png",
+        "target_image": "Train/adventure_girl/motions/melee/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/adventure_girl/motions/melee/ground_truth/frame_1.png",
+        "pose_image": "Train/adventure_girl/motions/melee/poses/humanpose_4.png",
+        "target_image": "Train/adventure_girl/motions/melee/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/adventure_girl/motions/melee/ground_truth/frame_1.png",
+        "pose_image": "Train/adventure_girl/motions/melee/poses/humanpose_5.png",
+        "target_image": "Train/adventure_girl/motions/melee/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Train/adventure_girl/motions/jump/ground_truth/frame_1.png",
+        "pose_image": "Train/adventure_girl/motions/jump/poses/humanpose_2.png",
+        "target_image": "Train/adventure_girl/motions/jump/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/adventure_girl/motions/jump/ground_truth/frame_1.png",
+        "pose_image": "Train/adventure_girl/motions/jump/poses/humanpose_3.png",
+        "target_image": "Train/adventure_girl/motions/jump/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/adventure_girl/motions/jump/ground_truth/frame_1.png",
+        "pose_image": "Train/adventure_girl/motions/jump/poses/humanpose_4.png",
+        "target_image": "Train/adventure_girl/motions/jump/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/zombie_female/motions/Attack/ground_truth/frame_1.png",
+        "pose_image": "Train/zombie_female/motions/Attack/poses/humanpose_2.png",
+        "target_image": "Train/zombie_female/motions/Attack/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/zombie_female/motions/Attack/ground_truth/frame_1.png",
+        "pose_image": "Train/zombie_female/motions/Attack/poses/humanpose_3.png",
+        "target_image": "Train/zombie_female/motions/Attack/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/zombie_female/motions/Attack/ground_truth/frame_1.png",
+        "pose_image": "Train/zombie_female/motions/Attack/poses/humanpose_4.png",
+        "target_image": "Train/zombie_female/motions/Attack/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/zombie_female/motions/Attack/ground_truth/frame_1.png",
+        "pose_image": "Train/zombie_female/motions/Attack/poses/humanpose_5.png",
+        "target_image": "Train/zombie_female/motions/Attack/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Train/zombie_female/motions/Attack/ground_truth/frame_1.png",
+        "pose_image": "Train/zombie_female/motions/Attack/poses/humanpose_6.png",
+        "target_image": "Train/zombie_female/motions/Attack/ground_truth/frame_6.png"
+    },
+    {
+        "reference_image": "Train/zombie_female/motions/Attack/ground_truth/frame_1.png",
+        "pose_image": "Train/zombie_female/motions/Attack/poses/humanpose_7.png",
+        "target_image": "Train/zombie_female/motions/Attack/ground_truth/frame_7.png"
+    },
+    {
+        "reference_image": "Train/zombie_female/motions/Attack/ground_truth/frame_1.png",
+        "pose_image": "Train/zombie_female/motions/Attack/poses/humanpose_8.png",
+        "target_image": "Train/zombie_female/motions/Attack/ground_truth/frame_8.png"
+    },
+    {
+        "reference_image": "Train/zombie_female/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/zombie_female/motions/Dead/poses/humanpose_10.png",
+        "target_image": "Train/zombie_female/motions/Dead/ground_truth/frame_10.png"
+    },
+    {
+        "reference_image": "Train/zombie_female/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/zombie_female/motions/Dead/poses/humanpose_11.png",
+        "target_image": "Train/zombie_female/motions/Dead/ground_truth/frame_11.png"
+    },
+    {
+        "reference_image": "Train/zombie_female/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/zombie_female/motions/Dead/poses/humanpose_12.png",
+        "target_image": "Train/zombie_female/motions/Dead/ground_truth/frame_12.png"
+    },
+    {
+        "reference_image": "Train/zombie_female/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/zombie_female/motions/Dead/poses/humanpose_2.png",
+        "target_image": "Train/zombie_female/motions/Dead/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/zombie_female/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/zombie_female/motions/Dead/poses/humanpose_3.png",
+        "target_image": "Train/zombie_female/motions/Dead/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/zombie_female/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/zombie_female/motions/Dead/poses/humanpose_4.png",
+        "target_image": "Train/zombie_female/motions/Dead/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/zombie_female/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/zombie_female/motions/Dead/poses/humanpose_5.png",
+        "target_image": "Train/zombie_female/motions/Dead/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Train/zombie_female/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/zombie_female/motions/Dead/poses/humanpose_6.png",
+        "target_image": "Train/zombie_female/motions/Dead/ground_truth/frame_6.png"
+    },
+    {
+        "reference_image": "Train/zombie_female/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/zombie_female/motions/Dead/poses/humanpose_7.png",
+        "target_image": "Train/zombie_female/motions/Dead/ground_truth/frame_7.png"
+    },
+    {
+        "reference_image": "Train/zombie_female/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/zombie_female/motions/Dead/poses/humanpose_8.png",
+        "target_image": "Train/zombie_female/motions/Dead/ground_truth/frame_8.png"
+    },
+    {
+        "reference_image": "Train/zombie_female/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/zombie_female/motions/Dead/poses/humanpose_9.png",
+        "target_image": "Train/zombie_female/motions/Dead/ground_truth/frame_9.png"
+    },
+    {
+        "reference_image": "Train/robot/motions/JumpShoot/ground_truth/frame_1.png",
+        "pose_image": "Train/robot/motions/JumpShoot/poses/humanpose_2.png",
+        "target_image": "Train/robot/motions/JumpShoot/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/robot/motions/JumpShoot/ground_truth/frame_1.png",
+        "pose_image": "Train/robot/motions/JumpShoot/poses/humanpose_3.png",
+        "target_image": "Train/robot/motions/JumpShoot/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/robot/motions/JumpShoot/ground_truth/frame_1.png",
+        "pose_image": "Train/robot/motions/JumpShoot/poses/humanpose_4.png",
+        "target_image": "Train/robot/motions/JumpShoot/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/robot/motions/JumpShoot/ground_truth/frame_1.png",
+        "pose_image": "Train/robot/motions/JumpShoot/poses/humanpose_5.png",
+        "target_image": "Train/robot/motions/JumpShoot/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Train/robot/motions/Melee/ground_truth/frame_1.png",
+        "pose_image": "Train/robot/motions/Melee/poses/humanpose_2.png",
+        "target_image": "Train/robot/motions/Melee/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/robot/motions/Melee/ground_truth/frame_1.png",
+        "pose_image": "Train/robot/motions/Melee/poses/humanpose_3.png",
+        "target_image": "Train/robot/motions/Melee/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/robot/motions/Melee/ground_truth/frame_1.png",
+        "pose_image": "Train/robot/motions/Melee/poses/humanpose_4.png",
+        "target_image": "Train/robot/motions/Melee/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/robot/motions/Melee/ground_truth/frame_1.png",
+        "pose_image": "Train/robot/motions/Melee/poses/humanpose_5.png",
+        "target_image": "Train/robot/motions/Melee/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Train/robot/motions/Melee/ground_truth/frame_1.png",
+        "pose_image": "Train/robot/motions/Melee/poses/humanpose_6.png",
+        "target_image": "Train/robot/motions/Melee/ground_truth/frame_6.png"
+    },
+    {
+        "reference_image": "Train/robot/motions/Melee/ground_truth/frame_1.png",
+        "pose_image": "Train/robot/motions/Melee/poses/humanpose_7.png",
+        "target_image": "Train/robot/motions/Melee/ground_truth/frame_7.png"
+    },
+    {
+        "reference_image": "Train/robot/motions/Melee/ground_truth/frame_1.png",
+        "pose_image": "Train/robot/motions/Melee/poses/humanpose_8.png",
+        "target_image": "Train/robot/motions/Melee/ground_truth/frame_8.png"
+    },
+    {
+        "reference_image": "Train/robot/motions/Slide/ground_truth/frame_1.png",
+        "pose_image": "Train/robot/motions/Slide/poses/humanpose_10.png",
+        "target_image": "Train/robot/motions/Slide/ground_truth/frame_10.png"
+    },
+    {
+        "reference_image": "Train/robot/motions/Slide/ground_truth/frame_1.png",
+        "pose_image": "Train/robot/motions/Slide/poses/humanpose_2.png",
+        "target_image": "Train/robot/motions/Slide/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/robot/motions/Slide/ground_truth/frame_1.png",
+        "pose_image": "Train/robot/motions/Slide/poses/humanpose_3.png",
+        "target_image": "Train/robot/motions/Slide/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/robot/motions/Slide/ground_truth/frame_1.png",
+        "pose_image": "Train/robot/motions/Slide/poses/humanpose_4.png",
+        "target_image": "Train/robot/motions/Slide/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/robot/motions/Slide/ground_truth/frame_1.png",
+        "pose_image": "Train/robot/motions/Slide/poses/humanpose_5.png",
+        "target_image": "Train/robot/motions/Slide/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Train/robot/motions/Slide/ground_truth/frame_1.png",
+        "pose_image": "Train/robot/motions/Slide/poses/humanpose_6.png",
+        "target_image": "Train/robot/motions/Slide/ground_truth/frame_6.png"
+    },
+    {
+        "reference_image": "Train/robot/motions/Slide/ground_truth/frame_1.png",
+        "pose_image": "Train/robot/motions/Slide/poses/humanpose_7.png",
+        "target_image": "Train/robot/motions/Slide/ground_truth/frame_7.png"
+    },
+    {
+        "reference_image": "Train/robot/motions/Slide/ground_truth/frame_1.png",
+        "pose_image": "Train/robot/motions/Slide/poses/humanpose_8.png",
+        "target_image": "Train/robot/motions/Slide/ground_truth/frame_8.png"
+    },
+    {
+        "reference_image": "Train/robot/motions/Slide/ground_truth/frame_1.png",
+        "pose_image": "Train/robot/motions/Slide/poses/humanpose_9.png",
+        "target_image": "Train/robot/motions/Slide/ground_truth/frame_9.png"
+    },
+    {
+        "reference_image": "Train/robot/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Train/robot/motions/Run/poses/humanpose_2.png",
+        "target_image": "Train/robot/motions/Run/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/robot/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Train/robot/motions/Run/poses/humanpose_3.png",
+        "target_image": "Train/robot/motions/Run/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/robot/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Train/robot/motions/Run/poses/humanpose_4.png",
+        "target_image": "Train/robot/motions/Run/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/robot/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Train/robot/motions/Run/poses/humanpose_5.png",
+        "target_image": "Train/robot/motions/Run/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Train/robot/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Train/robot/motions/Run/poses/humanpose_6.png",
+        "target_image": "Train/robot/motions/Run/ground_truth/frame_6.png"
+    },
+    {
+        "reference_image": "Train/robot/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Train/robot/motions/Run/poses/humanpose_7.png",
+        "target_image": "Train/robot/motions/Run/ground_truth/frame_7.png"
+    },
+    {
+        "reference_image": "Train/robot/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Train/robot/motions/Run/poses/humanpose_8.png",
+        "target_image": "Train/robot/motions/Run/ground_truth/frame_8.png"
+    },
+    {
+        "reference_image": "Train/robot/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/robot/motions/Dead/poses/humanpose_10.png",
+        "target_image": "Train/robot/motions/Dead/ground_truth/frame_10.png"
+    },
+    {
+        "reference_image": "Train/robot/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/robot/motions/Dead/poses/humanpose_2.png",
+        "target_image": "Train/robot/motions/Dead/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/robot/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/robot/motions/Dead/poses/humanpose_3.png",
+        "target_image": "Train/robot/motions/Dead/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/robot/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/robot/motions/Dead/poses/humanpose_4.png",
+        "target_image": "Train/robot/motions/Dead/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/robot/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/robot/motions/Dead/poses/humanpose_5.png",
+        "target_image": "Train/robot/motions/Dead/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Train/robot/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/robot/motions/Dead/poses/humanpose_6.png",
+        "target_image": "Train/robot/motions/Dead/ground_truth/frame_6.png"
+    },
+    {
+        "reference_image": "Train/robot/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/robot/motions/Dead/poses/humanpose_7.png",
+        "target_image": "Train/robot/motions/Dead/ground_truth/frame_7.png"
+    },
+    {
+        "reference_image": "Train/robot/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/robot/motions/Dead/poses/humanpose_8.png",
+        "target_image": "Train/robot/motions/Dead/ground_truth/frame_8.png"
+    },
+    {
+        "reference_image": "Train/robot/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/robot/motions/Dead/poses/humanpose_9.png",
+        "target_image": "Train/robot/motions/Dead/ground_truth/frame_9.png"
+    },
+    {
+        "reference_image": "Train/robot/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Train/robot/motions/Idle/poses/humanpose_10.png",
+        "target_image": "Train/robot/motions/Idle/ground_truth/frame_10.png"
+    },
+    {
+        "reference_image": "Train/robot/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Train/robot/motions/Idle/poses/humanpose_2.png",
+        "target_image": "Train/robot/motions/Idle/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/robot/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Train/robot/motions/Idle/poses/humanpose_3.png",
+        "target_image": "Train/robot/motions/Idle/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/robot/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Train/robot/motions/Idle/poses/humanpose_4.png",
+        "target_image": "Train/robot/motions/Idle/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/robot/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Train/robot/motions/Idle/poses/humanpose_5.png",
+        "target_image": "Train/robot/motions/Idle/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Train/robot/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Train/robot/motions/Idle/poses/humanpose_6.png",
+        "target_image": "Train/robot/motions/Idle/ground_truth/frame_6.png"
+    },
+    {
+        "reference_image": "Train/robot/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Train/robot/motions/Idle/poses/humanpose_7.png",
+        "target_image": "Train/robot/motions/Idle/ground_truth/frame_7.png"
+    },
+    {
+        "reference_image": "Train/robot/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Train/robot/motions/Idle/poses/humanpose_8.png",
+        "target_image": "Train/robot/motions/Idle/ground_truth/frame_8.png"
+    },
+    {
+        "reference_image": "Train/robot/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Train/robot/motions/Idle/poses/humanpose_9.png",
+        "target_image": "Train/robot/motions/Idle/ground_truth/frame_9.png"
+    },
+    {
+        "reference_image": "Train/robot/motions/Jump/ground_truth/frame_1.png",
+        "pose_image": "Train/robot/motions/Jump/poses/humanpose_10.png",
+        "target_image": "Train/robot/motions/Jump/ground_truth/frame_10.png"
+    },
+    {
+        "reference_image": "Train/robot/motions/Jump/ground_truth/frame_1.png",
+        "pose_image": "Train/robot/motions/Jump/poses/humanpose_2.png",
+        "target_image": "Train/robot/motions/Jump/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/robot/motions/Jump/ground_truth/frame_1.png",
+        "pose_image": "Train/robot/motions/Jump/poses/humanpose_3.png",
+        "target_image": "Train/robot/motions/Jump/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/robot/motions/Jump/ground_truth/frame_1.png",
+        "pose_image": "Train/robot/motions/Jump/poses/humanpose_4.png",
+        "target_image": "Train/robot/motions/Jump/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/robot/motions/Jump/ground_truth/frame_1.png",
+        "pose_image": "Train/robot/motions/Jump/poses/humanpose_5.png",
+        "target_image": "Train/robot/motions/Jump/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Train/robot/motions/Jump/ground_truth/frame_1.png",
+        "pose_image": "Train/robot/motions/Jump/poses/humanpose_6.png",
+        "target_image": "Train/robot/motions/Jump/ground_truth/frame_6.png"
+    },
+    {
+        "reference_image": "Train/robot/motions/Jump/ground_truth/frame_1.png",
+        "pose_image": "Train/robot/motions/Jump/poses/humanpose_7.png",
+        "target_image": "Train/robot/motions/Jump/ground_truth/frame_7.png"
+    },
+    {
+        "reference_image": "Train/robot/motions/Jump/ground_truth/frame_1.png",
+        "pose_image": "Train/robot/motions/Jump/poses/humanpose_8.png",
+        "target_image": "Train/robot/motions/Jump/ground_truth/frame_8.png"
+    },
+    {
+        "reference_image": "Train/robot/motions/Jump/ground_truth/frame_1.png",
+        "pose_image": "Train/robot/motions/Jump/poses/humanpose_9.png",
+        "target_image": "Train/robot/motions/Jump/ground_truth/frame_9.png"
+    },
+    {
+        "reference_image": "Train/robot/motions/Shoot/ground_truth/frame_1.png",
+        "pose_image": "Train/robot/motions/Shoot/poses/humanpose_2.png",
+        "target_image": "Train/robot/motions/Shoot/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/robot/motions/Shoot/ground_truth/frame_1.png",
+        "pose_image": "Train/robot/motions/Shoot/poses/humanpose_3.png",
+        "target_image": "Train/robot/motions/Shoot/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/robot/motions/Shoot/ground_truth/frame_1.png",
+        "pose_image": "Train/robot/motions/Shoot/poses/humanpose_4.png",
+        "target_image": "Train/robot/motions/Shoot/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/CarenOrtensia_hand/motions/rotate/reference.png",
+        "pose_image": "Train/CarenOrtensia_hand/motions/rotate/poses/humanpose_0.png",
+        "target_image": "Train/CarenOrtensia_hand/motions/rotate/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Train/CarenOrtensia_hand/motions/rotate/reference.png",
+        "pose_image": "Train/CarenOrtensia_hand/motions/rotate/poses/humanpose_1.png",
+        "target_image": "Train/CarenOrtensia_hand/motions/rotate/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Train/CarenOrtensia_hand/motions/rotate/reference.png",
+        "pose_image": "Train/CarenOrtensia_hand/motions/rotate/poses/humanpose_2.png",
+        "target_image": "Train/CarenOrtensia_hand/motions/rotate/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/CarenOrtensia_hand/motions/rotate/reference.png",
+        "pose_image": "Train/CarenOrtensia_hand/motions/rotate/poses/humanpose_3.png",
+        "target_image": "Train/CarenOrtensia_hand/motions/rotate/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/CarenOrtensia_hand/motions/rotate/reference.png",
+        "pose_image": "Train/CarenOrtensia_hand/motions/rotate/poses/humanpose_4.png",
+        "target_image": "Train/CarenOrtensia_hand/motions/rotate/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/CarenOrtensia_hand/motions/rotate/reference.png",
+        "pose_image": "Train/CarenOrtensia_hand/motions/rotate/poses/humanpose_5.png",
+        "target_image": "Train/CarenOrtensia_hand/motions/rotate/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Train/CarenOrtensia_hand/motions/attack2/reference.png",
+        "pose_image": "Train/CarenOrtensia_hand/motions/attack2/poses/humanpose_0.png",
+        "target_image": "Train/CarenOrtensia_hand/motions/attack2/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Train/CarenOrtensia_hand/motions/attack2/reference.png",
+        "pose_image": "Train/CarenOrtensia_hand/motions/attack2/poses/humanpose_1.png",
+        "target_image": "Train/CarenOrtensia_hand/motions/attack2/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Train/CarenOrtensia_hand/motions/attack2/reference.png",
+        "pose_image": "Train/CarenOrtensia_hand/motions/attack2/poses/humanpose_2.png",
+        "target_image": "Train/CarenOrtensia_hand/motions/attack2/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/CarenOrtensia_hand/motions/attack2/reference.png",
+        "pose_image": "Train/CarenOrtensia_hand/motions/attack2/poses/humanpose_3.png",
+        "target_image": "Train/CarenOrtensia_hand/motions/attack2/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/Tim_hand/motions/run/reference.png",
+        "pose_image": "Train/Tim_hand/motions/run/poses/humanpose_0.png",
+        "target_image": "Train/Tim_hand/motions/run/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Train/Tim_hand/motions/run/reference.png",
+        "pose_image": "Train/Tim_hand/motions/run/poses/humanpose_1.png",
+        "target_image": "Train/Tim_hand/motions/run/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Train/Tim_hand/motions/run/reference.png",
+        "pose_image": "Train/Tim_hand/motions/run/poses/humanpose_2.png",
+        "target_image": "Train/Tim_hand/motions/run/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/Tim_hand/motions/run/reference.png",
+        "pose_image": "Train/Tim_hand/motions/run/poses/humanpose_3.png",
+        "target_image": "Train/Tim_hand/motions/run/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/Tim_hand/motions/run/reference.png",
+        "pose_image": "Train/Tim_hand/motions/run/poses/humanpose_4.png",
+        "target_image": "Train/Tim_hand/motions/run/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/Tim_hand/motions/run/reference.png",
+        "pose_image": "Train/Tim_hand/motions/run/poses/humanpose_5.png",
+        "target_image": "Train/Tim_hand/motions/run/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Train/Tim_hand/motions/run/reference.png",
+        "pose_image": "Train/Tim_hand/motions/run/poses/humanpose_6.png",
+        "target_image": "Train/Tim_hand/motions/run/ground_truth/frame_6.png"
+    },
+    {
+        "reference_image": "Train/Tim_hand/motions/run/reference.png",
+        "pose_image": "Train/Tim_hand/motions/run/poses/humanpose_7.png",
+        "target_image": "Train/Tim_hand/motions/run/ground_truth/frame_7.png"
+    },
+    {
+        "reference_image": "Train/Tim_hand/motions/run/reference.png",
+        "pose_image": "Train/Tim_hand/motions/run/poses/humanpose_8.png",
+        "target_image": "Train/Tim_hand/motions/run/ground_truth/frame_8.png"
+    },
+    {
+        "reference_image": "Train/Tim_hand/motions/idle/reference.png",
+        "pose_image": "Train/Tim_hand/motions/idle/poses/humanpose_0.png",
+        "target_image": "Train/Tim_hand/motions/idle/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Train/Tim_hand/motions/idle/reference.png",
+        "pose_image": "Train/Tim_hand/motions/idle/poses/humanpose_1.png",
+        "target_image": "Train/Tim_hand/motions/idle/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Train/Tim_hand/motions/idle/reference.png",
+        "pose_image": "Train/Tim_hand/motions/idle/poses/humanpose_2.png",
+        "target_image": "Train/Tim_hand/motions/idle/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/Tim_hand/motions/idle/reference.png",
+        "pose_image": "Train/Tim_hand/motions/idle/poses/humanpose_3.png",
+        "target_image": "Train/Tim_hand/motions/idle/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/Tim_hand/motions/idle/reference.png",
+        "pose_image": "Train/Tim_hand/motions/idle/poses/humanpose_4.png",
+        "target_image": "Train/Tim_hand/motions/idle/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/Tim_hand/motions/idle/reference.png",
+        "pose_image": "Train/Tim_hand/motions/idle/poses/humanpose_5.png",
+        "target_image": "Train/Tim_hand/motions/idle/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Train/Tim_hand/motions/jump/reference.png",
+        "pose_image": "Train/Tim_hand/motions/jump/poses/humanpose_0.png",
+        "target_image": "Train/Tim_hand/motions/jump/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Train/Tim_hand/motions/jump/reference.png",
+        "pose_image": "Train/Tim_hand/motions/jump/poses/humanpose_1.png",
+        "target_image": "Train/Tim_hand/motions/jump/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Train/Tim_hand/motions/jump/reference.png",
+        "pose_image": "Train/Tim_hand/motions/jump/poses/humanpose_2.png",
+        "target_image": "Train/Tim_hand/motions/jump/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/Tim_hand/motions/jump/reference.png",
+        "pose_image": "Train/Tim_hand/motions/jump/poses/humanpose_3.png",
+        "target_image": "Train/Tim_hand/motions/jump/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/Tim_hand/motions/jump/reference.png",
+        "pose_image": "Train/Tim_hand/motions/jump/poses/humanpose_4.png",
+        "target_image": "Train/Tim_hand/motions/jump/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/Tim_hand/motions/jump/reference.png",
+        "pose_image": "Train/Tim_hand/motions/jump/poses/humanpose_5.png",
+        "target_image": "Train/Tim_hand/motions/jump/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Train/ChunLi/motions/attack/reference.png",
+        "pose_image": "Train/ChunLi/motions/attack/poses/humanpose_0.png",
+        "target_image": "Train/ChunLi/motions/attack/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Train/ChunLi/motions/attack/reference.png",
+        "pose_image": "Train/ChunLi/motions/attack/poses/humanpose_1.png",
+        "target_image": "Train/ChunLi/motions/attack/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Train/ChunLi/motions/attack/reference.png",
+        "pose_image": "Train/ChunLi/motions/attack/poses/humanpose_2.png",
+        "target_image": "Train/ChunLi/motions/attack/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/ChunLi/motions/attack/reference.png",
+        "pose_image": "Train/ChunLi/motions/attack/poses/humanpose_3.png",
+        "target_image": "Train/ChunLi/motions/attack/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/ChunLi/motions/jump/reference.png",
+        "pose_image": "Train/ChunLi/motions/jump/poses/humanpose_0.png",
+        "target_image": "Train/ChunLi/motions/jump/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Train/ChunLi/motions/jump/reference.png",
+        "pose_image": "Train/ChunLi/motions/jump/poses/humanpose_1.png",
+        "target_image": "Train/ChunLi/motions/jump/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Train/ChunLi/motions/jump/reference.png",
+        "pose_image": "Train/ChunLi/motions/jump/poses/humanpose_2.png",
+        "target_image": "Train/ChunLi/motions/jump/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/ChunLi/motions/jump/reference.png",
+        "pose_image": "Train/ChunLi/motions/jump/poses/humanpose_3.png",
+        "target_image": "Train/ChunLi/motions/jump/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/Binran/motions/hurt/reference.png",
+        "pose_image": "Train/Binran/motions/hurt/poses/humanpose_0.png",
+        "target_image": "Train/Binran/motions/hurt/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Train/Binran/motions/hurt/reference.png",
+        "pose_image": "Train/Binran/motions/hurt/poses/humanpose_1.png",
+        "target_image": "Train/Binran/motions/hurt/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Train/Binran/motions/hurt/reference.png",
+        "pose_image": "Train/Binran/motions/hurt/poses/humanpose_2.png",
+        "target_image": "Train/Binran/motions/hurt/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/Binran/motions/hurt/reference.png",
+        "pose_image": "Train/Binran/motions/hurt/poses/humanpose_3.png",
+        "target_image": "Train/Binran/motions/hurt/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/Binran/motions/jump/reference.png",
+        "pose_image": "Train/Binran/motions/jump/poses/humanpose_0.png",
+        "target_image": "Train/Binran/motions/jump/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Train/Binran/motions/jump/reference.png",
+        "pose_image": "Train/Binran/motions/jump/poses/humanpose_1.png",
+        "target_image": "Train/Binran/motions/jump/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Train/Binran/motions/jump/reference.png",
+        "pose_image": "Train/Binran/motions/jump/poses/humanpose_2.png",
+        "target_image": "Train/Binran/motions/jump/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/jackfree_finished/motions/Slide/ground_truth/frame_1.png",
+        "pose_image": "Train/jackfree_finished/motions/Slide/poses/humanpose_10.png",
+        "target_image": "Train/jackfree_finished/motions/Slide/ground_truth/frame_10.png"
+    },
+    {
+        "reference_image": "Train/jackfree_finished/motions/Slide/ground_truth/frame_1.png",
+        "pose_image": "Train/jackfree_finished/motions/Slide/poses/humanpose_2.png",
+        "target_image": "Train/jackfree_finished/motions/Slide/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/jackfree_finished/motions/Slide/ground_truth/frame_1.png",
+        "pose_image": "Train/jackfree_finished/motions/Slide/poses/humanpose_3.png",
+        "target_image": "Train/jackfree_finished/motions/Slide/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/jackfree_finished/motions/Slide/ground_truth/frame_1.png",
+        "pose_image": "Train/jackfree_finished/motions/Slide/poses/humanpose_4.png",
+        "target_image": "Train/jackfree_finished/motions/Slide/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/jackfree_finished/motions/Slide/ground_truth/frame_1.png",
+        "pose_image": "Train/jackfree_finished/motions/Slide/poses/humanpose_5.png",
+        "target_image": "Train/jackfree_finished/motions/Slide/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Train/jackfree_finished/motions/Slide/ground_truth/frame_1.png",
+        "pose_image": "Train/jackfree_finished/motions/Slide/poses/humanpose_6.png",
+        "target_image": "Train/jackfree_finished/motions/Slide/ground_truth/frame_6.png"
+    },
+    {
+        "reference_image": "Train/jackfree_finished/motions/Slide/ground_truth/frame_1.png",
+        "pose_image": "Train/jackfree_finished/motions/Slide/poses/humanpose_7.png",
+        "target_image": "Train/jackfree_finished/motions/Slide/ground_truth/frame_7.png"
+    },
+    {
+        "reference_image": "Train/jackfree_finished/motions/Slide/ground_truth/frame_1.png",
+        "pose_image": "Train/jackfree_finished/motions/Slide/poses/humanpose_8.png",
+        "target_image": "Train/jackfree_finished/motions/Slide/ground_truth/frame_8.png"
+    },
+    {
+        "reference_image": "Train/jackfree_finished/motions/Slide/ground_truth/frame_1.png",
+        "pose_image": "Train/jackfree_finished/motions/Slide/poses/humanpose_9.png",
+        "target_image": "Train/jackfree_finished/motions/Slide/ground_truth/frame_9.png"
+    },
+    {
+        "reference_image": "Train/jackfree_finished/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Train/jackfree_finished/motions/Run/poses/humanpose_2.png",
+        "target_image": "Train/jackfree_finished/motions/Run/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/jackfree_finished/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Train/jackfree_finished/motions/Run/poses/humanpose_3.png",
+        "target_image": "Train/jackfree_finished/motions/Run/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/jackfree_finished/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Train/jackfree_finished/motions/Run/poses/humanpose_4.png",
+        "target_image": "Train/jackfree_finished/motions/Run/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/jackfree_finished/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Train/jackfree_finished/motions/Run/poses/humanpose_5.png",
+        "target_image": "Train/jackfree_finished/motions/Run/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Train/jackfree_finished/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Train/jackfree_finished/motions/Run/poses/humanpose_6.png",
+        "target_image": "Train/jackfree_finished/motions/Run/ground_truth/frame_6.png"
+    },
+    {
+        "reference_image": "Train/jackfree_finished/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Train/jackfree_finished/motions/Run/poses/humanpose_7.png",
+        "target_image": "Train/jackfree_finished/motions/Run/ground_truth/frame_7.png"
+    },
+    {
+        "reference_image": "Train/jackfree_finished/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Train/jackfree_finished/motions/Run/poses/humanpose_8.png",
+        "target_image": "Train/jackfree_finished/motions/Run/ground_truth/frame_8.png"
+    },
+    {
+        "reference_image": "Train/jackfree_finished/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/jackfree_finished/motions/Dead/poses/humanpose_10.png",
+        "target_image": "Train/jackfree_finished/motions/Dead/ground_truth/frame_10.png"
+    },
+    {
+        "reference_image": "Train/jackfree_finished/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/jackfree_finished/motions/Dead/poses/humanpose_2.png",
+        "target_image": "Train/jackfree_finished/motions/Dead/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/jackfree_finished/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/jackfree_finished/motions/Dead/poses/humanpose_3.png",
+        "target_image": "Train/jackfree_finished/motions/Dead/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/jackfree_finished/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/jackfree_finished/motions/Dead/poses/humanpose_4.png",
+        "target_image": "Train/jackfree_finished/motions/Dead/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/jackfree_finished/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/jackfree_finished/motions/Dead/poses/humanpose_5.png",
+        "target_image": "Train/jackfree_finished/motions/Dead/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Train/jackfree_finished/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/jackfree_finished/motions/Dead/poses/humanpose_6.png",
+        "target_image": "Train/jackfree_finished/motions/Dead/ground_truth/frame_6.png"
+    },
+    {
+        "reference_image": "Train/jackfree_finished/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/jackfree_finished/motions/Dead/poses/humanpose_7.png",
+        "target_image": "Train/jackfree_finished/motions/Dead/ground_truth/frame_7.png"
+    },
+    {
+        "reference_image": "Train/jackfree_finished/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/jackfree_finished/motions/Dead/poses/humanpose_8.png",
+        "target_image": "Train/jackfree_finished/motions/Dead/ground_truth/frame_8.png"
+    },
+    {
+        "reference_image": "Train/jackfree_finished/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/jackfree_finished/motions/Dead/poses/humanpose_9.png",
+        "target_image": "Train/jackfree_finished/motions/Dead/ground_truth/frame_9.png"
+    },
+    {
+        "reference_image": "Train/jackfree_finished/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Train/jackfree_finished/motions/Idle/poses/humanpose_10.png",
+        "target_image": "Train/jackfree_finished/motions/Idle/ground_truth/frame_10.png"
+    },
+    {
+        "reference_image": "Train/jackfree_finished/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Train/jackfree_finished/motions/Idle/poses/humanpose_2.png",
+        "target_image": "Train/jackfree_finished/motions/Idle/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/jackfree_finished/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Train/jackfree_finished/motions/Idle/poses/humanpose_3.png",
+        "target_image": "Train/jackfree_finished/motions/Idle/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/jackfree_finished/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Train/jackfree_finished/motions/Idle/poses/humanpose_4.png",
+        "target_image": "Train/jackfree_finished/motions/Idle/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/jackfree_finished/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Train/jackfree_finished/motions/Idle/poses/humanpose_5.png",
+        "target_image": "Train/jackfree_finished/motions/Idle/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Train/jackfree_finished/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Train/jackfree_finished/motions/Idle/poses/humanpose_6.png",
+        "target_image": "Train/jackfree_finished/motions/Idle/ground_truth/frame_6.png"
+    },
+    {
+        "reference_image": "Train/jackfree_finished/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Train/jackfree_finished/motions/Idle/poses/humanpose_7.png",
+        "target_image": "Train/jackfree_finished/motions/Idle/ground_truth/frame_7.png"
+    },
+    {
+        "reference_image": "Train/jackfree_finished/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Train/jackfree_finished/motions/Idle/poses/humanpose_8.png",
+        "target_image": "Train/jackfree_finished/motions/Idle/ground_truth/frame_8.png"
+    },
+    {
+        "reference_image": "Train/jackfree_finished/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Train/jackfree_finished/motions/Idle/poses/humanpose_9.png",
+        "target_image": "Train/jackfree_finished/motions/Idle/ground_truth/frame_9.png"
+    },
+    {
+        "reference_image": "Train/Chiyo_hand/motions/rotate_attack/reference.png",
+        "pose_image": "Train/Chiyo_hand/motions/rotate_attack/poses/humanpose_0.png",
+        "target_image": "Train/Chiyo_hand/motions/rotate_attack/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Train/Chiyo_hand/motions/rotate_attack/reference.png",
+        "pose_image": "Train/Chiyo_hand/motions/rotate_attack/poses/humanpose_1.png",
+        "target_image": "Train/Chiyo_hand/motions/rotate_attack/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Train/Chiyo_hand/motions/rotate_attack/reference.png",
+        "pose_image": "Train/Chiyo_hand/motions/rotate_attack/poses/humanpose_10.png",
+        "target_image": "Train/Chiyo_hand/motions/rotate_attack/ground_truth/frame_10.png"
+    },
+    {
+        "reference_image": "Train/Chiyo_hand/motions/rotate_attack/reference.png",
+        "pose_image": "Train/Chiyo_hand/motions/rotate_attack/poses/humanpose_11.png",
+        "target_image": "Train/Chiyo_hand/motions/rotate_attack/ground_truth/frame_11.png"
+    },
+    {
+        "reference_image": "Train/Chiyo_hand/motions/rotate_attack/reference.png",
+        "pose_image": "Train/Chiyo_hand/motions/rotate_attack/poses/humanpose_2.png",
+        "target_image": "Train/Chiyo_hand/motions/rotate_attack/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/Chiyo_hand/motions/rotate_attack/reference.png",
+        "pose_image": "Train/Chiyo_hand/motions/rotate_attack/poses/humanpose_3.png",
+        "target_image": "Train/Chiyo_hand/motions/rotate_attack/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/Chiyo_hand/motions/rotate_attack/reference.png",
+        "pose_image": "Train/Chiyo_hand/motions/rotate_attack/poses/humanpose_4.png",
+        "target_image": "Train/Chiyo_hand/motions/rotate_attack/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/Chiyo_hand/motions/rotate_attack/reference.png",
+        "pose_image": "Train/Chiyo_hand/motions/rotate_attack/poses/humanpose_5.png",
+        "target_image": "Train/Chiyo_hand/motions/rotate_attack/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Train/Chiyo_hand/motions/rotate_attack/reference.png",
+        "pose_image": "Train/Chiyo_hand/motions/rotate_attack/poses/humanpose_6.png",
+        "target_image": "Train/Chiyo_hand/motions/rotate_attack/ground_truth/frame_6.png"
+    },
+    {
+        "reference_image": "Train/Chiyo_hand/motions/rotate_attack/reference.png",
+        "pose_image": "Train/Chiyo_hand/motions/rotate_attack/poses/humanpose_7.png",
+        "target_image": "Train/Chiyo_hand/motions/rotate_attack/ground_truth/frame_7.png"
+    },
+    {
+        "reference_image": "Train/Chiyo_hand/motions/rotate_attack/reference.png",
+        "pose_image": "Train/Chiyo_hand/motions/rotate_attack/poses/humanpose_8.png",
+        "target_image": "Train/Chiyo_hand/motions/rotate_attack/ground_truth/frame_8.png"
+    },
+    {
+        "reference_image": "Train/Chiyo_hand/motions/rotate_attack/reference.png",
+        "pose_image": "Train/Chiyo_hand/motions/rotate_attack/poses/humanpose_9.png",
+        "target_image": "Train/Chiyo_hand/motions/rotate_attack/ground_truth/frame_9.png"
+    },
+    {
+        "reference_image": "Train/Chiyo_hand/motions/jump_forward/reference.png",
+        "pose_image": "Train/Chiyo_hand/motions/jump_forward/poses/humanpose_0.png",
+        "target_image": "Train/Chiyo_hand/motions/jump_forward/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Train/Chiyo_hand/motions/jump_forward/reference.png",
+        "pose_image": "Train/Chiyo_hand/motions/jump_forward/poses/humanpose_1.png",
+        "target_image": "Train/Chiyo_hand/motions/jump_forward/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Train/Chiyo_hand/motions/jump_forward/reference.png",
+        "pose_image": "Train/Chiyo_hand/motions/jump_forward/poses/humanpose_2.png",
+        "target_image": "Train/Chiyo_hand/motions/jump_forward/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/Chiyo_hand/motions/jump_forward/reference.png",
+        "pose_image": "Train/Chiyo_hand/motions/jump_forward/poses/humanpose_3.png",
+        "target_image": "Train/Chiyo_hand/motions/jump_forward/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/Chiyo_hand/motions/jump_forward/reference.png",
+        "pose_image": "Train/Chiyo_hand/motions/jump_forward/poses/humanpose_4.png",
+        "target_image": "Train/Chiyo_hand/motions/jump_forward/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/Tiron/motions/victory/reference.png",
+        "pose_image": "Train/Tiron/motions/victory/poses/humanpose_0.png",
+        "target_image": "Train/Tiron/motions/victory/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Train/Tiron/motions/victory/reference.png",
+        "pose_image": "Train/Tiron/motions/victory/poses/humanpose_1.png",
+        "target_image": "Train/Tiron/motions/victory/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Train/Tiron/motions/victory/reference.png",
+        "pose_image": "Train/Tiron/motions/victory/poses/humanpose_2.png",
+        "target_image": "Train/Tiron/motions/victory/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/Tiron/motions/victory/reference.png",
+        "pose_image": "Train/Tiron/motions/victory/poses/humanpose_3.png",
+        "target_image": "Train/Tiron/motions/victory/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/Tiron/motions/flykick/reference.png",
+        "pose_image": "Train/Tiron/motions/flykick/poses/humanpose_0.png",
+        "target_image": "Train/Tiron/motions/flykick/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Train/Tiron/motions/flykick/reference.png",
+        "pose_image": "Train/Tiron/motions/flykick/poses/humanpose_1.png",
+        "target_image": "Train/Tiron/motions/flykick/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Train/Tiron/motions/flykick/reference.png",
+        "pose_image": "Train/Tiron/motions/flykick/poses/humanpose_2.png",
+        "target_image": "Train/Tiron/motions/flykick/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/santa/motions/Walk/ground_truth/frame_1.png",
+        "pose_image": "Train/santa/motions/Walk/poses/humanpose_10.png",
+        "target_image": "Train/santa/motions/Walk/ground_truth/frame_10.png"
+    },
+    {
+        "reference_image": "Train/santa/motions/Walk/ground_truth/frame_1.png",
+        "pose_image": "Train/santa/motions/Walk/poses/humanpose_2.png",
+        "target_image": "Train/santa/motions/Walk/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/santa/motions/Walk/ground_truth/frame_1.png",
+        "pose_image": "Train/santa/motions/Walk/poses/humanpose_3.png",
+        "target_image": "Train/santa/motions/Walk/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/santa/motions/Walk/ground_truth/frame_1.png",
+        "pose_image": "Train/santa/motions/Walk/poses/humanpose_4.png",
+        "target_image": "Train/santa/motions/Walk/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/santa/motions/Walk/ground_truth/frame_1.png",
+        "pose_image": "Train/santa/motions/Walk/poses/humanpose_5.png",
+        "target_image": "Train/santa/motions/Walk/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Train/santa/motions/Walk/ground_truth/frame_1.png",
+        "pose_image": "Train/santa/motions/Walk/poses/humanpose_6.png",
+        "target_image": "Train/santa/motions/Walk/ground_truth/frame_6.png"
+    },
+    {
+        "reference_image": "Train/santa/motions/Walk/ground_truth/frame_1.png",
+        "pose_image": "Train/santa/motions/Walk/poses/humanpose_7.png",
+        "target_image": "Train/santa/motions/Walk/ground_truth/frame_7.png"
+    },
+    {
+        "reference_image": "Train/santa/motions/Walk/ground_truth/frame_1.png",
+        "pose_image": "Train/santa/motions/Walk/poses/humanpose_8.png",
+        "target_image": "Train/santa/motions/Walk/ground_truth/frame_8.png"
+    },
+    {
+        "reference_image": "Train/santa/motions/Walk/ground_truth/frame_1.png",
+        "pose_image": "Train/santa/motions/Walk/poses/humanpose_9.png",
+        "target_image": "Train/santa/motions/Walk/ground_truth/frame_9.png"
+    },
+    {
+        "reference_image": "Train/santa/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/santa/motions/Dead/poses/humanpose_2.png",
+        "target_image": "Train/santa/motions/Dead/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/santa/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/santa/motions/Dead/poses/humanpose_3.png",
+        "target_image": "Train/santa/motions/Dead/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/santa/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/santa/motions/Dead/poses/humanpose_4.png",
+        "target_image": "Train/santa/motions/Dead/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/santa/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/santa/motions/Dead/poses/humanpose_5.png",
+        "target_image": "Train/santa/motions/Dead/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Train/santa/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/santa/motions/Dead/poses/humanpose_6.png",
+        "target_image": "Train/santa/motions/Dead/ground_truth/frame_6.png"
+    },
+    {
+        "reference_image": "Train/santa/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/santa/motions/Dead/poses/humanpose_7.png",
+        "target_image": "Train/santa/motions/Dead/ground_truth/frame_7.png"
+    },
+    {
+        "reference_image": "Train/cute_dino/motions/Walk/ground_truth/frame_1.png",
+        "pose_image": "Train/cute_dino/motions/Walk/poses/humanpose_2.png",
+        "target_image": "Train/cute_dino/motions/Walk/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/cute_dino/motions/Walk/ground_truth/frame_1.png",
+        "pose_image": "Train/cute_dino/motions/Walk/poses/humanpose_3.png",
+        "target_image": "Train/cute_dino/motions/Walk/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/cute_dino/motions/Walk/ground_truth/frame_1.png",
+        "pose_image": "Train/cute_dino/motions/Walk/poses/humanpose_4.png",
+        "target_image": "Train/cute_dino/motions/Walk/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/cute_dino/motions/Walk/ground_truth/frame_1.png",
+        "pose_image": "Train/cute_dino/motions/Walk/poses/humanpose_5.png",
+        "target_image": "Train/cute_dino/motions/Walk/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Train/cute_dino/motions/Walk/ground_truth/frame_1.png",
+        "pose_image": "Train/cute_dino/motions/Walk/poses/humanpose_6.png",
+        "target_image": "Train/cute_dino/motions/Walk/ground_truth/frame_6.png"
+    },
+    {
+        "reference_image": "Train/cute_dino/motions/Walk/ground_truth/frame_1.png",
+        "pose_image": "Train/cute_dino/motions/Walk/poses/humanpose_7.png",
+        "target_image": "Train/cute_dino/motions/Walk/ground_truth/frame_7.png"
+    },
+    {
+        "reference_image": "Train/cute_dino/motions/Jump/ground_truth/frame_1.png",
+        "pose_image": "Train/cute_dino/motions/Jump/poses/humanpose_2.png",
+        "target_image": "Train/cute_dino/motions/Jump/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/cute_dino/motions/Jump/ground_truth/frame_1.png",
+        "pose_image": "Train/cute_dino/motions/Jump/poses/humanpose_3.png",
+        "target_image": "Train/cute_dino/motions/Jump/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/cute_dino/motions/Jump/ground_truth/frame_1.png",
+        "pose_image": "Train/cute_dino/motions/Jump/poses/humanpose_4.png",
+        "target_image": "Train/cute_dino/motions/Jump/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/cute_dino/motions/Jump/ground_truth/frame_1.png",
+        "pose_image": "Train/cute_dino/motions/Jump/poses/humanpose_5.png",
+        "target_image": "Train/cute_dino/motions/Jump/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Train/cute_dino/motions/Jump/ground_truth/frame_1.png",
+        "pose_image": "Train/cute_dino/motions/Jump/poses/humanpose_6.png",
+        "target_image": "Train/cute_dino/motions/Jump/ground_truth/frame_6.png"
+    },
+    {
+        "reference_image": "Train/cute_dino/motions/Jump/ground_truth/frame_1.png",
+        "pose_image": "Train/cute_dino/motions/Jump/poses/humanpose_7.png",
+        "target_image": "Train/cute_dino/motions/Jump/ground_truth/frame_7.png"
+    },
+    {
+        "reference_image": "Train/Jaan/motions/hurt/reference.png",
+        "pose_image": "Train/Jaan/motions/hurt/poses/humanpose_0.png",
+        "target_image": "Train/Jaan/motions/hurt/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Train/Jaan/motions/hurt/reference.png",
+        "pose_image": "Train/Jaan/motions/hurt/poses/humanpose_1.png",
+        "target_image": "Train/Jaan/motions/hurt/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Train/Jaan/motions/hurt/reference.png",
+        "pose_image": "Train/Jaan/motions/hurt/poses/humanpose_2.png",
+        "target_image": "Train/Jaan/motions/hurt/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/Jaan/motions/walk/reference.png",
+        "pose_image": "Train/Jaan/motions/walk/poses/humanpose_0.png",
+        "target_image": "Train/Jaan/motions/walk/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Train/Jaan/motions/walk/reference.png",
+        "pose_image": "Train/Jaan/motions/walk/poses/humanpose_1.png",
+        "target_image": "Train/Jaan/motions/walk/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Train/Jaan/motions/walk/reference.png",
+        "pose_image": "Train/Jaan/motions/walk/poses/humanpose_2.png",
+        "target_image": "Train/Jaan/motions/walk/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/Jaan/motions/walk/reference.png",
+        "pose_image": "Train/Jaan/motions/walk/poses/humanpose_3.png",
+        "target_image": "Train/Jaan/motions/walk/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/cute_girl/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/cute_girl/motions/Dead/poses/humanpose_2.png",
+        "target_image": "Train/cute_girl/motions/Dead/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/cute_girl/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/cute_girl/motions/Dead/poses/humanpose_3.png",
+        "target_image": "Train/cute_girl/motions/Dead/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/cute_girl/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/cute_girl/motions/Dead/poses/humanpose_4.png",
+        "target_image": "Train/cute_girl/motions/Dead/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/cute_girl/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/cute_girl/motions/Dead/poses/humanpose_5.png",
+        "target_image": "Train/cute_girl/motions/Dead/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Train/cute_girl/motions/Jump/ground_truth/frame_1.png",
+        "pose_image": "Train/cute_girl/motions/Jump/poses/humanpose_2.png",
+        "target_image": "Train/cute_girl/motions/Jump/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/cute_girl/motions/Jump/ground_truth/frame_1.png",
+        "pose_image": "Train/cute_girl/motions/Jump/poses/humanpose_3.png",
+        "target_image": "Train/cute_girl/motions/Jump/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/cute_girl/motions/Jump/ground_truth/frame_1.png",
+        "pose_image": "Train/cute_girl/motions/Jump/poses/humanpose_4.png",
+        "target_image": "Train/cute_girl/motions/Jump/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/cute_girl/motions/Jump/ground_truth/frame_1.png",
+        "pose_image": "Train/cute_girl/motions/Jump/poses/humanpose_5.png",
+        "target_image": "Train/cute_girl/motions/Jump/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Train/cute_girl/motions/Jump/ground_truth/frame_1.png",
+        "pose_image": "Train/cute_girl/motions/Jump/poses/humanpose_6.png",
+        "target_image": "Train/cute_girl/motions/Jump/ground_truth/frame_6.png"
+    },
+    {
+        "reference_image": "Train/Archer/motions/run/reference.png",
+        "pose_image": "Train/Archer/motions/run/poses/humanpose_0.png",
+        "target_image": "Train/Archer/motions/run/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Train/Archer/motions/run/reference.png",
+        "pose_image": "Train/Archer/motions/run/poses/humanpose_1.png",
+        "target_image": "Train/Archer/motions/run/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Train/Archer/motions/run/reference.png",
+        "pose_image": "Train/Archer/motions/run/poses/humanpose_2.png",
+        "target_image": "Train/Archer/motions/run/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/Archer/motions/run/reference.png",
+        "pose_image": "Train/Archer/motions/run/poses/humanpose_3.png",
+        "target_image": "Train/Archer/motions/run/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/Archer/motions/run/reference.png",
+        "pose_image": "Train/Archer/motions/run/poses/humanpose_4.png",
+        "target_image": "Train/Archer/motions/run/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/Archer/motions/run/reference.png",
+        "pose_image": "Train/Archer/motions/run/poses/humanpose_5.png",
+        "target_image": "Train/Archer/motions/run/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Train/Archer/motions/idle/reference.png",
+        "pose_image": "Train/Archer/motions/idle/poses/humanpose_1.png",
+        "target_image": "Train/Archer/motions/idle/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Train/Archer/motions/idle/reference.png",
+        "pose_image": "Train/Archer/motions/idle/poses/humanpose_2.png",
+        "target_image": "Train/Archer/motions/idle/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/Archer/motions/idle/reference.png",
+        "pose_image": "Train/Archer/motions/idle/poses/humanpose_3.png",
+        "target_image": "Train/Archer/motions/idle/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/Archer/motions/idle/reference.png",
+        "pose_image": "Train/Archer/motions/idle/poses/humanpose_4.png",
+        "target_image": "Train/Archer/motions/idle/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/dog_finished/motions/Slide/ground_truth/frame_1.png",
+        "pose_image": "Train/dog_finished/motions/Slide/poses/humanpose_10.png",
+        "target_image": "Train/dog_finished/motions/Slide/ground_truth/frame_10.png"
+    },
+    {
+        "reference_image": "Train/dog_finished/motions/Slide/ground_truth/frame_1.png",
+        "pose_image": "Train/dog_finished/motions/Slide/poses/humanpose_2.png",
+        "target_image": "Train/dog_finished/motions/Slide/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/dog_finished/motions/Slide/ground_truth/frame_1.png",
+        "pose_image": "Train/dog_finished/motions/Slide/poses/humanpose_3.png",
+        "target_image": "Train/dog_finished/motions/Slide/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/dog_finished/motions/Slide/ground_truth/frame_1.png",
+        "pose_image": "Train/dog_finished/motions/Slide/poses/humanpose_4.png",
+        "target_image": "Train/dog_finished/motions/Slide/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/dog_finished/motions/Slide/ground_truth/frame_1.png",
+        "pose_image": "Train/dog_finished/motions/Slide/poses/humanpose_5.png",
+        "target_image": "Train/dog_finished/motions/Slide/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Train/dog_finished/motions/Slide/ground_truth/frame_1.png",
+        "pose_image": "Train/dog_finished/motions/Slide/poses/humanpose_6.png",
+        "target_image": "Train/dog_finished/motions/Slide/ground_truth/frame_6.png"
+    },
+    {
+        "reference_image": "Train/dog_finished/motions/Slide/ground_truth/frame_1.png",
+        "pose_image": "Train/dog_finished/motions/Slide/poses/humanpose_7.png",
+        "target_image": "Train/dog_finished/motions/Slide/ground_truth/frame_7.png"
+    },
+    {
+        "reference_image": "Train/dog_finished/motions/Slide/ground_truth/frame_1.png",
+        "pose_image": "Train/dog_finished/motions/Slide/poses/humanpose_8.png",
+        "target_image": "Train/dog_finished/motions/Slide/ground_truth/frame_8.png"
+    },
+    {
+        "reference_image": "Train/dog_finished/motions/Slide/ground_truth/frame_1.png",
+        "pose_image": "Train/dog_finished/motions/Slide/poses/humanpose_9.png",
+        "target_image": "Train/dog_finished/motions/Slide/ground_truth/frame_9.png"
+    },
+    {
+        "reference_image": "Train/dog_finished/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Train/dog_finished/motions/Run/poses/humanpose_2.png",
+        "target_image": "Train/dog_finished/motions/Run/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/dog_finished/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Train/dog_finished/motions/Run/poses/humanpose_3.png",
+        "target_image": "Train/dog_finished/motions/Run/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/dog_finished/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Train/dog_finished/motions/Run/poses/humanpose_4.png",
+        "target_image": "Train/dog_finished/motions/Run/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/dog_finished/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Train/dog_finished/motions/Run/poses/humanpose_5.png",
+        "target_image": "Train/dog_finished/motions/Run/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Train/dog_finished/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Train/dog_finished/motions/Run/poses/humanpose_6.png",
+        "target_image": "Train/dog_finished/motions/Run/ground_truth/frame_6.png"
+    },
+    {
+        "reference_image": "Train/dog_finished/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Train/dog_finished/motions/Run/poses/humanpose_7.png",
+        "target_image": "Train/dog_finished/motions/Run/ground_truth/frame_7.png"
+    },
+    {
+        "reference_image": "Train/dog_finished/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Train/dog_finished/motions/Run/poses/humanpose_8.png",
+        "target_image": "Train/dog_finished/motions/Run/ground_truth/frame_8.png"
+    },
+    {
+        "reference_image": "Train/dog_finished/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/dog_finished/motions/Dead/poses/humanpose_10.png",
+        "target_image": "Train/dog_finished/motions/Dead/ground_truth/frame_10.png"
+    },
+    {
+        "reference_image": "Train/dog_finished/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/dog_finished/motions/Dead/poses/humanpose_2.png",
+        "target_image": "Train/dog_finished/motions/Dead/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/dog_finished/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/dog_finished/motions/Dead/poses/humanpose_3.png",
+        "target_image": "Train/dog_finished/motions/Dead/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/dog_finished/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/dog_finished/motions/Dead/poses/humanpose_4.png",
+        "target_image": "Train/dog_finished/motions/Dead/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/dog_finished/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/dog_finished/motions/Dead/poses/humanpose_5.png",
+        "target_image": "Train/dog_finished/motions/Dead/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Train/dog_finished/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/dog_finished/motions/Dead/poses/humanpose_6.png",
+        "target_image": "Train/dog_finished/motions/Dead/ground_truth/frame_6.png"
+    },
+    {
+        "reference_image": "Train/dog_finished/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/dog_finished/motions/Dead/poses/humanpose_7.png",
+        "target_image": "Train/dog_finished/motions/Dead/ground_truth/frame_7.png"
+    },
+    {
+        "reference_image": "Train/dog_finished/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/dog_finished/motions/Dead/poses/humanpose_8.png",
+        "target_image": "Train/dog_finished/motions/Dead/ground_truth/frame_8.png"
+    },
+    {
+        "reference_image": "Train/dog_finished/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/dog_finished/motions/Dead/poses/humanpose_9.png",
+        "target_image": "Train/dog_finished/motions/Dead/ground_truth/frame_9.png"
+    },
+    {
+        "reference_image": "Train/dog_finished/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Train/dog_finished/motions/Idle/poses/humanpose_10.png",
+        "target_image": "Train/dog_finished/motions/Idle/ground_truth/frame_10.png"
+    },
+    {
+        "reference_image": "Train/dog_finished/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Train/dog_finished/motions/Idle/poses/humanpose_2.png",
+        "target_image": "Train/dog_finished/motions/Idle/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/dog_finished/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Train/dog_finished/motions/Idle/poses/humanpose_3.png",
+        "target_image": "Train/dog_finished/motions/Idle/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/dog_finished/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Train/dog_finished/motions/Idle/poses/humanpose_4.png",
+        "target_image": "Train/dog_finished/motions/Idle/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/dog_finished/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Train/dog_finished/motions/Idle/poses/humanpose_5.png",
+        "target_image": "Train/dog_finished/motions/Idle/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Train/dog_finished/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Train/dog_finished/motions/Idle/poses/humanpose_6.png",
+        "target_image": "Train/dog_finished/motions/Idle/ground_truth/frame_6.png"
+    },
+    {
+        "reference_image": "Train/dog_finished/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Train/dog_finished/motions/Idle/poses/humanpose_7.png",
+        "target_image": "Train/dog_finished/motions/Idle/ground_truth/frame_7.png"
+    },
+    {
+        "reference_image": "Train/dog_finished/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Train/dog_finished/motions/Idle/poses/humanpose_8.png",
+        "target_image": "Train/dog_finished/motions/Idle/ground_truth/frame_8.png"
+    },
+    {
+        "reference_image": "Train/dog_finished/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Train/dog_finished/motions/Idle/poses/humanpose_9.png",
+        "target_image": "Train/dog_finished/motions/Idle/ground_truth/frame_9.png"
+    },
+    {
+        "reference_image": "Train/dog_finished/motions/Jump/ground_truth/frame_1.png",
+        "pose_image": "Train/dog_finished/motions/Jump/poses/humanpose_2.png",
+        "target_image": "Train/dog_finished/motions/Jump/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/dog_finished/motions/Jump/ground_truth/frame_1.png",
+        "pose_image": "Train/dog_finished/motions/Jump/poses/humanpose_3.png",
+        "target_image": "Train/dog_finished/motions/Jump/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/dog_finished/motions/Jump/ground_truth/frame_1.png",
+        "pose_image": "Train/dog_finished/motions/Jump/poses/humanpose_4.png",
+        "target_image": "Train/dog_finished/motions/Jump/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/dog_finished/motions/Jump/ground_truth/frame_1.png",
+        "pose_image": "Train/dog_finished/motions/Jump/poses/humanpose_5.png",
+        "target_image": "Train/dog_finished/motions/Jump/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Train/dog_finished/motions/Jump/ground_truth/frame_1.png",
+        "pose_image": "Train/dog_finished/motions/Jump/poses/humanpose_6.png",
+        "target_image": "Train/dog_finished/motions/Jump/ground_truth/frame_6.png"
+    },
+    {
+        "reference_image": "Train/dog_finished/motions/Jump/ground_truth/frame_1.png",
+        "pose_image": "Train/dog_finished/motions/Jump/poses/humanpose_7.png",
+        "target_image": "Train/dog_finished/motions/Jump/ground_truth/frame_7.png"
+    },
+    {
+        "reference_image": "Train/dog_finished/motions/Jump/ground_truth/frame_1.png",
+        "pose_image": "Train/dog_finished/motions/Jump/poses/humanpose_8.png",
+        "target_image": "Train/dog_finished/motions/Jump/ground_truth/frame_8.png"
+    },
+    {
+        "reference_image": "Train/dog_finished/motions/Fall/ground_truth/frame_1.png",
+        "pose_image": "Train/dog_finished/motions/Fall/poses/humanpose_2.png",
+        "target_image": "Train/dog_finished/motions/Fall/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/dog_finished/motions/Fall/ground_truth/frame_1.png",
+        "pose_image": "Train/dog_finished/motions/Fall/poses/humanpose_3.png",
+        "target_image": "Train/dog_finished/motions/Fall/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/dog_finished/motions/Fall/ground_truth/frame_1.png",
+        "pose_image": "Train/dog_finished/motions/Fall/poses/humanpose_4.png",
+        "target_image": "Train/dog_finished/motions/Fall/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/dog_finished/motions/Fall/ground_truth/frame_1.png",
+        "pose_image": "Train/dog_finished/motions/Fall/poses/humanpose_5.png",
+        "target_image": "Train/dog_finished/motions/Fall/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Train/dog_finished/motions/Fall/ground_truth/frame_1.png",
+        "pose_image": "Train/dog_finished/motions/Fall/poses/humanpose_6.png",
+        "target_image": "Train/dog_finished/motions/Fall/ground_truth/frame_6.png"
+    },
+    {
+        "reference_image": "Train/dog_finished/motions/Fall/ground_truth/frame_1.png",
+        "pose_image": "Train/dog_finished/motions/Fall/poses/humanpose_7.png",
+        "target_image": "Train/dog_finished/motions/Fall/ground_truth/frame_7.png"
+    },
+    {
+        "reference_image": "Train/dog_finished/motions/Fall/ground_truth/frame_1.png",
+        "pose_image": "Train/dog_finished/motions/Fall/poses/humanpose_8.png",
+        "target_image": "Train/dog_finished/motions/Fall/ground_truth/frame_8.png"
+    },
+    {
+        "reference_image": "Train/ninjagirlnew/motions/throw/ground_truth/frame_1.png",
+        "pose_image": "Train/ninjagirlnew/motions/throw/poses/humanpose_2.png",
+        "target_image": "Train/ninjagirlnew/motions/throw/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/ninjagirlnew/motions/throw/ground_truth/frame_1.png",
+        "pose_image": "Train/ninjagirlnew/motions/throw/poses/humanpose_3.png",
+        "target_image": "Train/ninjagirlnew/motions/throw/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/ninjagirlnew/motions/throw/ground_truth/frame_1.png",
+        "pose_image": "Train/ninjagirlnew/motions/throw/poses/humanpose_4.png",
+        "target_image": "Train/ninjagirlnew/motions/throw/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/ninjagirlnew/motions/throw/ground_truth/frame_1.png",
+        "pose_image": "Train/ninjagirlnew/motions/throw/poses/humanpose_5.png",
+        "target_image": "Train/ninjagirlnew/motions/throw/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Train/ninjagirlnew/motions/run/ground_truth/frame_1.png",
+        "pose_image": "Train/ninjagirlnew/motions/run/poses/humanpose_2.png",
+        "target_image": "Train/ninjagirlnew/motions/run/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/ninjagirlnew/motions/run/ground_truth/frame_1.png",
+        "pose_image": "Train/ninjagirlnew/motions/run/poses/humanpose_3.png",
+        "target_image": "Train/ninjagirlnew/motions/run/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/ninjagirlnew/motions/run/ground_truth/frame_1.png",
+        "pose_image": "Train/ninjagirlnew/motions/run/poses/humanpose_5.png",
+        "target_image": "Train/ninjagirlnew/motions/run/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Train/ninjagirlnew/motions/run/ground_truth/frame_1.png",
+        "pose_image": "Train/ninjagirlnew/motions/run/poses/humanpose_6.png",
+        "target_image": "Train/ninjagirlnew/motions/run/ground_truth/frame_6.png"
+    },
+    {
+        "reference_image": "Train/ninjagirlnew/motions/run/ground_truth/frame_1.png",
+        "pose_image": "Train/ninjagirlnew/motions/run/poses/humanpose_7.png",
+        "target_image": "Train/ninjagirlnew/motions/run/ground_truth/frame_7.png"
+    },
+    {
+        "reference_image": "Train/ninjagirlnew/motions/run/ground_truth/frame_1.png",
+        "pose_image": "Train/ninjagirlnew/motions/run/poses/humanpose_8.png",
+        "target_image": "Train/ninjagirlnew/motions/run/ground_truth/frame_8.png"
+    },
+    {
+        "reference_image": "Train/ninjagirlnew/motions/run/ground_truth/frame_1.png",
+        "pose_image": "Train/ninjagirlnew/motions/run/poses/humanpose_9.png",
+        "target_image": "Train/ninjagirlnew/motions/run/ground_truth/frame_9.png"
+    },
+    {
+        "reference_image": "Train/Shinobi/motions/attack/reference.png",
+        "pose_image": "Train/Shinobi/motions/attack/poses/humanpose_0.png",
+        "target_image": "Train/Shinobi/motions/attack/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Train/Shinobi/motions/attack/reference.png",
+        "pose_image": "Train/Shinobi/motions/attack/poses/humanpose_1.png",
+        "target_image": "Train/Shinobi/motions/attack/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Train/Shinobi/motions/attack/reference.png",
+        "pose_image": "Train/Shinobi/motions/attack/poses/humanpose_2.png",
+        "target_image": "Train/Shinobi/motions/attack/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/Shinobi/motions/attack/reference.png",
+        "pose_image": "Train/Shinobi/motions/attack/poses/humanpose_3.png",
+        "target_image": "Train/Shinobi/motions/attack/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/Shinobi/motions/highkick/reference.png",
+        "pose_image": "Train/Shinobi/motions/highkick/poses/humanpose_0.png",
+        "target_image": "Train/Shinobi/motions/highkick/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Train/Shinobi/motions/highkick/reference.png",
+        "pose_image": "Train/Shinobi/motions/highkick/poses/humanpose_1.png",
+        "target_image": "Train/Shinobi/motions/highkick/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Train/Shinobi/motions/highkick/reference.png",
+        "pose_image": "Train/Shinobi/motions/highkick/poses/humanpose_2.png",
+        "target_image": "Train/Shinobi/motions/highkick/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/Shinobi/motions/highkick/reference.png",
+        "pose_image": "Train/Shinobi/motions/highkick/poses/humanpose_3.png",
+        "target_image": "Train/Shinobi/motions/highkick/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/freeknight_finished/motions/Walk/ground_truth/frame_1.png",
+        "pose_image": "Train/freeknight_finished/motions/Walk/poses/humanpose_10.png",
+        "target_image": "Train/freeknight_finished/motions/Walk/ground_truth/frame_10.png"
+    },
+    {
+        "reference_image": "Train/freeknight_finished/motions/Walk/ground_truth/frame_1.png",
+        "pose_image": "Train/freeknight_finished/motions/Walk/poses/humanpose_2.png",
+        "target_image": "Train/freeknight_finished/motions/Walk/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/freeknight_finished/motions/Walk/ground_truth/frame_1.png",
+        "pose_image": "Train/freeknight_finished/motions/Walk/poses/humanpose_3.png",
+        "target_image": "Train/freeknight_finished/motions/Walk/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/freeknight_finished/motions/Walk/ground_truth/frame_1.png",
+        "pose_image": "Train/freeknight_finished/motions/Walk/poses/humanpose_4.png",
+        "target_image": "Train/freeknight_finished/motions/Walk/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/freeknight_finished/motions/Walk/ground_truth/frame_1.png",
+        "pose_image": "Train/freeknight_finished/motions/Walk/poses/humanpose_5.png",
+        "target_image": "Train/freeknight_finished/motions/Walk/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Train/freeknight_finished/motions/Walk/ground_truth/frame_1.png",
+        "pose_image": "Train/freeknight_finished/motions/Walk/poses/humanpose_6.png",
+        "target_image": "Train/freeknight_finished/motions/Walk/ground_truth/frame_6.png"
+    },
+    {
+        "reference_image": "Train/freeknight_finished/motions/Walk/ground_truth/frame_1.png",
+        "pose_image": "Train/freeknight_finished/motions/Walk/poses/humanpose_7.png",
+        "target_image": "Train/freeknight_finished/motions/Walk/ground_truth/frame_7.png"
+    },
+    {
+        "reference_image": "Train/freeknight_finished/motions/Walk/ground_truth/frame_1.png",
+        "pose_image": "Train/freeknight_finished/motions/Walk/poses/humanpose_8.png",
+        "target_image": "Train/freeknight_finished/motions/Walk/ground_truth/frame_8.png"
+    },
+    {
+        "reference_image": "Train/freeknight_finished/motions/Walk/ground_truth/frame_1.png",
+        "pose_image": "Train/freeknight_finished/motions/Walk/poses/humanpose_9.png",
+        "target_image": "Train/freeknight_finished/motions/Walk/ground_truth/frame_9.png"
+    },
+    {
+        "reference_image": "Train/freeknight_finished/motions/Attack/ground_truth/frame_1.png",
+        "pose_image": "Train/freeknight_finished/motions/Attack/poses/humanpose_10.png",
+        "target_image": "Train/freeknight_finished/motions/Attack/ground_truth/frame_10.png"
+    },
+    {
+        "reference_image": "Train/freeknight_finished/motions/Attack/ground_truth/frame_1.png",
+        "pose_image": "Train/freeknight_finished/motions/Attack/poses/humanpose_2.png",
+        "target_image": "Train/freeknight_finished/motions/Attack/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/freeknight_finished/motions/Attack/ground_truth/frame_1.png",
+        "pose_image": "Train/freeknight_finished/motions/Attack/poses/humanpose_3.png",
+        "target_image": "Train/freeknight_finished/motions/Attack/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/freeknight_finished/motions/Attack/ground_truth/frame_1.png",
+        "pose_image": "Train/freeknight_finished/motions/Attack/poses/humanpose_4.png",
+        "target_image": "Train/freeknight_finished/motions/Attack/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/freeknight_finished/motions/Attack/ground_truth/frame_1.png",
+        "pose_image": "Train/freeknight_finished/motions/Attack/poses/humanpose_5.png",
+        "target_image": "Train/freeknight_finished/motions/Attack/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Train/freeknight_finished/motions/Attack/ground_truth/frame_1.png",
+        "pose_image": "Train/freeknight_finished/motions/Attack/poses/humanpose_6.png",
+        "target_image": "Train/freeknight_finished/motions/Attack/ground_truth/frame_6.png"
+    },
+    {
+        "reference_image": "Train/freeknight_finished/motions/Attack/ground_truth/frame_1.png",
+        "pose_image": "Train/freeknight_finished/motions/Attack/poses/humanpose_7.png",
+        "target_image": "Train/freeknight_finished/motions/Attack/ground_truth/frame_7.png"
+    },
+    {
+        "reference_image": "Train/freeknight_finished/motions/Attack/ground_truth/frame_1.png",
+        "pose_image": "Train/freeknight_finished/motions/Attack/poses/humanpose_8.png",
+        "target_image": "Train/freeknight_finished/motions/Attack/ground_truth/frame_8.png"
+    },
+    {
+        "reference_image": "Train/freeknight_finished/motions/Attack/ground_truth/frame_1.png",
+        "pose_image": "Train/freeknight_finished/motions/Attack/poses/humanpose_9.png",
+        "target_image": "Train/freeknight_finished/motions/Attack/ground_truth/frame_9.png"
+    },
+    {
+        "reference_image": "Train/freeknight_finished/motions/JumpAttack/ground_truth/frame_1.png",
+        "pose_image": "Train/freeknight_finished/motions/JumpAttack/poses/humanpose_10.png",
+        "target_image": "Train/freeknight_finished/motions/JumpAttack/ground_truth/frame_10.png"
+    },
+    {
+        "reference_image": "Train/freeknight_finished/motions/JumpAttack/ground_truth/frame_1.png",
+        "pose_image": "Train/freeknight_finished/motions/JumpAttack/poses/humanpose_2.png",
+        "target_image": "Train/freeknight_finished/motions/JumpAttack/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/freeknight_finished/motions/JumpAttack/ground_truth/frame_1.png",
+        "pose_image": "Train/freeknight_finished/motions/JumpAttack/poses/humanpose_3.png",
+        "target_image": "Train/freeknight_finished/motions/JumpAttack/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/freeknight_finished/motions/JumpAttack/ground_truth/frame_1.png",
+        "pose_image": "Train/freeknight_finished/motions/JumpAttack/poses/humanpose_4.png",
+        "target_image": "Train/freeknight_finished/motions/JumpAttack/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/freeknight_finished/motions/JumpAttack/ground_truth/frame_1.png",
+        "pose_image": "Train/freeknight_finished/motions/JumpAttack/poses/humanpose_5.png",
+        "target_image": "Train/freeknight_finished/motions/JumpAttack/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Train/freeknight_finished/motions/JumpAttack/ground_truth/frame_1.png",
+        "pose_image": "Train/freeknight_finished/motions/JumpAttack/poses/humanpose_6.png",
+        "target_image": "Train/freeknight_finished/motions/JumpAttack/ground_truth/frame_6.png"
+    },
+    {
+        "reference_image": "Train/freeknight_finished/motions/JumpAttack/ground_truth/frame_1.png",
+        "pose_image": "Train/freeknight_finished/motions/JumpAttack/poses/humanpose_7.png",
+        "target_image": "Train/freeknight_finished/motions/JumpAttack/ground_truth/frame_7.png"
+    },
+    {
+        "reference_image": "Train/freeknight_finished/motions/JumpAttack/ground_truth/frame_1.png",
+        "pose_image": "Train/freeknight_finished/motions/JumpAttack/poses/humanpose_8.png",
+        "target_image": "Train/freeknight_finished/motions/JumpAttack/ground_truth/frame_8.png"
+    },
+    {
+        "reference_image": "Train/freeknight_finished/motions/JumpAttack/ground_truth/frame_1.png",
+        "pose_image": "Train/freeknight_finished/motions/JumpAttack/poses/humanpose_9.png",
+        "target_image": "Train/freeknight_finished/motions/JumpAttack/ground_truth/frame_9.png"
+    },
+    {
+        "reference_image": "Train/freeknight_finished/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Train/freeknight_finished/motions/Run/poses/humanpose_10.png",
+        "target_image": "Train/freeknight_finished/motions/Run/ground_truth/frame_10.png"
+    },
+    {
+        "reference_image": "Train/freeknight_finished/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Train/freeknight_finished/motions/Run/poses/humanpose_2.png",
+        "target_image": "Train/freeknight_finished/motions/Run/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/freeknight_finished/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Train/freeknight_finished/motions/Run/poses/humanpose_3.png",
+        "target_image": "Train/freeknight_finished/motions/Run/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/freeknight_finished/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Train/freeknight_finished/motions/Run/poses/humanpose_4.png",
+        "target_image": "Train/freeknight_finished/motions/Run/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/freeknight_finished/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Train/freeknight_finished/motions/Run/poses/humanpose_5.png",
+        "target_image": "Train/freeknight_finished/motions/Run/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Train/freeknight_finished/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Train/freeknight_finished/motions/Run/poses/humanpose_6.png",
+        "target_image": "Train/freeknight_finished/motions/Run/ground_truth/frame_6.png"
+    },
+    {
+        "reference_image": "Train/freeknight_finished/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Train/freeknight_finished/motions/Run/poses/humanpose_7.png",
+        "target_image": "Train/freeknight_finished/motions/Run/ground_truth/frame_7.png"
+    },
+    {
+        "reference_image": "Train/freeknight_finished/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Train/freeknight_finished/motions/Run/poses/humanpose_8.png",
+        "target_image": "Train/freeknight_finished/motions/Run/ground_truth/frame_8.png"
+    },
+    {
+        "reference_image": "Train/freeknight_finished/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Train/freeknight_finished/motions/Run/poses/humanpose_9.png",
+        "target_image": "Train/freeknight_finished/motions/Run/ground_truth/frame_9.png"
+    },
+    {
+        "reference_image": "Train/freeknight_finished/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/freeknight_finished/motions/Dead/poses/humanpose_10.png",
+        "target_image": "Train/freeknight_finished/motions/Dead/ground_truth/frame_10.png"
+    },
+    {
+        "reference_image": "Train/freeknight_finished/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/freeknight_finished/motions/Dead/poses/humanpose_2.png",
+        "target_image": "Train/freeknight_finished/motions/Dead/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/freeknight_finished/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/freeknight_finished/motions/Dead/poses/humanpose_3.png",
+        "target_image": "Train/freeknight_finished/motions/Dead/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/freeknight_finished/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/freeknight_finished/motions/Dead/poses/humanpose_4.png",
+        "target_image": "Train/freeknight_finished/motions/Dead/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/freeknight_finished/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/freeknight_finished/motions/Dead/poses/humanpose_5.png",
+        "target_image": "Train/freeknight_finished/motions/Dead/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Train/freeknight_finished/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/freeknight_finished/motions/Dead/poses/humanpose_6.png",
+        "target_image": "Train/freeknight_finished/motions/Dead/ground_truth/frame_6.png"
+    },
+    {
+        "reference_image": "Train/freeknight_finished/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/freeknight_finished/motions/Dead/poses/humanpose_7.png",
+        "target_image": "Train/freeknight_finished/motions/Dead/ground_truth/frame_7.png"
+    },
+    {
+        "reference_image": "Train/freeknight_finished/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/freeknight_finished/motions/Dead/poses/humanpose_8.png",
+        "target_image": "Train/freeknight_finished/motions/Dead/ground_truth/frame_8.png"
+    },
+    {
+        "reference_image": "Train/freeknight_finished/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/freeknight_finished/motions/Dead/poses/humanpose_9.png",
+        "target_image": "Train/freeknight_finished/motions/Dead/ground_truth/frame_9.png"
+    },
+    {
+        "reference_image": "Train/Ash Williams/motions/run/reference.png",
+        "pose_image": "Train/Ash Williams/motions/run/poses/humanpose_0.png",
+        "target_image": "Train/Ash Williams/motions/run/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Train/Ash Williams/motions/run/reference.png",
+        "pose_image": "Train/Ash Williams/motions/run/poses/humanpose_1.png",
+        "target_image": "Train/Ash Williams/motions/run/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Train/Ash Williams/motions/run/reference.png",
+        "pose_image": "Train/Ash Williams/motions/run/poses/humanpose_2.png",
+        "target_image": "Train/Ash Williams/motions/run/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/Ash Williams/motions/run/reference.png",
+        "pose_image": "Train/Ash Williams/motions/run/poses/humanpose_3.png",
+        "target_image": "Train/Ash Williams/motions/run/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/Ash Williams/motions/run/reference.png",
+        "pose_image": "Train/Ash Williams/motions/run/poses/humanpose_4.png",
+        "target_image": "Train/Ash Williams/motions/run/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/Ash Williams/motions/run/reference.png",
+        "pose_image": "Train/Ash Williams/motions/run/poses/humanpose_5.png",
+        "target_image": "Train/Ash Williams/motions/run/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Train/Ash Williams/motions/run/reference.png",
+        "pose_image": "Train/Ash Williams/motions/run/poses/humanpose_6.png",
+        "target_image": "Train/Ash Williams/motions/run/ground_truth/frame_6.png"
+    },
+    {
+        "reference_image": "Train/Ash Williams/motions/run/reference.png",
+        "pose_image": "Train/Ash Williams/motions/run/poses/humanpose_7.png",
+        "target_image": "Train/Ash Williams/motions/run/ground_truth/frame_7.png"
+    },
+    {
+        "reference_image": "Train/Ash Williams/motions/run/reference.png",
+        "pose_image": "Train/Ash Williams/motions/run/poses/humanpose_8.png",
+        "target_image": "Train/Ash Williams/motions/run/ground_truth/frame_8.png"
+    },
+    {
+        "reference_image": "Train/Ash Williams/motions/run/reference.png",
+        "pose_image": "Train/Ash Williams/motions/run/poses/humanpose_9.png",
+        "target_image": "Train/Ash Williams/motions/run/ground_truth/frame_9.png"
+    },
+    {
+        "reference_image": "Train/Ash Williams/motions/jump/reference.png",
+        "pose_image": "Train/Ash Williams/motions/jump/poses/humanpose_0.png",
+        "target_image": "Train/Ash Williams/motions/jump/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Train/Ash Williams/motions/jump/reference.png",
+        "pose_image": "Train/Ash Williams/motions/jump/poses/humanpose_1.png",
+        "target_image": "Train/Ash Williams/motions/jump/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Train/Ash Williams/motions/jump/reference.png",
+        "pose_image": "Train/Ash Williams/motions/jump/poses/humanpose_2.png",
+        "target_image": "Train/Ash Williams/motions/jump/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/Ash Williams/motions/jump/reference.png",
+        "pose_image": "Train/Ash Williams/motions/jump/poses/humanpose_3.png",
+        "target_image": "Train/Ash Williams/motions/jump/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/Ash Williams/motions/jump/reference.png",
+        "pose_image": "Train/Ash Williams/motions/jump/poses/humanpose_4.png",
+        "target_image": "Train/Ash Williams/motions/jump/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/Player/motions/tired/reference.png",
+        "pose_image": "Train/Player/motions/tired/poses/humanpose_0.png",
+        "target_image": "Train/Player/motions/tired/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Train/Player/motions/tired/reference.png",
+        "pose_image": "Train/Player/motions/tired/poses/humanpose_1.png",
+        "target_image": "Train/Player/motions/tired/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Train/Player/motions/tired/reference.png",
+        "pose_image": "Train/Player/motions/tired/poses/humanpose_2.png",
+        "target_image": "Train/Player/motions/tired/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/Player/motions/standup/reference.png",
+        "pose_image": "Train/Player/motions/standup/poses/humanpose_0.png",
+        "target_image": "Train/Player/motions/standup/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Train/Player/motions/standup/reference.png",
+        "pose_image": "Train/Player/motions/standup/poses/humanpose_1.png",
+        "target_image": "Train/Player/motions/standup/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Train/Player/motions/standup/reference.png",
+        "pose_image": "Train/Player/motions/standup/poses/humanpose_2.png",
+        "target_image": "Train/Player/motions/standup/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/Trianglehead/motions/run/reference.png",
+        "pose_image": "Train/Trianglehead/motions/run/poses/humanpose_0.png",
+        "target_image": "Train/Trianglehead/motions/run/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Train/Trianglehead/motions/run/reference.png",
+        "pose_image": "Train/Trianglehead/motions/run/poses/humanpose_1.png",
+        "target_image": "Train/Trianglehead/motions/run/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Train/Trianglehead/motions/run/reference.png",
+        "pose_image": "Train/Trianglehead/motions/run/poses/humanpose_2.png",
+        "target_image": "Train/Trianglehead/motions/run/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/Trianglehead/motions/run/reference.png",
+        "pose_image": "Train/Trianglehead/motions/run/poses/humanpose_3.png",
+        "target_image": "Train/Trianglehead/motions/run/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/Trianglehead/motions/jump/reference.png",
+        "pose_image": "Train/Trianglehead/motions/jump/poses/humanpose_0.png",
+        "target_image": "Train/Trianglehead/motions/jump/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Train/Trianglehead/motions/jump/reference.png",
+        "pose_image": "Train/Trianglehead/motions/jump/poses/humanpose_1.png",
+        "target_image": "Train/Trianglehead/motions/jump/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Train/Trianglehead/motions/jump/reference.png",
+        "pose_image": "Train/Trianglehead/motions/jump/poses/humanpose_2.png",
+        "target_image": "Train/Trianglehead/motions/jump/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/cat_finished/motions/Walk/ground_truth/frame_1.png",
+        "pose_image": "Train/cat_finished/motions/Walk/poses/humanpose_10.png",
+        "target_image": "Train/cat_finished/motions/Walk/ground_truth/frame_10.png"
+    },
+    {
+        "reference_image": "Train/cat_finished/motions/Walk/ground_truth/frame_1.png",
+        "pose_image": "Train/cat_finished/motions/Walk/poses/humanpose_2.png",
+        "target_image": "Train/cat_finished/motions/Walk/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/cat_finished/motions/Walk/ground_truth/frame_1.png",
+        "pose_image": "Train/cat_finished/motions/Walk/poses/humanpose_3.png",
+        "target_image": "Train/cat_finished/motions/Walk/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/cat_finished/motions/Walk/ground_truth/frame_1.png",
+        "pose_image": "Train/cat_finished/motions/Walk/poses/humanpose_4.png",
+        "target_image": "Train/cat_finished/motions/Walk/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/cat_finished/motions/Walk/ground_truth/frame_1.png",
+        "pose_image": "Train/cat_finished/motions/Walk/poses/humanpose_5.png",
+        "target_image": "Train/cat_finished/motions/Walk/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Train/cat_finished/motions/Walk/ground_truth/frame_1.png",
+        "pose_image": "Train/cat_finished/motions/Walk/poses/humanpose_6.png",
+        "target_image": "Train/cat_finished/motions/Walk/ground_truth/frame_6.png"
+    },
+    {
+        "reference_image": "Train/cat_finished/motions/Walk/ground_truth/frame_1.png",
+        "pose_image": "Train/cat_finished/motions/Walk/poses/humanpose_7.png",
+        "target_image": "Train/cat_finished/motions/Walk/ground_truth/frame_7.png"
+    },
+    {
+        "reference_image": "Train/cat_finished/motions/Walk/ground_truth/frame_1.png",
+        "pose_image": "Train/cat_finished/motions/Walk/poses/humanpose_8.png",
+        "target_image": "Train/cat_finished/motions/Walk/ground_truth/frame_8.png"
+    },
+    {
+        "reference_image": "Train/cat_finished/motions/Walk/ground_truth/frame_1.png",
+        "pose_image": "Train/cat_finished/motions/Walk/poses/humanpose_9.png",
+        "target_image": "Train/cat_finished/motions/Walk/ground_truth/frame_9.png"
+    },
+    {
+        "reference_image": "Train/cat_finished/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Train/cat_finished/motions/Run/poses/humanpose_2.png",
+        "target_image": "Train/cat_finished/motions/Run/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/cat_finished/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Train/cat_finished/motions/Run/poses/humanpose_3.png",
+        "target_image": "Train/cat_finished/motions/Run/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/cat_finished/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Train/cat_finished/motions/Run/poses/humanpose_4.png",
+        "target_image": "Train/cat_finished/motions/Run/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/cat_finished/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Train/cat_finished/motions/Run/poses/humanpose_5.png",
+        "target_image": "Train/cat_finished/motions/Run/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Train/cat_finished/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Train/cat_finished/motions/Run/poses/humanpose_6.png",
+        "target_image": "Train/cat_finished/motions/Run/ground_truth/frame_6.png"
+    },
+    {
+        "reference_image": "Train/cat_finished/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Train/cat_finished/motions/Run/poses/humanpose_7.png",
+        "target_image": "Train/cat_finished/motions/Run/ground_truth/frame_7.png"
+    },
+    {
+        "reference_image": "Train/cat_finished/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Train/cat_finished/motions/Run/poses/humanpose_8.png",
+        "target_image": "Train/cat_finished/motions/Run/ground_truth/frame_8.png"
+    },
+    {
+        "reference_image": "Train/cat_finished/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/cat_finished/motions/Dead/poses/humanpose_10.png",
+        "target_image": "Train/cat_finished/motions/Dead/ground_truth/frame_10.png"
+    },
+    {
+        "reference_image": "Train/cat_finished/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/cat_finished/motions/Dead/poses/humanpose_2.png",
+        "target_image": "Train/cat_finished/motions/Dead/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/cat_finished/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/cat_finished/motions/Dead/poses/humanpose_3.png",
+        "target_image": "Train/cat_finished/motions/Dead/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/cat_finished/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/cat_finished/motions/Dead/poses/humanpose_4.png",
+        "target_image": "Train/cat_finished/motions/Dead/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/cat_finished/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/cat_finished/motions/Dead/poses/humanpose_5.png",
+        "target_image": "Train/cat_finished/motions/Dead/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Train/cat_finished/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/cat_finished/motions/Dead/poses/humanpose_6.png",
+        "target_image": "Train/cat_finished/motions/Dead/ground_truth/frame_6.png"
+    },
+    {
+        "reference_image": "Train/cat_finished/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/cat_finished/motions/Dead/poses/humanpose_7.png",
+        "target_image": "Train/cat_finished/motions/Dead/ground_truth/frame_7.png"
+    },
+    {
+        "reference_image": "Train/cat_finished/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/cat_finished/motions/Dead/poses/humanpose_8.png",
+        "target_image": "Train/cat_finished/motions/Dead/ground_truth/frame_8.png"
+    },
+    {
+        "reference_image": "Train/cat_finished/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Train/cat_finished/motions/Dead/poses/humanpose_9.png",
+        "target_image": "Train/cat_finished/motions/Dead/ground_truth/frame_9.png"
+    },
+    {
+        "reference_image": "Train/cat_finished/motions/Hurt/ground_truth/frame_1.png",
+        "pose_image": "Train/cat_finished/motions/Hurt/poses/humanpose_10.png",
+        "target_image": "Train/cat_finished/motions/Hurt/ground_truth/frame_10.png"
+    },
+    {
+        "reference_image": "Train/cat_finished/motions/Hurt/ground_truth/frame_1.png",
+        "pose_image": "Train/cat_finished/motions/Hurt/poses/humanpose_2.png",
+        "target_image": "Train/cat_finished/motions/Hurt/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/cat_finished/motions/Hurt/ground_truth/frame_1.png",
+        "pose_image": "Train/cat_finished/motions/Hurt/poses/humanpose_3.png",
+        "target_image": "Train/cat_finished/motions/Hurt/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/cat_finished/motions/Hurt/ground_truth/frame_1.png",
+        "pose_image": "Train/cat_finished/motions/Hurt/poses/humanpose_4.png",
+        "target_image": "Train/cat_finished/motions/Hurt/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/cat_finished/motions/Hurt/ground_truth/frame_1.png",
+        "pose_image": "Train/cat_finished/motions/Hurt/poses/humanpose_5.png",
+        "target_image": "Train/cat_finished/motions/Hurt/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Train/cat_finished/motions/Hurt/ground_truth/frame_1.png",
+        "pose_image": "Train/cat_finished/motions/Hurt/poses/humanpose_6.png",
+        "target_image": "Train/cat_finished/motions/Hurt/ground_truth/frame_6.png"
+    },
+    {
+        "reference_image": "Train/cat_finished/motions/Hurt/ground_truth/frame_1.png",
+        "pose_image": "Train/cat_finished/motions/Hurt/poses/humanpose_7.png",
+        "target_image": "Train/cat_finished/motions/Hurt/ground_truth/frame_7.png"
+    },
+    {
+        "reference_image": "Train/cat_finished/motions/Hurt/ground_truth/frame_1.png",
+        "pose_image": "Train/cat_finished/motions/Hurt/poses/humanpose_8.png",
+        "target_image": "Train/cat_finished/motions/Hurt/ground_truth/frame_8.png"
+    },
+    {
+        "reference_image": "Train/cat_finished/motions/Hurt/ground_truth/frame_1.png",
+        "pose_image": "Train/cat_finished/motions/Hurt/poses/humanpose_9.png",
+        "target_image": "Train/cat_finished/motions/Hurt/ground_truth/frame_9.png"
+    },
+    {
+        "reference_image": "Train/cat_finished/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Train/cat_finished/motions/Idle/poses/humanpose_10.png",
+        "target_image": "Train/cat_finished/motions/Idle/ground_truth/frame_10.png"
+    },
+    {
+        "reference_image": "Train/cat_finished/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Train/cat_finished/motions/Idle/poses/humanpose_2.png",
+        "target_image": "Train/cat_finished/motions/Idle/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/cat_finished/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Train/cat_finished/motions/Idle/poses/humanpose_3.png",
+        "target_image": "Train/cat_finished/motions/Idle/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/cat_finished/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Train/cat_finished/motions/Idle/poses/humanpose_4.png",
+        "target_image": "Train/cat_finished/motions/Idle/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/cat_finished/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Train/cat_finished/motions/Idle/poses/humanpose_5.png",
+        "target_image": "Train/cat_finished/motions/Idle/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Train/cat_finished/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Train/cat_finished/motions/Idle/poses/humanpose_6.png",
+        "target_image": "Train/cat_finished/motions/Idle/ground_truth/frame_6.png"
+    },
+    {
+        "reference_image": "Train/cat_finished/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Train/cat_finished/motions/Idle/poses/humanpose_7.png",
+        "target_image": "Train/cat_finished/motions/Idle/ground_truth/frame_7.png"
+    },
+    {
+        "reference_image": "Train/cat_finished/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Train/cat_finished/motions/Idle/poses/humanpose_8.png",
+        "target_image": "Train/cat_finished/motions/Idle/ground_truth/frame_8.png"
+    },
+    {
+        "reference_image": "Train/cat_finished/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Train/cat_finished/motions/Idle/poses/humanpose_9.png",
+        "target_image": "Train/cat_finished/motions/Idle/ground_truth/frame_9.png"
+    },
+    {
+        "reference_image": "Train/cat_finished/motions/Jump/ground_truth/frame_1.png",
+        "pose_image": "Train/cat_finished/motions/Jump/poses/humanpose_2.png",
+        "target_image": "Train/cat_finished/motions/Jump/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/cat_finished/motions/Jump/ground_truth/frame_1.png",
+        "pose_image": "Train/cat_finished/motions/Jump/poses/humanpose_3.png",
+        "target_image": "Train/cat_finished/motions/Jump/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/cat_finished/motions/Jump/ground_truth/frame_1.png",
+        "pose_image": "Train/cat_finished/motions/Jump/poses/humanpose_4.png",
+        "target_image": "Train/cat_finished/motions/Jump/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/cat_finished/motions/Jump/ground_truth/frame_1.png",
+        "pose_image": "Train/cat_finished/motions/Jump/poses/humanpose_5.png",
+        "target_image": "Train/cat_finished/motions/Jump/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Train/cat_finished/motions/Jump/ground_truth/frame_1.png",
+        "pose_image": "Train/cat_finished/motions/Jump/poses/humanpose_6.png",
+        "target_image": "Train/cat_finished/motions/Jump/ground_truth/frame_6.png"
+    },
+    {
+        "reference_image": "Train/cat_finished/motions/Jump/ground_truth/frame_1.png",
+        "pose_image": "Train/cat_finished/motions/Jump/poses/humanpose_7.png",
+        "target_image": "Train/cat_finished/motions/Jump/ground_truth/frame_7.png"
+    },
+    {
+        "reference_image": "Train/cat_finished/motions/Jump/ground_truth/frame_1.png",
+        "pose_image": "Train/cat_finished/motions/Jump/poses/humanpose_8.png",
+        "target_image": "Train/cat_finished/motions/Jump/ground_truth/frame_8.png"
+    },
+    {
+        "reference_image": "Train/Thief/motions/walk/reference.png",
+        "pose_image": "Train/Thief/motions/walk/poses/humanpose_0.png",
+        "target_image": "Train/Thief/motions/walk/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Train/Thief/motions/walk/reference.png",
+        "pose_image": "Train/Thief/motions/walk/poses/humanpose_1.png",
+        "target_image": "Train/Thief/motions/walk/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Train/Thief/motions/walk/reference.png",
+        "pose_image": "Train/Thief/motions/walk/poses/humanpose_2.png",
+        "target_image": "Train/Thief/motions/walk/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/Thief/motions/walk/reference.png",
+        "pose_image": "Train/Thief/motions/walk/poses/humanpose_3.png",
+        "target_image": "Train/Thief/motions/walk/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/Thief/motions/walk/reference.png",
+        "pose_image": "Train/Thief/motions/walk/poses/humanpose_4.png",
+        "target_image": "Train/Thief/motions/walk/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/Thief/motions/walk/reference.png",
+        "pose_image": "Train/Thief/motions/walk/poses/humanpose_5.png",
+        "target_image": "Train/Thief/motions/walk/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Train/Thief/motions/highkick/reference.png",
+        "pose_image": "Train/Thief/motions/highkick/poses/humanpose_0.png",
+        "target_image": "Train/Thief/motions/highkick/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Train/Thief/motions/highkick/reference.png",
+        "pose_image": "Train/Thief/motions/highkick/poses/humanpose_1.png",
+        "target_image": "Train/Thief/motions/highkick/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Train/Thief/motions/highkick/reference.png",
+        "pose_image": "Train/Thief/motions/highkick/poses/humanpose_2.png",
+        "target_image": "Train/Thief/motions/highkick/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/Thief/motions/highkick/reference.png",
+        "pose_image": "Train/Thief/motions/highkick/poses/humanpose_3.png",
+        "target_image": "Train/Thief/motions/highkick/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/Thief/motions/highkick/reference.png",
+        "pose_image": "Train/Thief/motions/highkick/poses/humanpose_4.png",
+        "target_image": "Train/Thief/motions/highkick/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/Louis_hand/motions/roundhouse_kick/reference.png",
+        "pose_image": "Train/Louis_hand/motions/roundhouse_kick/poses/humanpose_0.png",
+        "target_image": "Train/Louis_hand/motions/roundhouse_kick/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Train/Louis_hand/motions/roundhouse_kick/reference.png",
+        "pose_image": "Train/Louis_hand/motions/roundhouse_kick/poses/humanpose_1.png",
+        "target_image": "Train/Louis_hand/motions/roundhouse_kick/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Train/Louis_hand/motions/roundhouse_kick/reference.png",
+        "pose_image": "Train/Louis_hand/motions/roundhouse_kick/poses/humanpose_2.png",
+        "target_image": "Train/Louis_hand/motions/roundhouse_kick/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/Louis_hand/motions/roundhouse_kick/reference.png",
+        "pose_image": "Train/Louis_hand/motions/roundhouse_kick/poses/humanpose_3.png",
+        "target_image": "Train/Louis_hand/motions/roundhouse_kick/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/Louis_hand/motions/roundhouse_kick/reference.png",
+        "pose_image": "Train/Louis_hand/motions/roundhouse_kick/poses/humanpose_4.png",
+        "target_image": "Train/Louis_hand/motions/roundhouse_kick/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/Louis_hand/motions/drink/reference.png",
+        "pose_image": "Train/Louis_hand/motions/drink/poses/humanpose_0.png",
+        "target_image": "Train/Louis_hand/motions/drink/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Train/Louis_hand/motions/drink/reference.png",
+        "pose_image": "Train/Louis_hand/motions/drink/poses/humanpose_1.png",
+        "target_image": "Train/Louis_hand/motions/drink/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Train/Louis_hand/motions/drink/reference.png",
+        "pose_image": "Train/Louis_hand/motions/drink/poses/humanpose_2.png",
+        "target_image": "Train/Louis_hand/motions/drink/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/Louis_hand/motions/walk/reference.png",
+        "pose_image": "Train/Louis_hand/motions/walk/poses/humanpose_0.png",
+        "target_image": "Train/Louis_hand/motions/walk/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Train/Louis_hand/motions/walk/reference.png",
+        "pose_image": "Train/Louis_hand/motions/walk/poses/humanpose_1.png",
+        "target_image": "Train/Louis_hand/motions/walk/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Train/Louis_hand/motions/walk/reference.png",
+        "pose_image": "Train/Louis_hand/motions/walk/poses/humanpose_2.png",
+        "target_image": "Train/Louis_hand/motions/walk/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/Louis_hand/motions/walk/reference.png",
+        "pose_image": "Train/Louis_hand/motions/walk/poses/humanpose_3.png",
+        "target_image": "Train/Louis_hand/motions/walk/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/Louis_hand/motions/walk/reference.png",
+        "pose_image": "Train/Louis_hand/motions/walk/poses/humanpose_4.png",
+        "target_image": "Train/Louis_hand/motions/walk/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/Louis_hand/motions/fly_kick/reference.png",
+        "pose_image": "Train/Louis_hand/motions/fly_kick/poses/humanpose_0.png",
+        "target_image": "Train/Louis_hand/motions/fly_kick/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Train/Louis_hand/motions/fly_kick/reference.png",
+        "pose_image": "Train/Louis_hand/motions/fly_kick/poses/humanpose_1.png",
+        "target_image": "Train/Louis_hand/motions/fly_kick/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Train/Louis_hand/motions/fly_kick/reference.png",
+        "pose_image": "Train/Louis_hand/motions/fly_kick/poses/humanpose_2.png",
+        "target_image": "Train/Louis_hand/motions/fly_kick/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/Louis_hand/motions/fly_kick/reference.png",
+        "pose_image": "Train/Louis_hand/motions/fly_kick/poses/humanpose_3.png",
+        "target_image": "Train/Louis_hand/motions/fly_kick/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/Louis_hand/motions/fly_kick/reference.png",
+        "pose_image": "Train/Louis_hand/motions/fly_kick/poses/humanpose_4.png",
+        "target_image": "Train/Louis_hand/motions/fly_kick/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/Louis_hand/motions/fly_kick/reference.png",
+        "pose_image": "Train/Louis_hand/motions/fly_kick/poses/humanpose_5.png",
+        "target_image": "Train/Louis_hand/motions/fly_kick/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Train/Louis_hand/motions/fly_kick/reference.png",
+        "pose_image": "Train/Louis_hand/motions/fly_kick/poses/humanpose_6.png",
+        "target_image": "Train/Louis_hand/motions/fly_kick/ground_truth/frame_6.png"
+    },
+    {
+        "reference_image": "Train/Louis_hand/motions/fly_kick/reference.png",
+        "pose_image": "Train/Louis_hand/motions/fly_kick/poses/humanpose_7.png",
+        "target_image": "Train/Louis_hand/motions/fly_kick/ground_truth/frame_7.png"
+    },
+    {
+        "reference_image": "Train/Louis_hand/motions/fly_kick/reference.png",
+        "pose_image": "Train/Louis_hand/motions/fly_kick/poses/humanpose_8.png",
+        "target_image": "Train/Louis_hand/motions/fly_kick/ground_truth/frame_8.png"
+    },
+    {
+        "reference_image": "Train/Louis_hand/motions/fly_kick/reference.png",
+        "pose_image": "Train/Louis_hand/motions/fly_kick/poses/humanpose_9.png",
+        "target_image": "Train/Louis_hand/motions/fly_kick/ground_truth/frame_9.png"
+    },
+    {
+        "reference_image": "Train/Louis_hand/motions/got_hit/reference.png",
+        "pose_image": "Train/Louis_hand/motions/got_hit/poses/humanpose_0.png",
+        "target_image": "Train/Louis_hand/motions/got_hit/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Train/Louis_hand/motions/got_hit/reference.png",
+        "pose_image": "Train/Louis_hand/motions/got_hit/poses/humanpose_1.png",
+        "target_image": "Train/Louis_hand/motions/got_hit/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Train/Louis_hand/motions/got_hit/reference.png",
+        "pose_image": "Train/Louis_hand/motions/got_hit/poses/humanpose_2.png",
+        "target_image": "Train/Louis_hand/motions/got_hit/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/Louis_hand/motions/got_hit/reference.png",
+        "pose_image": "Train/Louis_hand/motions/got_hit/poses/humanpose_3.png",
+        "target_image": "Train/Louis_hand/motions/got_hit/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/Louis_hand/motions/got_hit/reference.png",
+        "pose_image": "Train/Louis_hand/motions/got_hit/poses/humanpose_4.png",
+        "target_image": "Train/Louis_hand/motions/got_hit/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/Louis_hand/motions/punch/reference.png",
+        "pose_image": "Train/Louis_hand/motions/punch/poses/humanpose_0.png",
+        "target_image": "Train/Louis_hand/motions/punch/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Train/Louis_hand/motions/punch/reference.png",
+        "pose_image": "Train/Louis_hand/motions/punch/poses/humanpose_1.png",
+        "target_image": "Train/Louis_hand/motions/punch/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Train/Louis_hand/motions/punch/reference.png",
+        "pose_image": "Train/Louis_hand/motions/punch/poses/humanpose_2.png",
+        "target_image": "Train/Louis_hand/motions/punch/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/Louis_hand/motions/punch/reference.png",
+        "pose_image": "Train/Louis_hand/motions/punch/poses/humanpose_3.png",
+        "target_image": "Train/Louis_hand/motions/punch/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/Osaka_hand/motions/crunch_attack/reference.png",
+        "pose_image": "Train/Osaka_hand/motions/crunch_attack/poses/humanpose_0.png",
+        "target_image": "Train/Osaka_hand/motions/crunch_attack/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Train/Osaka_hand/motions/crunch_attack/reference.png",
+        "pose_image": "Train/Osaka_hand/motions/crunch_attack/poses/humanpose_1.png",
+        "target_image": "Train/Osaka_hand/motions/crunch_attack/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Train/Osaka_hand/motions/crunch_attack/reference.png",
+        "pose_image": "Train/Osaka_hand/motions/crunch_attack/poses/humanpose_2.png",
+        "target_image": "Train/Osaka_hand/motions/crunch_attack/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/Osaka_hand/motions/crunch_attack/reference.png",
+        "pose_image": "Train/Osaka_hand/motions/crunch_attack/poses/humanpose_3.png",
+        "target_image": "Train/Osaka_hand/motions/crunch_attack/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/Osaka_hand/motions/crunch_attack/reference.png",
+        "pose_image": "Train/Osaka_hand/motions/crunch_attack/poses/humanpose_4.png",
+        "target_image": "Train/Osaka_hand/motions/crunch_attack/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/Osaka_hand/motions/walk/reference.png",
+        "pose_image": "Train/Osaka_hand/motions/walk/poses/humanpose_0.png",
+        "target_image": "Train/Osaka_hand/motions/walk/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Train/Osaka_hand/motions/walk/reference.png",
+        "pose_image": "Train/Osaka_hand/motions/walk/poses/humanpose_1.png",
+        "target_image": "Train/Osaka_hand/motions/walk/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Train/Osaka_hand/motions/walk/reference.png",
+        "pose_image": "Train/Osaka_hand/motions/walk/poses/humanpose_2.png",
+        "target_image": "Train/Osaka_hand/motions/walk/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/Osaka_hand/motions/walk/reference.png",
+        "pose_image": "Train/Osaka_hand/motions/walk/poses/humanpose_3.png",
+        "target_image": "Train/Osaka_hand/motions/walk/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/Osaka_hand/motions/walk/reference.png",
+        "pose_image": "Train/Osaka_hand/motions/walk/poses/humanpose_4.png",
+        "target_image": "Train/Osaka_hand/motions/walk/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/Osaka_hand/motions/walk/reference.png",
+        "pose_image": "Train/Osaka_hand/motions/walk/poses/humanpose_5.png",
+        "target_image": "Train/Osaka_hand/motions/walk/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Train/Osaka_hand/motions/idle/reference.png",
+        "pose_image": "Train/Osaka_hand/motions/idle/poses/humanpose_0.png",
+        "target_image": "Train/Osaka_hand/motions/idle/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Train/Osaka_hand/motions/idle/reference.png",
+        "pose_image": "Train/Osaka_hand/motions/idle/poses/humanpose_1.png",
+        "target_image": "Train/Osaka_hand/motions/idle/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Train/Osaka_hand/motions/idle/reference.png",
+        "pose_image": "Train/Osaka_hand/motions/idle/poses/humanpose_2.png",
+        "target_image": "Train/Osaka_hand/motions/idle/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/Osaka_hand/motions/idle/reference.png",
+        "pose_image": "Train/Osaka_hand/motions/idle/poses/humanpose_3.png",
+        "target_image": "Train/Osaka_hand/motions/idle/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/Osaka_hand/motions/idle/reference.png",
+        "pose_image": "Train/Osaka_hand/motions/idle/poses/humanpose_4.png",
+        "target_image": "Train/Osaka_hand/motions/idle/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/Osaka_hand/motions/idle/reference.png",
+        "pose_image": "Train/Osaka_hand/motions/idle/poses/humanpose_5.png",
+        "target_image": "Train/Osaka_hand/motions/idle/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Train/Osaka_hand/motions/idle/reference.png",
+        "pose_image": "Train/Osaka_hand/motions/idle/poses/humanpose_6.png",
+        "target_image": "Train/Osaka_hand/motions/idle/ground_truth/frame_6.png"
+    },
+    {
+        "reference_image": "Train/Osaka_hand/motions/idle/reference.png",
+        "pose_image": "Train/Osaka_hand/motions/idle/poses/humanpose_7.png",
+        "target_image": "Train/Osaka_hand/motions/idle/ground_truth/frame_7.png"
+    },
+    {
+        "reference_image": "Train/Osaka_hand/motions/idle/reference.png",
+        "pose_image": "Train/Osaka_hand/motions/idle/poses/humanpose_8.png",
+        "target_image": "Train/Osaka_hand/motions/idle/ground_truth/frame_8.png"
+    },
+    {
+        "reference_image": "Train/Osaka_hand/motions/jump/reference.png",
+        "pose_image": "Train/Osaka_hand/motions/jump/poses/humanpose_0.png",
+        "target_image": "Train/Osaka_hand/motions/jump/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Train/Osaka_hand/motions/jump/reference.png",
+        "pose_image": "Train/Osaka_hand/motions/jump/poses/humanpose_1.png",
+        "target_image": "Train/Osaka_hand/motions/jump/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Train/Osaka_hand/motions/jump/reference.png",
+        "pose_image": "Train/Osaka_hand/motions/jump/poses/humanpose_2.png",
+        "target_image": "Train/Osaka_hand/motions/jump/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/Osaka_hand/motions/jump/reference.png",
+        "pose_image": "Train/Osaka_hand/motions/jump/poses/humanpose_3.png",
+        "target_image": "Train/Osaka_hand/motions/jump/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/Osaka_hand/motions/dash/reference.png",
+        "pose_image": "Train/Osaka_hand/motions/dash/poses/humanpose_0.png",
+        "target_image": "Train/Osaka_hand/motions/dash/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Train/Osaka_hand/motions/dash/reference.png",
+        "pose_image": "Train/Osaka_hand/motions/dash/poses/humanpose_1.png",
+        "target_image": "Train/Osaka_hand/motions/dash/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Train/Osaka_hand/motions/dash/reference.png",
+        "pose_image": "Train/Osaka_hand/motions/dash/poses/humanpose_2.png",
+        "target_image": "Train/Osaka_hand/motions/dash/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/Osaka_hand/motions/dash/reference.png",
+        "pose_image": "Train/Osaka_hand/motions/dash/poses/humanpose_3.png",
+        "target_image": "Train/Osaka_hand/motions/dash/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/Guile/motions/hurt/reference.png",
+        "pose_image": "Train/Guile/motions/hurt/poses/humanpose_0.png",
+        "target_image": "Train/Guile/motions/hurt/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Train/Guile/motions/hurt/reference.png",
+        "pose_image": "Train/Guile/motions/hurt/poses/humanpose_1.png",
+        "target_image": "Train/Guile/motions/hurt/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Train/Guile/motions/hurt/reference.png",
+        "pose_image": "Train/Guile/motions/hurt/poses/humanpose_2.png",
+        "target_image": "Train/Guile/motions/hurt/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/Guile/motions/run/reference.png",
+        "pose_image": "Train/Guile/motions/run/poses/humanpose_0.png",
+        "target_image": "Train/Guile/motions/run/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Train/Guile/motions/run/reference.png",
+        "pose_image": "Train/Guile/motions/run/poses/humanpose_1.png",
+        "target_image": "Train/Guile/motions/run/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Train/Guile/motions/run/reference.png",
+        "pose_image": "Train/Guile/motions/run/poses/humanpose_2.png",
+        "target_image": "Train/Guile/motions/run/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Train/Guile/motions/run/reference.png",
+        "pose_image": "Train/Guile/motions/run/poses/humanpose_3.png",
+        "target_image": "Train/Guile/motions/run/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Train/Guile/motions/run/reference.png",
+        "pose_image": "Train/Guile/motions/run/poses/humanpose_4.png",
+        "target_image": "Train/Guile/motions/run/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Train/Guile/motions/run/reference.png",
+        "pose_image": "Train/Guile/motions/run/poses/humanpose_5.png",
+        "target_image": "Train/Guile/motions/run/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Train/Guile/motions/run/reference.png",
+        "pose_image": "Train/Guile/motions/run/poses/humanpose_6.png",
+        "target_image": "Train/Guile/motions/run/ground_truth/frame_6.png"
+    }
+]

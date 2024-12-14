@@ -1,0 +1,262 @@
+[
+    {
+        "reference_image": "Test/out_sample/Bandit/motions/at_ease/reference.png",
+        "pose_image": "Test/out_sample/Bandit/motions/at_ease/poses/humanpose_0.png",
+        "target_image": "Test/out_sample/Bandit/motions/at_ease/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Test/out_sample/Bandit/motions/at_ease/reference.png",
+        "pose_image": "Test/out_sample/Bandit/motions/at_ease/poses/humanpose_1.png",
+        "target_image": "Test/out_sample/Bandit/motions/at_ease/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Test/out_sample/Enemies  Miscellaeous/motions/attack/reference.png",
+        "pose_image": "Test/out_sample/Enemies  Miscellaeous/motions/attack/poses/humanpose_0.png",
+        "target_image": "Test/out_sample/Enemies  Miscellaeous/motions/attack/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Test/out_sample/Enemies  Miscellaeous/motions/attack/reference.png",
+        "pose_image": "Test/out_sample/Enemies  Miscellaeous/motions/attack/poses/humanpose_1.png",
+        "target_image": "Test/out_sample/Enemies  Miscellaeous/motions/attack/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Test/out_sample/Enemies  Miscellaeous/motions/attack/reference.png",
+        "pose_image": "Test/out_sample/Enemies  Miscellaeous/motions/attack/poses/humanpose_2.png",
+        "target_image": "Test/out_sample/Enemies  Miscellaeous/motions/attack/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Test/out_sample/Hinata/motions/taiji/reference.png",
+        "pose_image": "Test/out_sample/Hinata/motions/taiji/poses/humanpose_0.png",
+        "target_image": "Test/out_sample/Hinata/motions/taiji/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Test/out_sample/Hinata/motions/taiji/reference.png",
+        "pose_image": "Test/out_sample/Hinata/motions/taiji/poses/humanpose_1.png",
+        "target_image": "Test/out_sample/Hinata/motions/taiji/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Test/out_sample/Hinata/motions/taiji/reference.png",
+        "pose_image": "Test/out_sample/Hinata/motions/taiji/poses/humanpose_2.png",
+        "target_image": "Test/out_sample/Hinata/motions/taiji/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Test/out_sample/Hinata/motions/taiji/reference.png",
+        "pose_image": "Test/out_sample/Hinata/motions/taiji/poses/humanpose_3.png",
+        "target_image": "Test/out_sample/Hinata/motions/taiji/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Test/out_sample/the_boy/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Test/out_sample/the_boy/motions/Run/poses/humanpose_10.png",
+        "target_image": "Test/out_sample/the_boy/motions/Run/ground_truth/frame_10.png"
+    },
+    {
+        "reference_image": "Test/out_sample/the_boy/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Test/out_sample/the_boy/motions/Run/poses/humanpose_11.png",
+        "target_image": "Test/out_sample/the_boy/motions/Run/ground_truth/frame_11.png"
+    },
+    {
+        "reference_image": "Test/out_sample/the_boy/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Test/out_sample/the_boy/motions/Run/poses/humanpose_12.png",
+        "target_image": "Test/out_sample/the_boy/motions/Run/ground_truth/frame_12.png"
+    },
+    {
+        "reference_image": "Test/out_sample/the_boy/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Test/out_sample/the_boy/motions/Run/poses/humanpose_13.png",
+        "target_image": "Test/out_sample/the_boy/motions/Run/ground_truth/frame_13.png"
+    },
+    {
+        "reference_image": "Test/out_sample/the_boy/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Test/out_sample/the_boy/motions/Run/poses/humanpose_14.png",
+        "target_image": "Test/out_sample/the_boy/motions/Run/ground_truth/frame_14.png"
+    },
+    {
+        "reference_image": "Test/out_sample/the_boy/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Test/out_sample/the_boy/motions/Run/poses/humanpose_2.png",
+        "target_image": "Test/out_sample/the_boy/motions/Run/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Test/out_sample/the_boy/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Test/out_sample/the_boy/motions/Run/poses/humanpose_3.png",
+        "target_image": "Test/out_sample/the_boy/motions/Run/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Test/out_sample/the_boy/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Test/out_sample/the_boy/motions/Run/poses/humanpose_4.png",
+        "target_image": "Test/out_sample/the_boy/motions/Run/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Test/out_sample/the_boy/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Test/out_sample/the_boy/motions/Run/poses/humanpose_5.png",
+        "target_image": "Test/out_sample/the_boy/motions/Run/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Test/out_sample/the_boy/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Test/out_sample/the_boy/motions/Run/poses/humanpose_6.png",
+        "target_image": "Test/out_sample/the_boy/motions/Run/ground_truth/frame_6.png"
+    },
+    {
+        "reference_image": "Test/out_sample/the_boy/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Test/out_sample/the_boy/motions/Run/poses/humanpose_7.png",
+        "target_image": "Test/out_sample/the_boy/motions/Run/ground_truth/frame_7.png"
+    },
+    {
+        "reference_image": "Test/out_sample/the_boy/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Test/out_sample/the_boy/motions/Run/poses/humanpose_8.png",
+        "target_image": "Test/out_sample/the_boy/motions/Run/ground_truth/frame_8.png"
+    },
+    {
+        "reference_image": "Test/out_sample/the_boy/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Test/out_sample/the_boy/motions/Run/poses/humanpose_9.png",
+        "target_image": "Test/out_sample/the_boy/motions/Run/ground_truth/frame_9.png"
+    },
+    {
+        "reference_image": "Test/out_sample/Michael Myers/motions/attack/reference.png",
+        "pose_image": "Test/out_sample/Michael Myers/motions/attack/poses/humanpose_0.png",
+        "target_image": "Test/out_sample/Michael Myers/motions/attack/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Test/out_sample/Michael Myers/motions/attack/reference.png",
+        "pose_image": "Test/out_sample/Michael Myers/motions/attack/poses/humanpose_1.png",
+        "target_image": "Test/out_sample/Michael Myers/motions/attack/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Test/out_sample/Michael Myers/motions/attack/reference.png",
+        "pose_image": "Test/out_sample/Michael Myers/motions/attack/poses/humanpose_2.png",
+        "target_image": "Test/out_sample/Michael Myers/motions/attack/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Test/out_sample/Michael Myers/motions/attack/reference.png",
+        "pose_image": "Test/out_sample/Michael Myers/motions/attack/poses/humanpose_3.png",
+        "target_image": "Test/out_sample/Michael Myers/motions/attack/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Test/out_sample/Michael Myers/motions/attack/reference.png",
+        "pose_image": "Test/out_sample/Michael Myers/motions/attack/poses/humanpose_4.png",
+        "target_image": "Test/out_sample/Michael Myers/motions/attack/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Test/out_sample/Michael Myers/motions/attack/reference.png",
+        "pose_image": "Test/out_sample/Michael Myers/motions/attack/poses/humanpose_5.png",
+        "target_image": "Test/out_sample/Michael Myers/motions/attack/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Test/out_sample/ninjaadventurenew/motions/attack/ground_truth/frame_1.png",
+        "pose_image": "Test/out_sample/ninjaadventurenew/motions/attack/poses/humanpose_2.png",
+        "target_image": "Test/out_sample/ninjaadventurenew/motions/attack/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Test/out_sample/ninjaadventurenew/motions/attack/ground_truth/frame_1.png",
+        "pose_image": "Test/out_sample/ninjaadventurenew/motions/attack/poses/humanpose_3.png",
+        "target_image": "Test/out_sample/ninjaadventurenew/motions/attack/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Test/out_sample/ninjaadventurenew/motions/attack/ground_truth/frame_1.png",
+        "pose_image": "Test/out_sample/ninjaadventurenew/motions/attack/poses/humanpose_4.png",
+        "target_image": "Test/out_sample/ninjaadventurenew/motions/attack/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Test/out_sample/SS/motions/run/reference.png",
+        "pose_image": "Test/out_sample/SS/motions/run/poses/humanpose_0.png",
+        "target_image": "Test/out_sample/SS/motions/run/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Test/out_sample/SS/motions/run/reference.png",
+        "pose_image": "Test/out_sample/SS/motions/run/poses/humanpose_1.png",
+        "target_image": "Test/out_sample/SS/motions/run/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Test/out_sample/SS/motions/run/reference.png",
+        "pose_image": "Test/out_sample/SS/motions/run/poses/humanpose_2.png",
+        "target_image": "Test/out_sample/SS/motions/run/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Test/out_sample/SS/motions/run/reference.png",
+        "pose_image": "Test/out_sample/SS/motions/run/poses/humanpose_3.png",
+        "target_image": "Test/out_sample/SS/motions/run/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Test/out_sample/templerun/motions/dead/ground_truth/frame_1.png",
+        "pose_image": "Test/out_sample/templerun/motions/dead/poses/humanpose_2.png",
+        "target_image": "Test/out_sample/templerun/motions/dead/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Test/out_sample/templerun/motions/dead/ground_truth/frame_1.png",
+        "pose_image": "Test/out_sample/templerun/motions/dead/poses/humanpose_3.png",
+        "target_image": "Test/out_sample/templerun/motions/dead/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Test/out_sample/templerun/motions/dead/ground_truth/frame_1.png",
+        "pose_image": "Test/out_sample/templerun/motions/dead/poses/humanpose_4.png",
+        "target_image": "Test/out_sample/templerun/motions/dead/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Test/out_sample/templerun/motions/dead/ground_truth/frame_1.png",
+        "pose_image": "Test/out_sample/templerun/motions/dead/poses/humanpose_5.png",
+        "target_image": "Test/out_sample/templerun/motions/dead/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Test/out_sample/Alice (1)/motions/run/reference.png",
+        "pose_image": "Test/out_sample/Alice (1)/motions/run/poses/humanpose_0.png",
+        "target_image": "Test/out_sample/Alice (1)/motions/run/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Test/out_sample/Alice (1)/motions/run/reference.png",
+        "pose_image": "Test/out_sample/Alice (1)/motions/run/poses/humanpose_1.png",
+        "target_image": "Test/out_sample/Alice (1)/motions/run/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Test/out_sample/Alice (1)/motions/run/reference.png",
+        "pose_image": "Test/out_sample/Alice (1)/motions/run/poses/humanpose_2.png",
+        "target_image": "Test/out_sample/Alice (1)/motions/run/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Test/out_sample/Characters  Miscellaneous/motions/walk/reference.png",
+        "pose_image": "Test/out_sample/Characters  Miscellaneous/motions/walk/poses/humanpose_0.png",
+        "target_image": "Test/out_sample/Characters  Miscellaneous/motions/walk/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Test/out_sample/Characters  Miscellaneous/motions/walk/reference.png",
+        "pose_image": "Test/out_sample/Characters  Miscellaneous/motions/walk/poses/humanpose_1.png",
+        "target_image": "Test/out_sample/Characters  Miscellaneous/motions/walk/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Test/out_sample/Characters  Miscellaneous/motions/walk/reference.png",
+        "pose_image": "Test/out_sample/Characters  Miscellaneous/motions/walk/poses/humanpose_2.png",
+        "target_image": "Test/out_sample/Characters  Miscellaneous/motions/walk/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Test/out_sample/Characters  Miscellaneous/motions/walk/reference.png",
+        "pose_image": "Test/out_sample/Characters  Miscellaneous/motions/walk/poses/humanpose_3.png",
+        "target_image": "Test/out_sample/Characters  Miscellaneous/motions/walk/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Test/out_sample/Characters  Miscellaneous/motions/walk/reference.png",
+        "pose_image": "Test/out_sample/Characters  Miscellaneous/motions/walk/poses/humanpose_4.png",
+        "target_image": "Test/out_sample/Characters  Miscellaneous/motions/walk/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Test/out_sample/Characters  Miscellaneous/motions/walk/reference.png",
+        "pose_image": "Test/out_sample/Characters  Miscellaneous/motions/walk/poses/humanpose_5.png",
+        "target_image": "Test/out_sample/Characters  Miscellaneous/motions/walk/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Test/out_sample/red_hat_boy/motions/Hurt/ground_truth/frame_1.png",
+        "pose_image": "Test/out_sample/red_hat_boy/motions/Hurt/poses/humanpose_2.png",
+        "target_image": "Test/out_sample/red_hat_boy/motions/Hurt/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Test/out_sample/red_hat_boy/motions/Hurt/ground_truth/frame_1.png",
+        "pose_image": "Test/out_sample/red_hat_boy/motions/Hurt/poses/humanpose_3.png",
+        "target_image": "Test/out_sample/red_hat_boy/motions/Hurt/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Test/out_sample/Allison/motions/jump/reference.png",
+        "pose_image": "Test/out_sample/Allison/motions/jump/poses/humanpose_0.png",
+        "target_image": "Test/out_sample/Allison/motions/jump/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Test/out_sample/Allison/motions/jump/reference.png",
+        "pose_image": "Test/out_sample/Allison/motions/jump/poses/humanpose_1.png",
+        "target_image": "Test/out_sample/Allison/motions/jump/ground_truth/frame_1.png"
+    }
+]

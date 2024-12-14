@@ -1,0 +1,787 @@
+[
+    {
+        "reference_image": "Test/in_sample/zombie_finished/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/zombie_finished/motions/Dead/poses/humanpose_10.png",
+        "target_image": "Test/in_sample/zombie_finished/motions/Dead/ground_truth/frame_10.png"
+    },
+    {
+        "reference_image": "Test/in_sample/zombie_finished/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/zombie_finished/motions/Dead/poses/humanpose_11.png",
+        "target_image": "Test/in_sample/zombie_finished/motions/Dead/ground_truth/frame_11.png"
+    },
+    {
+        "reference_image": "Test/in_sample/zombie_finished/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/zombie_finished/motions/Dead/poses/humanpose_12.png",
+        "target_image": "Test/in_sample/zombie_finished/motions/Dead/ground_truth/frame_12.png"
+    },
+    {
+        "reference_image": "Test/in_sample/zombie_finished/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/zombie_finished/motions/Dead/poses/humanpose_2.png",
+        "target_image": "Test/in_sample/zombie_finished/motions/Dead/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Test/in_sample/zombie_finished/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/zombie_finished/motions/Dead/poses/humanpose_3.png",
+        "target_image": "Test/in_sample/zombie_finished/motions/Dead/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Test/in_sample/zombie_finished/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/zombie_finished/motions/Dead/poses/humanpose_4.png",
+        "target_image": "Test/in_sample/zombie_finished/motions/Dead/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Test/in_sample/zombie_finished/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/zombie_finished/motions/Dead/poses/humanpose_5.png",
+        "target_image": "Test/in_sample/zombie_finished/motions/Dead/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Test/in_sample/zombie_finished/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/zombie_finished/motions/Dead/poses/humanpose_6.png",
+        "target_image": "Test/in_sample/zombie_finished/motions/Dead/ground_truth/frame_6.png"
+    },
+    {
+        "reference_image": "Test/in_sample/zombie_finished/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/zombie_finished/motions/Dead/poses/humanpose_7.png",
+        "target_image": "Test/in_sample/zombie_finished/motions/Dead/ground_truth/frame_7.png"
+    },
+    {
+        "reference_image": "Test/in_sample/zombie_finished/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/zombie_finished/motions/Dead/poses/humanpose_8.png",
+        "target_image": "Test/in_sample/zombie_finished/motions/Dead/ground_truth/frame_8.png"
+    },
+    {
+        "reference_image": "Test/in_sample/zombie_finished/motions/Dead/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/zombie_finished/motions/Dead/poses/humanpose_9.png",
+        "target_image": "Test/in_sample/zombie_finished/motions/Dead/ground_truth/frame_9.png"
+    },
+    {
+        "reference_image": "Test/in_sample/adventure_girl/motions/dead/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/adventure_girl/motions/dead/poses/humanpose_2.png",
+        "target_image": "Test/in_sample/adventure_girl/motions/dead/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Test/in_sample/adventure_girl/motions/dead/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/adventure_girl/motions/dead/poses/humanpose_3.png",
+        "target_image": "Test/in_sample/adventure_girl/motions/dead/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Test/in_sample/adventure_girl/motions/dead/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/adventure_girl/motions/dead/poses/humanpose_4.png",
+        "target_image": "Test/in_sample/adventure_girl/motions/dead/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Test/in_sample/zombie_female/motions/Walk/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/zombie_female/motions/Walk/poses/humanpose_10.png",
+        "target_image": "Test/in_sample/zombie_female/motions/Walk/ground_truth/frame_10.png"
+    },
+    {
+        "reference_image": "Test/in_sample/zombie_female/motions/Walk/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/zombie_female/motions/Walk/poses/humanpose_2.png",
+        "target_image": "Test/in_sample/zombie_female/motions/Walk/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Test/in_sample/zombie_female/motions/Walk/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/zombie_female/motions/Walk/poses/humanpose_3.png",
+        "target_image": "Test/in_sample/zombie_female/motions/Walk/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Test/in_sample/zombie_female/motions/Walk/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/zombie_female/motions/Walk/poses/humanpose_4.png",
+        "target_image": "Test/in_sample/zombie_female/motions/Walk/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Test/in_sample/zombie_female/motions/Walk/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/zombie_female/motions/Walk/poses/humanpose_5.png",
+        "target_image": "Test/in_sample/zombie_female/motions/Walk/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Test/in_sample/zombie_female/motions/Walk/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/zombie_female/motions/Walk/poses/humanpose_6.png",
+        "target_image": "Test/in_sample/zombie_female/motions/Walk/ground_truth/frame_6.png"
+    },
+    {
+        "reference_image": "Test/in_sample/zombie_female/motions/Walk/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/zombie_female/motions/Walk/poses/humanpose_7.png",
+        "target_image": "Test/in_sample/zombie_female/motions/Walk/ground_truth/frame_7.png"
+    },
+    {
+        "reference_image": "Test/in_sample/zombie_female/motions/Walk/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/zombie_female/motions/Walk/poses/humanpose_8.png",
+        "target_image": "Test/in_sample/zombie_female/motions/Walk/ground_truth/frame_8.png"
+    },
+    {
+        "reference_image": "Test/in_sample/zombie_female/motions/Walk/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/zombie_female/motions/Walk/poses/humanpose_9.png",
+        "target_image": "Test/in_sample/zombie_female/motions/Walk/ground_truth/frame_9.png"
+    },
+    {
+        "reference_image": "Test/in_sample/robot/motions/RunShoot/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/robot/motions/RunShoot/poses/humanpose_2.png",
+        "target_image": "Test/in_sample/robot/motions/RunShoot/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Test/in_sample/robot/motions/RunShoot/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/robot/motions/RunShoot/poses/humanpose_3.png",
+        "target_image": "Test/in_sample/robot/motions/RunShoot/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Test/in_sample/robot/motions/RunShoot/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/robot/motions/RunShoot/poses/humanpose_4.png",
+        "target_image": "Test/in_sample/robot/motions/RunShoot/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Test/in_sample/robot/motions/RunShoot/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/robot/motions/RunShoot/poses/humanpose_5.png",
+        "target_image": "Test/in_sample/robot/motions/RunShoot/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Test/in_sample/robot/motions/RunShoot/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/robot/motions/RunShoot/poses/humanpose_6.png",
+        "target_image": "Test/in_sample/robot/motions/RunShoot/ground_truth/frame_6.png"
+    },
+    {
+        "reference_image": "Test/in_sample/robot/motions/RunShoot/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/robot/motions/RunShoot/poses/humanpose_7.png",
+        "target_image": "Test/in_sample/robot/motions/RunShoot/ground_truth/frame_7.png"
+    },
+    {
+        "reference_image": "Test/in_sample/robot/motions/RunShoot/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/robot/motions/RunShoot/poses/humanpose_8.png",
+        "target_image": "Test/in_sample/robot/motions/RunShoot/ground_truth/frame_8.png"
+    },
+    {
+        "reference_image": "Test/in_sample/robot/motions/RunShoot/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/robot/motions/RunShoot/poses/humanpose_9.png",
+        "target_image": "Test/in_sample/robot/motions/RunShoot/ground_truth/frame_9.png"
+    },
+    {
+        "reference_image": "Test/in_sample/CarenOrtensia_hand/motions/attack/reference.png",
+        "pose_image": "Test/in_sample/CarenOrtensia_hand/motions/attack/poses/humanpose_0.png",
+        "target_image": "Test/in_sample/CarenOrtensia_hand/motions/attack/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Test/in_sample/CarenOrtensia_hand/motions/attack/reference.png",
+        "pose_image": "Test/in_sample/CarenOrtensia_hand/motions/attack/poses/humanpose_1.png",
+        "target_image": "Test/in_sample/CarenOrtensia_hand/motions/attack/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Test/in_sample/CarenOrtensia_hand/motions/attack/reference.png",
+        "pose_image": "Test/in_sample/CarenOrtensia_hand/motions/attack/poses/humanpose_2.png",
+        "target_image": "Test/in_sample/CarenOrtensia_hand/motions/attack/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Tim_hand/motions/fall/reference.png",
+        "pose_image": "Test/in_sample/Tim_hand/motions/fall/poses/humanpose_0.png",
+        "target_image": "Test/in_sample/Tim_hand/motions/fall/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Tim_hand/motions/fall/reference.png",
+        "pose_image": "Test/in_sample/Tim_hand/motions/fall/poses/humanpose_1.png",
+        "target_image": "Test/in_sample/Tim_hand/motions/fall/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Tim_hand/motions/fall/reference.png",
+        "pose_image": "Test/in_sample/Tim_hand/motions/fall/poses/humanpose_2.png",
+        "target_image": "Test/in_sample/Tim_hand/motions/fall/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Tim_hand/motions/fall/reference.png",
+        "pose_image": "Test/in_sample/Tim_hand/motions/fall/poses/humanpose_3.png",
+        "target_image": "Test/in_sample/Tim_hand/motions/fall/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Tim_hand/motions/fall/reference.png",
+        "pose_image": "Test/in_sample/Tim_hand/motions/fall/poses/humanpose_4.png",
+        "target_image": "Test/in_sample/Tim_hand/motions/fall/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Tim_hand/motions/fall/reference.png",
+        "pose_image": "Test/in_sample/Tim_hand/motions/fall/poses/humanpose_5.png",
+        "target_image": "Test/in_sample/Tim_hand/motions/fall/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Tim_hand/motions/fall/reference.png",
+        "pose_image": "Test/in_sample/Tim_hand/motions/fall/poses/humanpose_6.png",
+        "target_image": "Test/in_sample/Tim_hand/motions/fall/ground_truth/frame_6.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Tim_hand/motions/fall/reference.png",
+        "pose_image": "Test/in_sample/Tim_hand/motions/fall/poses/humanpose_7.png",
+        "target_image": "Test/in_sample/Tim_hand/motions/fall/ground_truth/frame_7.png"
+    },
+    {
+        "reference_image": "Test/in_sample/ChunLi/motions/run/reference.png",
+        "pose_image": "Test/in_sample/ChunLi/motions/run/poses/humanpose_0.png",
+        "target_image": "Test/in_sample/ChunLi/motions/run/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Test/in_sample/ChunLi/motions/run/reference.png",
+        "pose_image": "Test/in_sample/ChunLi/motions/run/poses/humanpose_1.png",
+        "target_image": "Test/in_sample/ChunLi/motions/run/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Test/in_sample/ChunLi/motions/run/reference.png",
+        "pose_image": "Test/in_sample/ChunLi/motions/run/poses/humanpose_2.png",
+        "target_image": "Test/in_sample/ChunLi/motions/run/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Test/in_sample/ChunLi/motions/run/reference.png",
+        "pose_image": "Test/in_sample/ChunLi/motions/run/poses/humanpose_3.png",
+        "target_image": "Test/in_sample/ChunLi/motions/run/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Test/in_sample/ChunLi/motions/run/reference.png",
+        "pose_image": "Test/in_sample/ChunLi/motions/run/poses/humanpose_4.png",
+        "target_image": "Test/in_sample/ChunLi/motions/run/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Test/in_sample/ChunLi/motions/run/reference.png",
+        "pose_image": "Test/in_sample/ChunLi/motions/run/poses/humanpose_5.png",
+        "target_image": "Test/in_sample/ChunLi/motions/run/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Binran/motions/push/ground_truth/frame_0.png",
+        "pose_image": "Test/in_sample/Binran/motions/push/poses/humanpose_1.png",
+        "target_image": "Test/in_sample/Binran/motions/push/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Binran/motions/push/ground_truth/frame_0.png",
+        "pose_image": "Test/in_sample/Binran/motions/push/poses/humanpose_2.png",
+        "target_image": "Test/in_sample/Binran/motions/push/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Binran/motions/push/ground_truth/frame_0.png",
+        "pose_image": "Test/in_sample/Binran/motions/push/poses/humanpose_3.png",
+        "target_image": "Test/in_sample/Binran/motions/push/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Test/in_sample/jackfree_finished/motions/Jump/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/jackfree_finished/motions/Jump/poses/humanpose_10.png",
+        "target_image": "Test/in_sample/jackfree_finished/motions/Jump/ground_truth/frame_10.png"
+    },
+    {
+        "reference_image": "Test/in_sample/jackfree_finished/motions/Jump/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/jackfree_finished/motions/Jump/poses/humanpose_2.png",
+        "target_image": "Test/in_sample/jackfree_finished/motions/Jump/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Test/in_sample/jackfree_finished/motions/Jump/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/jackfree_finished/motions/Jump/poses/humanpose_3.png",
+        "target_image": "Test/in_sample/jackfree_finished/motions/Jump/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Test/in_sample/jackfree_finished/motions/Jump/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/jackfree_finished/motions/Jump/poses/humanpose_4.png",
+        "target_image": "Test/in_sample/jackfree_finished/motions/Jump/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Test/in_sample/jackfree_finished/motions/Jump/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/jackfree_finished/motions/Jump/poses/humanpose_5.png",
+        "target_image": "Test/in_sample/jackfree_finished/motions/Jump/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Test/in_sample/jackfree_finished/motions/Jump/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/jackfree_finished/motions/Jump/poses/humanpose_6.png",
+        "target_image": "Test/in_sample/jackfree_finished/motions/Jump/ground_truth/frame_6.png"
+    },
+    {
+        "reference_image": "Test/in_sample/jackfree_finished/motions/Jump/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/jackfree_finished/motions/Jump/poses/humanpose_7.png",
+        "target_image": "Test/in_sample/jackfree_finished/motions/Jump/ground_truth/frame_7.png"
+    },
+    {
+        "reference_image": "Test/in_sample/jackfree_finished/motions/Jump/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/jackfree_finished/motions/Jump/poses/humanpose_8.png",
+        "target_image": "Test/in_sample/jackfree_finished/motions/Jump/ground_truth/frame_8.png"
+    },
+    {
+        "reference_image": "Test/in_sample/jackfree_finished/motions/Jump/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/jackfree_finished/motions/Jump/poses/humanpose_9.png",
+        "target_image": "Test/in_sample/jackfree_finished/motions/Jump/ground_truth/frame_9.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Chiyo_hand/motions/walk_small/reference.png",
+        "pose_image": "Test/in_sample/Chiyo_hand/motions/walk_small/poses/humanpose_0.png",
+        "target_image": "Test/in_sample/Chiyo_hand/motions/walk_small/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Chiyo_hand/motions/walk_small/reference.png",
+        "pose_image": "Test/in_sample/Chiyo_hand/motions/walk_small/poses/humanpose_1.png",
+        "target_image": "Test/in_sample/Chiyo_hand/motions/walk_small/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Chiyo_hand/motions/walk_small/reference.png",
+        "pose_image": "Test/in_sample/Chiyo_hand/motions/walk_small/poses/humanpose_2.png",
+        "target_image": "Test/in_sample/Chiyo_hand/motions/walk_small/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Chiyo_hand/motions/walk_small/reference.png",
+        "pose_image": "Test/in_sample/Chiyo_hand/motions/walk_small/poses/humanpose_3.png",
+        "target_image": "Test/in_sample/Chiyo_hand/motions/walk_small/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Chiyo_hand/motions/walk_small/reference.png",
+        "pose_image": "Test/in_sample/Chiyo_hand/motions/walk_small/poses/humanpose_4.png",
+        "target_image": "Test/in_sample/Chiyo_hand/motions/walk_small/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Chiyo_hand/motions/walk_small/reference.png",
+        "pose_image": "Test/in_sample/Chiyo_hand/motions/walk_small/poses/humanpose_5.png",
+        "target_image": "Test/in_sample/Chiyo_hand/motions/walk_small/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Tiron/motions/die/reference.png",
+        "pose_image": "Test/in_sample/Tiron/motions/die/poses/humanpose_0.png",
+        "target_image": "Test/in_sample/Tiron/motions/die/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Tiron/motions/die/reference.png",
+        "pose_image": "Test/in_sample/Tiron/motions/die/poses/humanpose_1.png",
+        "target_image": "Test/in_sample/Tiron/motions/die/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Tiron/motions/die/reference.png",
+        "pose_image": "Test/in_sample/Tiron/motions/die/poses/humanpose_2.png",
+        "target_image": "Test/in_sample/Tiron/motions/die/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Tiron/motions/die/reference.png",
+        "pose_image": "Test/in_sample/Tiron/motions/die/poses/humanpose_3.png",
+        "target_image": "Test/in_sample/Tiron/motions/die/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Test/in_sample/santa/motions/Jump/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/santa/motions/Jump/poses/humanpose_2.png",
+        "target_image": "Test/in_sample/santa/motions/Jump/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Test/in_sample/santa/motions/Jump/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/santa/motions/Jump/poses/humanpose_3.png",
+        "target_image": "Test/in_sample/santa/motions/Jump/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Test/in_sample/santa/motions/Jump/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/santa/motions/Jump/poses/humanpose_4.png",
+        "target_image": "Test/in_sample/santa/motions/Jump/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Test/in_sample/santa/motions/Jump/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/santa/motions/Jump/poses/humanpose_5.png",
+        "target_image": "Test/in_sample/santa/motions/Jump/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Test/in_sample/cute_dino/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/cute_dino/motions/Run/poses/humanpose_2.png",
+        "target_image": "Test/in_sample/cute_dino/motions/Run/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Test/in_sample/cute_dino/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/cute_dino/motions/Run/poses/humanpose_3.png",
+        "target_image": "Test/in_sample/cute_dino/motions/Run/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Test/in_sample/cute_dino/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/cute_dino/motions/Run/poses/humanpose_4.png",
+        "target_image": "Test/in_sample/cute_dino/motions/Run/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Test/in_sample/cute_dino/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/cute_dino/motions/Run/poses/humanpose_5.png",
+        "target_image": "Test/in_sample/cute_dino/motions/Run/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Test/in_sample/cute_dino/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/cute_dino/motions/Run/poses/humanpose_6.png",
+        "target_image": "Test/in_sample/cute_dino/motions/Run/ground_truth/frame_6.png"
+    },
+    {
+        "reference_image": "Test/in_sample/cute_dino/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/cute_dino/motions/Run/poses/humanpose_7.png",
+        "target_image": "Test/in_sample/cute_dino/motions/Run/ground_truth/frame_7.png"
+    },
+    {
+        "reference_image": "Test/in_sample/cute_dino/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/cute_dino/motions/Run/poses/humanpose_8.png",
+        "target_image": "Test/in_sample/cute_dino/motions/Run/ground_truth/frame_8.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Jaan/motions/highkick/reference.png",
+        "pose_image": "Test/in_sample/Jaan/motions/highkick/poses/humanpose_0.png",
+        "target_image": "Test/in_sample/Jaan/motions/highkick/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Jaan/motions/highkick/reference.png",
+        "pose_image": "Test/in_sample/Jaan/motions/highkick/poses/humanpose_1.png",
+        "target_image": "Test/in_sample/Jaan/motions/highkick/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Jaan/motions/highkick/reference.png",
+        "pose_image": "Test/in_sample/Jaan/motions/highkick/poses/humanpose_2.png",
+        "target_image": "Test/in_sample/Jaan/motions/highkick/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Test/in_sample/cute_girl/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/cute_girl/motions/Run/poses/humanpose_2.png",
+        "target_image": "Test/in_sample/cute_girl/motions/Run/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Test/in_sample/cute_girl/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/cute_girl/motions/Run/poses/humanpose_3.png",
+        "target_image": "Test/in_sample/cute_girl/motions/Run/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Test/in_sample/cute_girl/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/cute_girl/motions/Run/poses/humanpose_4.png",
+        "target_image": "Test/in_sample/cute_girl/motions/Run/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Test/in_sample/cute_girl/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/cute_girl/motions/Run/poses/humanpose_5.png",
+        "target_image": "Test/in_sample/cute_girl/motions/Run/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Test/in_sample/cute_girl/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/cute_girl/motions/Run/poses/humanpose_6.png",
+        "target_image": "Test/in_sample/cute_girl/motions/Run/ground_truth/frame_6.png"
+    },
+    {
+        "reference_image": "Test/in_sample/cute_girl/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/cute_girl/motions/Run/poses/humanpose_7.png",
+        "target_image": "Test/in_sample/cute_girl/motions/Run/ground_truth/frame_7.png"
+    },
+    {
+        "reference_image": "Test/in_sample/cute_girl/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/cute_girl/motions/Run/poses/humanpose_8.png",
+        "target_image": "Test/in_sample/cute_girl/motions/Run/ground_truth/frame_8.png"
+    },
+    {
+        "reference_image": "Test/in_sample/cute_girl/motions/Run/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/cute_girl/motions/Run/poses/humanpose_9.png",
+        "target_image": "Test/in_sample/cute_girl/motions/Run/ground_truth/frame_9.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Archer/motions/walk/reference.png",
+        "pose_image": "Test/in_sample/Archer/motions/walk/poses/humanpose_0.png",
+        "target_image": "Test/in_sample/Archer/motions/walk/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Archer/motions/walk/reference.png",
+        "pose_image": "Test/in_sample/Archer/motions/walk/poses/humanpose_1.png",
+        "target_image": "Test/in_sample/Archer/motions/walk/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Archer/motions/walk/reference.png",
+        "pose_image": "Test/in_sample/Archer/motions/walk/poses/humanpose_2.png",
+        "target_image": "Test/in_sample/Archer/motions/walk/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Archer/motions/walk/reference.png",
+        "pose_image": "Test/in_sample/Archer/motions/walk/poses/humanpose_3.png",
+        "target_image": "Test/in_sample/Archer/motions/walk/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Archer/motions/walk/reference.png",
+        "pose_image": "Test/in_sample/Archer/motions/walk/poses/humanpose_4.png",
+        "target_image": "Test/in_sample/Archer/motions/walk/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Archer/motions/walk/reference.png",
+        "pose_image": "Test/in_sample/Archer/motions/walk/poses/humanpose_5.png",
+        "target_image": "Test/in_sample/Archer/motions/walk/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Test/in_sample/dog_finished/motions/Hurt/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/dog_finished/motions/Hurt/poses/humanpose_10.png",
+        "target_image": "Test/in_sample/dog_finished/motions/Hurt/ground_truth/frame_10.png"
+    },
+    {
+        "reference_image": "Test/in_sample/dog_finished/motions/Hurt/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/dog_finished/motions/Hurt/poses/humanpose_2.png",
+        "target_image": "Test/in_sample/dog_finished/motions/Hurt/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Test/in_sample/dog_finished/motions/Hurt/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/dog_finished/motions/Hurt/poses/humanpose_3.png",
+        "target_image": "Test/in_sample/dog_finished/motions/Hurt/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Test/in_sample/dog_finished/motions/Hurt/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/dog_finished/motions/Hurt/poses/humanpose_4.png",
+        "target_image": "Test/in_sample/dog_finished/motions/Hurt/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Test/in_sample/dog_finished/motions/Hurt/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/dog_finished/motions/Hurt/poses/humanpose_5.png",
+        "target_image": "Test/in_sample/dog_finished/motions/Hurt/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Test/in_sample/dog_finished/motions/Hurt/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/dog_finished/motions/Hurt/poses/humanpose_6.png",
+        "target_image": "Test/in_sample/dog_finished/motions/Hurt/ground_truth/frame_6.png"
+    },
+    {
+        "reference_image": "Test/in_sample/dog_finished/motions/Hurt/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/dog_finished/motions/Hurt/poses/humanpose_7.png",
+        "target_image": "Test/in_sample/dog_finished/motions/Hurt/ground_truth/frame_7.png"
+    },
+    {
+        "reference_image": "Test/in_sample/dog_finished/motions/Hurt/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/dog_finished/motions/Hurt/poses/humanpose_8.png",
+        "target_image": "Test/in_sample/dog_finished/motions/Hurt/ground_truth/frame_8.png"
+    },
+    {
+        "reference_image": "Test/in_sample/dog_finished/motions/Hurt/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/dog_finished/motions/Hurt/poses/humanpose_9.png",
+        "target_image": "Test/in_sample/dog_finished/motions/Hurt/ground_truth/frame_9.png"
+    },
+    {
+        "reference_image": "Test/in_sample/ninjagirlnew/motions/jump/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/ninjagirlnew/motions/jump/poses/humanpose_2.png",
+        "target_image": "Test/in_sample/ninjagirlnew/motions/jump/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Test/in_sample/ninjagirlnew/motions/jump/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/ninjagirlnew/motions/jump/poses/humanpose_3.png",
+        "target_image": "Test/in_sample/ninjagirlnew/motions/jump/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Shinobi/motions/walk/reference.png",
+        "pose_image": "Test/in_sample/Shinobi/motions/walk/poses/humanpose_0.png",
+        "target_image": "Test/in_sample/Shinobi/motions/walk/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Shinobi/motions/walk/reference.png",
+        "pose_image": "Test/in_sample/Shinobi/motions/walk/poses/humanpose_1.png",
+        "target_image": "Test/in_sample/Shinobi/motions/walk/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Shinobi/motions/walk/reference.png",
+        "pose_image": "Test/in_sample/Shinobi/motions/walk/poses/humanpose_2.png",
+        "target_image": "Test/in_sample/Shinobi/motions/walk/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Shinobi/motions/walk/reference.png",
+        "pose_image": "Test/in_sample/Shinobi/motions/walk/poses/humanpose_3.png",
+        "target_image": "Test/in_sample/Shinobi/motions/walk/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Shinobi/motions/walk/reference.png",
+        "pose_image": "Test/in_sample/Shinobi/motions/walk/poses/humanpose_4.png",
+        "target_image": "Test/in_sample/Shinobi/motions/walk/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Shinobi/motions/walk/reference.png",
+        "pose_image": "Test/in_sample/Shinobi/motions/walk/poses/humanpose_5.png",
+        "target_image": "Test/in_sample/Shinobi/motions/walk/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Shinobi/motions/walk/reference.png",
+        "pose_image": "Test/in_sample/Shinobi/motions/walk/poses/humanpose_6.png",
+        "target_image": "Test/in_sample/Shinobi/motions/walk/ground_truth/frame_6.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Shinobi/motions/walk/reference.png",
+        "pose_image": "Test/in_sample/Shinobi/motions/walk/poses/humanpose_7.png",
+        "target_image": "Test/in_sample/Shinobi/motions/walk/ground_truth/frame_7.png"
+    },
+    {
+        "reference_image": "Test/in_sample/freeknight_finished/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/freeknight_finished/motions/Idle/poses/humanpose_10.png",
+        "target_image": "Test/in_sample/freeknight_finished/motions/Idle/ground_truth/frame_10.png"
+    },
+    {
+        "reference_image": "Test/in_sample/freeknight_finished/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/freeknight_finished/motions/Idle/poses/humanpose_2.png",
+        "target_image": "Test/in_sample/freeknight_finished/motions/Idle/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Test/in_sample/freeknight_finished/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/freeknight_finished/motions/Idle/poses/humanpose_3.png",
+        "target_image": "Test/in_sample/freeknight_finished/motions/Idle/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Test/in_sample/freeknight_finished/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/freeknight_finished/motions/Idle/poses/humanpose_4.png",
+        "target_image": "Test/in_sample/freeknight_finished/motions/Idle/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Test/in_sample/freeknight_finished/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/freeknight_finished/motions/Idle/poses/humanpose_5.png",
+        "target_image": "Test/in_sample/freeknight_finished/motions/Idle/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Test/in_sample/freeknight_finished/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/freeknight_finished/motions/Idle/poses/humanpose_6.png",
+        "target_image": "Test/in_sample/freeknight_finished/motions/Idle/ground_truth/frame_6.png"
+    },
+    {
+        "reference_image": "Test/in_sample/freeknight_finished/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/freeknight_finished/motions/Idle/poses/humanpose_7.png",
+        "target_image": "Test/in_sample/freeknight_finished/motions/Idle/ground_truth/frame_7.png"
+    },
+    {
+        "reference_image": "Test/in_sample/freeknight_finished/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/freeknight_finished/motions/Idle/poses/humanpose_8.png",
+        "target_image": "Test/in_sample/freeknight_finished/motions/Idle/ground_truth/frame_8.png"
+    },
+    {
+        "reference_image": "Test/in_sample/freeknight_finished/motions/Idle/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/freeknight_finished/motions/Idle/poses/humanpose_9.png",
+        "target_image": "Test/in_sample/freeknight_finished/motions/Idle/ground_truth/frame_9.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Ash Williams/motions/stand/reference.png",
+        "pose_image": "Test/in_sample/Ash Williams/motions/stand/poses/humanpose_0.png",
+        "target_image": "Test/in_sample/Ash Williams/motions/stand/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Ash Williams/motions/stand/reference.png",
+        "pose_image": "Test/in_sample/Ash Williams/motions/stand/poses/humanpose_1.png",
+        "target_image": "Test/in_sample/Ash Williams/motions/stand/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Ash Williams/motions/stand/reference.png",
+        "pose_image": "Test/in_sample/Ash Williams/motions/stand/poses/humanpose_2.png",
+        "target_image": "Test/in_sample/Ash Williams/motions/stand/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Ash Williams/motions/stand/reference.png",
+        "pose_image": "Test/in_sample/Ash Williams/motions/stand/poses/humanpose_3.png",
+        "target_image": "Test/in_sample/Ash Williams/motions/stand/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Player/motions/wave/reference.png",
+        "pose_image": "Test/in_sample/Player/motions/wave/poses/humanpose_0.png",
+        "target_image": "Test/in_sample/Player/motions/wave/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Player/motions/wave/reference.png",
+        "pose_image": "Test/in_sample/Player/motions/wave/poses/humanpose_1.png",
+        "target_image": "Test/in_sample/Player/motions/wave/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Trianglehead/motions/slide/reference.png",
+        "pose_image": "Test/in_sample/Trianglehead/motions/slide/poses/humanpose_0.png",
+        "target_image": "Test/in_sample/Trianglehead/motions/slide/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Trianglehead/motions/slide/reference.png",
+        "pose_image": "Test/in_sample/Trianglehead/motions/slide/poses/humanpose_1.png",
+        "target_image": "Test/in_sample/Trianglehead/motions/slide/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Test/in_sample/cat_finished/motions/Slide/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/cat_finished/motions/Slide/poses/humanpose_10.png",
+        "target_image": "Test/in_sample/cat_finished/motions/Slide/ground_truth/frame_10.png"
+    },
+    {
+        "reference_image": "Test/in_sample/cat_finished/motions/Slide/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/cat_finished/motions/Slide/poses/humanpose_2.png",
+        "target_image": "Test/in_sample/cat_finished/motions/Slide/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Test/in_sample/cat_finished/motions/Slide/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/cat_finished/motions/Slide/poses/humanpose_3.png",
+        "target_image": "Test/in_sample/cat_finished/motions/Slide/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Test/in_sample/cat_finished/motions/Slide/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/cat_finished/motions/Slide/poses/humanpose_4.png",
+        "target_image": "Test/in_sample/cat_finished/motions/Slide/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Test/in_sample/cat_finished/motions/Slide/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/cat_finished/motions/Slide/poses/humanpose_5.png",
+        "target_image": "Test/in_sample/cat_finished/motions/Slide/ground_truth/frame_5.png"
+    },
+    {
+        "reference_image": "Test/in_sample/cat_finished/motions/Slide/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/cat_finished/motions/Slide/poses/humanpose_6.png",
+        "target_image": "Test/in_sample/cat_finished/motions/Slide/ground_truth/frame_6.png"
+    },
+    {
+        "reference_image": "Test/in_sample/cat_finished/motions/Slide/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/cat_finished/motions/Slide/poses/humanpose_7.png",
+        "target_image": "Test/in_sample/cat_finished/motions/Slide/ground_truth/frame_7.png"
+    },
+    {
+        "reference_image": "Test/in_sample/cat_finished/motions/Slide/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/cat_finished/motions/Slide/poses/humanpose_8.png",
+        "target_image": "Test/in_sample/cat_finished/motions/Slide/ground_truth/frame_8.png"
+    },
+    {
+        "reference_image": "Test/in_sample/cat_finished/motions/Slide/ground_truth/frame_1.png",
+        "pose_image": "Test/in_sample/cat_finished/motions/Slide/poses/humanpose_9.png",
+        "target_image": "Test/in_sample/cat_finished/motions/Slide/ground_truth/frame_9.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Thief/motions/jump/reference.png",
+        "pose_image": "Test/in_sample/Thief/motions/jump/poses/humanpose_0.png",
+        "target_image": "Test/in_sample/Thief/motions/jump/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Thief/motions/jump/reference.png",
+        "pose_image": "Test/in_sample/Thief/motions/jump/poses/humanpose_1.png",
+        "target_image": "Test/in_sample/Thief/motions/jump/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Thief/motions/jump/reference.png",
+        "pose_image": "Test/in_sample/Thief/motions/jump/poses/humanpose_2.png",
+        "target_image": "Test/in_sample/Thief/motions/jump/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Louis_hand/motions/die/reference.png",
+        "pose_image": "Test/in_sample/Louis_hand/motions/die/poses/humanpose_0.png",
+        "target_image": "Test/in_sample/Louis_hand/motions/die/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Louis_hand/motions/die/reference.png",
+        "pose_image": "Test/in_sample/Louis_hand/motions/die/poses/humanpose_1.png",
+        "target_image": "Test/in_sample/Louis_hand/motions/die/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Louis_hand/motions/die/reference.png",
+        "pose_image": "Test/in_sample/Louis_hand/motions/die/poses/humanpose_2.png",
+        "target_image": "Test/in_sample/Louis_hand/motions/die/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Louis_hand/motions/die/reference.png",
+        "pose_image": "Test/in_sample/Louis_hand/motions/die/poses/humanpose_3.png",
+        "target_image": "Test/in_sample/Louis_hand/motions/die/ground_truth/frame_3.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Louis_hand/motions/die/reference.png",
+        "pose_image": "Test/in_sample/Louis_hand/motions/die/poses/humanpose_4.png",
+        "target_image": "Test/in_sample/Louis_hand/motions/die/ground_truth/frame_4.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Osaka_hand/motions/crunch/reference.png",
+        "pose_image": "Test/in_sample/Osaka_hand/motions/crunch/poses/humanpose_0.png",
+        "target_image": "Test/in_sample/Osaka_hand/motions/crunch/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Osaka_hand/motions/crunch/reference.png",
+        "pose_image": "Test/in_sample/Osaka_hand/motions/crunch/poses/humanpose_1.png",
+        "target_image": "Test/in_sample/Osaka_hand/motions/crunch/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Guile/motions/jump/reference.png",
+        "pose_image": "Test/in_sample/Guile/motions/jump/poses/humanpose_0.png",
+        "target_image": "Test/in_sample/Guile/motions/jump/ground_truth/frame_0.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Guile/motions/jump/reference.png",
+        "pose_image": "Test/in_sample/Guile/motions/jump/poses/humanpose_1.png",
+        "target_image": "Test/in_sample/Guile/motions/jump/ground_truth/frame_1.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Guile/motions/jump/reference.png",
+        "pose_image": "Test/in_sample/Guile/motions/jump/poses/humanpose_2.png",
+        "target_image": "Test/in_sample/Guile/motions/jump/ground_truth/frame_2.png"
+    },
+    {
+        "reference_image": "Test/in_sample/Guile/motions/jump/reference.png",
+        "pose_image": "Test/in_sample/Guile/motions/jump/poses/humanpose_3.png",
+        "target_image": "Test/in_sample/Guile/motions/jump/ground_truth/frame_3.png"
+    }
+]
