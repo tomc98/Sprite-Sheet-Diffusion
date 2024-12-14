@@ -26,7 +26,7 @@ python inference.py
 We implemented two evaluation scripts to automate the evaluation process and generate a summary of the results in a MARKDOWN file.
 - `eval_img_quality.py`: This script evaluates the similarity between ground truth and generated motion frames using metrics such as Structural Similarity Index (SSIM), Peak Signal-to-Noise Ratio (PSNR), and Learned Perceptual Image Patch Similarity (LPIPS).
 - `eval_sub_consistency`: This script assesses subject consistency within the generated sequence, measured based on the Subject Consistency Score proposed by [VBench](https://github.com/OpenGVLab/VBench).
-* Animate Anyone
+
 
 #### Prerequisites
 Please organize your results using the following folder structure:
