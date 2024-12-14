@@ -16,19 +16,17 @@ pip install -r requirements.txt
 Our fine-tune model weight is [here](https://drive.google.com/drive/folders/1VxbOv5PE441NsNStQlmqbIw0iyY9Mn9L?usp=sharing). 
 
 ## Usage
-
-### Evaluation
-* ID-Adpater
-We implemented two evaluation scripts to automate the evaluation process and generate a summary of the results in a MARKDOWN file.
-- `eval_img_quality.py`: This script evaluates the similarity between ground truth and generated motion frames using metrics such as Structural Similarity Index (SSIM), Peak Signal-to-Noise Ratio (PSNR), and Learned Perceptual Image Patch Similarity (LPIPS).
-- `eval_sub_consistency`: This script assesses subject consistency within the generated sequence, measured based on the Subject Consistency Score proposed by [VBench](https://github.com/OpenGVLab/VBench).
-* Animate Anyone
+### Animate Anyone
 Edit the configuration file located at `configs/prompts/inference.yaml` to specify your model path and data path.
 ```bash
 python inference.py
 ```
 
-
+### Evaluation
+We implemented two evaluation scripts to automate the evaluation process and generate a summary of the results in a MARKDOWN file.
+- `eval_img_quality.py`: This script evaluates the similarity between ground truth and generated motion frames using metrics such as Structural Similarity Index (SSIM), Peak Signal-to-Noise Ratio (PSNR), and Learned Perceptual Image Patch Similarity (LPIPS).
+- `eval_sub_consistency`: This script assesses subject consistency within the generated sequence, measured based on the Subject Consistency Score proposed by [VBench](https://github.com/OpenGVLab/VBench).
+* Animate Anyone
 
 #### Prerequisites
 Please organize your results using the following folder structure:
