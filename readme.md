@@ -13,7 +13,7 @@ conda activate ssd
 pip install -r requirements.txt
 ```
 ## Pretrained weight
-Our fine-tune model weight is ![here](https://drive.google.com/drive/folders/1VxbOv5PE441NsNStQlmqbIw0iyY9Mn9L?usp=sharing). 
+Our fine-tune model weight is [here](https://drive.google.com/drive/folders/1VxbOv5PE441NsNStQlmqbIw0iyY9Mn9L?usp=sharing). 
 
 ## Usage
 
