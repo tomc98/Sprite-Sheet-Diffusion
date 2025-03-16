@@ -73,16 +73,14 @@ python eval_sub_consistency.py \
 ```
 
 
-## Example
-TBD
-
 ## Contact
 * Cheng-An Hsieh
 * Jing Zhang
 * Ava Yan
 
 ## License
-TBD
+This project is licensed under the MIT License.
+The training data used in this project is based on datasets available under the CC0 license (Public Domain).
 
 ## Acknowledgments
 Our codebase is directly built on top of [Moore-AnimateAnyone](https://github.com/MooreThreads/Moore-AnimateAnyone). We would like to thank Huawei Wei and team for open-sourcing their code.
