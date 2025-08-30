@@ -11,6 +11,7 @@ import uuid
 import shutil
 import threading
 import traceback
+import math
 import torch
 import numpy as np
 import cv2
@@ -26,10 +27,13 @@ sys.path.append(str(Path(__file__).parent.parent / "ModelTraining"))
 
 from diffusers import AutoencoderKL, DDIMScheduler
 from transformers import CLIPVisionModelWithProjection
-from models.pose_guider import PoseGuider  # Use the regular PoseGuider with cross-attention
+from models.pose_guider import PoseGuider
+from models.pose_guider_org import PoseGuiderOrg  # Use the regular PoseGuider with cross-attention
+from models.pose_guider_multi_res import SingleTensorPoseGuider  # Improved multi-resolution pose guider
 from models.unet_2d_condition import UNet2DConditionModel
 from models.unet_3d import UNet3DConditionModel
 from pipelines.pipeline_pose2img import Pose2ImagePipeline
+from pipeline_simplified import SimplifiedPose2ImagePipeline
 from openpose import OpenposeDetector
 
 app = Flask(__name__)
@@ -118,24 +122,31 @@ def get_pipeline():
                 strict=False
             )
             
-            # Load Pose Guider - Use the regular PoseGuider with cross-attention
+            # Load Pose Guider - Use PoseGuiderOrg with multi-resolution wrapper
             print("Loading Pose Guider...")
-            pose_guider = PoseGuider(noise_latent_channels=320, use_ca=True).to(
-                device=device, dtype=weight_dtype
-            )
+            base_pose_guider = PoseGuiderOrg(
+                conditioning_embedding_channels=320, 
+                block_out_channels=(16, 32, 96, 256)
+            ).to(device=device, dtype=weight_dtype)
             
             # Try to load weights if they exist
             pose_guider_path = base_path / "pose_guider.pth"
             if pose_guider_path.exists():
                 try:
-                    pose_guider.load_state_dict(
+                    base_pose_guider.load_state_dict(
                         torch.load(pose_guider_path, map_location="cpu"),
-                        strict=False  # Use strict=False since model architecture might differ
+                        strict=True  # PoseGuiderOrg should match the weights exactly
                     )
                     print("Loaded pose_guider weights")
                 except Exception as e:
                     print(f"Warning: Could not load pose_guider weights: {e}")
                     print("Using random initialization")
+            
+            # Wrap with multi-resolution adapter using correct channel dimensions
+            pose_guider = SingleTensorPoseGuider(
+                base_pose_guider,
+                unet_block_channels=(320, 320, 640, 1280, 1280)  # Corrected based on UNet debug
+            ).to(device=device, dtype=weight_dtype)
             
             # Load Image Encoder
             print("Loading Image Encoder...")
@@ -143,7 +154,7 @@ def get_pipeline():
                 str(base_path / "image_encoder")
             ).to(dtype=weight_dtype, device=device)
             
-            # Initialize scheduler
+            # Initialize scheduler with v_prediction as in the original config
             scheduler = DDIMScheduler(
                 num_train_timesteps=1000,
                 beta_start=0.00085,
@@ -152,11 +163,14 @@ def get_pipeline():
                 clip_sample=False,
                 set_alpha_to_one=False,
                 steps_offset=1,
+                prediction_type="v_prediction",
+                rescale_betas_zero_snr=True,
+                timestep_spacing="trailing",
             )
             
-            # Create pipeline
+            # Create pipeline - use simplified pipeline for PoseGuiderOrg
             print("Creating pipeline...")
-            _pipeline = Pose2ImagePipeline(
+            _pipeline = SimplifiedPose2ImagePipeline(
                 vae=vae,
                 image_encoder=image_enc,
                 reference_unet=reference_unet,
@@ -208,8 +222,495 @@ def extract_pose(image):
     # Convert back to PIL
     return Image.fromarray(pose)
 
-def generate_frame_with_diffusion(reference_image, pose_image, seed=42):
-    """Generate a single frame using diffusion"""
+def generate_animation_poses(base_pose, animation_type, num_frames):
+    """Generate different poses for each frame of an animation
+    
+    Creates OpenPose-style colored skeleton poses for animation.
+    OpenPose uses different colors for different body parts:
+    - Red/Orange: Right side limbs
+    - Green/Blue: Left side limbs  
+    - Purple/Pink: Body and connections
+    """
+    poses = []
+    
+    # Enhanced high-contrast colors for stronger pose control
+    colors = {
+        'head': (255, 255, 255),      # Bright white - maximum visibility
+        'neck': (255, 255, 255),      # Bright white
+        'body': (255, 255, 255),      # Bright white - main body mass
+        'right_arm': (255, 0, 0),     # Bright red - strong signal
+        'left_arm': (0, 0, 255),      # Bright blue - strong signal
+        'right_leg': (0, 255, 0),     # Bright green - strong signal
+        'left_leg': (255, 255, 0),    # Bright yellow - strong signal
+        'joints': (255, 255, 255),    # White joints for structure
+        'tool_bag': (255, 128, 0),    # Orange - character-specific
+    }
+    
+    # For each frame, create a distinct skeletal pose
+    for i in range(num_frames):
+        # Create a new black canvas for each pose
+        pose_img = Image.new('RGB', (512, 512), color='black')
+        draw = ImageDraw.Draw(pose_img)
+        
+        # Enhanced base positions optimized for fluffy character
+        center_x, center_y = 255, 255  # Better centering
+        head_x, head_y = center_x, center_y - 100  # Head position
+        neck_y = center_y - 60
+        shoulder_y = center_y - 40
+        body_center_y = center_y
+        hip_y = center_y + 60
+        body_width = 80  # Wider for fluffy character
+        limb_length = 80  # Longer for dramatic poses
+        
+        if animation_type == 'walk':
+            # DRAMATIC Walking animation - strong alternating poses
+            phase = (i / num_frames) * 2 * math.pi
+            
+            # Much stronger movement for clear pose differences
+            body_offset = int(25 * math.sin(phase))  # 5x stronger horizontal sway
+            vertical_bob = int(20 * abs(math.sin(phase * 2)))  # Clear vertical walking bob
+            
+            # Large head with clear position changes
+            head_size = 45  # Much larger for better control signal
+            head_pos_x = head_x + body_offset
+            head_pos_y = head_y - vertical_bob
+            draw.ellipse([head_pos_x - head_size, head_pos_y - head_size, 
+                         head_pos_x + head_size, head_pos_y + head_size], 
+                         fill=colors['head'], outline=colors['head'], width=3)
+            
+            # Add clear facial features for orientation
+            draw.ellipse([head_pos_x - 18, head_pos_y - 12, head_pos_x - 8, head_pos_y - 2], fill=(0, 0, 0))
+            draw.ellipse([head_pos_x + 8, head_pos_y - 12, head_pos_x + 18, head_pos_y - 2], fill=(0, 0, 0))
+            draw.arc([head_pos_x - 12, head_pos_y + 5, head_pos_x + 12, head_pos_y + 15], 0, 180, fill=(0, 0, 0), width=2)
+            
+            # Thick neck for better connection visibility
+            draw.line([head_pos_x, head_pos_y + head_size, head_pos_x, neck_y - vertical_bob], 
+                     fill=colors['neck'], width=18)
+            
+            # Large fluffy body - elliptical shape for character
+            body_x = head_pos_x
+            body_y = body_center_y - vertical_bob
+            draw.ellipse([body_x - body_width, body_y - 70, 
+                         body_x + body_width, body_y + 70], 
+                         fill=colors['body'], outline=colors['body'], width=3)
+            
+            # Character's tool bag (distinctive feature)
+            bag_x = body_x - 15
+            bag_y = body_y + 25
+            draw.rectangle([bag_x - 30, bag_y - 20, bag_x + 30, bag_y + 30], 
+                          fill=colors['tool_bag'], outline=colors['tool_bag'], width=2)
+            
+            # DRAMATIC arm swinging - huge range of motion
+            left_arm_angle = 80 * math.sin(phase)   # Much larger swing range
+            right_arm_angle = -80 * math.sin(phase)
+            
+            shoulder_y_pos = shoulder_y - vertical_bob
+            
+            # Left arm with clear joint and endpoint
+            shoulder_x_left = body_x - 65
+            left_arm_x = shoulder_x_left + int(limb_length * math.sin(math.radians(left_arm_angle + 45)))
+            left_arm_y = shoulder_y_pos + int(limb_length * math.cos(math.radians(left_arm_angle + 45)))
+            
+            # Shoulder joint (clear landmark)
+            draw.ellipse([shoulder_x_left - 10, shoulder_y_pos - 10, 
+                         shoulder_x_left + 10, shoulder_y_pos + 10], 
+                        fill=colors['joints'], width=2)
+            # Thick arm line
+            draw.line([shoulder_x_left, shoulder_y_pos, left_arm_x, left_arm_y], 
+                     fill=colors['left_arm'], width=16)
+            # Hand/endpoint marker
+            draw.ellipse([left_arm_x - 8, left_arm_y - 8, left_arm_x + 8, left_arm_y + 8], 
+                        fill=colors['left_arm'], width=2)
+            
+            # Right arm with clear joint and endpoint
+            shoulder_x_right = body_x + 65
+            right_arm_x = shoulder_x_right + int(limb_length * math.sin(math.radians(right_arm_angle - 45)))
+            right_arm_y = shoulder_y_pos + int(limb_length * math.cos(math.radians(right_arm_angle - 45)))
+            
+            # Shoulder joint (clear landmark)
+            draw.ellipse([shoulder_x_right - 10, shoulder_y_pos - 10, 
+                         shoulder_x_right + 10, shoulder_y_pos + 10], 
+                        fill=colors['joints'], width=2)
+            # Thick arm line
+            draw.line([shoulder_x_right, shoulder_y_pos, right_arm_x, right_arm_y], 
+                     fill=colors['right_arm'], width=16)
+            # Hand/endpoint marker
+            draw.ellipse([right_arm_x - 8, right_arm_y - 8, right_arm_x + 8, right_arm_y + 8], 
+                        fill=colors['right_arm'], width=2)
+            
+            # DRAMATIC leg stepping - massive stride differences
+            left_leg_angle = 70 * math.sin(phase)   # Much stronger leg movement
+            right_leg_angle = -70 * math.sin(phase)
+            
+            hip_pos_y = hip_y - vertical_bob
+            
+            # Left leg with dramatic stride
+            hip_x_left = body_x - 35
+            left_stride = int(80 * math.sin(math.radians(left_leg_angle)))  # Huge stride
+            left_lift = int(40 * abs(math.sin(phase)))  # High foot lift
+            
+            left_leg_x = hip_x_left + left_stride
+            left_leg_y = hip_pos_y + limb_length + 20 - left_lift
+            
+            # Hip joint (clear landmark)
+            draw.ellipse([hip_x_left - 10, hip_pos_y - 10, 
+                         hip_x_left + 10, hip_pos_y + 10], 
+                        fill=colors['joints'], width=2)
+            # Thick leg line
+            draw.line([hip_x_left, hip_pos_y, left_leg_x, left_leg_y], 
+                     fill=colors['left_leg'], width=16)
+            # Foot marker
+            draw.ellipse([left_leg_x - 10, left_leg_y - 10, left_leg_x + 10, left_leg_y + 10], 
+                        fill=colors['left_leg'], width=2)
+            
+            # Right leg with dramatic stride
+            hip_x_right = body_x + 35
+            right_stride = int(80 * math.sin(math.radians(right_leg_angle)))
+            right_lift = int(40 * abs(math.sin(phase + math.pi)))
+            
+            right_leg_x = hip_x_right + right_stride
+            right_leg_y = hip_pos_y + limb_length + 20 - right_lift
+            
+            # Hip joint (clear landmark)
+            draw.ellipse([hip_x_right - 10, hip_pos_y - 10, 
+                         hip_x_right + 10, hip_pos_y + 10], 
+                        fill=colors['joints'], width=2)
+            # Thick leg line
+            draw.line([hip_x_right, hip_pos_y, right_leg_x, right_leg_y], 
+                     fill=colors['right_leg'], width=16)
+            # Foot marker
+            draw.ellipse([right_leg_x - 10, right_leg_y - 10, right_leg_x + 10, right_leg_y + 10], 
+                        fill=colors['right_leg'], width=2)
+            
+        elif animation_type == 'run':
+            # ENHANCED Running animation - explosive dynamic movement
+            phase = (i / num_frames) * 2 * math.pi
+            
+            # Massive body movement for running
+            body_offset = int(35 * math.sin(phase))  # Even stronger than walking
+            vertical_bob = int(30 * abs(math.sin(phase * 2)))  # High bouncing
+            forward_lean = int(20 * math.cos(phase))  # Dynamic forward lean
+            
+            # Large running head with motion blur effect
+            head_size = 50  # Larger for better control
+            head_pos_x = head_x + body_offset + forward_lean
+            head_pos_y = head_y - vertical_bob
+            draw.ellipse([head_pos_x - head_size, head_pos_y - head_size, 
+                         head_pos_x + head_size, head_pos_y + head_size], 
+                         fill=colors['head'], outline=colors['head'], width=3)
+            
+            # Intense facial features for running
+            draw.ellipse([head_pos_x - 20, head_pos_y - 15, head_pos_x - 10, head_pos_y - 5], fill=(0, 0, 0))
+            draw.ellipse([head_pos_x + 10, head_pos_y - 15, head_pos_x + 20, head_pos_y - 5], fill=(0, 0, 0))
+            draw.line([head_pos_x - 15, head_pos_y + 10, head_pos_x + 15, head_pos_y + 8], fill=(0, 0, 0), width=3)  # Determined expression
+            
+            # Massive leaning body for running dynamics
+            body_x = head_pos_x
+            body_y = body_center_y - vertical_bob
+            # Elliptical body tilted forward
+            draw.ellipse([body_x - body_width + forward_lean, body_y - 75, 
+                         body_x + body_width + forward_lean, body_y + 75], 
+                         fill=colors['body'], outline=colors['body'], width=4)
+            
+            # Running gear/tool bag with motion
+            bag_x = body_x + forward_lean - 20
+            bag_y = body_y + 30
+            draw.rectangle([bag_x - 35, bag_y - 25, bag_x + 35, bag_y + 35], 
+                          fill=colors['tool_bag'], outline=colors['tool_bag'], width=3)
+            
+            # EXPLOSIVE arm pumping - maximum range for running
+            left_arm_angle = 100 * math.sin(phase)   # Huge pumping motion
+            right_arm_angle = -100 * math.sin(phase)
+            
+            shoulder_y_pos = shoulder_y - vertical_bob
+            
+            # Left arm with powerful pumping
+            shoulder_x_left = body_x - 70 + forward_lean
+            left_arm_x = shoulder_x_left + int((limb_length + 20) * math.sin(math.radians(left_arm_angle + 60)))
+            left_arm_y = shoulder_y_pos + int((limb_length + 20) * math.cos(math.radians(left_arm_angle + 60)))
+            
+            # Shoulder joint with motion blur
+            draw.ellipse([shoulder_x_left - 12, shoulder_y_pos - 12, 
+                         shoulder_x_left + 12, shoulder_y_pos + 12], 
+                        fill=colors['joints'], width=3)
+            # Thick pumping arm
+            draw.line([shoulder_x_left, shoulder_y_pos, left_arm_x, left_arm_y], 
+                     fill=colors['left_arm'], width=18)
+            # Fist/endpoint with power
+            draw.ellipse([left_arm_x - 10, left_arm_y - 10, left_arm_x + 10, left_arm_y + 10], 
+                        fill=colors['left_arm'], width=3)
+            
+            # Right arm with powerful pumping
+            shoulder_x_right = body_x + 70 + forward_lean
+            right_arm_x = shoulder_x_right + int((limb_length + 20) * math.sin(math.radians(right_arm_angle - 60)))
+            right_arm_y = shoulder_y_pos + int((limb_length + 20) * math.cos(math.radians(right_arm_angle - 60)))
+            
+            # Shoulder joint with motion blur
+            draw.ellipse([shoulder_x_right - 12, shoulder_y_pos - 12, 
+                         shoulder_x_right + 12, shoulder_y_pos + 12], 
+                        fill=colors['joints'], width=3)
+            # Thick pumping arm
+            draw.line([shoulder_x_right, shoulder_y_pos, right_arm_x, right_arm_y], 
+                     fill=colors['right_arm'], width=18)
+            # Fist/endpoint with power
+            draw.ellipse([right_arm_x - 10, right_arm_y - 10, right_arm_x + 10, right_arm_y + 10], 
+                        fill=colors['right_arm'], width=3)
+            
+            # EXPLOSIVE running stride - maximum knee lift and extension
+            left_leg_angle = 90 * math.sin(phase)   # Extreme knee lift
+            right_leg_angle = -90 * math.sin(phase)
+            
+            hip_pos_y = hip_y - vertical_bob
+            
+            # Left leg with extreme running form
+            hip_x_left = body_x - 40 + forward_lean
+            
+            # High knee lift phase
+            if abs(math.sin(phase)) > 0.3:  # High knee phase
+                knee_lift = int(60 * abs(math.sin(phase)))
+                knee_x = hip_x_left + int(30 * math.sin(math.radians(left_leg_angle)))
+                knee_y = hip_pos_y + 30 - knee_lift
+                foot_x = knee_x + int(50 * math.sin(math.radians(left_leg_angle + 45)))
+                foot_y = hip_pos_y + limb_length + 30 - int(20 * abs(math.sin(phase)))
+                
+                # Hip joint
+                draw.ellipse([hip_x_left - 12, hip_pos_y - 12, hip_x_left + 12, hip_pos_y + 12], 
+                            fill=colors['joints'], width=3)
+                # Thigh (hip to knee)
+                draw.line([hip_x_left, hip_pos_y, knee_x, knee_y], 
+                         fill=colors['left_leg'], width=18)
+                # Knee joint
+                draw.ellipse([knee_x - 8, knee_y - 8, knee_x + 8, knee_y + 8], 
+                            fill=colors['joints'], width=2)
+                # Shin (knee to foot)
+                draw.line([knee_x, knee_y, foot_x, foot_y], 
+                         fill=colors['left_leg'], width=16)
+                # Foot
+                draw.ellipse([foot_x - 12, foot_y - 12, foot_x + 12, foot_y + 12], 
+                            fill=colors['left_leg'], width=3)
+            else:  # Extension phase
+                left_stride = int(100 * math.sin(math.radians(left_leg_angle)))
+                left_leg_x = hip_x_left + left_stride
+                left_leg_y = hip_pos_y + limb_length + 40
+                
+                draw.ellipse([hip_x_left - 12, hip_pos_y - 12, hip_x_left + 12, hip_pos_y + 12], 
+                            fill=colors['joints'], width=3)
+                draw.line([hip_x_left, hip_pos_y, left_leg_x, left_leg_y], 
+                         fill=colors['left_leg'], width=18)
+                draw.ellipse([left_leg_x - 12, left_leg_y - 12, left_leg_x + 12, left_leg_y + 12], 
+                            fill=colors['left_leg'], width=3)
+            
+            # Right leg with extreme running form
+            hip_x_right = body_x + 40 + forward_lean
+            
+            # High knee lift phase (opposite to left)
+            if abs(math.sin(phase + math.pi)) > 0.3:  # High knee phase
+                knee_lift = int(60 * abs(math.sin(phase + math.pi)))
+                knee_x = hip_x_right + int(30 * math.sin(math.radians(right_leg_angle)))
+                knee_y = hip_pos_y + 30 - knee_lift
+                foot_x = knee_x + int(50 * math.sin(math.radians(right_leg_angle - 45)))
+                foot_y = hip_pos_y + limb_length + 30 - int(20 * abs(math.sin(phase + math.pi)))
+                
+                # Hip joint
+                draw.ellipse([hip_x_right - 12, hip_pos_y - 12, hip_x_right + 12, hip_pos_y + 12], 
+                            fill=colors['joints'], width=3)
+                # Thigh (hip to knee)
+                draw.line([hip_x_right, hip_pos_y, knee_x, knee_y], 
+                         fill=colors['right_leg'], width=18)
+                # Knee joint
+                draw.ellipse([knee_x - 8, knee_y - 8, knee_x + 8, knee_y + 8], 
+                            fill=colors['joints'], width=2)
+                # Shin (knee to foot)
+                draw.line([knee_x, knee_y, foot_x, foot_y], 
+                         fill=colors['right_leg'], width=16)
+                # Foot
+                draw.ellipse([foot_x - 12, foot_y - 12, foot_x + 12, foot_y + 12], 
+                            fill=colors['right_leg'], width=3)
+            else:  # Extension phase
+                right_stride = int(100 * math.sin(math.radians(right_leg_angle)))
+                right_leg_x = hip_x_right + right_stride
+                right_leg_y = hip_pos_y + limb_length + 40
+                
+                draw.ellipse([hip_x_right - 12, hip_pos_y - 12, hip_x_right + 12, hip_pos_y + 12], 
+                            fill=colors['joints'], width=3)
+                draw.line([hip_x_right, hip_pos_y, right_leg_x, right_leg_y], 
+                         fill=colors['right_leg'], width=18)
+                draw.ellipse([right_leg_x - 12, right_leg_y - 12, right_leg_x + 12, right_leg_y + 12], 
+                            fill=colors['right_leg'], width=3)
+                
+        elif animation_type == 'jump':
+            # Jump animation - vertical movement
+            jump_height = int(80 * abs(math.sin((i / num_frames) * math.pi)))
+            
+            # Head
+            draw.ellipse([head_x - 25, head_y - jump_height - 25, 
+                         head_x + 25, head_y - jump_height + 25], fill='white')
+            
+            # Body
+            draw.line([head_x, neck_y - jump_height, head_x, hip_y - jump_height], fill='white', width=3)
+            
+            # Arms raised
+            arm_raise = int(45 * abs(math.sin((i / num_frames) * math.pi)))
+            draw.line([head_x, shoulder_y - jump_height, 
+                      head_x - 50, shoulder_y - jump_height - arm_raise], fill='white', width=3)
+            draw.line([head_x, shoulder_y - jump_height, 
+                      head_x + 50, shoulder_y - jump_height - arm_raise], fill='white', width=3)
+            
+            # Legs bent during jump
+            if jump_height > 20:  # In the air
+                # Knees bent
+                draw.line([head_x, hip_y - jump_height, head_x - 30, hip_y - jump_height + 40], fill='white', width=3)
+                draw.line([head_x - 30, hip_y - jump_height + 40, head_x - 25, hip_y - jump_height + 80], fill='white', width=3)
+                draw.line([head_x, hip_y - jump_height, head_x + 30, hip_y - jump_height + 40], fill='white', width=3)
+                draw.line([head_x + 30, hip_y - jump_height + 40, head_x + 25, hip_y - jump_height + 80], fill='white', width=3)
+            else:  # On ground
+                draw.line([head_x, hip_y - jump_height, head_x - 25, hip_y - jump_height + 100], fill='white', width=3)
+                draw.line([head_x, hip_y - jump_height, head_x + 25, hip_y - jump_height + 100], fill='white', width=3)
+                
+        else:  # idle, attack, etc - enhanced poses with compelling movement
+            # ENHANCED breathing/idle motion - much more pronounced
+            breath = int(12 * math.sin((i / num_frames) * 2 * math.pi))  # 4x stronger breathing
+            sway = int(8 * math.sin((i / num_frames) * math.pi))  # Gentle side sway
+            
+            # Special handling for different animation types
+            if animation_type == 'attack':
+                # Attack sequence - dramatic action poses
+                attack_phase = (i / num_frames) * math.pi
+                strike_power = int(40 * abs(math.sin(attack_phase)))
+                arm_strike = int(80 * math.sin(attack_phase))
+            else:
+                strike_power = 0
+                arm_strike = 0
+            
+            # Large expressive head with breathing
+            head_size = 40
+            head_pos_x = head_x + sway
+            head_pos_y = head_y + breath
+            draw.ellipse([head_pos_x - head_size, head_pos_y - head_size, 
+                         head_pos_x + head_size, head_pos_y + head_size], 
+                         fill=colors['head'], outline=colors['head'], width=3)
+            
+            # Expressive face features
+            if animation_type == 'attack':
+                # Fierce attack expression
+                draw.ellipse([head_pos_x - 15, head_pos_y - 10, head_pos_x - 5, head_pos_y], fill=(255, 0, 0))
+                draw.ellipse([head_pos_x + 5, head_pos_y - 10, head_pos_x + 15, head_pos_y], fill=(255, 0, 0))
+                draw.arc([head_pos_x - 8, head_pos_y + 5, head_pos_x + 8, head_pos_y + 15], 180, 360, fill=(255, 0, 0), width=3)
+            else:
+                # Calm idle expression
+                draw.ellipse([head_pos_x - 12, head_pos_y - 8, head_pos_x - 4, head_pos_y], fill=(0, 0, 0))
+                draw.ellipse([head_pos_x + 4, head_pos_y - 8, head_pos_x + 12, head_pos_y], fill=(0, 0, 0))
+                draw.arc([head_pos_x - 10, head_pos_y + 5, head_pos_x + 10, head_pos_y + 12], 0, 180, fill=(0, 0, 0), width=2)
+            
+            # Thick neck with movement
+            draw.line([head_pos_x, head_pos_y + head_size, head_pos_x + sway, neck_y + breath], 
+                     fill=colors['neck'], width=15)
+            
+            # Large body with breathing expansion
+            body_x = head_pos_x + sway
+            body_y = body_center_y + breath
+            body_expansion = int(10 * abs(math.sin((i / num_frames) * 2 * math.pi)))  # Breathing expansion
+            
+            draw.ellipse([body_x - body_width - body_expansion, body_y - 70, 
+                         body_x + body_width + body_expansion, body_y + 70], 
+                         fill=colors['body'], outline=colors['body'], width=3)
+            
+            # Tool bag with subtle movement
+            bag_x = body_x - 15 + int(3 * math.sin((i / num_frames) * 2 * math.pi))
+            bag_y = body_y + 25
+            draw.rectangle([bag_x - 30, bag_y - 20, bag_x + 30, bag_y + 30], 
+                          fill=colors['tool_bag'], outline=colors['tool_bag'], width=2)
+            
+            # Arms with distinct poses for different animations
+            if animation_type == 'attack':
+                # Dynamic attack arm positions
+                left_arm_angle = 20 + arm_strike
+                right_arm_angle = -30 - arm_strike
+            else:
+                # Subtle idle arm movement - much more noticeable
+                left_arm_angle = 20 * math.sin((i / num_frames) * 2 * math.pi)
+                right_arm_angle = -15 * math.cos((i / num_frames) * 2 * math.pi)
+            
+            shoulder_y_pos = shoulder_y + breath
+            
+            # Left arm with clear positioning
+            shoulder_x_left = body_x - 65
+            left_arm_x = shoulder_x_left + int(limb_length * math.sin(math.radians(left_arm_angle + 45)))
+            left_arm_y = shoulder_y_pos + int(limb_length * math.cos(math.radians(left_arm_angle + 45)))
+            
+            draw.ellipse([shoulder_x_left - 8, shoulder_y_pos - 8, 
+                         shoulder_x_left + 8, shoulder_y_pos + 8], 
+                        fill=colors['joints'], width=2)
+            draw.line([shoulder_x_left, shoulder_y_pos, left_arm_x, left_arm_y], 
+                     fill=colors['left_arm'], width=14)
+            draw.ellipse([left_arm_x - 6, left_arm_y - 6, left_arm_x + 6, left_arm_y + 6], 
+                        fill=colors['left_arm'], width=2)
+            
+            # Right arm with clear positioning
+            shoulder_x_right = body_x + 65
+            right_arm_x = shoulder_x_right + int(limb_length * math.sin(math.radians(right_arm_angle - 45)))
+            right_arm_y = shoulder_y_pos + int(limb_length * math.cos(math.radians(right_arm_angle - 45)))
+            
+            draw.ellipse([shoulder_x_right - 8, shoulder_y_pos - 8, 
+                         shoulder_x_right + 8, shoulder_y_pos + 8], 
+                        fill=colors['joints'], width=2)
+            draw.line([shoulder_x_right, shoulder_y_pos, right_arm_x, right_arm_y], 
+                     fill=colors['right_arm'], width=14)
+            draw.ellipse([right_arm_x - 6, right_arm_y - 6, right_arm_x + 6, right_arm_y + 6], 
+                        fill=colors['right_arm'], width=2)
+            
+            # Enhanced legs with proper stance
+            hip_pos_y = hip_y + int(breath / 2)  # Subtle hip movement
+            
+            if animation_type == 'attack':
+                # Attack stance - wider, more aggressive
+                left_stance = -40 + int(strike_power / 2)
+                right_stance = 40 - int(strike_power / 2)
+                stance_spread = 20
+            else:
+                # Idle stance with subtle weight shifts
+                weight_shift = int(10 * math.sin((i / num_frames) * math.pi))
+                left_stance = -30 + weight_shift
+                right_stance = 30 - weight_shift
+                stance_spread = 0
+            
+            # Left leg
+            hip_x_left = body_x - 35
+            left_leg_x = hip_x_left + left_stance
+            left_leg_y = hip_pos_y + limb_length + 20 + stance_spread
+            
+            draw.ellipse([hip_x_left - 8, hip_pos_y - 8, hip_x_left + 8, hip_pos_y + 8], 
+                        fill=colors['joints'], width=2)
+            draw.line([hip_x_left, hip_pos_y, left_leg_x, left_leg_y], 
+                     fill=colors['left_leg'], width=14)
+            draw.ellipse([left_leg_x - 8, left_leg_y - 8, left_leg_x + 8, left_leg_y + 8], 
+                        fill=colors['left_leg'], width=2)
+            
+            # Right leg
+            hip_x_right = body_x + 35
+            right_leg_x = hip_x_right + right_stance
+            right_leg_y = hip_pos_y + limb_length + 20 + stance_spread
+            
+            draw.ellipse([hip_x_right - 8, hip_pos_y - 8, hip_x_right + 8, hip_pos_y + 8], 
+                        fill=colors['joints'], width=2)
+            draw.line([hip_x_right, hip_pos_y, right_leg_x, right_leg_y], 
+                     fill=colors['right_leg'], width=14)
+            draw.ellipse([right_leg_x - 8, right_leg_y - 8, right_leg_x + 8, right_leg_y + 8], 
+                        fill=colors['right_leg'], width=2)
+        
+        poses.append(pose_img)
+    
+    return poses
+
+def generate_frame_with_diffusion(reference_image, pose_image, ref_pose_image, seed=42):
+    """Generate a single frame using diffusion
+    
+    Args:
+        reference_image: The reference character image
+        pose_image: The target pose for this frame
+        ref_pose_image: The pose of the reference image
+        seed: Random seed for generation
+    """
     
     pipeline, _ = get_pipeline()
     
@@ -223,27 +724,57 @@ def generate_frame_with_diffusion(reference_image, pose_image, seed=42):
             result = pipeline(
                 ref_image=reference_image,
                 pose_image=pose_image,
-                ref_pose_image=pose_image,  # Use same pose as reference for now
+                # ref_pose_image not used with PoseGuiderOrg
                 width=512,
                 height=512,
-                num_inference_steps=20,
-                guidance_scale=3.5,
+                num_inference_steps=30,  # More steps for better quality
+                guidance_scale=5.0,     # Higher guidance for stronger pose control
                 generator=generator,
             )
         
         # Get the generated image
         if hasattr(result, 'images'):
-            generated_image = result.images[0]
+            generated_image = result.images
         else:
-            generated_image = result[0]
+            generated_image = result
         
         # Convert to PIL if needed
         if isinstance(generated_image, torch.Tensor):
-            if generated_image.dim() == 4:
-                generated_image = generated_image.squeeze(0)
-            generated_image = generated_image.cpu().permute(1, 2, 0).numpy()
+            print(f"Generated image tensor shape: {generated_image.shape}")
+            
+            # Handle different tensor formats based on actual dimensions
+            if generated_image.dim() == 5:
+                # Format: (batch, channels, height, width, color_channels) -> [1, 1, 512, 512, 3]
+                # Extract first batch and channel: [0, 0] -> [512, 512, 3]
+                generated_image = generated_image[0, 0]  # (height, width, color_channels)
+                print(f"After extracting batch and channel: {generated_image.shape}")
+            elif generated_image.dim() == 4:
+                # Format: (batch, height, width, color_channels) -> [1, 512, 512, 3]
+                generated_image = generated_image[0]  # (height, width, color_channels)
+                print(f"After extracting batch: {generated_image.shape}")
+            elif generated_image.dim() == 3:
+                # Already in correct format: (height, width, color_channels)
+                print(f"Already 3D (H, W, C): {generated_image.shape}")
+            
+            # Convert to numpy if it's still a tensor
+            if isinstance(generated_image, torch.Tensor):
+                generated_image = generated_image.cpu().numpy()
+                print(f"After converting to numpy: {generated_image.shape}")
+            
+            # Ensure values are in [0, 1] range (they should already be from decode_latents)
+            generated_image = np.clip(generated_image, 0, 1)
+            
+            # Convert to uint8
             generated_image = (generated_image * 255).astype(np.uint8)
-            generated_image = Image.fromarray(generated_image)
+            print(f"Final image shape before PIL: {generated_image.shape}, dtype: {generated_image.dtype}")
+            
+            # Handle different image formats
+            if generated_image.shape[-1] == 3:
+                generated_image = Image.fromarray(generated_image, mode='RGB')
+            elif generated_image.shape[-1] == 1:
+                generated_image = Image.fromarray(generated_image[:,:,0], mode='L')
+            else:
+                generated_image = Image.fromarray(generated_image)
         
         return generated_image
         
@@ -340,33 +871,59 @@ def process_with_diffusion(job_id, input_path, animation_type):
         # Extract reference pose
         reference_pose = extract_pose(input_image)
         
-        if reference_pose is None:
-            # If pose extraction fails, create a simple pose
+        if reference_pose is None or np.array(reference_pose).max() == 0:
+            # If pose extraction fails, create a synthetic OpenPose-style reference pose
             reference_pose = Image.new('RGB', (512, 512), color='black')
             draw = ImageDraw.Draw(reference_pose)
-            # Draw simple skeleton
-            draw.ellipse([230, 100, 280, 150], fill='white')  # Head
-            draw.line([255, 150, 255, 300], fill='white', width=3)  # Body
-            draw.line([255, 200, 200, 250], fill='white', width=3)  # Left arm
-            draw.line([255, 200, 310, 250], fill='white', width=3)  # Right arm
-            draw.line([255, 300, 230, 400], fill='white', width=3)  # Left leg
-            draw.line([255, 300, 280, 400], fill='white', width=3)  # Right leg
+            
+            # OpenPose-style colors
+            colors = {
+                'head': (255, 255, 0),       # Yellow
+                'neck': (255, 128, 0),        # Orange  
+                'body': (255, 0, 255),        # Magenta
+                'right_arm': (255, 0, 0),     # Red
+                'left_arm': (0, 255, 0),      # Green
+                'right_leg': (255, 128, 0),   # Orange
+                'left_leg': (0, 255, 255),    # Cyan
+            }
+            
+            # Draw OpenPose-style skeleton - standing pose
+            # Head
+            draw.ellipse([240, 105, 270, 135], fill=colors['head'], outline=colors['head'])
+            # Neck
+            draw.line([255, 135, 255, 160], fill=colors['neck'], width=5)
+            # Body
+            draw.line([255, 160, 255, 300], fill=colors['body'], width=5)
+            # Left arm
+            draw.line([255, 180, 200, 250], fill=colors['left_arm'], width=4)
+            # Right arm  
+            draw.line([255, 180, 310, 250], fill=colors['right_arm'], width=4)
+            # Left leg
+            draw.line([255, 300, 230, 400], fill=colors['left_leg'], width=4)
+            # Right leg
+            draw.line([255, 300, 280, 400], fill=colors['right_leg'], width=4)
         
         processing_status[job_id]['progress'] = 30
+        processing_status[job_id]['message'] = f'Generating poses for {animation_type} animation...'
+        
+        # Generate different poses for each frame based on animation type
+        animation_poses = generate_animation_poses(reference_pose, animation_type, num_frames)
+        
+        processing_status[job_id]['progress'] = 40
         processing_status[job_id]['message'] = f'Generating {num_frames} frames with diffusion...'
         
         # Generate frames
         frames = []
         for i in range(num_frames):
-            progress = 30 + (i * 50 // num_frames)
+            progress = 40 + (i * 40 // num_frames)
             processing_status[job_id]['progress'] = progress
             processing_status[job_id]['message'] = f'Generating frame {i+1}/{num_frames}...'
             
-            # For now, use the same pose for all frames
-            # In a full implementation, you would generate different poses for each frame
+            # Use different pose for each frame
             generated_frame = generate_frame_with_diffusion(
                 input_image, 
-                reference_pose,
+                animation_poses[i],
+                reference_pose,  # Pass the reference pose
                 seed=42 + i
             )
             
