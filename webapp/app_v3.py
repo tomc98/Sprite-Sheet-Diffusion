@@ -252,18 +252,15 @@ def generate_walk_animation(base_image):
         frame = base_image.copy()
         
         # Walking bob and tilt
-        angle = math.sin(i * math.pi / 4) * 5  # Slight rotation
+        angle = math.sin(i * math.pi / 4) * 3  # Slight body sway
         y_offset = abs(math.sin(i * math.pi / 4)) * 5  # Vertical bob
+        x_offset = math.sin(i * math.pi / 4) * 2  # Slight horizontal sway
         
         frame = frame.rotate(angle, expand=False, fillcolor=(0, 0, 0, 0))
         
-        # Apply vertical movement
+        # Apply movement
         final_frame = Image.new('RGBA', (width, height), (0, 0, 0, 0))
-        final_frame.paste(frame, (0, int(y_offset)))
-        
-        # Leg position simulation (mirror every other frame)
-        if i % 2 == 1:
-            final_frame = ImageOps.mirror(final_frame)
+        final_frame.paste(frame, (int(x_offset), int(y_offset)))
         
         frames.append(final_frame)
     
@@ -278,24 +275,22 @@ def generate_run_animation(base_image):
         frame = base_image.copy()
         
         # More extreme movement than walking
-        angle = math.sin(i * math.pi / 4) * 10  # More rotation
+        angle = math.sin(i * math.pi / 4) * 5  # Body lean while running
         y_offset = abs(math.sin(i * math.pi / 4)) * 10  # More vertical movement
+        x_offset = math.sin(i * math.pi / 4) * 3  # Horizontal sway
         
-        # Lean forward
+        # Lean forward slightly
         frame = frame.transform(
             (width, height),
             Image.AFFINE,
-            (1, -0.1, 0, 0, 1, 0),
+            (1, -0.05, 0, 0, 1, 0),
             fillcolor=(0, 0, 0, 0)
         )
         
         frame = frame.rotate(angle, expand=False, fillcolor=(0, 0, 0, 0))
         
         final_frame = Image.new('RGBA', (width, height), (0, 0, 0, 0))
-        final_frame.paste(frame, (0, int(y_offset)))
-        
-        if i % 2 == 1:
-            final_frame = ImageOps.mirror(final_frame)
+        final_frame.paste(frame, (int(x_offset), int(y_offset)))
         
         frames.append(final_frame)
     
