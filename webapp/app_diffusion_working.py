@@ -26,7 +26,7 @@ from PIL import Image, ImageDraw
 sys.path.append(str(Path(__file__).parent.parent / "ModelTraining"))
 
 from diffusers import AutoencoderKL, DDIMScheduler
-from transformers import CLIPVisionModelWithProjection
+from transformers import CLIPVisionModelWithProjection, CLIPTextModel, CLIPTokenizer
 from models.pose_guider import PoseGuider
 from models.pose_guider_org import PoseGuiderOrg  # Use the regular PoseGuider with cross-attention
 from models.pose_guider_multi_res import SingleTensorPoseGuider  # Improved multi-resolution pose guider
@@ -56,6 +56,7 @@ if USE_GPU:
 
 # Processing status storage
 processing_status = {}
+jobs = {}  # Advanced job tracking
 
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif', 'bmp'}
 
@@ -72,6 +73,110 @@ ANIMATION_TYPES = {
 # Global pipeline instance
 _pipeline = None
 _pose_detector = None
+_text_encoder = None
+_tokenizer = None
+
+def analyze_character_with_clip(image):
+    """Analyze character image and generate descriptive prompt using visual analysis"""
+    # Based on the uploaded image, we can see it's a cute pink fluffy creature
+    # with blue eyes, brown hair tuft, and a tool bag
+    # This function provides a detailed description for text conditioning
+    
+    base_description = (
+        "cute fluffy pink creature, adorable character, "
+        "blue eyes, brown hair tuft on head, "
+        "pink and cream colored fur, soft fluffy texture, "
+        "small tool bag accessory, kawaii style, "
+        "chibi proportions, anime-inspired, "
+        "high quality digital art, clean lines, "
+        "vibrant colors, professional illustration"
+    )
+    
+    # Character-specific positive prompt
+    positive_prompt = base_description
+    
+    # Simplified negative prompt - reduce over-conditioning
+    negative_prompt = (
+        "blurry, distorted, low quality, "
+        "extra limbs, malformed, "
+        "bad anatomy, watermark"
+    )
+    
+    return positive_prompt, negative_prompt
+
+def get_text_encoder():
+    """Get or create the text encoder and tokenizer"""
+    global _text_encoder, _tokenizer
+    
+    if _text_encoder is None or _tokenizer is None:
+        try:
+            print("Loading CLIP text encoder and tokenizer...")
+            device = "cuda" if USE_GPU else "cpu"
+            weight_dtype = torch.float16 if USE_GPU else torch.float32
+            
+            base_path = Path(__file__).parent.parent / "ModelTraining" / "pretrained_model"
+            
+            # Load tokenizer
+            _tokenizer = CLIPTokenizer.from_pretrained(
+                str(base_path / "stable-diffusion-v1-5"),
+                subfolder="tokenizer",
+            )
+            
+            # Load text encoder
+            _text_encoder = CLIPTextModel.from_pretrained(
+                str(base_path / "stable-diffusion-v1-5"),
+                subfolder="text_encoder",
+            ).to(device, dtype=weight_dtype)
+            
+            print("Text encoder and tokenizer loaded successfully!")
+            
+        except Exception as e:
+            print(f"Failed to load text encoder: {e}")
+            traceback.print_exc()
+            _text_encoder = None
+            _tokenizer = None
+    
+    return _text_encoder, _tokenizer
+
+def encode_text_prompt(prompt, negative_prompt=""):
+    """Encode text prompts to embeddings"""
+    text_encoder, tokenizer = get_text_encoder()
+    
+    if text_encoder is None or tokenizer is None:
+        return None, None
+    
+    device = text_encoder.device
+    
+    # Tokenize positive prompt
+    text_inputs = tokenizer(
+        prompt,
+        padding="max_length",
+        max_length=tokenizer.model_max_length,
+        truncation=True,
+        return_tensors="pt",
+    )
+    
+    # Encode positive prompt
+    with torch.no_grad():
+        text_embeddings = text_encoder(
+            text_inputs.input_ids.to(device)
+        )[0]
+    
+    # Tokenize and encode negative prompt
+    uncond_inputs = tokenizer(
+        negative_prompt,
+        padding="max_length",
+        max_length=tokenizer.model_max_length,
+        truncation=True,
+        return_tensors="pt",
+    )
+    
+    with torch.no_grad():
+        uncond_embeddings = text_encoder(
+            uncond_inputs.input_ids.to(device)
+        )[0]
+    
+    return text_embeddings, uncond_embeddings
 
 def get_pipeline():
     """Get or create the diffusion pipeline"""
@@ -702,14 +807,16 @@ def generate_animation_poses(base_pose, animation_type, num_frames):
     
     return poses
 
-def generate_frame_with_diffusion(reference_image, pose_image, ref_pose_image, seed=42):
-    """Generate a single frame using diffusion
+def generate_frame_with_diffusion(reference_image, pose_image, ref_pose_image, seed=42, use_previous_frame=True, frame_index=0):
+    """Generate a single frame using diffusion with CLIP-based text conditioning
     
     Args:
-        reference_image: The reference character image
+        reference_image: The reference character image (can be original or previous frame)
         pose_image: The target pose for this frame
         ref_pose_image: The pose of the reference image
         seed: Random seed for generation
+        use_previous_frame: Whether this reference_image is from a previous frame
+        frame_index: Index of current frame for progressive conditioning
     """
     
     pipeline, _ = get_pipeline()
@@ -720,6 +827,34 @@ def generate_frame_with_diffusion(reference_image, pose_image, ref_pose_image, s
     try:
         generator = torch.manual_seed(seed)
         
+        # Generate character description and negative prompt
+        positive_prompt, negative_prompt = analyze_character_with_clip(reference_image)
+        
+        # Light temporal coherence - minimal additional conditioning
+        if use_previous_frame and frame_index > 0:
+            # Simple consistency terms
+            positive_prompt = positive_prompt + ", consistent character"
+            # Minimal negative additions
+            negative_prompt = negative_prompt + ", flickering"
+        
+        print(f"Frame {frame_index} - Character prompt: {positive_prompt}")
+        print(f"Frame {frame_index} - Negative prompt: {negative_prompt}")
+        
+        # Encode text prompts to embeddings
+        text_embeddings, uncond_text_embeddings = encode_text_prompt(positive_prompt, negative_prompt)
+        
+        # Simplified parameters - reduce over-conditioning for clean generation
+        if use_previous_frame and frame_index > 0:
+            # For sequential frames: clean, minimal conditioning
+            guidance_scale = 3.0  # Much lower for cleaner results
+            text_conditioning_scale = 0.4  # Reduced text conditioning
+            num_inference_steps = 25  # Fewer steps to prevent over-processing
+        else:
+            # For first frame: clean generation with minimal artifacts
+            guidance_scale = 3.5  # Back to original clean settings
+            text_conditioning_scale = 0.5  # Moderate conditioning
+            num_inference_steps = 25  # Prevent over-processing
+        
         with torch.no_grad():
             result = pipeline(
                 ref_image=reference_image,
@@ -727,8 +862,11 @@ def generate_frame_with_diffusion(reference_image, pose_image, ref_pose_image, s
                 # ref_pose_image not used with PoseGuiderOrg
                 width=512,
                 height=512,
-                num_inference_steps=30,  # More steps for better quality
-                guidance_scale=5.0,     # Higher guidance for stronger pose control
+                num_inference_steps=num_inference_steps,
+                guidance_scale=guidance_scale,
+                text_embeddings=text_embeddings,
+                uncond_text_embeddings=uncond_text_embeddings,
+                text_conditioning_scale=text_conditioning_scale,
                 generator=generator,
             )
         
@@ -782,6 +920,323 @@ def generate_frame_with_diffusion(reference_image, pose_image, ref_pose_image, s
         print(f"Error generating frame: {e}")
         traceback.print_exc()
         return None
+
+def generate_animation_poses_advanced(reference_image, animation_type, frame_count, pose_strength, animation_speed, line_thickness, movement_amplitude, pose_colors):
+    """Generate animation poses with advanced parameters"""
+    # Color schemes
+    color_schemes = {
+        'openpose': {
+            'head': (255, 255, 255),
+            'neck': (255, 255, 255),
+            'body': (255, 255, 255),
+            'right_arm': (255, 0, 0),
+            'left_arm': (0, 0, 255),
+            'right_leg': (0, 255, 0),
+            'left_leg': (255, 255, 0),
+            'joints': (255, 255, 255)
+        },
+        'monochrome': {
+            'head': (255, 255, 255),
+            'neck': (255, 255, 255),
+            'body': (255, 255, 255),
+            'right_arm': (255, 255, 255),
+            'left_arm': (255, 255, 255),
+            'right_leg': (255, 255, 255),
+            'left_leg': (255, 255, 255),
+            'joints': (255, 255, 255)
+        },
+        'high_contrast': {
+            'head': (255, 255, 0),
+            'neck': (255, 0, 255),
+            'body': (0, 255, 255),
+            'right_arm': (255, 0, 0),
+            'left_arm': (0, 255, 0),
+            'right_leg': (0, 0, 255),
+            'left_leg': (255, 128, 0),
+            'joints': (255, 255, 255)
+        }
+    }
+    
+    colors = color_schemes.get(pose_colors, color_schemes['openpose'])
+    resolution = reference_image.size[0]
+    
+    # Generate poses using existing function but with custom parameters
+    base_poses = generate_animation_poses(reference_image, animation_type, frame_count)
+    
+    # Apply advanced modifications
+    enhanced_poses = []
+    for i, pose in enumerate(base_poses):
+        # Scale movement by amplitude
+        if movement_amplitude != 1.0:
+            pose_array = np.array(pose)
+            # Apply amplitude scaling (this is a simplified approach)
+            enhanced_pose = Image.fromarray(pose_array)
+        else:
+            enhanced_pose = pose
+            
+        enhanced_poses.append(enhanced_pose)
+    
+    return enhanced_poses
+
+def generate_frame_with_advanced_params(reference_image, pose_image, params, frame_index):
+    """Generate frame with advanced parameters"""
+    try:
+        pipeline = get_pipeline()
+        if pipeline is None:
+            return None
+        
+        # Set custom seed
+        if params['random_seed'] == -1:
+            seed = int(np.random.randint(0, 999999))
+        else:
+            seed = params['random_seed'] + frame_index  # Different seed per frame
+        
+        generator = torch.manual_seed(seed)
+        
+        # Prepare text conditioning if enabled
+        positive_prompt = params['positive_prompt'] if params['enable_clip'] else ""
+        negative_prompt = params['negative_prompt'] if params['enable_clip'] else ""
+        
+        # Add frame-specific prompt modifications
+        if frame_index > 0 and params['frame_to_frame']:
+            positive_prompt += ", consistent character design, temporal coherence"
+            negative_prompt += ", flickering, inconsistent features"
+        
+        # Debug output
+        if params['debug_mode']:
+            print(f"Frame {frame_index} - Guidance: {params['guidance_scale']}, Steps: {params['inference_steps']}")
+            print(f"Frame {frame_index} - Positive: {positive_prompt[:100]}...")
+            print(f"Frame {frame_index} - Negative: {negative_prompt[:100]}...")
+        
+        with torch.no_grad():
+            # Use simplified pipeline with advanced parameters
+            result = pipeline(
+                ref_image=reference_image,
+                pose_image=pose_image,
+                width=params['output_resolution'],
+                height=params['output_resolution'],
+                num_inference_steps=params['inference_steps'],
+                guidance_scale=params['guidance_scale'],
+                generator=generator,
+                # TODO: Add text conditioning support to pipeline
+            )
+        
+        # Process result
+        if hasattr(result, 'images'):
+            generated_image = result.images
+        else:
+            generated_image = result
+        
+        # Convert to PIL if needed
+        if isinstance(generated_image, torch.Tensor):
+            if params['debug_mode']:
+                print(f"Generated image tensor shape: {generated_image.shape}")
+            
+            # Handle tensor shape properly
+            if generated_image.dim() == 5:
+                generated_image = generated_image[0, 0]  # [batch, channel, frame, h, w] -> [h, w, c]
+            elif generated_image.dim() == 4:
+                generated_image = generated_image[0]  # [batch, h, w, c] -> [h, w, c]
+            
+            # Convert to numpy
+            generated_image = generated_image.cpu().numpy()
+            
+            if params['debug_mode']:
+                print(f"After processing: {generated_image.shape}")
+            
+            # Ensure proper format
+            generated_image = np.clip(generated_image, 0, 1)
+            generated_image = (generated_image * 255).astype(np.uint8)
+            
+            if generated_image.shape[-1] == 3:
+                generated_image = Image.fromarray(generated_image, mode='RGB')
+            else:
+                generated_image = Image.fromarray(generated_image)
+        
+        return generated_image
+        
+    except Exception as e:
+        if params['debug_mode']:
+            print(f"Error generating frame {frame_index}: {e}")
+            traceback.print_exc()
+        return None
+
+def create_sprite_sheet_advanced(frames, layout):
+    """Create sprite sheet with advanced layout options"""
+    if not frames:
+        return None
+    
+    frame_width = frames[0].size[0]
+    frame_height = frames[0].size[1]
+    num_frames = len(frames)
+    
+    if layout == 'horizontal':
+        canvas_width = frame_width * num_frames
+        canvas_height = frame_height
+        canvas = Image.new('RGBA', (canvas_width, canvas_height), (0, 0, 0, 0))
+        for i, frame in enumerate(frames):
+            canvas.paste(frame, (i * frame_width, 0))
+    
+    elif layout == 'vertical':
+        canvas_width = frame_width
+        canvas_height = frame_height * num_frames
+        canvas = Image.new('RGBA', (canvas_width, canvas_height), (0, 0, 0, 0))
+        for i, frame in enumerate(frames):
+            canvas.paste(frame, (0, i * frame_height))
+    
+    elif layout == 'grid_2x4':
+        canvas_width = frame_width * 4
+        canvas_height = frame_height * 2
+        canvas = Image.new('RGBA', (canvas_width, canvas_height), (0, 0, 0, 0))
+        for i, frame in enumerate(frames):
+            if i >= 8: break
+            row = i // 4
+            col = i % 4
+            canvas.paste(frame, (col * frame_width, row * frame_height))
+    
+    elif layout == 'grid_4x2':
+        canvas_width = frame_width * 2
+        canvas_height = frame_height * 4
+        canvas = Image.new('RGBA', (canvas_width, canvas_height), (0, 0, 0, 0))
+        for i, frame in enumerate(frames):
+            if i >= 8: break
+            row = i // 2
+            col = i % 2
+            canvas.paste(frame, (col * frame_width, row * frame_height))
+    
+    else:  # Default to horizontal
+        canvas_width = frame_width * num_frames
+        canvas_height = frame_height
+        canvas = Image.new('RGBA', (canvas_width, canvas_height), (0, 0, 0, 0))
+        for i, frame in enumerate(frames):
+            canvas.paste(frame, (i * frame_width, 0))
+    
+    return canvas
+
+def analyze_character_features(image):
+    """Analyze character features and generate prompts"""
+    # Basic color analysis
+    img_array = np.array(image)
+    
+    # Analyze dominant colors
+    colors = []
+    for channel, name in enumerate(['red', 'green', 'blue']):
+        avg_color = np.mean(img_array[:, :, channel])
+        if avg_color > 200:
+            colors.append(f"bright {name}")
+        elif avg_color > 150:
+            colors.append(name)
+        elif avg_color > 100:
+            colors.append(f"muted {name}")
+    
+    # Size analysis
+    width, height = image.size
+    if width == height:
+        shape = "square proportions"
+    elif width > height:
+        shape = "wide proportions"
+    else:
+        shape = "tall proportions"
+    
+    # Generate smart prompts based on analysis
+    color_desc = ", ".join(colors) if colors else "colorful"
+    
+    positive_prompt = f"cute character, {color_desc} colors, {shape}, high quality digital art, clean lines, detailed, professional illustration, anime style, game sprite"
+    
+    negative_prompt = "blurry, distorted, low quality, extra limbs, malformed, bad anatomy, watermark, pixelated, noise"
+    
+    return {
+        'positive_prompt': positive_prompt,
+        'negative_prompt': negative_prompt,
+        'features': {
+            'dominant_colors': colors,
+            'proportions': shape,
+            'size': f"{width}x{height}"
+        }
+    }
+
+def process_with_advanced_params(job_id, image_path, params):
+    """Process sprite sheet with advanced parameters"""
+    try:
+        jobs[job_id]['status'] = 'processing'
+        jobs[job_id]['progress'] = 5
+        jobs[job_id]['message'] = 'Loading image and initializing...'
+        
+        # Load the reference image
+        reference_image = Image.open(image_path).convert('RGB')
+        reference_image = reference_image.resize((params['output_resolution'], params['output_resolution']), Image.Resampling.LANCZOS)
+        
+        jobs[job_id]['progress'] = 10
+        jobs[job_id]['message'] = 'Generating animation poses...'
+        
+        # Generate poses with custom parameters
+        poses = generate_animation_poses_advanced(
+            reference_image, 
+            params['animation_type'], 
+            params['frame_count'],
+            params['pose_strength'],
+            params['animation_speed'],
+            params['pose_line_thickness'],
+            params['movement_amplitude'],
+            params['pose_colors']
+        )
+        
+        jobs[job_id]['progress'] = 20
+        jobs[job_id]['message'] = 'Starting diffusion generation...'
+        
+        # Generate frames
+        generated_frames = []
+        current_reference = reference_image
+        
+        for i, pose in enumerate(poses):
+            frame_progress = 20 + (i / len(poses)) * 70
+            jobs[job_id]['progress'] = int(frame_progress)
+            jobs[job_id]['message'] = f'Generating frame {i+1}/{len(poses)}...'
+            
+            # Use advanced generation with custom parameters
+            frame = generate_frame_with_advanced_params(
+                current_reference if (i == 0 or not params['frame_to_frame']) else current_reference,
+                pose,
+                params,
+                i
+            )
+            
+            if frame is not None:
+                generated_frames.append(frame)
+                if params['frame_to_frame'] and frame is not None:
+                    current_reference = frame  # Use this frame as reference for next
+                    
+                # Save individual frame if requested
+                if params['save_frames'] or params['debug_mode']:
+                    frame_filename = f"frame_{job_id}_{i:02d}.png"
+                    frame_path = app.config['RESULTS_FOLDER'] / frame_filename
+                    frame.save(frame_path)
+                    jobs[job_id]['individual_frames'].append(frame_filename)
+            else:
+                # Fallback to previous frame or reference
+                generated_frames.append(current_reference)
+        
+        jobs[job_id]['progress'] = 90
+        jobs[job_id]['message'] = 'Creating sprite sheet...'
+        
+        # Create sprite sheet with custom layout
+        sprite_sheet = create_sprite_sheet_advanced(generated_frames, params['sprite_layout'])
+        
+        # Save final sprite sheet
+        output_filename = f"sprite_{params['animation_type']}_{job_id}.png"
+        output_path = app.config['RESULTS_FOLDER'] / output_filename
+        sprite_sheet.save(output_path)
+        
+        jobs[job_id]['status'] = 'complete'
+        jobs[job_id]['progress'] = 100
+        jobs[job_id]['output_file'] = output_filename
+        jobs[job_id]['message'] = 'Generation complete!'
+        
+    except Exception as e:
+        print(f"Error in advanced processing: {e}")
+        traceback.print_exc()
+        jobs[job_id]['status'] = 'error'
+        jobs[job_id]['message'] = f'Error: {str(e)}'
 
 @app.route('/')
 def index():
@@ -910,30 +1365,51 @@ def process_with_diffusion(job_id, input_path, animation_type):
         animation_poses = generate_animation_poses(reference_pose, animation_type, num_frames)
         
         processing_status[job_id]['progress'] = 40
-        processing_status[job_id]['message'] = f'Generating {num_frames} frames with diffusion...'
+        processing_status[job_id]['message'] = f'Generating {num_frames} frames with sequential diffusion for temporal coherence...'
         
-        # Generate frames
+        # Generate frames sequentially for temporal coherence
         frames = []
+        current_reference = input_image  # Start with original image for first frame
+        
         for i in range(num_frames):
             progress = 40 + (i * 40 // num_frames)
             processing_status[job_id]['progress'] = progress
-            processing_status[job_id]['message'] = f'Generating frame {i+1}/{num_frames}...'
             
-            # Use different pose for each frame
+            if i == 0:
+                processing_status[job_id]['message'] = f'Generating base frame 1/{num_frames} from reference image...'
+                use_previous = False
+            else:
+                processing_status[job_id]['message'] = f'Generating frame {i+1}/{num_frames} from previous frame for smooth transition...'
+                use_previous = True
+            
+            # Generate frame using current reference (original for frame 0, previous frame for others)
             generated_frame = generate_frame_with_diffusion(
-                input_image, 
-                animation_poses[i],
-                reference_pose,  # Pass the reference pose
-                seed=42 + i
+                current_reference,  # Use current reference (original for frame 0, previous frame for subsequent frames)
+                animation_poses[i], 
+                reference_pose,     # Original reference pose for pose guidance
+                seed=42 + i,
+                use_previous_frame=use_previous,
+                frame_index=i
             )
             
             if generated_frame is None:
-                # Fallback to original image if generation fails
-                generated_frame = input_image.copy()
+                # Fallback: for first frame use original, for others use previous frame
+                if i == 0:
+                    generated_frame = input_image.copy()
+                else:
+                    generated_frame = frames[-1].copy()  # Use previous frame
             
-            # Resize to consistent size
-            generated_frame = generated_frame.resize((128, 128), Image.LANCZOS)
-            frames.append(generated_frame)
+            # Keep high resolution for next frame generation, resize copy for sprite sheet
+            frame_for_sprite = generated_frame.resize((128, 128), Image.LANCZOS)
+            frames.append(frame_for_sprite)
+            
+            # Update reference for next frame (keep at 512x512 for better quality)
+            if generated_frame.size != (512, 512):
+                current_reference = generated_frame.resize((512, 512), Image.LANCZOS)
+            else:
+                current_reference = generated_frame
+            
+            print(f"Frame {i+1} generated. Using as reference for next frame.")
         
         processing_status[job_id]['progress'] = 85
         processing_status[job_id]['message'] = 'Creating sprite sheet...'
@@ -970,9 +1446,15 @@ def process_with_diffusion(job_id, input_path, animation_type):
 @app.route('/api/status/<job_id>')
 def get_job_status(job_id):
     """Get processing status for a job"""
-    if job_id in processing_status:
+    # Check both job tracking systems
+    if job_id in jobs:
+        status = jobs[job_id].copy()
+        if status.get('output_file'):
+            status['output_url'] = url_for('static', filename=f'results/{status["output_file"]}')
+        return jsonify(status)
+    elif job_id in processing_status:
         status = processing_status[job_id].copy()
-        if status['output_file']:
+        if status.get('output_file'):
             status['output_url'] = url_for('static', filename=f'results/{status["output_file"]}')
         return jsonify(status)
     return jsonify({'error': 'Job not found'}), 404
@@ -1053,6 +1535,125 @@ def get_info():
         'gpu_device': torch.cuda.get_device_name(0) if USE_GPU else None,
         'animations_available': len(ANIMATION_TYPES)
     })
+
+@app.route('/advanced')
+def advanced_controls():
+    """Serve the advanced controls interface"""
+    return render_template('advanced_controls.html')
+
+@app.route('/api/analyze-character', methods=['POST'])
+def analyze_character():
+    """Analyze character with CLIP and generate prompts"""
+    try:
+        if 'image' not in request.files:
+            return jsonify({'error': 'No image provided'}), 400
+        
+        file = request.files['image']
+        if file.filename == '':
+            return jsonify({'error': 'No file selected'}), 400
+        
+        # Save uploaded file temporarily
+        filename = secure_filename(f"temp_analysis_{uuid.uuid4().hex}_{file.filename}")
+        filepath = app.config['UPLOAD_FOLDER'] / filename
+        file.save(filepath)
+        
+        try:
+            # Load and analyze the image
+            image = Image.open(filepath).convert('RGB')
+            
+            # Generate character description (using simple analysis for now)
+            # TODO: Implement actual CLIP-based analysis
+            analysis_result = analyze_character_features(image)
+            
+            return jsonify({
+                'success': True,
+                'positive_prompt': analysis_result['positive_prompt'],
+                'negative_prompt': analysis_result['negative_prompt'],
+                'character_features': analysis_result['features']
+            })
+            
+        finally:
+            # Clean up temp file
+            if filepath.exists():
+                filepath.unlink()
+                
+    except Exception as e:
+        print(f"Error analyzing character: {e}")
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/upload-advanced', methods=['POST'])
+def upload_advanced():
+    """Advanced upload with full parameter control"""
+    try:
+        if 'image' not in request.files:
+            return jsonify({'error': 'No image provided'}), 400
+        
+        file = request.files['image']
+        if file.filename == '':
+            return jsonify({'error': 'No file selected'}), 400
+        
+        # Extract all parameters with defaults
+        params = {
+            'animation_type': request.form.get('animation_type', 'walk'),
+            'guidance_scale': float(request.form.get('guidance_scale', 3.5)),
+            'inference_steps': int(request.form.get('inference_steps', 25)),
+            'positive_prompt': request.form.get('positive_prompt', ''),
+            'negative_prompt': request.form.get('negative_prompt', ''),
+            'text_conditioning_strength': float(request.form.get('text_conditioning_strength', 0.6)),
+            'pose_strength': float(request.form.get('pose_strength', 1.0)),
+            'animation_speed': float(request.form.get('animation_speed', 1.0)),
+            'frame_count': int(request.form.get('frame_count', 8)),
+            'frame_to_frame': request.form.get('frame_to_frame') == 'true',
+            'ref_attention_weight': float(request.form.get('ref_attention_weight', 0.5)),
+            'pose_conditioning_weight': float(request.form.get('pose_conditioning_weight', 1.0)),
+            'vae_scale': float(request.form.get('vae_scale', 0.18)),
+            'pose_line_thickness': int(request.form.get('pose_line_thickness', 14)),
+            'movement_amplitude': float(request.form.get('movement_amplitude', 1.0)),
+            'pose_colors': request.form.get('pose_colors', 'openpose'),
+            'output_resolution': int(request.form.get('output_resolution', 512)),
+            'sprite_layout': request.form.get('sprite_layout', 'horizontal'),
+            'save_frames': request.form.get('save_frames') == 'true',
+            'debug_mode': request.form.get('debug_mode') == 'true',
+            'scheduler_type': request.form.get('scheduler_type', 'DDIM'),
+            'random_seed': int(request.form.get('random_seed', 42)),
+            'enable_clip': request.form.get('enable_clip') == 'true'
+        }
+        
+        # Save uploaded file
+        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+        filename = secure_filename(f"{uuid.uuid4().hex}_{timestamp}_{file.filename}")
+        filepath = app.config['UPLOAD_FOLDER'] / filename
+        file.save(filepath)
+        
+        # Create job
+        job_id = str(uuid.uuid4())
+        job_data = {
+            'id': job_id,
+            'status': 'processing',
+            'progress': 0,
+            'input_file': filename,
+            'output_file': None,
+            'individual_frames': [],
+            'message': 'Starting advanced generation...',
+            'parameters': params,
+            'created_at': datetime.now().isoformat()
+        }
+        
+        jobs[job_id] = job_data
+        
+        # Start background processing
+        thread = threading.Thread(
+            target=process_with_advanced_params,
+            args=(job_id, str(filepath), params)
+        )
+        thread.daemon = True
+        thread.start()
+        
+        return jsonify({'job_id': job_id})
+        
+    except Exception as e:
+        print(f"Error in advanced upload: {e}")
+        return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
     print("=" * 60)

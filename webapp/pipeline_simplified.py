@@ -119,6 +119,9 @@ class SimplifiedPose2ImagePipeline(DiffusionPipeline):
         return_dict: bool = True,
         callback: Optional[Callable[[int, int, torch.FloatTensor], None]] = None,
         callback_steps: Optional[int] = 1,
+        text_embeddings: Optional[torch.FloatTensor] = None,
+        uncond_text_embeddings: Optional[torch.FloatTensor] = None,
+        text_conditioning_scale: float = 0.7,
         **kwargs,
     ):
         # Default height and width to unet
@@ -144,12 +147,37 @@ class SimplifiedPose2ImagePipeline(DiffusionPipeline):
         ).image_embeds
         image_prompt_embeds = clip_image_embeds.unsqueeze(1)
         
-        uncond_image_prompt_embeds = torch.zeros_like(image_prompt_embeds)
+        # Combine image and text embeddings if provided
+        if text_embeddings is not None:
+            # Ensure text embeddings are on the right device and dtype
+            text_embeddings = text_embeddings.to(device=device, dtype=image_prompt_embeds.dtype)
+            uncond_text_embeddings = uncond_text_embeddings.to(device=device, dtype=image_prompt_embeds.dtype)
+            
+            # Interpolate between image and text conditioning
+            # text_conditioning_scale controls the balance (0.0 = pure image, 1.0 = pure text)
+            combined_prompt_embeds = (
+                (1.0 - text_conditioning_scale) * image_prompt_embeds + 
+                text_conditioning_scale * text_embeddings
+            )
+            
+            combined_uncond_embeds = (
+                (1.0 - text_conditioning_scale) * torch.zeros_like(image_prompt_embeds) + 
+                text_conditioning_scale * uncond_text_embeddings
+            )
+            
+            final_prompt_embeds = combined_prompt_embeds
+            final_uncond_embeds = combined_uncond_embeds
+        else:
+            # Use only image embeddings (original behavior)
+            final_prompt_embeds = image_prompt_embeds
+            final_uncond_embeds = torch.zeros_like(image_prompt_embeds)
         
         if do_classifier_free_guidance:
-            image_prompt_embeds = torch.cat(
-                [uncond_image_prompt_embeds, image_prompt_embeds], dim=0
+            encoder_hidden_states = torch.cat(
+                [final_uncond_embeds, final_prompt_embeds], dim=0
             )
+        else:
+            encoder_hidden_states = final_prompt_embeds
         
         reference_control_writer = ReferenceAttentionControl(
             self.reference_unet,
@@ -221,7 +249,7 @@ class SimplifiedPose2ImagePipeline(DiffusionPipeline):
                             (2 if do_classifier_free_guidance else 1), 1, 1, 1
                         ),
                         torch.zeros_like(t),
-                        encoder_hidden_states=image_prompt_embeds,
+                        encoder_hidden_states=encoder_hidden_states,
                         return_dict=False,
                     )
                     
@@ -239,7 +267,7 @@ class SimplifiedPose2ImagePipeline(DiffusionPipeline):
                 noise_pred = self.denoising_unet(
                     latent_model_input,
                     t,
-                    encoder_hidden_states=image_prompt_embeds,
+                    encoder_hidden_states=encoder_hidden_states,
                     pose_cond_fea=pose_fea,
                     return_dict=False,
                 )[0]

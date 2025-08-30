@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sprite Sheet Diffusion - Advanced Controls</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <style>
+        .control-section {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            border: 1px solid #dee2e6;
+        }
+        .control-group {
+            margin-bottom: 15px;
+        }
+        .tooltip-icon {
+            color: #6c757d;
+            margin-left: 5px;
+            cursor: help;
+        }
+        .slider-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .slider-value {
+            min-width: 60px;
+            font-weight: bold;
+            color: #0d6efd;
+        }
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .toggle-slider {
+            background-color: #0d6efd;
+        }
+        input:checked + .toggle-slider:before {
+            transform: translateX(26px);
+        }
+        .preset-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .preset-btn {
+            padding: 8px 16px;
+            border: 1px solid #0d6efd;
+            background: white;
+            color: #0d6efd;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .preset-btn:hover, .preset-btn.active {
+            background: #0d6efd;
+            color: white;
+        }
+        .progress-container {
+            margin: 20px 0;
+        }
+        .result-preview {
+            max-width: 100%;
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+        .frame-preview {
+            display: inline-block;
+            margin: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .section-header {
+            color: #495057;
+            font-weight: 600;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #0d6efd;
+            padding-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Left Column - Controls -->
+            <div class="col-md-8">
+                <h1 class="text-center mb-4">
+                    <i class="bi bi-gear-fill"></i> Sprite Sheet Diffusion - Advanced Controls
+                </h1>
+                
+                <!-- Character Upload -->
+                <div class="control-section">
+                    <div class="section-header">
+                        <i class="bi bi-upload"></i> Character Input
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <input type="file" class="form-control" id="characterUpload" accept="image/*">
+                            <small class="text-muted">Upload your character image (PNG, JPG, WEBP)</small>
+                        </div>
+                        <div class="col-md-4">
+                            <button class="btn btn-info w-100" id="analyzeBtn">
+                                <i class="bi bi-eye"></i> Analyze with CLIP
+                                <i class="bi bi-info-circle tooltip-icon" data-bs-toggle="tooltip" 
+                                   title="Use CLIP AI model to automatically analyze your character and generate descriptive prompts"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text Conditioning -->
+                <div class="control-section">
+                    <div class="section-header">
+                        <i class="bi bi-chat-text"></i> Text Conditioning
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label class="form-label">
+                                Positive Prompt
+                                <i class="bi bi-info-circle tooltip-icon" data-bs-toggle="tooltip" 
+                                   title="Describe what you want in the generated images. Be specific about character features, style, and quality."></i>
+                            </label>
+                            <textarea class="form-control" id="positivePrompt" rows="4" 
+                                placeholder="cute fluffy character, high quality, detailed...">cute fluffy pink creature, adorable character, blue eyes, brown hair tuft on head, pink and cream colored fur, soft fluffy texture, small tool bag accessory, kawaii style, chibi proportions, anime-inspired, high quality digital art, clean lines, vibrant colors, professional illustration</textarea>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">
+                                Negative Prompt
+                                <i class="bi bi-info-circle tooltip-icon" data-bs-toggle="tooltip" 
+                                   title="Describe what you DON'T want. Helps prevent artifacts, distortions, and unwanted elements."></i>
+                            </label>
+                            <textarea class="form-control" id="negativePrompt" rows="4" 
+                                placeholder="blurry, distorted, low quality...">blurry, distorted, low quality, extra limbs, malformed, bad anatomy, watermark</textarea>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <label class="form-label">
+                                Text Conditioning Strength
+                                <i class="bi bi-info-circle tooltip-icon" data-bs-toggle="tooltip" 
+                                   title="How strongly the text prompt influences generation. Higher = more text influence, Lower = more image influence."></i>
+                            </label>
+                            <div class="slider-container">
+                                <input type="range" class="form-range" id="textConditioningStrength" min="0" max="1" step="0.1" value="0.6">
+                                <span class="slider-value" id="textConditioningValue">0.6</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">
+                                Enable CLIP Analysis
+                                <i class="bi bi-info-circle tooltip-icon" data-bs-toggle="tooltip" 
+                                   title="Automatically analyze character features and enhance text prompts for better consistency."></i>
+                            </label>
+                            <div class="toggle-switch">
+                                <input type="checkbox" id="enableClip" checked>
+                                <span class="toggle-slider"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Diffusion Parameters -->
+                <div class="control-section">
+                    <div class="section-header">
+                        <i class="bi bi-sliders"></i> Diffusion Parameters
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label class="form-label">
+                                Guidance Scale
+                                <i class="bi bi-info-circle tooltip-icon" data-bs-toggle="tooltip" 
+                                   title="Controls how closely the AI follows your prompts. Higher = more adherence to prompts, Lower = more creative freedom. Range: 1.0-20.0, Recommended: 3.5-7.5"></i>
+                            </label>
+                            <div class="slider-container">
+                                <input type="range" class="form-range" id="guidanceScale" min="1.0" max="20.0" step="0.5" value="3.5">
+                                <span class="slider-value" id="guidanceValue">3.5</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">
+                                Inference Steps
+                                <i class="bi bi-info-circle tooltip-icon" data-bs-toggle="tooltip" 
+                                   title="Number of denoising steps. More steps = higher quality but slower generation. Range: 10-100, Recommended: 20-50"></i>
+                            </label>
+                            <div class="slider-container">
+                                <input type="range" class="form-range" id="inferenceSteps" min="10" max="100" step="5" value="25">
+                                <span class="slider-value" id="stepsValue">25</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">
+                                Random Seed
+                                <i class="bi bi-info-circle tooltip-icon" data-bs-toggle="tooltip" 
+                                   title="Controls randomness. Same seed = reproducible results. -1 = random seed each time."></i>
+                            </label>
+                            <div class="input-group">
+                                <input type="number" class="form-control" id="randomSeed" value="42" min="-1" max="999999">
+                                <button class="btn btn-outline-secondary" id="randomizeSeed">
+                                    <i class="bi bi-shuffle"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <label class="form-label">
+                                Scheduler Type
+                                <i class="bi bi-info-circle tooltip-icon" data-bs-toggle="tooltip" 
+                                   title="Denoising scheduler algorithm. DDIM = consistent, DPM++ = quality, Euler = fast"></i>
+                            </label>
+                            <select class="form-select" id="schedulerType">
+                                <option value="DDIM" selected>DDIM (Consistent)</option>
+                                <option value="DPMSolverMultistep">DPM++ (Quality)</option>
+                                <option value="EulerDiscrete">Euler (Fast)</option>
+                                <option value="LMSDiscrete">LMS (Smooth)</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Quality Presets</label>
+                            <div class="preset-buttons">
+                                <div class="preset-btn" data-preset="fast">Fast</div>
+                                <div class="preset-btn active" data-preset="balanced">Balanced</div>
+                                <div class="preset-btn" data-preset="quality">Quality</div>
+                                <div class="preset-btn" data-preset="experimental">Experimental</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pose Generation Controls -->
+                <div class="control-section">
+                    <div class="section-header">
+                        <i class="bi bi-person-arms-up"></i> Pose Generation
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label class="form-label">
+                                Animation Type
+                                <i class="bi bi-info-circle tooltip-icon" data-bs-toggle="tooltip" 
+                                   title="Type of animation to generate"></i>
+                            </label>
+                            <select class="form-select" id="animationType">
+                                <option value="walk">Walking</option>
+                                <option value="run">Running</option>
+                                <option value="idle">Idle</option>
+                                <option value="jump">Jumping</option>
+                                <option value="attack">Attack</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">
+                                Pose Strength
+                                <i class="bi bi-info-circle tooltip-icon" data-bs-toggle="tooltip" 
+                                   title="How dramatic the pose changes are. Higher = more dynamic movement, Lower = subtle movement"></i>
+                            </label>
+                            <div class="slider-container">
+                                <input type="range" class="form-range" id="poseStrength" min="0.1" max="3.0" step="0.1" value="1.0">
+                                <span class="slider-value" id="poseStrengthValue">1.0</span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">
+                                Animation Speed
+                                <i class="bi bi-info-circle tooltip-icon" data-bs-toggle="tooltip" 
+                                   title="Speed of the animation cycle. Higher = faster movement cycles"></i>
+                            </label>
+                            <div class="slider-container">
+                                <input type="range" class="form-range" id="animationSpeed" min="0.5" max="3.0" step="0.1" value="1.0">
+                                <span class="slider-value" id="animationSpeedValue">1.0</span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">
+                                Frame Count
+                                <i class="bi bi-info-circle tooltip-icon" data-bs-toggle="tooltip" 
+                                   title="Number of frames in the animation. More frames = smoother but longer generation"></i>
+                            </label>
+                            <select class="form-select" id="frameCount">
+                                <option value="4">4 Frames (Fast)</option>
+                                <option value="6">6 Frames</option>
+                                <option value="8" selected>8 Frames (Standard)</option>
+                                <option value="12">12 Frames (Smooth)</option>
+                                <option value="16">16 Frames (Ultra)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pipeline Controls -->
+                <div class="control-section">
+                    <div class="section-header">
+                        <i class="bi bi-diagram-3"></i> Pipeline Controls
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label class="form-label">
+                                Frame-to-Frame Similarity
+                                <i class="bi bi-info-circle tooltip-icon" data-bs-toggle="tooltip" 
+                                   title="Use previous frame as reference for next frame. Creates smoother transitions but may accumulate artifacts."></i>
+                            </label>
+                            <div class="toggle-switch">
+                                <input type="checkbox" id="frameToFrame" checked>
+                                <span class="toggle-slider"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">
+                                Reference Attention Weight
+                                <i class="bi bi-info-circle tooltip-icon" data-bs-toggle="tooltip" 
+                                   title="How strongly the reference image influences generation. Lower = allows more pose changes, Higher = maintains character appearance"></i>
+                            </label>
+                            <div class="slider-container">
+                                <input type="range" class="form-range" id="refAttentionWeight" min="0.1" max="2.0" step="0.1" value="0.5">
+                                <span class="slider-value" id="refAttentionValue">0.5</span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">
+                                Pose Conditioning Weight
+                                <i class="bi bi-info-circle tooltip-icon" data-bs-toggle="tooltip" 
+                                   title="How strongly poses influence the generation. Higher = more pose adherence, Lower = more character preservation"></i>
+                            </label>
+                            <div class="slider-container">
+                                <input type="range" class="form-range" id="poseConditioningWeight" min="0.1" max="2.0" step="0.1" value="1.0">
+                                <span class="slider-value" id="poseConditioningValue">1.0</span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">
+                                VAE Scale Factor
+                                <i class="bi bi-info-circle tooltip-icon" data-bs-toggle="tooltip" 
+                                   title="VAE encoding scale. Affects image encoding/decoding quality. Standard: 0.18215"></i>
+                            </label>
+                            <div class="slider-container">
+                                <input type="range" class="form-range" id="vaeScale" min="0.1" max="0.3" step="0.01" value="0.18">
+                                <span class="slider-value" id="vaeScaleValue">0.18</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Advanced Pose Settings -->
+                <div class="control-section">
+                    <div class="section-header">
+                        <i class="bi bi-bezier2"></i> Advanced Pose Settings
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label class="form-label">
+                                Pose Line Thickness
+                                <i class="bi bi-info-circle tooltip-icon" data-bs-toggle="tooltip" 
+                                   title="Thickness of pose skeleton lines. Thicker = stronger pose signal to AI"></i>
+                            </label>
+                            <div class="slider-container">
+                                <input type="range" class="form-range" id="poseLineThickness" min="3" max="25" step="1" value="14">
+                                <span class="slider-value" id="poseThicknessValue">14</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">
+                                Movement Amplitude
+                                <i class="bi bi-info-circle tooltip-icon" data-bs-toggle="tooltip" 
+                                   title="How dramatic the movement is. Higher = more exaggerated poses"></i>
+                            </label>
+                            <div class="slider-container">
+                                <input type="range" class="form-range" id="movementAmplitude" min="0.1" max="3.0" step="0.1" value="1.0">
+                                <span class="slider-value" id="movementAmplitudeValue">1.0</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">
+                                Pose Colors
+                                <i class="bi bi-info-circle tooltip-icon" data-bs-toggle="tooltip" 
+                                   title="Color scheme for pose skeletons. OpenPose standard uses different colors for body parts"></i>
+                            </label>
+                            <select class="form-select" id="poseColors">
+                                <option value="openpose" selected>OpenPose Standard</option>
+                                <option value="monochrome">Monochrome White</option>
+                                <option value="high_contrast">High Contrast</option>
+                                <option value="custom">Custom Colors</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Output Settings -->
+                <div class="control-section">
+                    <div class="section-header">
+                        <i class="bi bi-image"></i> Output Settings
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label class="form-label">
+                                Output Resolution
+                                <i class="bi bi-info-circle tooltip-icon" data-bs-toggle="tooltip" 
+                                   title="Resolution of generated frames. Higher = better quality but slower generation"></i>
+                            </label>
+                            <select class="form-select" id="outputResolution">
+                                <option value="256">256x256 (Fast)</option>
+                                <option value="512" selected>512x512 (Standard)</option>
+                                <option value="768">768x768 (High)</option>
+                                <option value="1024">1024x1024 (Ultra)</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">
+                                Sprite Layout
+                                <i class="bi bi-info-circle tooltip-icon" data-bs-toggle="tooltip" 
+                                   title="How frames are arranged in the final sprite sheet"></i>
+                            </label>
+                            <select class="form-select" id="spriteLayout">
+                                <option value="horizontal" selected>Horizontal Strip</option>
+                                <option value="grid_2x4">2x4 Grid</option>
+                                <option value="grid_4x2">4x2 Grid</option>
+                                <option value="vertical">Vertical Strip</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">
+                                Save Individual Frames
+                                <i class="bi bi-info-circle tooltip-icon" data-bs-toggle="tooltip" 
+                                   title="Save each frame as a separate image file for inspection"></i>
+                            </label>
+                            <div class="toggle-switch">
+                                <input type="checkbox" id="saveFrames">
+                                <span class="toggle-slider"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">
+                                Debug Mode
+                                <i class="bi bi-info-circle tooltip-icon" data-bs-toggle="tooltip" 
+                                   title="Enable debug output and save intermediate pose images"></i>
+                            </label>
+                            <div class="toggle-switch">
+                                <input type="checkbox" id="debugMode">
+                                <span class="toggle-slider"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Generation Controls -->
+                <div class="control-section">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <button class="btn btn-primary btn-lg w-100" id="generateBtn">
+                                <i class="bi bi-play-circle"></i> Generate Sprite Sheet
+                            </button>
+                        </div>
+                        <div class="col-md-6">
+                            <button class="btn btn-warning btn-lg w-100" id="stopBtn" disabled>
+                                <i class="bi bi-stop-circle"></i> Stop Generation
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Progress -->
+                <div class="progress-container" id="progressContainer" style="display: none;">
+                    <h5>Generation Progress</h5>
+                    <div class="progress">
+                        <div class="progress-bar" id="progressBar" role="progressbar" style="width: 0%"></div>
+                    </div>
+                    <small class="text-muted" id="progressText">Initializing...</small>
+                </div>
+            </div>
+
+            <!-- Right Column - Preview and Results -->
+            <div class="col-md-4">
+                <div class="control-section">
+                    <div class="section-header">
+                        <i class="bi bi-image"></i> Character Preview
+                    </div>
+                    <div id="characterPreview" class="text-center">
+                        <p class="text-muted">Upload a character image to see preview</p>
+                    </div>
+                </div>
+
+                <div class="control-section">
+                    <div class="section-header">
+                        <i class="bi bi-collection"></i> Generated Sprite Sheet
+                    </div>
+                    <div id="spritePreview" class="text-center">
+                        <p class="text-muted">Generated sprite sheet will appear here</p>
+                    </div>
+                </div>
+
+                <div class="control-section">
+                    <div class="section-header">
+                        <i class="bi bi-grid"></i> Individual Frames
+                    </div>
+                    <div id="framesPreview" class="text-center">
+                        <p class="text-muted">Individual frames will appear here when debug mode is enabled</p>
+                    </div>
+                </div>
+
+                <div class="control-section">
+                    <div class="section-header">
+                        <i class="bi bi-download"></i> Downloads
+                    </div>
+                    <div id="downloadLinks">
+                        <p class="text-muted">Download links will appear after generation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Initialize tooltips
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
+
+        // Update slider values in real-time
+        const sliders = [
+            {id: 'guidanceScale', valueId: 'guidanceValue'},
+            {id: 'inferenceSteps', valueId: 'stepsValue'},
+            {id: 'textConditioningStrength', valueId: 'textConditioningValue'},
+            {id: 'poseStrength', valueId: 'poseStrengthValue'},
+            {id: 'animationSpeed', valueId: 'animationSpeedValue'},
+            {id: 'movementAmplitude', valueId: 'movementAmplitudeValue'},
+            {id: 'refAttentionWeight', valueId: 'refAttentionValue'},
+            {id: 'poseConditioningWeight', valueId: 'poseConditioningValue'},
+            {id: 'vaeScale', valueId: 'vaeScaleValue'},
+            {id: 'poseLineThickness', valueId: 'poseThicknessValue'}
+        ];
+
+        sliders.forEach(slider => {
+            const input = document.getElementById(slider.id);
+            const display = document.getElementById(slider.valueId);
+            input.addEventListener('input', function() {
+                display.textContent = this.value;
+            });
+        });
+
+        // Quality presets
+        const presets = {
+            fast: {
+                guidanceScale: 2.5,
+                inferenceSteps: 15,
+                textConditioningStrength: 0.3,
+                frameToFrame: false
+            },
+            balanced: {
+                guidanceScale: 3.5,
+                inferenceSteps: 25,
+                textConditioningStrength: 0.6,
+                frameToFrame: true
+            },
+            quality: {
+                guidanceScale: 5.0,
+                inferenceSteps: 40,
+                textConditioningStrength: 0.8,
+                frameToFrame: true
+            },
+            experimental: {
+                guidanceScale: 7.5,
+                inferenceSteps: 50,
+                textConditioningStrength: 1.0,
+                frameToFrame: false
+            }
+        };
+
+        document.querySelectorAll('.preset-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active class from all
+                document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+                // Add active to clicked
+                this.classList.add('active');
+                
+                // Apply preset
+                const preset = presets[this.dataset.preset];
+                if (preset) {
+                    document.getElementById('guidanceScale').value = preset.guidanceScale;
+                    document.getElementById('guidanceValue').textContent = preset.guidanceScale;
+                    document.getElementById('inferenceSteps').value = preset.inferenceSteps;
+                    document.getElementById('stepsValue').textContent = preset.inferenceSteps;
+                    document.getElementById('textConditioningStrength').value = preset.textConditioningStrength;
+                    document.getElementById('textConditioningValue').textContent = preset.textConditioningStrength;
+                    document.getElementById('frameToFrame').checked = preset.frameToFrame;
+                }
+            });
+        });
+
+        // Randomize seed
+        document.getElementById('randomizeSeed').addEventListener('click', function() {
+            document.getElementById('randomSeed').value = Math.floor(Math.random() * 999999);
+        });
+
+        // Character upload preview
+        document.getElementById('characterUpload').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('characterPreview').innerHTML = 
+                        `<img src="${e.target.result}" class="img-fluid result-preview" alt="Character">`;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // CLIP Analysis
+        document.getElementById('analyzeBtn').addEventListener('click', async function() {
+            const file = document.getElementById('characterUpload').files[0];
+            if (!file) {
+                alert('Please upload a character image first!');
+                return;
+            }
+
+            this.disabled = true;
+            this.innerHTML = '<i class="bi bi-hourglass-split"></i> Analyzing...';
+
+            try {
+                const formData = new FormData();
+                formData.append('image', file);
+
+                const response = await fetch('/api/analyze-character', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const result = await response.json();
+                if (result.success) {
+                    document.getElementById('positivePrompt').value = result.positive_prompt;
+                    document.getElementById('negativePrompt').value = result.negative_prompt;
+                    
+                    // Show success message
+                    const alertDiv = document.createElement('div');
+                    alertDiv.className = 'alert alert-success alert-dismissible fade show';
+                    alertDiv.innerHTML = `
+                        <strong>Analysis Complete!</strong> Character prompts updated automatically.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    `;
+                    this.parentNode.appendChild(alertDiv);
+                }
+            } catch (error) {
+                alert('Error analyzing character: ' + error.message);
+            } finally {
+                this.disabled = false;
+                this.innerHTML = '<i class="bi bi-eye"></i> Analyze with CLIP';
+            }
+        });
+
+        // Generate button
+        document.getElementById('generateBtn').addEventListener('click', async function() {
+            const file = document.getElementById('characterUpload').files[0];
+            if (!file) {
+                alert('Please upload a character image first!');
+                return;
+            }
+
+            // Collect all parameters
+            const formData = new FormData();
+            formData.append('image', file);
+            formData.append('animation_type', document.getElementById('animationType').value);
+            formData.append('guidance_scale', document.getElementById('guidanceScale').value);
+            formData.append('inference_steps', document.getElementById('inferenceSteps').value);
+            formData.append('positive_prompt', document.getElementById('positivePrompt').value);
+            formData.append('negative_prompt', document.getElementById('negativePrompt').value);
+            formData.append('text_conditioning_strength', document.getElementById('textConditioningStrength').value);
+            formData.append('pose_strength', document.getElementById('poseStrength').value);
+            formData.append('animation_speed', document.getElementById('animationSpeed').value);
+            formData.append('frame_count', document.getElementById('frameCount').value);
+            formData.append('frame_to_frame', document.getElementById('frameToFrame').checked);
+            formData.append('ref_attention_weight', document.getElementById('refAttentionWeight').value);
+            formData.append('pose_conditioning_weight', document.getElementById('poseConditioningWeight').value);
+            formData.append('vae_scale', document.getElementById('vaeScale').value);
+            formData.append('pose_line_thickness', document.getElementById('poseLineThickness').value);
+            formData.append('movement_amplitude', document.getElementById('movementAmplitude').value);
+            formData.append('pose_colors', document.getElementById('poseColors').value);
+            formData.append('output_resolution', document.getElementById('outputResolution').value);
+            formData.append('sprite_layout', document.getElementById('spriteLayout').value);
+            formData.append('save_frames', document.getElementById('saveFrames').checked);
+            formData.append('debug_mode', document.getElementById('debugMode').checked);
+            formData.append('scheduler_type', document.getElementById('schedulerType').value);
+            formData.append('random_seed', document.getElementById('randomSeed').value);
+            formData.append('enable_clip', document.getElementById('enableClip').checked);
+
+            // Start generation
+            this.disabled = true;
+            document.getElementById('stopBtn').disabled = false;
+            document.getElementById('progressContainer').style.display = 'block';
+
+            try {
+                const response = await fetch('/api/upload-advanced', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const result = await response.json();
+                if (result.job_id) {
+                    pollProgress(result.job_id);
+                }
+            } catch (error) {
+                alert('Error starting generation: ' + error.message);
+                this.disabled = false;
+                document.getElementById('stopBtn').disabled = true;
+            }
+        });
+
+        // Progress polling
+        async function pollProgress(jobId) {
+            try {
+                const response = await fetch(`/api/status/${jobId}`);
+                const status = await response.json();
+                
+                // Update progress
+                document.getElementById('progressBar').style.width = status.progress + '%';
+                document.getElementById('progressText').textContent = status.message || `${status.progress}% complete`;
+
+                if (status.status === 'complete') {
+                    // Generation complete
+                    document.getElementById('generateBtn').disabled = false;
+                    document.getElementById('stopBtn').disabled = true;
+                    
+                    // Show results
+                    if (status.output_file) {
+                        document.getElementById('spritePreview').innerHTML = 
+                            `<img src="/static/results/${status.output_file}" class="img-fluid result-preview" alt="Generated Sprite Sheet">`;
+                        
+                        // Add download link
+                        document.getElementById('downloadLinks').innerHTML = 
+                            `<a href="/static/results/${status.output_file}" download class="btn btn-success">
+                                <i class="bi bi-download"></i> Download Sprite Sheet
+                            </a>`;
+                    }
+
+                    // Show individual frames if available
+                    if (status.individual_frames) {
+                        let framesHtml = '';
+                        status.individual_frames.forEach((frame, index) => {
+                            framesHtml += `<img src="/static/results/${frame}" class="frame-preview" 
+                                          alt="Frame ${index}" style="width: 80px; height: 80px;">`;
+                        });
+                        document.getElementById('framesPreview').innerHTML = framesHtml;
+                    }
+                } else if (status.status === 'error') {
+                    // Generation failed
+                    document.getElementById('generateBtn').disabled = false;
+                    document.getElementById('stopBtn').disabled = true;
+                    alert('Generation failed: ' + status.message);
+                } else {
+                    // Continue polling
+                    setTimeout(() => pollProgress(jobId), 1000);
+                }
+            } catch (error) {
+                console.error('Error polling progress:', error);
+                setTimeout(() => pollProgress(jobId), 2000);
+            }
+        }
+
+        // Stop generation
+        document.getElementById('stopBtn').addEventListener('click', function() {
+            // This would need to be implemented in the backend
+            document.getElementById('generateBtn').disabled = false;
+            this.disabled = true;
+            document.getElementById('progressContainer').style.display = 'none';
+        });
+    </script>
+</body>
+</html>
