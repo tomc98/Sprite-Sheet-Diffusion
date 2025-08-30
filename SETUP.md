@@ -136,7 +136,12 @@ python download_models.py
 ```bash
 # Download additional required models
 python download_hf_models.py
+
+# IMPORTANT: Also download the pose_guider model (not included in Google Drive)
+python download_pose_guider.py
 ```
+
+**Note:** The pose_guider.pth (~4.2MB) is essential for the diffusion pipeline but wasn't included in the Google Drive models. It must be downloaded separately from HuggingFace.
 
 This downloads:
 - `stabilityai/sd-vae-ft-mse` - VAE for image encoding
