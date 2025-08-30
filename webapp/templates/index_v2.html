@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sprite Sheet Diffusion - Animation Generator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+        
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .upload-section {
+            text-align: center;
+        }
+        
+        .upload-area {
+            border: 3px dashed #ddd;
+            border-radius: 10px;
+            padding: 40px;
+            margin: 20px 0;
+            transition: all 0.3s;
+            cursor: pointer;
+            background: #f9f9f9;
+        }
+        
+        .upload-area:hover {
+            border-color: #667eea;
+            background: #f0f0ff;
+        }
+        
+        .upload-area.dragging {
+            border-color: #764ba2;
+            background: #e8e0ff;
+        }
+        
+        .upload-icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+        
+        input[type="file"] {
+            display: none;
+        }
+        
+        .animation-selector {
+            margin: 20px 0;
+            padding: 20px;
+            background: #f5f5f5;
+            border-radius: 10px;
+        }
+        
+        .animation-selector h3 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .animation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .animation-option {
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: white;
+            text-align: center;
+        }
+        
+        .animation-option:hover {
+            border-color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        
+        .animation-option.selected {
+            border-color: #764ba2;
+            background: linear-gradient(135deg, rgba(102,126,234,0.1) 0%, rgba(118,75,162,0.1) 100%);
+        }
+        
+        .animation-option .animation-icon {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        
+        .animation-option .animation-name {
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+        
+        .animation-option .animation-frames {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: inline-block;
+            margin: 10px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .preview-image {
+            max-width: 100%;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 30px;
+            background: #f0f0f0;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 20px 0;
+            display: none;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            width: 0%;
+            transition: width 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .status-message {
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            display: none;
+        }
+        
+        .status-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .status-error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .status-info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+        
+        .sprite-preview {
+            background: #f0f0f0;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        .sprite-info {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+        }
+        
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            .animation-grid {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            }
+        }
+        
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .animation-preview-section {
+            margin-top: 20px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 10px;
+        }
+        
+        #animationCanvas {
+            image-rendering: pixelated;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: crisp-edges;
+        }
+        
+        /* Animation icons mapping */
+        .icon-idle::before { content: "🧍"; }
+        .icon-walk::before { content: "🚶"; }
+        .icon-run::before { content: "🏃"; }
+        .icon-jump::before { content: "⬆️"; }
+        .icon-attack::before { content: "⚔️"; }
+        .icon-defend::before { content: "🛡️"; }
+        .icon-crouch::before { content: "⬇️"; }
+        .icon-death::before { content: "💀"; }
+        .icon-celebrate::before { content: "🎉"; }
+        .icon-roll::before { content: "🔄"; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 Sprite Sheet Diffusion</h1>
+            <p class="subtitle">Generate game character animations from a single image</p>
+        </header>
+        
+        <div class="main-content">
+            <div class="card upload-section">
+                <h2>Upload & Configure</h2>
+                
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-icon">📤</div>
+                    <p>Drag & drop your character image here or click to browse</p>
+                    <p style="margin-top: 10px; color: #666; font-size: 14px;">
+                        Supported formats: PNG, JPG, GIF, BMP
+                    </p>
+                </div>
+                <input type="file" id="fileInput" accept="image/*">
+                
+                <div id="previewSection" style="display: none;">
+                    <h3>Preview</h3>
+                    <img id="previewImage" class="preview-image">
+                    
+                    <div class="animation-selector">
+                        <h3>Select Animation Type</h3>
+                        <div class="animation-grid" id="animationGrid">
+                            <!-- Animation options will be loaded here -->
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <button class="btn" id="processBtn">Generate Sprite Sheet</button>
+                        <button class="btn" id="clearBtn">Clear</button>
+                    </div>
+                </div>
+                
+                <div class="progress-bar" id="progressBar">
+                    <div class="progress-fill" id="progressFill">0%</div>
+                </div>
+                
+                <div class="status-message" id="statusMessage"></div>
+            </div>
+            
+            <div class="card">
+                <h2>Generated Sprite Sheet</h2>
+                <div id="currentResult" style="display: none;">
+                    <div class="sprite-preview">
+                        <img id="resultImage" class="preview-image">
+                        <div class="sprite-info">
+                            <span><strong>Animation:</strong> <span id="animationType"></span></span>
+                            <span><strong>Frames:</strong> <span id="frameCount"></span></span>
+                        </div>
+                    </div>
+                    
+                    <!-- Animation Preview Section -->
+                    <div class="animation-preview-section" style="margin-top: 20px; padding: 20px; background: #f9f9f9; border-radius: 10px;">
+                        <h3 style="margin-bottom: 15px;">Animation Preview</h3>
+                        <div style="text-align: center;">
+                            <canvas id="animationCanvas" style="border: 1px solid #ddd; border-radius: 5px; background: white; max-width: 100%;"></canvas>
+                        </div>
+                        <div style="margin-top: 15px; display: flex; justify-content: center; align-items: center; gap: 20px;">
+                            <div>
+                                <label for="frameDelay">Speed (ms): </label>
+                                <input type="range" id="frameDelay" min="10" max="200" value="50" style="width: 150px;">
+                                <span id="frameDelayValue">50</span>
+                            </div>
+                            <button class="btn" id="playPauseBtn" style="padding: 8px 16px;">⏸️ Pause</button>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 20px;">
+                        <button class="btn" id="downloadBtn">Download Sprite Sheet</button>
+                        <button class="btn" id="downloadGifBtn" style="background: #28a745;">Download as GIF</button>
+                        <button class="btn" id="newBtn">New Animation</button>
+                    </div>
+                </div>
+                
+                <div id="noResults" style="text-align: center; padding: 40px; color: #999;">
+                    <div style="font-size: 48px;">🎨</div>
+                    <p>No sprite sheet yet. Upload an image and select an animation!</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card" style="text-align: center;">
+            <h3>Available Animations</h3>
+            <p style="margin: 20px 0; line-height: 1.8;">
+                <strong>Idle:</strong> Standing animation with subtle movement<br>
+                <strong>Walk:</strong> Walking cycle for side-scrolling movement<br>
+                <strong>Run:</strong> Fast running animation<br>
+                <strong>Jump:</strong> Complete jump sequence<br>
+                <strong>Attack:</strong> Combat attack animation<br>
+                <strong>Defend:</strong> Defensive stance<br>
+                <strong>Crouch:</strong> Crouching/ducking animation<br>
+                <strong>Death:</strong> Defeat animation sequence<br>
+                <strong>Celebrate:</strong> Victory celebration<br>
+                <strong>Roll:</strong> Rolling/dodging movement
+            </p>
+        </div>
+    </div>
+    
+    <script>
+        let currentJobId = null;
+        let pollInterval = null;
+        let selectedAnimation = 'idle';
+        let availableAnimations = [];
+        
+        // Elements
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const previewSection = document.getElementById('previewSection');
+        const previewImage = document.getElementById('previewImage');
+        const processBtn = document.getElementById('processBtn');
+        const clearBtn = document.getElementById('clearBtn');
+        const progressBar = document.getElementById('progressBar');
+        const progressFill = document.getElementById('progressFill');
+        const statusMessage = document.getElementById('statusMessage');
+        const currentResult = document.getElementById('currentResult');
+        const resultImage = document.getElementById('resultImage');
+        const downloadBtn = document.getElementById('downloadBtn');
+        const newBtn = document.getElementById('newBtn');
+        const noResults = document.getElementById('noResults');
+        const animationGrid = document.getElementById('animationGrid');
+        const animationType = document.getElementById('animationType');
+        const frameCount = document.getElementById('frameCount');
+        
+        // Load available animations
+        async function loadAnimations() {
+            try {
+                const response = await fetch('/api/animations');
+                if (response.ok) {
+                    availableAnimations = await response.json();
+                    renderAnimationOptions();
+                }
+            } catch (error) {
+                console.error('Failed to load animations:', error);
+            }
+        }
+        
+        // Render animation options
+        function renderAnimationOptions() {
+            animationGrid.innerHTML = '';
+            availableAnimations.forEach(anim => {
+                const option = document.createElement('div');
+                option.className = 'animation-option' + (anim.id === selectedAnimation ? ' selected' : '');
+                option.innerHTML = `
+                    <div class="animation-icon icon-${anim.id}"></div>
+                    <div class="animation-name">${anim.name}</div>
+                    <div class="animation-frames">${anim.frames} frames</div>
+                `;
+                option.onclick = () => selectAnimation(anim.id);
+                animationGrid.appendChild(option);
+            });
+        }
+        
+        // Select animation
+        function selectAnimation(animId) {
+            selectedAnimation = animId;
+            document.querySelectorAll('.animation-option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            event.currentTarget.classList.add('selected');
+        }
+        
+        // Upload area click
+        uploadArea.addEventListener('click', () => fileInput.click());
+        
+        // Drag and drop
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('dragging');
+        });
+        
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('dragging');
+        });
+        
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragging');
+            
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                handleFile(files[0]);
+            }
+        });
+        
+        // File input change
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                handleFile(e.target.files[0]);
+            }
+        });
+        
+        // Handle file
+        function handleFile(file) {
+            if (!file.type.startsWith('image/')) {
+                showStatus('Please upload an image file', 'error');
+                return;
+            }
+            
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                previewImage.src = e.target.result;
+                previewSection.style.display = 'block';
+                uploadArea.style.display = 'none';
+            };
+            reader.readAsDataURL(file);
+        }
+        
+        // Process button
+        processBtn.addEventListener('click', async () => {
+            const file = fileInput.files[0];
+            if (!file) return;
+            
+            const formData = new FormData();
+            formData.append('file', file);
+            formData.append('animation_type', selectedAnimation);
+            
+            processBtn.disabled = true;
+            processBtn.innerHTML = '<span class="loading-spinner"></span> Processing...';
+            progressBar.style.display = 'block';
+            
+            try {
+                const response = await fetch('/api/upload', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    currentJobId = data.job_id;
+                    showStatus(`Creating ${data.animation_type} animation...`, 'info');
+                    pollJobStatus();
+                } else {
+                    showStatus(data.error || 'Upload failed', 'error');
+                    processBtn.disabled = false;
+                    processBtn.innerHTML = 'Generate Sprite Sheet';
+                }
+            } catch (error) {
+                showStatus('Network error: ' + error.message, 'error');
+                processBtn.disabled = false;
+                processBtn.innerHTML = 'Generate Sprite Sheet';
+            }
+        });
+        
+        // Poll job status
+        function pollJobStatus() {
+            if (pollInterval) clearInterval(pollInterval);
+            
+            pollInterval = setInterval(async () => {
+                try {
+                    const response = await fetch(`/api/status/${currentJobId}`);
+                    const data = await response.json();
+                    
+                    if (response.ok) {
+                        updateProgress(data.progress || 0);
+                        showStatus(data.message || 'Processing...', 'info');
+                        
+                        if (data.status === 'completed') {
+                            clearInterval(pollInterval);
+                            showResult(data);
+                            showStatus('Sprite sheet generated successfully!', 'success');
+                            processBtn.disabled = false;
+                            processBtn.innerHTML = 'Generate Sprite Sheet';
+                        } else if (data.status === 'error') {
+                            clearInterval(pollInterval);
+                            showStatus(data.message || 'Processing failed', 'error');
+                            processBtn.disabled = false;
+                            processBtn.innerHTML = 'Generate Sprite Sheet';
+                            progressBar.style.display = 'none';
+                        }
+                    }
+                } catch (error) {
+                    console.error('Poll error:', error);
+                }
+            }, 1000);
+        }
+        
+        // Update progress
+        function updateProgress(percent) {
+            progressFill.style.width = percent + '%';
+            progressFill.textContent = percent + '%';
+        }
+        
+        // Show result
+        function showResult(data) {
+            resultImage.src = data.output_url;
+            
+            // Find animation info
+            const animInfo = availableAnimations.find(a => a.id === data.animation_type);
+            if (animInfo) {
+                animationType.textContent = animInfo.name;
+                frameCount.textContent = animInfo.frames;
+                
+                // Start animation preview
+                startAnimationPreview(data.output_url, animInfo.frames);
+            }
+            
+            currentResult.style.display = 'block';
+            noResults.style.display = 'none';
+            progressBar.style.display = 'none';
+        }
+        
+        // Show status
+        function showStatus(message, type) {
+            statusMessage.textContent = message;
+            statusMessage.className = 'status-message status-' + type;
+            statusMessage.style.display = 'block';
+            
+            if (type === 'success') {
+                setTimeout(() => {
+                    statusMessage.style.display = 'none';
+                }, 5000);
+            }
+        }
+        
+        // Clear button
+        clearBtn.addEventListener('click', () => {
+            fileInput.value = '';
+            previewSection.style.display = 'none';
+            uploadArea.style.display = 'block';
+            statusMessage.style.display = 'none';
+            progressBar.style.display = 'none';
+            updateProgress(0);
+            if (pollInterval) clearInterval(pollInterval);
+        });
+        
+        // Download button
+        downloadBtn.addEventListener('click', () => {
+            if (currentJobId) {
+                window.open(`/api/download/${currentJobId}`, '_blank');
+            }
+        });
+        
+        // New image button
+        newBtn.addEventListener('click', () => {
+            clearBtn.click();
+            currentResult.style.display = 'none';
+            noResults.style.display = 'block';
+        });
+        
+        // Animation Preview Variables
+        let animationFrames = [];
+        let currentFrame = 0;
+        let animationInterval = null;
+        let isPlaying = true;
+        let frameDelay = 50;
+        let spriteImage = null;
+        
+        // Animation preview elements
+        const animationCanvas = document.getElementById('animationCanvas');
+        const ctx = animationCanvas ? animationCanvas.getContext('2d') : null;
+        const frameDelaySlider = document.getElementById('frameDelay');
+        const frameDelayValue = document.getElementById('frameDelayValue');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const downloadGifBtn = document.getElementById('downloadGifBtn');
+        
+        // Start animation preview
+        function startAnimationPreview(imageUrl, frameCount) {
+            const img = new Image();
+            img.onload = function() {
+                spriteImage = img;
+                const frameWidth = Math.floor(img.width / frameCount);
+                const frameHeight = img.height;
+                
+                // Set canvas size
+                animationCanvas.width = frameWidth;
+                animationCanvas.height = frameHeight;
+                
+                // Extract frames
+                animationFrames = [];
+                for (let i = 0; i < frameCount; i++) {
+                    animationFrames.push({
+                        x: i * frameWidth,
+                        y: 0,
+                        width: frameWidth,
+                        height: frameHeight
+                    });
+                }
+                
+                // Start animation
+                currentFrame = 0;
+                isPlaying = true;
+                playPauseBtn.textContent = '⏸️ Pause';
+                startAnimation();
+            };
+            img.src = imageUrl;
+        }
+        
+        // Start animation loop
+        function startAnimation() {
+            if (animationInterval) clearInterval(animationInterval);
+            
+            animationInterval = setInterval(() => {
+                if (isPlaying && animationFrames.length > 0) {
+                    drawFrame();
+                    currentFrame = (currentFrame + 1) % animationFrames.length;
+                }
+            }, frameDelay);
+        }
+        
+        // Draw current frame
+        function drawFrame() {
+            if (!spriteImage || !animationFrames[currentFrame]) return;
+            
+            const frame = animationFrames[currentFrame];
+            ctx.clearRect(0, 0, animationCanvas.width, animationCanvas.height);
+            ctx.drawImage(
+                spriteImage,
+                frame.x, frame.y, frame.width, frame.height,
+                0, 0, frame.width, frame.height
+            );
+        }
+        
+        // Frame delay slider
+        if (frameDelaySlider) {
+            frameDelaySlider.addEventListener('input', (e) => {
+                frameDelay = parseInt(e.target.value);
+                frameDelayValue.textContent = frameDelay;
+                startAnimation(); // Restart with new delay
+            });
+        }
+        
+        // Play/Pause button
+        if (playPauseBtn) {
+            playPauseBtn.addEventListener('click', () => {
+                isPlaying = !isPlaying;
+                playPauseBtn.textContent = isPlaying ? '⏸️ Pause' : '▶️ Play';
+            });
+        }
+        
+        // Download as GIF button
+        if (downloadGifBtn) {
+            downloadGifBtn.addEventListener('click', async () => {
+                if (!animationFrames.length || !currentJobId) {
+                    showStatus('No animation to export', 'error');
+                    return;
+                }
+                
+                downloadGifBtn.disabled = true;
+                downloadGifBtn.innerHTML = '<span class="loading-spinner"></span> Creating GIF...';
+                
+                try {
+                    const formData = new FormData();
+                    formData.append('job_id', currentJobId);
+                    formData.append('frame_delay', frameDelay);
+                    
+                    const response = await fetch('/api/export-gif', {
+                        method: 'POST',
+                        body: formData
+                    });
+                    
+                    if (response.ok) {
+                        const blob = await response.blob();
+                        const url = window.URL.createObjectURL(blob);
+                        const a = document.createElement('a');
+                        a.href = url;
+                        a.download = `animation_${currentJobId}.gif`;
+                        document.body.appendChild(a);
+                        a.click();
+                        document.body.removeChild(a);
+                        window.URL.revokeObjectURL(url);
+                        showStatus('GIF downloaded successfully!', 'success');
+                    } else {
+                        showStatus('Failed to create GIF', 'error');
+                    }
+                } catch (error) {
+                    showStatus('Error creating GIF: ' + error.message, 'error');
+                } finally {
+                    downloadGifBtn.disabled = false;
+                    downloadGifBtn.innerHTML = 'Download as GIF';
+                }
+            });
+        }
+        
+        // Initialize
+        loadAnimations();
+    </script>
+</body>
+</html>
