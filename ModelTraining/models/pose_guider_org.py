@@ -44,7 +44,7 @@ class PoseGuiderOrg(ModelMixin):
             )
         )
 
-    def forward(self, conditioning):
+    def forward(self, conditioning, ref_conditioning=None):
         embedding = self.conv_in(conditioning)
         embedding = F.silu(embedding)
 

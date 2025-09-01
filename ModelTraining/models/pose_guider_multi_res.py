@@ -70,7 +70,7 @@ class MultiResPoseGuider(ModelMixin):
                 )
             )
     
-    def forward(self, conditioning):
+    def forward(self, conditioning, ref_conditioning=None):
         """
         Args:
             conditioning: [B, C, T, H, W] pose conditioning tensor
@@ -82,7 +82,7 @@ class MultiResPoseGuider(ModelMixin):
             - [B, 1280, T, H//4, W//4] for block 2
             - [B, 1280, T, H//8, W//8] for block 3
         """
-        # Encode pose features
+        # Encode pose features (ref_conditioning is accepted for API compatibility; unused here)
         x = self.conv_in(conditioning)
         x = F.silu(x)
         
@@ -157,7 +157,7 @@ class SingleTensorPoseGuider(ModelMixin):
                     )
                 )
     
-    def forward(self, conditioning):
+    def forward(self, conditioning, ref_conditioning=None):
         """
         Args:
             conditioning: [B, C, T, H, W] pose conditioning tensor
@@ -165,7 +165,7 @@ class SingleTensorPoseGuider(ModelMixin):
         Returns:
             List of pose features for each UNet block with correct channel dimensions
         """
-        # Get the original single feature output
+        # Get the original single feature output (ref_conditioning is accepted but unused)
         base_feature = self.pose_guider_org(conditioning)
         
         # Expected UNet spatial resolutions and channels based on actual UNet debug:
